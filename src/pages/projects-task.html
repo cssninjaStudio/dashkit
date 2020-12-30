@@ -1,0 +1,868 @@
+---
+layout: default
+title: Project Task
+---
+
+<!-- Main dashboard container -->
+<div id="dashboard-wrapper" class="dashboard-outer" x-data="initProjectTask()" :class="{
+        'is-pushed': $store.app.sidebarOpenedState,
+        '': !$store.app.sidebarOpenedState
+    }">
+    <div class="dashboard-inner">
+
+        <!-- Dashboard Wrapper -->
+        <div class="dashboard-wrapper">
+
+            <div id="main-dashboard" class="section-wrapper">
+                <!-- Dashboard content -->
+                <div class="dashboard-columns">
+
+                    <div class="projects-wrapper">
+                        <div class="project-header-wrap">
+                            <div class="title-wrap">
+                                <h2 class="project-title">Create Website Prototype</h2>
+                                <h4 class="project-tagline">Define the general guidelines that will be used by the
+                                    project.</h4>
+                            </div>
+                            <div class="project-members-avatars">
+                                <div class="face">
+                                    <img src="https://via.placeholder.com/250x250" alt=""
+                                        data-demo-src="/img/avatars/janet.jpg">
+                                </div>
+                                <div class="face">
+                                    <img src="https://via.placeholder.com/250x250" alt=""
+                                        data-demo-src="/img/avatars/ray.jpg">
+                                </div>
+                                <div class="face">
+                                    <img src="https://via.placeholder.com/250x250" alt=""
+                                        data-demo-src="/img/avatars/elie.jpg">
+                                </div>
+                                <div class="face">
+                                    <img src="https://via.placeholder.com/250x250" alt=""
+                                        data-demo-src="/img/avatars/helen.jpg">
+                                </div>
+                                <div class="face">
+                                    <img src="https://via.placeholder.com/250x250" alt=""
+                                        data-demo-src="/img/avatars/alex.jpg">
+                                </div>
+                                <div @click="toggleInviteMemberModal()" class="add-button">
+                                    <i class="material-icons">add</i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="top-progress-block">
+                            <progress class="progress is-xs is-secondary" value="82" max="100">82%</progress>
+                            <div class="project-meta">
+                                <div class="task-count">
+                                    <i class="sl icon-check"></i>
+                                    <span>8/10</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="navigation-tabs layout-tabs animated-tabs mt-20 mb-20">
+                            <div class="tabs is-toggle is-fullwidth">
+                                <ul>
+                                    <li class="tab-link" @click="toggleTabs('task-tab')" :class="{
+                                        'is-active': activeTab === 'task-tab',
+                                        '': activeTab !== 'task-tab',
+                                    }"><a>Task</a></li>
+                                    <li class="tab-link" @click="toggleTabs('files-tab')" :class="{
+                                        'is-active': activeTab === 'files-tab',
+                                        '': activeTab !== 'files-tab',
+                                    }"><a>Files</a></li>
+                                    <li class="tab-link" @click="toggleTabs('activity-tab')" :class="{
+                                        'is-active': activeTab === 'activity-tab',
+                                        '': activeTab !== 'activity-tab',
+                                    }"><a>Activity</a></li>
+                                </ul>
+                            </div>
+
+                            <div x-show.transition="activeTab === 'task-tab'" class="navtab-content is-active">
+
+                                <!-- Checklist Group -->
+                                <div class="projects-list-wrapper">
+                                    <div class="list-header">
+                                        <div class="list-title">
+                                            <span>Checklist</span>
+                                            <div class="add-button">
+                                                <i class="material-icons">add</i>
+                                            </div>
+                                        </div>
+                                        <div class="list-filter">
+                                            <div class="control">
+                                                <input class="input" type="text" placeholder="Filter Projects">
+                                                <div class="form-icon">
+                                                    <i data-feather="filter"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-body">
+                                        <div class="columns is-multiline">
+                                            <div class="column">
+
+                                                <!-- Checklist -->
+                                                <div class="checklist-wrapper">
+
+                                                    <div class="checklist-item">
+                                                        <div class="checklist-handle">
+                                                            <span class="material-icons">menu</span>
+                                                        </div>
+                                                        <div class="checklist-checkbox">
+                                                            <div class="b-checkbox is-secondary">
+                                                                <input id="checklist-1" class="styled" type="checkbox"
+                                                                    checked>
+                                                                <label for="checklist-1"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="checklist-text">
+                                                            Start gathering informations and inspiration
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="checklist-item">
+                                                        <div class="checklist-handle">
+                                                            <span class="material-icons">menu</span>
+                                                        </div>
+                                                        <div class="checklist-checkbox">
+                                                            <div class="b-checkbox is-secondary">
+                                                                <input id="checklist-2" class="styled" type="checkbox"
+                                                                    checked>
+                                                                <label for="checklist-2"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="checklist-text">
+                                                            Define an interesting color scheme
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="checklist-item">
+                                                        <div class="checklist-handle">
+                                                            <span class="material-icons">menu</span>
+                                                        </div>
+                                                        <div class="checklist-checkbox">
+                                                            <div class="b-checkbox is-secondary">
+                                                                <input id="checklist-3" class="styled" type="checkbox"
+                                                                    checked>
+                                                                <label for="checklist-3"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="checklist-text">
+                                                            Create custom illutrations
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="checklist-item">
+                                                        <div class="checklist-handle">
+                                                            <span class="material-icons">menu</span>
+                                                        </div>
+                                                        <div class="checklist-checkbox">
+                                                            <div class="b-checkbox is-secondary">
+                                                                <input id="checklist-4" class="styled" type="checkbox"
+                                                                    checked>
+                                                                <label for="checklist-4"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="checklist-text">
+                                                            Rebrand the company logo
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="checklist-item">
+                                                        <div class="checklist-handle">
+                                                            <span class="material-icons">menu</span>
+                                                        </div>
+                                                        <div class="checklist-checkbox">
+                                                            <div class="b-checkbox is-secondary">
+                                                                <input id="checklist-5" class="styled" type="checkbox"
+                                                                    checked>
+                                                                <label for="checklist-5"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="checklist-text">
+                                                            Make the first Sketch / PSD drafts
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="checklist-item">
+                                                        <div class="checklist-handle">
+                                                            <span class="material-icons">menu</span>
+                                                        </div>
+                                                        <div class="checklist-checkbox">
+                                                            <div class="b-checkbox is-secondary">
+                                                                <input id="checklist-4" class="styled" type="checkbox"
+                                                                    checked>
+                                                                <label for="checklist-4"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="checklist-text">
+                                                            Request project document validation by the customer
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="checklist-item">
+                                                        <div class="checklist-handle">
+                                                            <span class="material-icons">menu</span>
+                                                        </div>
+                                                        <div class="checklist-checkbox">
+                                                            <div class="b-checkbox is-secondary">
+                                                                <input id="checklist-5" class="styled" type="checkbox">
+                                                                <label for="checklist-5"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="checklist-text">
+                                                            Design a custom icon set
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="checklist-item">
+                                                        <div class="checklist-handle">
+                                                            <span class="material-icons">menu</span>
+                                                        </div>
+                                                        <div class="checklist-checkbox">
+                                                            <div class="b-checkbox is-secondary">
+                                                                <input id="checklist-4" class="styled" type="checkbox">
+                                                                <label for="checklist-4"></label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="checklist-text">
+                                                            Choose an appropriate CMS to manage the blog content
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <!-- /Checklist -->
+
+                                                <!-- Delete drop zone -->
+                                                <div class="delete-drop">
+                                                    <div>
+                                                        <i class="sl icon-trash"></i>
+                                                        Drag here to remove
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Notes Group -->
+                                <div class="projects-list-wrapper">
+                                    <div class="list-header">
+                                        <div class="list-title">
+                                            <span>Notes</span>
+                                            <div @click="toggleNewNoteModal()" class="add-button">
+                                                <i class="material-icons">add</i>
+                                            </div>
+                                        </div>
+                                        <div class="list-filter">
+                                            <div class="control">
+                                                <input class="input" type="text" placeholder="Filter Projects">
+                                                <div class="form-icon">
+                                                    <i data-feather="filter"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="list-body has-padding-bottom">
+                                        <div class="columns is-multiline">
+
+                                            <div class="column is-6">
+                                                <div class="task-note">
+                                                    <div class="note-header">
+                                                        <div class="note-title">
+                                                            <img src="https://via.placeholder.com/250x250" alt=""
+                                                                data-demo-src="/img/avatars/janet.jpg">
+                                                            <h5>About the Last meeting</h5>
+                                                        </div>
+                                                        <!-- Note dropdown -->
+                                                        <div x-ref="notedrop1" @click.away="$refs.notedrop1.classList.remove('is-active')" class="dropdown is-right dropdown-trigger styled-dropdown is-round">
+                                                            <button @click="$refs.notedrop1.classList.add('is-active')" class="button">
+                                                                <i class="material-icons">more_vert</i>
+                                                            </button>
+                                                            <div class="dropdown-menu is-text-bigger has-text-left" role="menu">
+                                                                <div class="dropdown-content">
+                                                                    <a class="dropdown-item">
+                                                                        <i class="sl icon-pencil"></i>
+                                                                        <span>
+                                                                            <span>Edit</span>
+                                                                            <span>Edit this task</span>
+                                                                        </span>
+                                                                    </a>
+                                                                    <a class="dropdown-item">
+                                                                        <i class="sl icon-share"></i>
+                                                                        <span>
+                                                                            <span>Share</span>
+                                                                            <span>share this task</span>
+                                                                        </span>
+                                                                    </a>
+                                                                    <div class="dropdown-divider"></div>
+                                                                    <a class="dropdown-item">
+                                                                        <i class="sl icon-trash"></i>
+                                                                        <span>
+                                                                            <span>Delete</span>
+                                                                            <span>Delete this task</span>
+                                                                        </span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="note-body">
+                                                        <p>I wanted to share some links about a few things we discussed
+                                                            :</p>
+                                                        <ul>
+                                                            <li>A nice <a href="#">Support desk software</a> for the
+                                                                ticket system</li>
+                                                            <li>We could build our user documentation <a href="#">with
+                                                                    this</a></li>
+                                                            <li>We should have some kind of PM tool, ever tried <a
+                                                                    href="#">Dashkit</a>?</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <div class="task-note is-white">
+                                                    <div class="note-header">
+                                                        <div class="note-title">
+                                                            <img src="https://via.placeholder.com/250x250" alt=""
+                                                                data-demo-src="/img/avatars/alex.jpg">
+                                                            <h5>New requirements</h5>
+                                                        </div>
+                                                        <!-- Note dropdown -->
+                                                        <div x-ref="notedrop2" @click.away="$refs.notedrop2.classList.remove('is-active')" class="dropdown is-right dropdown-trigger styled-dropdown is-round">
+                                                            <button @click="$refs.notedrop2.classList.add('is-active')" class="button">
+                                                                <i class="material-icons">more_vert</i>
+                                                            </button>
+                                                            <div class="dropdown-menu is-text-bigger has-text-left" role="menu">
+                                                                <div class="dropdown-content">
+                                                                    <a class="dropdown-item">
+                                                                        <i class="sl icon-pencil"></i>
+                                                                        <span>
+                                                                            <span>Edit</span>
+                                                                            <span>Edit this task</span>
+                                                                        </span>
+                                                                    </a>
+                                                                    <a class="dropdown-item">
+                                                                        <i class="sl icon-share"></i>
+                                                                        <span>
+                                                                            <span>Share</span>
+                                                                            <span>share this task</span>
+                                                                        </span>
+                                                                    </a>
+                                                                    <div class="dropdown-divider"></div>
+                                                                    <a class="dropdown-item">
+                                                                        <i class="sl icon-trash"></i>
+                                                                        <span>
+                                                                            <span>Delete</span>
+                                                                            <span>Delete this task</span>
+                                                                        </span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="note-body">
+                                                        <p>Pellentesque habitant morbi tristique senectus et netus et
+                                                            malesuada fames ac turpis
+                                                            egestas.</p>
+                                                        <ul>
+                                                            <li>Lorem ipsum dolor sit amet, consectetuer adipiscing
+                                                                elit.</li>
+                                                            <li>Aliquam tincidunt mauris eu risus.</li>
+                                                            <li>Vestibulum auctor dapibus neque.</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="column is-6">
+                                                <div class="task-note is-white">
+                                                    <div class="note-header">
+                                                        <div class="note-title">
+                                                            <img src="https://via.placeholder.com/250x250" alt=""
+                                                                data-demo-src="/img/avatars/ray.jpg">
+                                                            <h5>Some Icon guidelines</h5>
+                                                        </div>
+                                                        <!-- Note dropdown -->
+                                                        <div x-ref="notedrop3" @click.away="$refs.notedrop3.classList.remove('is-active')" class="dropdown is-right dropdown-trigger styled-dropdown is-round">
+                                                            <button @click="$refs.notedrop3.classList.add('is-active')" class="button">
+                                                                <i class="material-icons">more_vert</i>
+                                                            </button>
+                                                            <div class="dropdown-menu is-text-bigger has-text-left" role="menu">
+                                                                <div class="dropdown-content">
+                                                                    <a class="dropdown-item">
+                                                                        <i class="sl icon-pencil"></i>
+                                                                        <span>
+                                                                            <span>Edit</span>
+                                                                            <span>Edit this task</span>
+                                                                        </span>
+                                                                    </a>
+                                                                    <a class="dropdown-item">
+                                                                        <i class="sl icon-share"></i>
+                                                                        <span>
+                                                                            <span>Share</span>
+                                                                            <span>share this task</span>
+                                                                        </span>
+                                                                    </a>
+                                                                    <div class="dropdown-divider"></div>
+                                                                    <a class="dropdown-item">
+                                                                        <i class="sl icon-trash"></i>
+                                                                        <span>
+                                                                            <span>Delete</span>
+                                                                            <span>Delete this task</span>
+                                                                        </span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="note-body">
+                                                        <p>Lorem ipsum dolor sit amet, in pro lorem dicunt, noster
+                                                            virtute accusamus cum et,
+                                                            facilisi perpetua persequeris mei no. Eam sint congue ut.
+                                                            His purto mandamus te.
+                                                        </p>
+                                                        <p>Ornatus dolores elaboraret vix ut, tritani bonorum
+                                                            concludaturque ut duo. Vix et odio
+                                                            etiam. Erat modus ceteros ex nec, causae facilisi intellegat
+                                                            has an.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div x-show.transition="activeTab === 'files-tab'" class="navtab-content">
+
+                                <!-- Files List -->
+                                <div class="projects-list-wrapper">
+                                    <div class="list-header">
+                                        <div class="list-title">
+                                            <span>Files</span>
+                                            <div class="add-button">
+                                                <i class="material-icons">add</i>
+                                            </div>
+                                        </div>
+                                        <div class="list-filter">
+                                            <div class="control">
+                                                <input class="input" type="text" placeholder="Filter Projects">
+                                                <div class="form-icon">
+                                                    <i data-feather="filter"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-body">
+                                        <div class="columns is-multiline">
+                                            <div class="column">
+                                                <div class="project-files-wrapper">
+
+                                                    <div class="media file-item">
+                                                        <div class="media-left">
+                                                            <div class="image is-48x48">
+                                                                <img src="https://via.placeholder.com/250x250" alt=""
+                                                                    data-demo-src="/img/avatars/alan.jpg">
+                                                                <div class="file-action is-alt">
+                                                                    <i class="material-icons">invert_colors</i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="media-content">
+                                                            <div class="meta">
+                                                                <a href="#">Website Prototype</a>
+                                                                <span><small>95MB</small> <i class="fa fa-circle"></i>
+                                                                    Illustrator File</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="media-right">
+                                                            <!-- Task dropdown -->
+                                                            <div x-ref="filedrop1" @click.away="$refs.filedrop1.classList.remove('is-active')" class="dropdown styled-dropdown is-right dropdown-trigger">
+                                                                <button @click="$refs.filedrop1.classList.add('is-active')" class="button is-circle" aria-haspopup="true"
+                                                                    aria-controls="dropdown-menu">
+                                                                    <span class="material-icons">more_vert</span>
+                                                                </button>
+    
+                                                                <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                                                                    <div class="dropdown-content">
+                                                                        <a href="#" class="dropdown-item">
+                                                                            <i class="sl icon-cloud-download"></i>
+                                                                            <span>
+                                                                                <span>Download</span>
+                                                                                <span>Download this file</span>
+                                                                            </span>
+                                                                        </a>
+                                                                        <div class="dropdown-divider"></div>
+                                                                        <a href="#" class="dropdown-item">
+                                                                            <i class="sl icon-share"></i>
+                                                                            <span>
+                                                                                <span>Share</span>
+                                                                                <span>Share this file</span>
+                                                                            </span>
+                                                                        </a>
+                                                                        <div class="dropdown-divider"></div>
+                                                                        <a class="dropdown-item">
+                                                                            <i class="sl icon-trash"></i>
+                                                                            <span>
+                                                                                <span>Delete</span>
+                                                                                <span>Delete this file</span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="media file-item">
+                                                        <div class="media-left">
+                                                            <div class="image is-48x48">
+                                                                <img src="https://via.placeholder.com/250x250" alt=""
+                                                                    data-demo-src="/img/avatars/helen.jpg">
+                                                                <div class="file-action is-alt">
+                                                                    <i class="material-icons">photo</i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="media-content">
+                                                            <div class="meta">
+                                                                <a href="#">Account Page Screenshot</a>
+                                                                <span><small>0.7MB</small> <i class="fa fa-circle"></i>
+                                                                    JPEG Image</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="media-right">
+                                                            <!-- Task dropdown -->
+                                                            <div x-ref="filedrop2" @click.away="$refs.filedrop2.classList.remove('is-active')" class="dropdown styled-dropdown is-right dropdown-trigger">
+                                                                <button @click="$refs.filedrop2.classList.add('is-active')" class="button is-circle" aria-haspopup="true"
+                                                                    aria-controls="dropdown-menu">
+                                                                    <span class="material-icons">more_vert</span>
+                                                                </button>
+    
+                                                                <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                                                                    <div class="dropdown-content">
+                                                                        <a href="#" class="dropdown-item">
+                                                                            <i class="sl icon-cloud-download"></i>
+                                                                            <span>
+                                                                                <span>Download</span>
+                                                                                <span>Download this file</span>
+                                                                            </span>
+                                                                        </a>
+                                                                        <div class="dropdown-divider"></div>
+                                                                        <a href="#" class="dropdown-item">
+                                                                            <i class="sl icon-share"></i>
+                                                                            <span>
+                                                                                <span>Share</span>
+                                                                                <span>Share this file</span>
+                                                                            </span>
+                                                                        </a>
+                                                                        <div class="dropdown-divider"></div>
+                                                                        <a class="dropdown-item">
+                                                                            <i class="sl icon-trash"></i>
+                                                                            <span>
+                                                                                <span>Delete</span>
+                                                                                <span>Delete this file</span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div x-show.transition="activeTab === 'activity-tab'" class="navtab-content">
+
+                                <!-- Acticity List -->
+                                <div class="projects-list-wrapper">
+                                    <div class="list-header">
+                                        <div class="list-title">
+                                            <span>Activity</span>
+                                        </div>
+                                        <div class="list-filter">
+                                            <div class="control">
+                                                <input class="input" type="text" placeholder="Filter Projects">
+                                                <div class="form-icon">
+                                                    <i data-feather="filter"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-body">
+                                        <div class="columns is-multiline">
+                                            <div class="column">
+                                                <div class="project-activity-wrapper">
+
+                                                    <!-- Activity item -->
+                                                    <div class="media activity-item">
+                                                        <div class="media-left">
+                                                            <div class="image is-48x48">
+                                                                <img src="https://via.placeholder.com/250x250" alt=""
+                                                                    data-demo-src="/img/avatars/ray.jpg">
+                                                                <div class="file-action">
+                                                                    <i class="material-icons">check_circle</i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="media-content">
+                                                            <div class="meta">
+                                                                <span class="activity-content"><a class="is-activity"
+                                                                        href="#">Jacob Dobson</a>
+                                                                    completed <a class="is-activity" href="#">Start
+                                                                        Gathering information and
+                                                                        inspiration</a></span>
+                                                                <time>Just now</time>
+                                                            </div>
+                                                        </div>
+                                                        <div class="media-right">
+                                                            <!-- Activity dropdown -->
+                                                            <div x-ref="activitydrop1" @click.away="$refs.activitydrop1.classList.remove('is-active')" class="dropdown styled-dropdown is-right dropdown-trigger">
+                                                                <button @click="$refs.activitydrop1.classList.add('is-active')" class="button is-circle" aria-haspopup="true"
+                                                                    aria-controls="dropdown-menu">
+                                                                    <span class="material-icons">more_vert</span>
+                                                                </button>
+    
+                                                                <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                                                                    <div class="dropdown-content">
+                                                                        <a href="#" class="dropdown-item">
+                                                                            <i class="sl icon-eye"></i>
+                                                                            <span>
+                                                                                <span>View</span>
+                                                                                <span>View this item</span>
+                                                                            </span>
+                                                                        </a>
+                                                                        <div class="dropdown-divider"></div>
+                                                                        <a href="#" class="dropdown-item">
+                                                                            <i class="sl icon-bubbles"></i>
+                                                                            <span>
+                                                                                <span>Comment</span>
+                                                                                <span>Comment this item</span>
+                                                                            </span>
+                                                                        </a>
+                                                                        <div class="dropdown-divider"></div>
+                                                                        <a class="dropdown-item">
+                                                                            <i class="sl icon-trash"></i>
+                                                                            <span>
+                                                                                <span>Delete</span>
+                                                                                <span>Delete this item</span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Activity item -->
+                                                    <div class="media activity-item">
+                                                        <div class="media-left">
+                                                            <div class="image is-48x48">
+                                                                <img src="https://via.placeholder.com/250x250" alt=""
+                                                                    data-demo-src="/img/avatars/helen.jpg">
+                                                                <div class="file-action">
+                                                                    <i class="material-icons">add_circle</i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="media-content">
+                                                            <div class="meta">
+                                                                <span class="activity-content"><a class="is-activity"
+                                                                        href="#">Helen Miller</a>
+                                                                    added <a class="is-activity" href="#">Design a
+                                                                        custom icon set</a> to
+                                                                    checklist</span>
+                                                                <time>3 hours ago</time>
+                                                            </div>
+                                                        </div>
+                                                        <div class="media-right">
+                                                            <!-- Activity dropdown -->
+                                                            <div x-ref="activitydrop2" @click.away="$refs.activitydrop2.classList.remove('is-active')" class="dropdown styled-dropdown is-right dropdown-trigger">
+                                                                <button @click="$refs.activitydrop2.classList.add('is-active')" class="button is-circle" aria-haspopup="true"
+                                                                    aria-controls="dropdown-menu">
+                                                                    <span class="material-icons">more_vert</span>
+                                                                </button>
+    
+                                                                <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                                                                    <div class="dropdown-content">
+                                                                        <a href="#" class="dropdown-item">
+                                                                            <i class="sl icon-eye"></i>
+                                                                            <span>
+                                                                                <span>View</span>
+                                                                                <span>View this item</span>
+                                                                            </span>
+                                                                        </a>
+                                                                        <div class="dropdown-divider"></div>
+                                                                        <a href="#" class="dropdown-item">
+                                                                            <i class="sl icon-bubbles"></i>
+                                                                            <span>
+                                                                                <span>Comment</span>
+                                                                                <span>Comment this item</span>
+                                                                            </span>
+                                                                        </a>
+                                                                        <div class="dropdown-divider"></div>
+                                                                        <a class="dropdown-item">
+                                                                            <i class="sl icon-trash"></i>
+                                                                            <span>
+                                                                                <span>Delete</span>
+                                                                                <span>Delete this item</span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Activity item -->
+                                                    <div class="media activity-item">
+                                                        <div class="media-left">
+                                                            <div class="image is-48x48">
+                                                                <img src="https://via.placeholder.com/250x250" alt=""
+                                                                    data-demo-src="/img/avatars/terry.jpg">
+                                                                <div class="file-action">
+                                                                    <i class="material-icons">check_circle</i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="media-content">
+                                                            <div class="meta">
+                                                                <span class="activity-content"><a class="is-activity"
+                                                                        href="#">Terry Daniels</a>
+                                                                    completed <a class="is-activity" href="#">Rebrand
+                                                                        the company
+                                                                        logo</a></span>
+                                                                <time>5 hours ago</time>
+                                                            </div>
+                                                        </div>
+                                                        <div class="media-right">
+                                                            <!-- Activity dropdown -->
+                                                            <div x-ref="activitydrop3" @click.away="$refs.activitydrop3.classList.remove('is-active')" class="dropdown styled-dropdown is-right dropdown-trigger">
+                                                                <button @click="$refs.activitydrop3.classList.add('is-active')" class="button is-circle" aria-haspopup="true"
+                                                                    aria-controls="dropdown-menu">
+                                                                    <span class="material-icons">more_vert</span>
+                                                                </button>
+    
+                                                                <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                                                                    <div class="dropdown-content">
+                                                                        <a href="#" class="dropdown-item">
+                                                                            <i class="sl icon-eye"></i>
+                                                                            <span>
+                                                                                <span>View</span>
+                                                                                <span>View this item</span>
+                                                                            </span>
+                                                                        </a>
+                                                                        <div class="dropdown-divider"></div>
+                                                                        <a href="#" class="dropdown-item">
+                                                                            <i class="sl icon-bubbles"></i>
+                                                                            <span>
+                                                                                <span>Comment</span>
+                                                                                <span>Comment this item</span>
+                                                                            </span>
+                                                                        </a>
+                                                                        <div class="dropdown-divider"></div>
+                                                                        <a class="dropdown-item">
+                                                                            <i class="sl icon-trash"></i>
+                                                                            <span>
+                                                                                <span>Delete</span>
+                                                                                <span>Delete this item</span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Activity item -->
+                                                    <div class="media activity-item">
+                                                        <div class="media-left">
+                                                            <div class="image is-48x48">
+                                                                <img src="https://via.placeholder.com/250x250" alt=""
+                                                                    data-demo-src="/img/avatars/aaron.jpg">
+                                                                <div class="file-action">
+                                                                    <i class="material-icons">person_add</i>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="media-content">
+                                                            <div class="meta">
+                                                                <span class="activity-content"><a class="is-activity"
+                                                                        href="#">Aaron Stone</a>
+                                                                    was assigned to this Task</span>
+                                                                <time>Yesterday</time>
+                                                            </div>
+                                                        </div>
+                                                        <div class="media-right">
+                                                            <!-- Activity dropdown -->
+                                                            <div x-ref="activitydrop4" @click.away="$refs.activitydrop4.classList.remove('is-active')" class="dropdown styled-dropdown is-right dropdown-trigger">
+                                                                <button @click="$refs.activitydrop4.classList.add('is-active')" class="button is-circle" aria-haspopup="true"
+                                                                    aria-controls="dropdown-menu">
+                                                                    <span class="material-icons">more_vert</span>
+                                                                </button>
+    
+                                                                <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                                                                    <div class="dropdown-content">
+                                                                        <a href="#" class="dropdown-item">
+                                                                            <i class="sl icon-eye"></i>
+                                                                            <span>
+                                                                                <span>View</span>
+                                                                                <span>View this item</span>
+                                                                            </span>
+                                                                        </a>
+                                                                        <div class="dropdown-divider"></div>
+                                                                        <a href="#" class="dropdown-item">
+                                                                            <i class="sl icon-bubbles"></i>
+                                                                            <span>
+                                                                                <span>Comment</span>
+                                                                                <span>Comment this item</span>
+                                                                            </span>
+                                                                        </a>
+                                                                        <div class="dropdown-divider"></div>
+                                                                        <a class="dropdown-item">
+                                                                            <i class="sl icon-trash"></i>
+                                                                            <span>
+                                                                                <span>Delete</span>
+                                                                                <span>Delete this item</span>
+                                                                            </span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {{> new-note-modal}}
+    {{> invite-user-modal}}
+
+</div>

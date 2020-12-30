@@ -1,0 +1,652 @@
+/*! _sidebar-right.scss | Dashkit | CSS Ninja */
+
+/* ==========================================================================
+Dashboard right sidebar styles
+========================================================================== */
+
+/***
+TABLE OF CONTENTS
+=============================================================================
+0. Right Quickview
+1. Chat sidebar
+=============================================================================
+***/
+
+/* ==========================================================================
+0. Right Quickview
+========================================================================== */
+
+.quickview {
+    &.is-main {
+        min-width: 360px;
+        max-width: 360px;
+
+        .quickview-header {
+            background: $white;
+            padding: 0 16px;
+            border-bottom: none;
+
+            h3 {
+                font-family: $font-alt;
+                font-weight: 600;
+                font-size: 1.3rem;
+                color: $blue-grey;
+            }
+
+            .quickview-close {
+                height: 36px;
+                width: 36px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                border: 1px solid transparent;
+                cursor: pointer;
+                transition: all .3s;
+
+                &:hover {
+                    border-color: darken($fade-grey, 3%);
+                    box-shadow: $light-box-shadow;
+                }
+
+                .material-icons {
+                    font-size: 20px !important;
+                }
+            }
+        }
+
+        .quickview-body {
+            .quickview-block {
+                height: 100%;
+
+                .navigation-tabs {
+                    height: 100%;
+                }
+            }
+        }
+    }
+
+    .tabs {
+        position: relative;
+        background: darken($widget-grey, 2%);
+        margin: 0 12px;
+        border-radius: 5px;
+
+        ul {
+            border: none !important;
+
+            .naver {
+                position: absolute;
+                top: 6px;
+                left: 6px;
+                height: 42px;
+                width: calc(33.3% - 12px);
+                border-radius: 6px;
+                background: $secondary;
+                z-index: 0;
+                transition: all .3s;
+            }
+
+            .tab-item {
+                position: relative;
+                z-index: 1;
+                border: none !important;
+
+                &.is-active {
+                    a {
+                        i {
+                            color: $white;
+                        }
+                    }
+
+                    &:first-child {
+                        ~ .naver {
+                            margin-left: 0;
+                        }
+                    }
+
+                    &:nth-child(2) {
+                        ~ .naver {
+                            margin-left: 33.3%;
+                        }
+                    }
+
+                    &:nth-child(3) {
+                        ~ .naver {
+                            margin-left: 66.6%;
+                        }
+                    }
+                }
+
+                a {
+                    height: 56px;
+                    border: none !important;
+                    overflow: hidden;
+
+                    i {
+                        font-size: 1.1rem;
+                        transition: all 0.3s;
+
+                        &.material-icons {
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .navtab-content {
+        position: relative;
+        padding: 0 20px;
+        height: calc(100% - 55px);
+        
+        animation: fadeInLeft .5s;
+
+        //title
+        .panel-title {
+            height: 50px;
+            display: flex;
+            align-items: center;
+
+            &:hover i {
+                color: $secondary;
+            }
+
+            h3 {
+                font-family: $font-alt;
+                font-size: .9rem;
+                font-weight: 500;
+                text-transform: uppercase;
+                color: $light-text;
+            }
+
+            i {
+                color: $light-text;
+                cursor: pointer;
+            }
+        }
+    }
+
+    //user searchbox
+    .field {
+        height: 56px;
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 0;
+
+        .searchbox {
+            position: relative;
+            width: 100%;
+
+            input {
+                width: 100%;
+                height: 40px;
+                padding-left: 40px;
+
+                &:focus {
+                    box-shadow: $light-box-shadow;
+                    border-color: darken($fade-grey, 4%);
+
+                    + .form-icon {
+                        svg {
+                            stroke: $secondary;
+                        }
+                    }
+                }
+            }
+
+            .form-icon {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 40px;
+                width: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                svg {
+                    height: 18px;
+                    width: 18px;
+                    stroke: $placeholder;
+                    transition: stroke .3s;
+                }
+            }
+        }
+    }
+
+    //user list
+    .user-list {
+        position: absolute;
+        padding: 0 0 16px 0;
+        width: calc(100% - 40px);
+        max-height: calc(100% - 106px);
+        overflow: auto;
+        list-style-type: none;
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 5px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        //list item
+        li {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            position: relative;
+            margin-right: 16px;
+            border-radius: 6px;
+            border: 1px solid transparent;
+            cursor: pointer;
+            transition: all .3s;
+
+            &:hover {
+                border-color: darken($fade-grey, 3%);
+                box-shadow: $light-box-shadow;
+            }
+        }
+
+        //avatar
+        img {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+        }
+
+        //Status text
+        .user-status {
+            margin-left: 15px;
+
+            .name {
+                color: $blue-grey;
+                font-weight: 500;
+            }
+
+            .status {
+                font-size: 80%;
+                color: $muted-grey;
+            }
+        }
+
+        //Status indicator
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border: 2px solid $white;
+            border-radius: 50%;
+            background: $muted-grey;
+            position: absolute;
+            top: 12px;
+            left: 40px;
+
+            //states
+            &.is-online {
+                background: $green;
+            }
+
+            &.is-busy {
+                background: $orange;
+            }
+        }
+    }
+
+    #user-directory {
+        padding-bottom: 0 !important;
+    }
+
+    .reminders-list {
+        position: absolute;
+        padding: 0 0 16px 0;
+        width: calc(100% - 40px);
+        max-height: calc(100% - 106px);
+        list-style-type: none;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 5px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .reminder {
+            position: relative;
+            user-select: none;
+            border-radius: 6px;
+            border: 1px solid transparent;
+            padding: 16px;
+            cursor: pointer;
+            margin-right: 16px;
+            transition: all .3s;
+
+            &.is-active {
+                border-color: darken($fade-grey, 3%);
+                box-shadow: $light-box-shadow;
+
+                .reminder-controls i {
+                    opacity: 1;
+                }
+            }
+
+            .info {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+
+                span {
+                    display: block;
+                }
+
+                i {
+                    margin-right: 10px;
+                    color: $light-text;
+
+                    &.is-high {
+                        color: $red;
+                    }
+
+                    &.is-low {
+                        color: $primary;
+                    }
+                }
+
+                span i {
+                    color: $light-text !important;
+                    font-size: 20px;
+                }
+
+                .date {
+                    position: relative;
+                    font-family: $font;
+                    color: $light-text;
+                }
+            }
+
+            .reminder-content {
+                font-size: 1rem;
+                font-family: $font;
+                font-weight: 500;
+                color: $medium-text;
+                cursor: default;
+                padding: 0 20px;
+            }
+
+            .reminder-controls {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                margin-top: 10px;
+                margin-right: 10px;
+
+                i {
+                    margin: 0 0 0 10px;
+                    font-size: 16px;
+                    color: $light-text;
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: $secondary;
+                    }
+                }
+            }
+
+            &:hover {
+                .reminder-controls i {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .settings-list {
+        list-style-type: none;
+
+        li {
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 1px solid darken($fade-grey, 3%);
+            border-radius: 6px;
+            box-shadow: $light-box-shadow;
+
+            .setting-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .setting-title {
+                    font-weight: 500;
+                    color: $blue-grey;
+                }
+
+                .setting-control {
+                    position: relative;
+
+                    .field {
+                        position: relative;
+                        top: 2px;
+                        display: block;
+                        height: auto;
+                    }
+                }
+            }
+
+            .setting-description {
+                font-size: 85%;
+                margin-top: 15px;
+                color: $light-text;
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+1. Chat sidebar (slides when you click on a user in the user directory)
+========================================================================== */
+
+.is-chat {
+
+    &.is-active {
+        z-index: 1000 !important;
+    }
+
+    .quickview-header {
+        .material-icons {
+            color: $smoke-white;
+        }
+    }
+
+    .message-container {
+        position: relative;
+        overflow: auto;
+        max-height: 650px;
+        padding-bottom: 100px;
+
+        .chat-message {
+            padding: 20px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            img {
+                height: 35px;
+                border-radius: 100px;
+            }
+
+            .bubble-wrapper {
+                width: 100%;
+
+                .chat-bubble {
+                    padding: 10px 20px 10px 20px;
+                    font-size: 12px;
+                    border: 1px solid $fade-grey;
+                    position: relative;
+                    top: 30px;
+                }
+
+                .timestamp {
+                    position: relative;
+                    top: 8px;
+                    font-size: 11px;
+                    font-weight: 500;
+                    color: $muted-grey;
+                }
+            }
+
+            &.from {
+                .chat-bubble {
+                    margin-left: 20px;
+                    color: $white;
+                    background: $secondary;
+                    border-radius: 0 15px 15px 15px;
+                }
+
+                .timestamp {
+                    right: 10px;
+                    float: right;
+                }
+            }
+
+            &.to {
+                .chat-bubble {
+                    margin-right: 20px;
+                    color: $white;
+                    background: lighten($secondary, 25%);
+                    border: 1px solid $fade-grey;
+                    border-radius: 15px 0 15px 15px;
+                    text-align: left !important;
+                }
+
+                .timestamp {
+                    left: 0;
+                    top: 23px;
+                }
+            }
+        }
+
+        &::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 5px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .divider {
+            display: table;
+            white-space: nowrap;
+            margin-top: 20px;
+            padding: 0 20px;
+
+            .before-divider, .after-divider {
+                display: table-cell;
+                width: 50%;
+                border-bottom: 1px solid $fade-grey;
+                transform: translateY(-50%);
+                color: $muted-grey;
+            }
+
+            .children {
+                padding: 0 20px;
+                font-size: 14px;
+                color: $placeholder;
+            }
+
+            &:not(:first-child) {
+                margin-top: 40px !important;
+            }
+        }
+    }
+
+    .message-input {
+        position: absolute;
+        bottom: -5px !important;
+        width: 100%;
+
+        textarea {
+            box-sizing: border-box;
+            padding: 18px;
+            padding-right: 100px;
+            padding-left: 30px;
+            width: 100%;
+            height: 100%;
+            font-family: "intercom-font", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1.33;
+            white-space: pre;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            border: none !important;
+            resize: none;
+            background-color: $smoke-white;
+
+            &:focus {
+                outline: none !important;
+            }
+        }
+
+        .message-options {
+            position: absolute;
+            right: 30px;
+            top: 0;
+
+            .emoji-button {
+                position: relative;
+                float: left;
+                display: inline-block;
+                cursor: pointer;
+                opacity: .7;
+                height: 55px;
+                width: 30px;
+
+                &:before {
+                    background-image: url(https://image.ibb.co/gH13KQ/emoji_icon.png);
+                    background-size: 18px 18px;
+                    background-repeat: no-repeat;
+                    content: " ";
+                    width: 18px;
+                    height: 18px;
+                    left: 5px;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 20px;
+                    background-position: 50%;
+                }
+            }
+
+            .attach-button {
+                position: relative;
+                float: left;
+                display: inline-block;
+                cursor: pointer;
+                opacity: .7;
+                height: 55px;
+                width: 30px;
+
+                &:before {
+                    background-image: url(https://image.ibb.co/hSE165/attach_icon.png);
+                    background-size: 16px 18px;
+                    background-repeat: no-repeat;
+                    content: " ";
+                    width: 16px;
+                    height: 18px;
+                    left: 5px;
+                    position: absolute;
+                    top: 20px;
+                    background-position: 50%;
+                }
+            }
+        }
+    }
+}

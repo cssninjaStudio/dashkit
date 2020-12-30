@@ -1,0 +1,70 @@
+<div x-ref="settingsdrop" @click.away="$refs.settingsdrop.classList.remove('is-active')" class="dropdown is-spaced is-right dropdown-trigger">
+    <div>
+        <a @click="$refs.settingsdrop.classList.add('is-active')" class="chat-nav-item is-icon">
+            <i class="sl icon-settings"></i>
+        </a>
+    </div>
+    <div class="dropdown-menu" role="menu">
+        <div class="dropdown-content">
+            <div class="dropdown-item is-header">
+                <h5>Settings</h5>
+            </div>
+            <a href="#" class="dropdown-item">
+                <div class="media">
+                    <i class="sl icon-speech"></i>
+                    <div class="media-content">
+                        <h3>Details</h3>
+                        <small>View this conversation's details.</small>
+                    </div>
+                </div>
+            </a>
+            <a class="dropdown-item">
+                <div class="media">
+                    <i class="sl icon-equalizer"></i>
+                    <div class="media-content">
+                        <h3>Preferences</h3>
+                        <small>Define your preferences.</small>
+                    </div>
+                </div>
+            </a>
+            <hr class="dropdown-divider">
+            <a class="dropdown-item">
+                <div class="media">
+                    <i class="sl icon-bell"></i>
+                    <div class="media-content">
+                        <h3>Notifications</h3>
+                        <small>Set notifications settings.</small>
+                    </div>
+                </div>
+            </a>
+            <a class="dropdown-item">
+                <div class="media">
+                    <i class="sl icon-options"></i>
+                    <div class="media-content">
+                        <h3>Silence</h3>
+                        <small>Disable notifications.</small>
+                    </div>
+                </div>
+            </a>
+            <hr class="dropdown-divider">
+            <a class="dropdown-item">
+                <div class="media">
+                    <i class="sl icon-folder-alt"></i>
+                    <div class="media-content">
+                        <h3>Archive</h3>
+                        <small>Archive this conversation.</small>
+                    </div>
+                </div>
+            </a>
+            <a class="dropdown-item">
+                <div class="media">
+                    <i class="sl icon-trash"></i>
+                    <div class="media-content">
+                        <h3>Delete</h3>
+                        <small>Delete this conversation.</small>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

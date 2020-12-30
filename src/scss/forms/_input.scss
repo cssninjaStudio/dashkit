@@ -1,0 +1,255 @@
+/*! _input.scss | Bold | Css ninja 2020-2021 */
+
+/*
+    1. Field
+    2. Control
+    3. Input
+    4. Textarea
+*/
+
+/* ==========================================================================
+1. Field
+========================================================================== */
+
+.field {
+    > label {
+        font-family: $font;
+        font-size: .95rem;
+        color: $medium-text;
+    }
+}
+
+/* ==========================================================================
+2. Control
+========================================================================== */
+
+.control {
+    &.has-icons-left, &.has-icons-right {
+        .icon {
+            height: 46px;
+            width: 46px;
+        }
+    }
+
+    &.has-icon {
+        .form-icon {
+            &.is-medium {
+                height: 46px;
+                width: 46px;
+            }
+
+            &.is-large {
+                height: 54px;
+                width: 54px;
+            }
+
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 40px;
+            width: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            svg {
+                height: 18px;
+                width: 18px;
+                stroke-width: 1.6px;
+                stroke: $placeholder;
+                transition: stroke .3s;
+            }
+        }
+
+        .input {
+            padding-left: 40px;
+
+            &.is-medium {
+                padding-left: 46px;
+            }
+
+            &.is-large {
+                padding-left: 54px;
+            }
+
+            &:focus {
+                ~ .form-icon {
+                    color: $secondary;
+                }
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+3. Input
+========================================================================== */
+
+.input {
+    font-family: $font;
+    height: 40px;
+    transition: all .3s;
+    box-shadow: none;
+    border-color: $border;
+
+    &:focus {
+        box-shadow: $light-box-shadow;
+        border-color: darken($border, 2%);
+
+        ~ .icon {
+            color: $secondary !important;
+        }
+    }
+
+    &.is-medium {
+        height: 46px;
+        font-size: 1.15rem;
+    }
+
+    &.is-large {
+        height: 54px;
+        font-size: 1.35rem;
+    }
+
+    ~ .icon {
+        transition: color .3s;
+    }
+}
+
+/* ==========================================================================
+4. Textarea
+========================================================================== */
+
+.textarea {
+    font-family: $font;
+    transition: all .3s;
+    box-shadow: none;
+    border-color: $border;
+
+    &:focus {
+        box-shadow: $light-box-shadow;
+        border-color: darken($border, 2%);
+    }
+}
+
+
+
+.attachments-field {
+    .message-files {
+        display: flex;
+        align-items: center;
+        padding: 8px;
+        background: $widget-grey;
+        border-radius: .75rem;
+
+        .upload-box {
+            position: relative;
+            margin: 8px;
+
+            input {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+                opacity: 0;
+                font-size: 0;
+                z-index: 1;
+                cursor: pointer;
+
+                &::-webkit-file-upload-button {
+                    cursor: pointer;
+                }
+
+                &:hover {
+                    + .upload-box-inner {
+                        border-color: darken($placeholder, 12%);
+
+                        i {
+                            color: darken($placeholder, 12%);
+                        }
+                    }
+                }
+            }
+
+            .upload-box-inner {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 56px;
+                width: 56px;
+                border: 1.8px dashed $placeholder;
+                border-radius: 8px;
+                transition: all .3s;
+
+                i {
+                    font-size: 16px;
+                    color: $placeholder;
+                    transition: color .3s;
+                }
+
+                .remove-link {
+                    position: absolute;
+                    top: -7px;
+                    right: -6px;
+                    height: 28px;
+                    width: 28px;
+                    border-radius: 50%;
+                    border: 1px solid darken($fade-grey, 3%);
+                    box-shadow: $light-box-shadow;
+                    background: $white;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 3;
+
+                    i {
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            .preview-box {
+                position: relative;
+                height: 56px;
+                width: 56px;
+
+                .delete {
+                    position: absolute;
+                    top: -7px;
+                    right: -6px;
+                    z-index: 3;
+                }
+
+                img {
+                    display: block;
+                    height: 56px;
+                    width: 56px;
+                    object-fit: cover;
+                    box-shadow: $light-box-shadow;
+                    border-radius: 6px;
+                }
+            }
+        }
+    }
+
+    .add-more-files {
+        padding: 6px 0;
+
+        a {
+            display: flex;
+            align-items: center;
+            color: $secondary;
+            font-family: $font;
+            font-size: .9rem;
+            font-weight: 400;
+
+            i {
+                position: relative;
+                font-size: 12px;
+                margin-right: 6px;
+            }
+        }
+    }
+}

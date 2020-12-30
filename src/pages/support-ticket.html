@@ -1,0 +1,280 @@
+---
+layout: default
+title: Ticket
+---
+
+<!-- Main dashboard container -->
+<div id="dashboard-wrapper" class="dashboard-outer" x-data="initSupportTicket()" :class="{
+        'is-pushed': $store.app.sidebarOpenedState,
+        '': !$store.app.sidebarOpenedState
+    }">
+    <div class="dashboard-inner">
+
+        <!-- Dashboard Wrapper -->
+        <div class="dashboard-wrapper">
+
+            <div id="main-dashboard" class="section-wrapper">
+                <!-- Dashboard content -->
+                <div class="dashboard-columns">
+
+                    <div class="single-ticket-wrapper">
+                        <!-- Page title -->
+                        <div class="support-title-wrapper">
+                            <!-- Actions -->
+                            <div class="actions">
+                                <div @click="toggleTicketSidebar()" class="action-button">
+                                    <i class="sl icon-pencil"></i>
+                                </div>
+                                <!-- Dropdown -->
+                                <div x-ref="ticketdrop" @click.away="$refs.ticketdrop.classList.remove('is-active')" class="dropdown is-right dropdown-trigger styled-dropdown">
+                                    <div @click="$refs.ticketdrop.classList.add('is-active')" class="button is-round">
+                                        <i class="material-icons">more_horiz</i>
+                                    </div>
+                                
+                                    <div class="dropdown-menu is-text-bigger" role="menu">
+                                        <div class="dropdown-content">
+                                            <a class="dropdown-item">
+                                                <i class="sl icon-share"></i>
+                                                <span>
+                                                    <span>Share</span>
+                                                    <span>Share with other users</span>
+                                                </span>
+                                            </a>
+                                            <a href="#" class="dropdown-item">
+                                                <i class="sl icon-pin"></i>
+                                                <span>
+                                                    <span>Pin</span>
+                                                    <span>Move to your pinlist</span>
+                                                </span>
+                                            </a>
+                                            <div class="dropdown-divider"></div>
+                                            <a href="#" class="dropdown-item">
+                                                <i class="sl icon-graph"></i>
+                                                <span>
+                                                    <span>Escalate</span>
+                                                    <span>Escalate this ticket</span>
+                                                </span>
+                                            </a>
+                                            <a href="#" class="dropdown-item">
+                                                <i class="sl icon-lock"></i>
+                                                <span>
+                                                    <span>Close</span>
+                                                    <span>Close this ticket</span>
+                                                </span>
+                                            </a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item">
+                                                <i class="sl icon-trash"></i>
+                                                <span>
+                                                    <span>Delete</span>
+                                                    <span>Delete this ticket</span>
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Single ticket -->
+                        <div class="ticket-wrapper">
+                            <!-- Header -->
+                            <div class="ticket-header">
+                                <div class="header-content">
+                                    <img src="https://via.placeholder.com/150x150" alt=""
+                                        data-demo-src="/img/avatars/alex.jpg">
+                                    <div class="ticket-heading has-text-centered">
+                                        <h2>Misdelivery of items not specified in order</h2>
+                                        <span>Ticket# 68425 - created Dec 4 2018</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Body -->
+                            <div class="ticket-body">
+                                <div class="conversation-wrap">
+                                    <div class="conversation-inner">
+                                        <img src="https://via.placeholder.com/150x150" alt=""
+                                            data-demo-src="/img/avatars/alex.jpg">
+                                        <div class="conversation-box">
+                                            <div class="content">
+                                                <p>Hi,</p>
+                                                <p>It seems i have been delivered items that i have not
+                                                    ordered.</p>
+                                                <p>Can you please check the order again ?</p>
+                                                <p>Thanks a lot.</p>
+                                                <p>Alex</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="timestamp">Dec 4 2018, 09:41am</span>
+                                        <div class="button-group">
+                                            <a class="conversation-control">
+                                                <i class="sl icon-lock"></i>
+                                            </a>
+                                            <a class="conversation-control">
+                                                <i class="sl icon-envelope-open"></i>
+                                            </a>
+                                            <a class="conversation-control">
+                                                <i class="sl icon-flag"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="conversation-wrap">
+                                    <div class="conversation-inner">
+                                        <img src="https://via.placeholder.com/150x150" alt=""
+                                            data-demo-src="/img/avatars/ray.jpg">
+                                        <div class="conversation-box">
+                                            <div class="content">
+                                                <p>Hello Alex,</p>
+                                                <p>Of course, we would be happy to help you solve this issue.</p>
+                                                <p>Iam going to double check with the order chain to see what
+                                                    went wrong.</p>
+                                                <p>Can you please also confirm that the items you ordered were
+                                                    delivered too?</p>
+                                                <p>Thank you very much.</p>
+                                                <p>Ray Donovan, customer support.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="timestamp">Dec 4 2018, 02:23pm</span>
+                                        <div class="button-group">
+                                            <a class="conversation-control">
+                                                <i class="sl icon-pencil"></i>
+                                            </a>
+                                            <a class="conversation-control">
+                                                <i class="sl icon-envelope-open"></i>
+                                            </a>
+                                            <a class="conversation-control">
+                                                <i class="sl icon-flag"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="conversation-wrap">
+                                    <div class="conversation-inner">
+                                        <img src="https://via.placeholder.com/150x150" alt=""
+                                            data-demo-src="/img/avatars/alex.jpg">
+                                        <div class="conversation-box">
+                                            <div class="content">
+                                                <p>Yes,</p>
+                                                <p>I can confirm that the items i ordered were included in the
+                                                    delivery.</p>
+                                                <p>Do you need additional details about the misdelivered items
+                                                    ?</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="timestamp">Dec 4 2018, 03:56pm</span>
+                                        <div class="button-group">
+                                            <a class="conversation-control">
+                                                <i class="sl icon-lock"></i>
+                                            </a>
+                                            <a class="conversation-control">
+                                                <i class="sl icon-envelope-open"></i>
+                                            </a>
+                                            <a class="conversation-control">
+                                                <i class="sl icon-flag"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="conversation-wrap">
+                                    <div class="conversation-inner">
+                                        <img src="https://via.placeholder.com/150x150" alt=""
+                                            data-demo-src="/img/avatars/ray.jpg">
+                                        <div class="conversation-box">
+                                            <div class="content">
+                                                <p>Perfect,</p>
+                                                <p>Don't bother for products info, we identified the items that
+                                                    were misdelivered to you.</p>
+                                                <p>One of our agents will come by your place and get the
+                                                    misdelivered products from you. Please excuse us for the
+                                                    trouble and again, thank you very much.</p>
+                                                <p>Ray Donovan, customer support.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="timestamp">Dec 4 2018, 04:19pm</span>
+                                        <div class="button-group">
+                                            <a class="conversation-control">
+                                                <i class="sl icon-pencil"></i>
+                                            </a>
+                                            <a class="conversation-control">
+                                                <i class="sl icon-envelope-open"></i>
+                                            </a>
+                                            <a class="conversation-control">
+                                                <i class="sl icon-flag"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="conversation-wrap">
+                                    <div class="conversation-inner">
+                                        <img src="https://via.placeholder.com/150x150" alt=""
+                                            data-demo-src="/img/avatars/alex.jpg">
+                                        <div class="conversation-box">
+                                            <div class="content">
+                                                <p>Great,</p>
+                                                <p>I'll wait then.</p>
+                                                <p>Thanks for the fast response.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="controls">
+                                        <span class="timestamp">Dec 4 2018, 06:51</span>
+                                        <div class="button-group">
+                                            <a class="conversation-control">
+                                                <i class="sl icon-lock"></i>
+                                            </a>
+                                            <a class="conversation-control">
+                                                <i class="sl icon-envelope-open"></i>
+                                            </a>
+                                            <a class="conversation-control">
+                                                <i class="sl icon-flag"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Compose message -->
+                            <div x-ref="composemessage" class="compose-message">
+                                <img src="https://via.placeholder.com/150x150" alt=""
+                                    data-demo-src="/img/avatars/ray.jpg">
+                                <div class="control">
+                                    <textarea x-on:input="typeReply($event)" id="compose-reply" class="textarea" rows="1"
+                                        placeholder="Write a message..."></textarea>
+                                    <button class="button send-button">
+                                        <i class="material-icons">send</i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Attachments -->
+                            <div class="add-attachments small-uploader">
+                                <div class="upload">
+                                    <input id="upload-attachments" type="file" accept="image/*">
+                                    <img class="main-preview" src="https://via.placeholder.com/150x150" alt="" />
+                                    <i class="material-icons">add</i>
+                                    <span>Add Attachment</span>
+                                </div>
+
+                                <div class="uploader-previews"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {{> support-ticket-sidebar}}
+
+</div>

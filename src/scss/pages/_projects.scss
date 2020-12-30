@@ -1,0 +1,1384 @@
+/* Dashkit | 2020-2021 | CSS Ninja */
+
+/* ==========================================================================
+Project pages
+========================================================================== */
+
+/***
+TABLE OF CONTENTS
+=============================================================================
+0. Page Title
+1. Tabs
+2. Project lists
+3. Project modals
+4. Tasks
+5. Dropdown
+6. Files and Activity
+7. Media Queries
+=============================================================================
+***/
+
+/* ==========================================================================
+0. Page Title
+========================================================================== */
+
+.projects-wrapper {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 20px 0;
+
+    .project-header-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.project-title {
+    font-size: 2rem !important;
+    color: $blue-grey !important;
+    line-height: 1;
+    padding: 0 6px;
+    font-family: $font-alt;
+    font-weight: 700;
+}
+
+.project-tagline {
+    font-weight: 400 !important;
+    font-size: 1.2rem;
+    color: $medium-text !important;
+    margin-bottom: 16px;
+    padding: 0 6px;
+}
+
+.project-members-avatars {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .face {
+        height: 54px;
+        width: 54px;
+        border-radius: 50%;
+
+        &:not(:first-child) {
+            margin-left: -18px;
+        }
+
+        &.is-fake {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: $secondary;
+            color: $white;
+            border: 4px solid $dashboard-grey;
+
+            span {
+                display: block;
+                position: relative;
+                top: -1px;
+                left: -1px;
+                line-height: 1;
+                font-size: 1.2rem;
+                font-weight: 700;
+            }
+        }
+
+        img {
+            border: 4px solid $dashboard-grey;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            max-height: 54px;
+        }
+    }
+}
+
+.add-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px !important;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: $fade-grey;
+    cursor: pointer;
+    transition: all .3s;
+
+    i {
+        color: $muted-grey;
+        font-size: 18px;
+        transition: inherit;
+    }
+
+    &:hover {
+        background: $white;
+
+        i {
+            color: $secondary;
+        }
+    }
+}
+
+/* ==========================================================================
+1. Tabs
+========================================================================== */
+
+.layout-tabs {
+    &.overflow-tabs {
+        overflow: visible !important;
+    }
+
+    .tabs {
+        max-width: 640px;
+        margin: 20px auto;
+
+        ul {
+            margin: 0;
+            background: #EEF2F5;
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid darken($fade-grey, 3%);
+
+            li {
+                margin: 0 5px;
+
+                &.is-active {
+                    a {
+                        background: $white;
+                        font-size: 1.05rem;
+                        color: $blue-grey;
+                    }
+                }
+            }
+
+            a {
+                border: none;
+                padding: 0.7em 1em;
+                font-weight: 500;
+                border-radius: 6px !important;
+                color: $light-text;
+                transition: all .3s;
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+2. Project lists
+========================================================================== */
+
+.projects-list-wrapper {
+    .list-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .list-title {
+            display: inherit;
+            align-items: inherit;
+
+            span {
+                font-family: $font-alt;
+                font-size: 1.8rem;
+                font-weight: 700;
+                color: $blue-grey;
+                display: block;
+            }
+        }
+
+        .list-filter {
+            min-width: 250px;
+
+            .control {
+                position: relative;
+
+                input {
+                    padding-left: 40px;
+                    height: 40px;
+                    box-shadow: none;
+
+                    &:focus {
+                        box-shadow: $light-box-shadow;
+                        border-color: $fade-grey;
+
+                        + .form-icon {
+                            svg {
+                                stroke: $secondary;
+                            }
+                        }
+                    }
+                }
+
+                .form-icon {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    height: 40px;
+                    width: 40px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    svg {
+                        height: 18px;
+                        width: 18px;
+                        stroke-width: 1.6px;
+                        stroke: $placeholder;
+                        transition: stroke .3s;
+                    }
+                }
+            }
+        }
+    }
+
+    .list-body {
+        padding: 40px 0;
+
+        .project-card {
+            @extend .flex-card;
+
+            padding: 20px;
+            border-radius: 6px;
+            overflow: visible;
+
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                h4 {
+                    font-family: $font-alt;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    color: $blue-grey;
+                }
+
+                span {
+                    display: block;
+                    font-size: 20px;
+                    cursor: pointer;
+                }
+            }
+
+            .project-members {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                padding: 20px 0;
+
+                .face {
+                    height: 38px;
+                    width: 38px;
+                    border-radius: 50%;
+
+                    &:not(:first-child) {
+                        margin-left: -12px;
+                    }
+
+                    &.is-fake {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background: $secondary;
+                        color: $white;
+                        border: 2px solid $dashboard-grey;
+
+                        span {
+                            display: block;
+                            position: relative;
+                            top: -1px;
+                            left: -1px;
+                            line-height: 1;
+                            font-size: .9rem;
+                            font-weight: 700;
+                        }
+                    }
+
+                    img {
+                        border: 2px solid $dashboard-grey;
+                        width: 36px;
+                        height: 36px;
+                        border-radius: 50%;
+                        max-height: 38px;
+                    }
+                }
+            }
+
+            .progress-block {
+                position: relative;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 0;
+
+                .progress {
+                    width: 75%;
+                    margin-bottom: 0;
+
+                    &.is-xs {
+                        height: .35rem !important;
+                    }
+
+                    &.is-low {
+                        &::-webkit-progress-value {
+                            background-color: lighten($secondary, 26%);
+                        }
+
+                        &::-moz-progress-bar {
+                            background-color: lighten($secondary, 26%);
+                        }
+
+                        &::-ms-fill {
+                            background-color: lighten($secondary, 26%);
+                        }
+                    }
+
+                    &.is-mid {
+                        &::-webkit-progress-value {
+                            background-color: lighten($secondary, 18%);
+                        }
+
+                        &::-moz-progress-bar {
+                            background-color: lighten($secondary, 18%);
+                        }
+
+                        &::-ms-fill {
+                            background-color: lighten($secondary, 18%);
+                        }
+                    }
+
+                    &.is-high {
+                        &::-webkit-progress-value {
+                            background-color: lighten($primary, 2%);
+                        }
+
+                        &::-moz-progress-bar {
+                            background-color: lighten($primary, 2%);
+                        }
+
+                        &::-ms-fill {
+                            background-color: lighten($primary, 2%);
+                        }
+                    }
+
+                    &.is-secondary {
+                        &::-webkit-progress-value {
+                            background-color: $secondary;
+                        }
+
+                        &::-moz-progress-bar {
+                            background-color: $secondary;
+                        }
+
+                        &::-ms-fill {
+                            background-color: $secondary;
+                        }
+                    }
+                }
+
+                .task-count {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    font-size: 1rem;
+                    font-family: $font;
+                    font-weight: 500;
+                    color: $light-text;
+
+                    .sl {
+                        font-size: 1.2rem;
+                        color: $light-text;
+                        margin: 0 5px;
+                    }
+                }
+            }
+        }
+
+        .team-card {
+            padding: 20px;
+            border-radius: 6px;
+
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                h4 {
+                    font-family: $font-alt;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    color: $blue-grey;
+                }
+
+                .dropdown {
+                    .button {
+                        .material-icons {
+                            display: block;
+                            font-size: 20px;
+                            color: $light-text;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            .project-members {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+
+                .face {
+                    height: 38px;
+                    width: 38px;
+                    border-radius: 50%;
+
+                    &:not(:first-child) {
+                        margin-left: -12px;
+                    }
+
+                    &.is-fake {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background: $secondary;
+                        color: $white;
+                        font-weight: 600;
+                        font-size: .9rem;
+                        border: 2px solid $dashboard-grey;
+                    }
+
+                    img {
+                        border: 2px solid $dashboard-grey;
+                        width: 36px;
+                        height: 36px;
+                        border-radius: 50%;
+                        max-height: 38px;
+                    }
+                }
+            }
+
+            .team-info {
+                margin-bottom: 30px;
+                font-size: 1.1rem;
+                font-weight: 400;
+                font-family: $font;
+                color: $light-text;
+            }
+        }
+
+        .member-box {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            margin: 20px 0;
+
+            img {
+                width: 70px;
+                height: 70px;
+                border-radius: 50%;
+                margin-bottom: .5rem;
+            }
+
+            .member-info {
+                padding: 0 10px;
+                text-align: center;
+                line-height: 1.3;
+
+                span {
+                    display: block;
+                }
+
+                .name {
+                    font-family: $font-alt;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    color: $blue-grey;
+                }
+
+                .role {
+                    font-family: $font;
+                    color: $light-text;
+                    font-size: .95rem;
+                }
+            }
+        }
+
+        &.has-padding-bottom {
+            padding-bottom: 100px;
+        }
+    }
+}
+
+/* ==========================================================================
+3. Project modals
+========================================================================== */
+
+.create-project-modal, .create-task-modal {
+    .modal-title {
+        h2 {
+            font-family: $font-alt;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: $dark-text;
+        }
+    }
+
+    .flex-card {
+        border-radius: 6px;
+    }
+
+    .project-members, .task-members {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .face {
+            height: 48px;
+            width: 48px;
+            border-radius: 50%;
+
+            &:not(:first-child) {
+                margin-left: -12px;
+            }
+
+            &.is-fake {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: $secondary;
+                color: $white;
+                font-weight: 600;
+                font-size: .9rem;
+                border: 2px solid $dashboard-grey;
+            }
+
+            img {
+                border: 2px solid $dashboard-grey;
+                width: 46px;
+                height: 46px;
+                border-radius: 50%;
+                max-height: 48px;
+            }
+        }
+    }
+
+    .modal-filter {
+        margin: 20px;
+
+        .control {
+            position: relative;
+
+            input {
+                padding-left: 40px;
+            }
+
+            span {
+                color: $placeholder;
+                font-size: 20px;
+            }
+        }
+    }
+
+    .card-body {
+        background: $white;
+        border-radius: 0;
+        padding: 10px 30px 10px 30px;
+        max-height: 440px;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 5px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            font-family: $font-alt;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .is-fieldset {
+            margin-bottom: 10px;
+        }
+
+        .field-label {
+            font-weight: 400;
+            font-family: $font;
+            color: $light-text;
+        }
+
+        input, textarea {
+            box-shadow: none !important;
+            border-radius: 6px;
+        }
+
+        .form-footer {
+            text-align: right;
+
+            button {
+                font-weight: 500;
+                min-width: 140px;
+                padding: 20px;
+                border-radius: 6px;
+                line-height: 0;
+            }
+        }
+
+        .members-select {
+            .member-row {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                margin-bottom: 8px;
+
+                img {
+                    height: 36px;
+                    width: 36px;
+                    border-radius: 50%;
+                }
+
+                span {
+                    padding: 0 15px;
+                    display: block;
+                    font-family: $font;
+                    font-weight: 500;
+                }
+
+                .b-checkbox {
+                    margin-left: auto;
+                    width: 18px;
+                    height: 18px;
+
+                    label {
+                        &:before {
+                            background: $fade-grey;
+                        }
+                    }
+
+                    input:checked + label::before {
+                        background-color: $secondary;
+                        border-color: $secondary;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.invite-user-modal, .icon-action-modal {
+    h2 {
+        font-family: $font-alt;
+        font-size: 1.3rem;
+        font-weight: 600;
+        padding: 20px;
+        background: darken($widget-grey, 3%);
+    }
+
+    .card-body {
+        padding: 20px 30px 10px 30px;
+    }
+
+    .image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+        margin: -60px auto 0;
+        background: #EEF2F5;
+        border: 5px solid $white;
+        border-radius: 50%;
+
+        img {
+            width: 34px;
+            height: 34px;
+        }
+    }
+
+    .help-text {
+        margin: 10px 0;
+        font-family: $font;
+        color: $light-text;
+    }
+
+    input {
+        height: 40px;
+        padding-left: 2.75rem !important;
+    }
+
+    .add-more {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        cursor: pointer;
+        font-weight: 500;
+        font-family: $font;
+        font-size: .9rem;
+        color: $secondary;
+
+        i {
+            margin: 0 5px;
+            color: inherit;
+            font-size: 16px;
+        }
+    }
+
+    .modal-footer {
+        padding: 20px;
+        background: $smoke-white;
+        text-align: right;
+
+        button {
+            font-weight: 500;
+            color: $white;
+            padding: 20px;
+            border-radius: 4px;
+            line-height: 0;
+            background: $secondary;
+
+            &:hover {
+                box-shadow: $secondary-box-shadow;
+            }
+
+            &.modal-dismiss {
+                background: $fade-grey;
+                border-color: $fade-grey;
+                color: $blue-grey;
+                box-shadow: none !important;
+
+                &:hover {}
+            }
+        }
+    }
+}
+
+.top-progress-block {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .progress {
+        margin-bottom: 0;
+        max-width: 600px;
+        margin-right: 40px;
+
+        &.is-xs {
+            height: .35rem !important;
+        }
+
+        &.is-secondary {
+            &::-webkit-progress-value {
+                background-color: $secondary;
+            }
+
+            &::-moz-progress-bar {
+                background-color: $secondary;
+            }
+
+            &::-ms-fill {
+                background-color: $secondary;
+            }
+        }
+    }
+
+    .project-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+
+        .task-count {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            span {
+                display: block;
+                padding: 0 5px;
+                font-size: 1.1rem;
+                font-weight: 500;
+                color: $muted-grey;
+            }
+
+            i {
+                font-size: 26px;
+                color: $secondary;
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+4. Tasks
+========================================================================== */
+
+.tasks-wrapper {
+    padding: 16px;
+    background: #E9EEF2;
+    border: 1px solid darken(#E9EEF2, 5%);
+    border-radius: 6px;
+    margin-bottom: 20px;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+
+        h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: $blue-grey;
+        }
+
+        span {
+            display: block;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            .button {
+                background: transparent;
+                border: none;
+                padding: 0;
+            }
+
+            .dropdown-item {
+                &.is-flex {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+
+                    .material-icons {
+                        font-size: 20px;
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    .task-card {
+        position: relative;
+        padding: 24px;
+        border-radius: 6px;
+        margin-bottom: 20px;
+        background: $white;
+        overflow: visible;
+
+        &:last-child {
+            margin-bottom: 0 !important;
+        }
+
+        .card-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 4px;
+            width: 0;
+            min-width: 0;
+            background: $secondary;
+            transition: all .5s;
+        }
+
+        .card-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .task-meta {
+                span {
+                    display: block;
+                }
+
+                .task-title {
+                    font-size: 1.3rem;
+                    font-weight: 500;
+                }
+
+                .task-due-date {
+                    font-size: 1rem;
+                    font-family: $font;
+                    color: $muted-grey;
+                }
+            }
+
+            .task-info {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+
+                .task-members {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+
+                    .face {
+                        height: 44px;
+                        width: 44px;
+                        border-radius: 50%;
+
+                        &:not(:first-child) {
+                            margin-left: -12px;
+                        }
+
+                        &.is-fake {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background: $secondary;
+                            color: $white;
+                            font-weight: 600;
+                            font-size: .9rem;
+                            border: 3px solid $white;
+                        }
+
+                        img {
+                            border: 3px solid $white;
+                            width: 42px;
+                            height: 42px;
+                            border-radius: 50%;
+                            max-height: 44px;
+                        }
+                    }
+                }
+
+                .subtasks-count {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    margin: 0 30px;
+
+                    span {
+                        display: block;
+                        padding: 0 5px;
+                        font-size: 1.1rem;
+                        font-weight: 500;
+                        font-family: $font;
+                        color: $light-text;
+                    }
+
+                    i {
+                        font-size: 22px;
+                        color: $light-text;
+                    }
+                }
+
+                .more-drop {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .button {
+                        .material-icons {
+                            color: $light-text;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+5. Dropdown
+========================================================================== */
+
+.dropdown {
+    .button {
+        background: transparent;
+        border: none;
+        padding: 0;
+    }
+
+    .dropdown-item {
+        .material-icons {
+            color: $light-text !important;
+        }
+
+        &.is-flex {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            .material-icons {
+                font-size: 20px;
+                margin-right: 5px;
+                color: $light-text;
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+6. Files and Activity
+========================================================================== */
+
+.project-files-wrapper, .project-activity-wrapper {
+    background: $white;
+    border: 1px solid $fade-grey;
+    border-radius: 6px;
+
+    .file-item, .activity-item {
+        display: flex;
+        align-items: center;
+        padding: 14px 20px;
+        margin-top: 0 !important;
+
+        .image {
+            position: relative;
+
+            img {
+                border-radius: 50%;
+            }
+
+            .file-action {
+                position: absolute;
+                right: -8px;
+                bottom: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 24px;
+                width: 24px;
+                border-radius: 50%;
+                border: 2px solid $white;
+                background: $secondary;
+
+                &.is-alt {
+                    background: $secondary;
+                }
+
+                i {
+                    font-size: 12px;
+                    color: $white;
+                }
+            }
+        }
+
+        .meta {
+            span, a {
+                display: block;
+            }
+
+            a {
+                font-family: $font-alt;
+                color: $blue-grey;
+                font-size: 1rem;
+                font-weight: 600;
+
+                &:hover {
+                    color: $secondary;
+                }
+
+                &.is-activity {
+                    font-size: 1rem;
+                }
+            }
+
+            span {
+                display: flex;
+                align-items: center;
+                font-family: $font;
+                color: $light-text;
+                font-size: .9rem;
+
+                &.activity-content {
+                    font-size: 1rem;
+                    color: $blue-grey;
+
+                    a {
+                        font-size: 1rem;
+                        padding: 0 4px;
+                    }
+                }
+
+                small {
+                    font-weight: 500;
+                    font-size: .9rem;
+                }
+            }
+
+            .fa-circle {
+                font-size: 4px;
+                color: $placeholder;
+                margin: 0 5px;
+            }
+
+            time {
+                color: $light-text;
+                font-family: $font;
+                font-size: 1rem;
+                padding: 0 4px;
+            }
+        }
+
+        .media-content {
+            margin: 0 15px;
+        }
+
+        .material-icons {
+            color: $light-text;
+        }
+    }
+}
+
+.checklist-wrapper {
+    .checklist-item {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 15px;
+
+        .checklist-handle {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: grab;
+
+            .material-icons {
+                color: $muted-grey;
+            }
+        }
+
+        .checklist-checkbox {
+            position: relative;
+            top: -3px;
+            margin-left: 20px;
+
+            .b-checkbox {
+                max-height: 13px;
+                display: flex;
+
+                label {
+                    padding-left: 0 !important;
+                }
+            }
+        }
+
+        .checklist-text {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin: 0 10px;
+        }
+    }
+}
+
+.delete-drop {
+    display: none;
+    text-align: center;
+    margin: 20px 0;
+    padding: 24px;
+    border-radius: 6px;
+    border: 2px dashed #ccc;
+    font-size: 1.3rem;
+    color: $muted-grey;
+    background: #fafafa;
+}
+
+.task-note {
+    position: relative;
+    width: 100%;
+    border-radius: 8px;
+    background: #dce1ff;
+    border: 1px solid #c3ccff;
+    padding: 30px;
+    margin-bottom: 20px;
+
+    &.is-white {
+        background: $white;
+        border: 1px solid $fade-grey;
+    }
+
+    .note-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .note-title {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            img {
+                display: block;
+                height: 32px;
+                width: 32px;
+                border-radius: 50%;
+            }
+
+            h5 {
+                font-family: $font-alt;
+                font-weight: 600;
+                margin: 0 10px !important;
+            }
+        }
+
+        .dropdown {
+            .material-icons {
+                color: $blue-grey;
+            }
+        }
+    }
+
+    .note-body {
+        padding-top: 10px;
+
+        p {
+            font-family: $font;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: $medium-text;
+        }
+
+        ul {
+            font-family: $font;
+            list-style-type: disc;
+            margin-top: 0;
+            padding-left: 20px;
+            color: $medium-text;
+        }
+
+        a {
+            font-family: $font;
+            font-weight: 500;
+        }
+    }
+}
+
+.profile-heading {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    img {
+        height: 65px;
+        width: 65px;
+        border-radius: 50%;
+    }
+
+    div {
+        margin: 0 15px;
+
+        .project-title {
+            margin-bottom: 0 !important;
+        }
+
+        h4 {
+            margin-bottom: 0 !important;
+        }
+    }
+}
+
+/* ==========================================================================
+7. Media Queries
+========================================================================== */
+
+@media (max-width: 767px) {
+
+    .projects-wrapper {
+        .project-header-wrap {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+
+    .project-members-avatars {
+        .face {
+            width: 40px;
+            height: 40px;
+
+            img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+
+    .projects-list-wrapper {
+        .list-header {
+            flex-direction: column;
+
+            .list-filter {
+                margin-top: 10px;
+            }
+        }
+    }
+
+    .layout-tabs {
+        .navtab-content {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            animation: fadeInleft .5s;
+        }
+    }
+
+    .member-box {
+        img {
+            width: 50px !important;
+            height: 50px !important;
+        }
+    }
+
+    .task-card {
+        .task-meta {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .card-inner, .task-info {
+            flex-direction: column;
+        }
+
+        .more-drop {
+            margin: 10px 0;
+        }
+    }
+
+    .activity-item {
+        flex-direction: column;
+
+        .meta {
+            text-align: center;
+            margin: 10px 0;
+
+            a, span {
+                display: inline-block !important;
+            }
+        }
+
+        .media-right {
+            margin-left: 0;
+        }
+    }
+
+    .profile-heading {
+        h2, h4 {
+            text-align: left;
+        }
+    }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .projects-wrapper {
+        padding-left: 40px;
+        padding-right: 40px;
+
+        .project-header-wrap {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+}

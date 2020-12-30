@@ -1,0 +1,48 @@
+<!-- Sidebar menu 3 -->
+<ul id="business-menu" class="sidebar-menu" :class="{
+        'is-active': $store.app.activeSidebar == 'business',
+        '': !$store.app.activeSidebar != 'business'
+    }">
+    <li class="have-children" @click="openSidebarMenu('business-menu-1')" :class="{
+            'active': $store.app.activeSidebarMenu == 'business-menu-1',
+            '': !$store.app.activeSidebarMenu != 'business-menu-1'
+        }">
+        <a class="parent-link" href="javascript:">
+            <span class="material-icons">group</span>
+            Contacts
+        </a>
+        <ul x-show.transition.fade="$store.app.activeSidebarMenu == 'business-menu-1'">
+            <li><a href="contacts-list.html">Contact list</a></li>
+            <li><a href="contacts-grid.html">Contact grid</a></li>
+            <li><a href="contacts-single.html">Contact details</a></li>
+        </ul>
+    </li>
+    <li class="have-children" @click="openSidebarMenu('business-menu-2')" :class="{
+            'active': $store.app.activeSidebarMenu == 'business-menu-2',
+            '': !$store.app.activeSidebarMenu != 'business-menu-2'
+        }">
+        <a class="parent-link" href="javascript:">
+            <span class="material-icons">work</span>
+            CRM
+        </a>
+        <ul x-show.transition.fade="$store.app.activeSidebarMenu == 'business-menu-2'">
+            <li><a href="crm-boards.html">All Boards</a></li>
+            <li><a href="crm-kanban.html">Deals Kanban</a></li>
+            <li><a href="crm-deal.html">Single Deal</a></li>
+        </ul>
+    </li>
+    <li class="have-children" @click="openSidebarMenu('business-menu-3')" :class="{
+            'active': $store.app.activeSidebarMenu == 'business-menu-3',
+            '': !$store.app.activeSidebarMenu != 'business-menu-3'
+        }">
+        <a class="parent-link" href="javascript:">
+            <span class="material-icons">verified_user</span>
+            Support Desk
+        </a>
+        <ul x-show.transition.fade="$store.app.activeSidebarMenu == 'business-menu-3'">
+            <li><a href="support-dashboard.html">Desk Dashboard</a></li>
+            <li><a href="support-tickets.html">Ticket list</a></li>
+            <li><a href="support-ticket.html">Single Ticket</a></li>
+        </ul>
+    </li>
+</ul>

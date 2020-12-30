@@ -1,0 +1,45 @@
+/*! _pricing.scss | Bold | Css ninja 2020-2021 */
+
+/*
+    1. Regular Pricing
+*/
+
+/* ==========================================================================
+1. Regular Pricing
+========================================================================== */
+
+.pricing-table {
+    .pricing-plan {
+        border: 1px solid $border;
+        box-shadow: none;
+
+        &.is-active {
+            box-shadow: $light-box-shadow !important;
+            border: 1px solid $border !important;
+        }
+
+        .plan-header {
+            font-family: $font-alt;
+            color: $dark-text;
+        }
+
+        .plan-price, .plan-items {
+            font-family: $font;
+
+            .plan-item {
+                background: $widget-grey;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .pricing-table {
+        .pricing-plan {
+            width: 100%;
+            border: 1px solid $border !important;
+        }
+    }
+
+}

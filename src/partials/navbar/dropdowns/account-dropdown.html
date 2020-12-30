@@ -1,0 +1,45 @@
+<!-- Account dropdown -->
+<div class="drop-pop">
+    <div class="icon-button accounts-button" @click="openNavbarDropdowns('account-nav-drop')"  @click.away="closeNavbarDropdowns('account-nav-drop')">
+        <img src="https://via.placeholder.com/150x150" alt="" data-demo-src="/img/avatars/helen.jpg">
+    </div>
+    <div class="drop-wrapper accounts-drop" :class="{
+            'is-active': accountDropOpened,
+            '': !accountDropOpened
+        }">
+        <div class="drop-inner has-arrow">
+            <div class="head-block">
+                <img src="https://via.placeholder.com/150x150" alt="" data-demo-src="/img/avatars/helen.jpg">
+                <h3>Helen Miller</h3>
+                <p>helen@cssninja.io</p>
+                <a class="button is-rounded">Manage Account</a>
+            </div>
+            <div class="accounts-block">
+                <a class="account">
+                    <img src="https://via.placeholder.com/150x150" alt="" data-demo-src="/img/avatars/elie.jpg">
+                    <div class="meta">
+                        <span>Elie Daniels</span>
+                        <span>elie@cssninja.io</span>
+                    </div>
+                </a>
+                <a class="account">
+                    <img src="https://via.placeholder.com/150x150" alt="" data-demo-src="/img/avatars/hanzo.svg">
+                    <div class="meta">
+                        <span>Css Ninja</span>
+                        <span>hanzo@cssninja.io</span>
+                    </div>
+                </a>
+                <a class="account">
+                    <img src="https://via.placeholder.com/150x150" alt="" data-demo-src="/img/avatars/lakisha.jpg">
+                    <div class="meta">
+                        <span>Lakisha Williams</span>
+                        <span>lakisha@cssninja.io</span>
+                    </div>
+                </a>
+            </div>
+            <div class="logout-block">
+                <a class="button">Logout from all accounts</a>
+            </div>
+        </div>
+    </div>
+</div>

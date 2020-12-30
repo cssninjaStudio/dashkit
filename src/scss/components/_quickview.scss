@@ -1,0 +1,186 @@
+/*! _quickview.scss | Dashkit | CSS Ninja */
+
+/* ==========================================================================
+Quickview extension
+========================================================================== */
+
+/***
+TABLE OF CONTENTS
+=============================================================================
+0. Variables
+1. Base styles
+2. Header
+3. Body
+4. Footer
+5. Media Queries
+=============================================================================
+***/
+
+/* ==========================================================================
+0. Variables
+========================================================================== */
+
+$quickview-shadow: 5px 0px 13px 3px rgba(0, 0, 0, 0.1) !default;
+$quickview-divider: 1px solid $fade-grey !default;
+
+/* ==========================================================================
+1. Base styles
+========================================================================== */
+.quickview {
+    display: flex;
+    flex-direction: column;
+    background-color: $white;
+    min-width: 300px;
+    max-width: 300px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 999;
+    transition: 0.3s ease;
+    backface-visibility: hidden;
+    perspective: 1000;
+    will-change: transform;
+
+    &.is-right {
+        //left: auto;
+        right: 0;
+        transform: translateX(100%);
+
+        //active state
+        &.is-active {
+            transform: translateX(0) !important;
+            box-shadow: $quickview-shadow;
+        }
+
+        &.is-chat {
+            min-width: 400px !important;
+            max-width: 400px !important;
+            transform: translateX(100%);
+        }
+    }
+
+    &.is-left {
+        left: -300px;
+
+        //active state
+        &.is-active {
+            left: 100%;
+            box-shadow: $quickview-shadow;
+        }
+    }
+}
+
+/* ==========================================================================
+2. Header
+========================================================================== */
+.quickview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    min-height: 66px !important;
+    border-bottom: $quickview-divider;
+    background: lighten($fade-grey, 5%);
+
+    //title
+    .title {
+        margin-bottom: 0;
+    }
+
+    //secondary header
+    &.is-secondary {
+        background: $secondary;
+
+        p {
+            color: $white;
+            font-size: 1.4rem;
+            font-weight: 400;
+        }
+
+        i {
+            color: $white;
+            font-size: 20px;
+        }
+    }
+
+    p {
+        color: $muted-grey;
+        font-size: 1.4rem;
+        font-weight: 400;
+    }
+
+    i {
+        color: $muted-grey !important;
+        font-size: 20px;
+    }
+
+    //close icon
+    .cross-container {
+        transition: transform 0.3s;
+
+        &:hover {
+            //transform: rotate(90deg);
+        }
+    }
+
+    .material-icons {
+        display: block;
+        color: $muted-grey;
+        transition: transform 0.3s;
+        cursor: pointer;
+
+        &:hover {
+            //transform: rotate(180deg);
+        }
+    }
+}
+
+/* ==========================================================================
+3. Body
+========================================================================== */
+.quickview-body {
+    -webkit-box-flex: 1;
+    flex: 1 1 0%;
+}
+
+/* ==========================================================================
+4. Footer
+========================================================================== */
+.quickview-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    min-height: 4rem;
+    background-color: $white;
+    border-top: $quickview-divider;
+
+    > * {
+        margin: 0 0.4rem;
+    }
+}
+
+
+/* ==========================================================================
+5. Media Queries
+========================================================================== */
+
+@media (max-width: 767px) {
+    .quickview {
+        &.is-active {
+            min-width: 100%;
+            z-index: 1001;
+    
+            .user-list {
+                max-height: 346px !important;
+            }
+        }
+
+        &.chat-quickview {
+            &.is-active {
+                min-width: 100%;
+                z-index: 1002 !important;
+            }
+        }
+    }
+}

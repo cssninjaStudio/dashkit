@@ -1,0 +1,47 @@
+<!-- Profile wrapper -->
+<ul class="profile">
+    <li>
+        <!-- Profile avatar -->
+        <a class="profile-trigger" href="javascript:" @click="toggleProfile()">
+            <img class="main-menu-avatar" src="https://via.placeholder.com/150x150" alt=""
+                data-demo-src="/img/avatars/helen.jpg" :class="{
+                    'vanish': $store.app.isProfileOpen,
+                    '': !$store.app.isProfileOpen
+                }">
+            <span class="dot" :class="{
+                'vanish': $store.app.isProfileOpen,
+                '': !$store.app.isProfileOpen
+            }"></span>
+        </a>
+
+        <!-- Profile avatar -->
+        <div class="special-fab js-hamburger" :class="{
+                'is-active': $store.app.isProfileOpen,
+                '': !$store.app.isProfileOpen
+            }">
+            <!-- Profile page wrapper -->
+            <div class="profile-container">
+                <div class="inner">
+                    {{> profile-cover}}
+
+                    <!-- Profile Sections -->
+                    <div class="profile-sections-outer">
+                        <div class="profile-sections-wrapper">
+
+                            {{> profile-details}}
+
+                            {{> profile-team}}
+
+                            {{> profile-notifications}}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Profile page wrapper -->
+            <div class="fab__ripple"></div>
+            <div class="hamburger"></div>
+        </div>
+
+    </li>
+</ul>

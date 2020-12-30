@@ -1,0 +1,65 @@
+/*! Dashkit | Css ninja 2020-2021 */
+
+/* ==========================================================================
+SCSS Imports
+========================================================================== */
+
+@import "icons/fontawesome";
+@import "icons/material-icons";
+@import "icons/simple-line-icons";
+@import "icons/iconsmind";
+
+@import "abstracts/variables";
+@import "abstracts/brands";
+@import "abstracts/shadows";
+@import "abstracts/typography";
+
+@import "../sass/bulma";
+
+@import "utilities/utilities";
+
+@import "abstracts/animations";
+@import "abstracts/helpers";
+
+@import "components/pageloader";
+@import "components/hamburger";
+@import "components/button";
+@import "components/card";
+@import "components/dropdown";
+@import "components/datepicker";
+@import "components/table";
+@import "components/tabs";
+@import "components/modal";
+@import "components/list";
+@import "components/image";
+@import "components/chart";
+@import "components/video";
+@import "components/tag";
+@import "components/pricing";
+@import "components/map";
+@import "components/quickview";
+
+@import "forms/input";
+@import "forms/toggle";
+@import "forms/checkbox";
+@import "forms/combo";
+
+@import "layout/sidebar";
+@import "layout/sidebar-right";
+@import "layout/navbar";
+@import "layout/layout";
+
+@import "pages/dashboard";
+@import "pages/widgets";
+@import "pages/feed";
+@import "pages/documents";
+@import "pages/projects";
+@import "pages/contacts";
+@import "pages/kanban";
+@import "pages/deal";
+@import "pages/forum";
+@import "pages/support";
+@import "pages/datatables";
+@import "pages/inbox";
+@import "pages/chat";
+@import "pages/auth";

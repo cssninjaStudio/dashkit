@@ -1,0 +1,96 @@
+/*! _table.scss | Bold | Css ninja 2020-2021 */
+
+/*
+    1. Tabs
+    2. Vertical Tabs
+*/
+
+/* ==========================================================================
+1. Tabs
+========================================================================== */
+
+.tabs {
+    ul li {
+        &.is-active {
+            a {
+                color: $dark-text;
+                border-color: $primary;
+            }
+        }
+
+        &:hover:not(.is-active) {
+            a {
+                color: $medium-text;
+                border-color: transparent;
+            }
+        }
+
+        a {
+            color: $light-text;
+            font-family: $font;
+            border-width: 3px;
+            border-color: transparent;
+        }
+    }
+}
+
+
+/* ==========================================================================
+2. Vertical Tabs
+========================================================================== */
+
+@media only screen and (max-width: 767px) {
+    .tabs-container {
+        &.is-vertical {
+            .tabs {
+                margin-bottom: 2.5rem;
+
+                ul {
+                    li {
+                        &.is-active {
+                            a {
+                                border-bottom-color: $primary;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .tabs-container {
+        &.is-vertical {
+            display: flex;
+
+            .tabs {
+                flex-grow: 2;
+                min-width: 25%;
+                margin-right: 60px;
+
+                ul {
+                    display: block;
+                    text-align: left;
+                    border-bottom-color: transparent !important;
+
+                    li {
+                        display: block;
+
+                        &.is-active {
+                            a {
+                                border-right-color: $primary;
+                            }
+                        }
+
+                        a {
+                            display: block;
+                            border-bottom-color: transparent !important;
+                            border-right: 3px solid #dbdbdb;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,74 @@
+<!-- Profile with cover -->
+<div id="profile-cover" class="profile-cover has-background-image" data-background="https://source.unsplash.com/ANCoz0JMhiQ/1600x900">
+    <div class="cover-overlay"></div>
+    <div class="heading-wrapper">
+        <div class="profile-heading">
+            <div class="left-side">
+                <div class="image is-128x128 avatar">
+                    <div class="avatar-overlay">
+                        <i class="fa fa-camera fa-2x"></i>
+                    </div>
+                    <img src="https://via.placeholder.com/150x150" alt="" data-demo-src="/img/avatars/helen.jpg">
+                </div>
+                <div class="name">
+                    <h3>Helen Miller</h3>
+                    <p>Sales Manager @ Acme Inc.</p>
+                    <button class="button is-primary is-rounded is-raised ripple follow">
+                        <span class="icon is-small">
+                            <i class="fa fa-check"></i>
+                        </span>
+                        <span>Follow</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="right-side">
+                <div class="stat-wrap has-text-centered is-hidden-mobile">
+                    <p class="stat-val">74</p>
+                    <p class="stat-key">Projects</p>
+                </div>
+                <div class="stat-wrap has-text-centered is-hidden-mobile">
+                    <p class="stat-val">179</p>
+                    <p class="stat-key">Deals</p>
+                </div>
+                <div class="stat-wrap has-text-centered is-hidden-mobile">
+                    <p class="stat-val">963</p>
+                    <p class="stat-key">Leads</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile menu FAB -->
+    <div class="profile-fab" @click="toggleProfileFab()" :class="{
+            'is-open': profileFabOpen,
+            '': !profileFabOpen
+        }">
+        <div class="fab-wrapper">
+            <button @click="switchProfileView('notifications-tab'), toggleProfileFab()" class="notifications fab-btn mini ripple">
+                <i class="material-icons no-click">notifications</i>
+            </button>
+            <button @click="switchProfileView('team-tab'), toggleProfileFab()" class="team fab-btn mini ripple">
+                <i class="material-icons no-click">work_outline</i>
+            </button>
+            <button @click="switchProfileView('overview-tab'), toggleProfileFab()" class="details fab-btn mini ripple">
+                <i class="material-icons no-click">verified_user</i>
+            </button>
+            <button id="profile-fab-trigger" class="fab-btn pop-fab">
+                <span class="profile-menu-wrapper">
+                    <span class="icon-box-toggle" :class="{
+                            'active': profileFabOpen,
+                            '': !profileFabOpen
+                        }">
+                        <span class="rotate">
+                            <i class="icon-line-top"></i>
+                            <i class="icon-line-center"></i>
+                            <i class="icon-line-bottom"></i>
+                        </span>
+                    </span>
+                </span>
+            </button>
+        </div>
+    </div>
+
+</div>

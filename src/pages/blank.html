@@ -1,0 +1,33 @@
+---
+layout: default
+title: Blank
+---
+
+<!-- Main dashboard container -->
+<div id="dashboard-wrapper" class="dashboard-outer" x-data="initBlank()" :class="{
+        'is-pushed': $store.app.sidebarOpenedState,
+        '': !$store.app.sidebarOpenedState
+    }">
+    <div class="dashboard-inner">
+
+        <!-- Dashboard Wrapper -->
+        <div class="dashboard-wrapper">
+
+            <div id="main-dashboard" class="section-wrapper">
+                <!-- Dashboard content -->
+                <div class="dashboard-columns">
+
+                    <div class="columns is-multiline">
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,1446 @@
+/* Dashkit | 2020-2021 | CSS Ninja */
+
+/* ==========================================================================
+Support pages
+========================================================================== */
+
+/***
+TABLE OF CONTENTS
+=============================================================================
+0. Title
+1. Support Dashboard
+2. Activity Sidebar
+3. Ticket List
+4. Ticket details
+5. Ticket details Sidebar
+6. Media Queries
+=============================================================================
+***/
+
+/* ==========================================================================
+0. Title
+========================================================================== */
+
+.support-title-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    .support-image {
+        display: block;
+        height: 75px;
+        width: 75px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .inner-wrap {
+        .support-title {
+            font-size: 1.6rem;
+            font-family: $font-alt;
+            font-weight: 600;
+            color: $blue-grey;
+            max-width: 380px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .title-meta {
+            display: flex;
+            align-items: center;
+
+            .meta {
+                display: flex;
+                align-items: center;
+                margin-right: 6px;
+
+                .material-icons {
+                    font-size: 20px;
+                    margin-right: 3px;
+                    color: $light-text;
+                }
+
+                .sl {
+                    font-size: 16px;
+                    margin-right: 3px;
+                    color: $light-text;
+                }
+
+                span, a {
+                    display: block;
+                    font-family: $font;
+                    font-weight: 400;
+                    color: $light-text;
+                    font-size: .9rem;
+                }
+
+                a {
+                    transition: all .3s;
+
+                    &:hover {
+                        color: $secondary;
+                    }
+                }
+            }
+        }
+    }
+
+    .actions {
+        display: flex;
+        margin-left: auto;
+
+        .activity-button, .action-button {
+            height: 40px;
+            width: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            border-radius: 50%;
+            transition: background-color .3s;
+            cursor: pointer;
+
+            &:hover {
+                background: $support-grey-light;
+
+                i {
+                    color: $secondary;
+                }
+            }
+
+            i {
+                font-size: 20px;
+                color: $muted-grey;
+                transition: color .3s;
+            }
+        }
+
+        .button:not(.is-round) {
+            height: 40px !important;
+            margin-left: 8px;
+            min-width: 100px;
+
+            &.is-rounded {
+                min-width: 120px;
+            }
+
+            i {
+                padding-right: 0;
+            }
+        }
+
+        &.is-round {
+            &:hover {
+                background: $white !important;
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+1. Support Dashboard
+========================================================================== */
+
+.support-dashboard {
+    margin: 20px 0;
+
+    .chrono {
+        position: relative;
+        min-height: 200px;
+
+        .count {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90px;
+            width: 90px;
+            min-width: 90px;
+            margin: 0 auto;
+            transform: translateY(-50%);
+            z-index: 5;
+
+            span {
+                position: relative;
+                top: -5px;
+                display: block;
+                font-size: 2.6rem;
+                font-weight: 600;
+                color: $smoke-white;
+                text-shadow: 1px 1px 16px rgba(150, 150, 150, 1);
+            }
+        }
+
+        .peity, .support-pie {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 90px;
+            width: 90px;
+            min-width: 90px;
+            margin: 0 auto;
+            transform: translateY(-50%);
+
+            .apexcharts-canvas {
+                top: 1px;
+                left: -34px !important;
+            }
+        }
+
+        #mainCircle {
+            position: relative;
+            top: 40px;
+            margin: 0 auto;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: solid 12px #B0BDC4;
+        }
+
+        #secondCircle {
+            position: relative;
+            top: 0;
+            left: -12px;
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+            background-color: #6eadea;
+        }
+
+        #thirdCircle {
+            position: relative;
+            top: -10px;
+            left: -3px;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            border: solid 5px #f9f9f9;
+            background-color: #6eadea;
+        }
+
+        #buttonOneBasis {
+            position: absolute;
+            top: -22px;
+            left: 41px;
+            width: 16px;
+            height: 7px;
+            background-color: #B0BDC4;
+        }
+
+        #buttonOne {
+            position: absolute;
+            top: -12px;
+            left: -6px;
+            width: 28px;
+            height: 10px;
+            background-color: #B0BDC4;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        #buttonTwoBasis {
+            position: absolute;
+            top: 0px;
+            left: -9px;
+            width: 14px;
+            height: 7px;
+            background-color: #B0BDC4;
+            transform: rotate(-48deg);
+        }
+
+        #buttonTwo {
+            position: absolute;
+            top: -10px;
+            left: -4px;
+            width: 22px;
+            height: 8px;
+            background-color: #B0BDC4;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+    }
+
+    .stacks {
+        height: 170px;
+        width: 200px;
+        position: relative;
+        margin: 0 auto;
+        display: flex;
+        margin-bottom: 30px;
+
+        .left, .right {
+            position: relative;
+            height: 100%;
+            width: 50%;
+            max-width: 100px;
+        }
+
+        .shape-left {
+            position: absolute;
+            bottom: 0;
+            right: 6px;
+            margin: 0 auto;
+            height: 10px;
+            width: 50px;
+            border-radius: 2px;
+            transform: skewX(-45deg);
+
+            &:nth-child(odd) {
+                background: $primary;
+            }
+
+            &:nth-child(even) {
+                background: $white;
+            }
+        }
+
+        .shape-right {
+            position: absolute;
+            bottom: 0;
+            left: 6px;
+            margin: 0 auto;
+            height: 10px;
+            width: 50px;
+            border-radius: 2px;
+            transform: skewX(-45deg);
+
+            &:nth-child(odd) {
+                background: $support-grey-light;
+            }
+
+            &:nth-child(even) {
+                background: $white;
+            }
+        }
+    }
+
+    .support-box {
+        padding: 20px;
+
+        .box-title {
+            color: $blue-grey;
+            font-size: 1.1rem;
+            font-family: $font-alt;
+            font-weight: 600;
+        }
+
+        .box-image {
+            display: block;
+            height: 200px;
+            width: 200px;
+            margin: 0 auto;
+        }
+
+        .channels {
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 0 1rem;
+
+            .channel-icon {
+                flex: 1 1 0px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 52px;
+
+                i {
+                    position: relative;
+                    top: 10px;
+                    font-size: 16px;
+                    color: $placeholder;
+                }
+            }
+        }
+
+        #support-chart {
+            max-height: 200px;
+        }
+
+        .box-meta {
+            text-align: center;
+
+            p {
+                &:first-child {
+                    color: $blue-grey;
+                    font-size: 1rem;
+                    font-family: $font-alt;
+                    font-weight: 600;
+                    margin-bottom: 0;
+                }
+
+                &:nth-child(2) {
+                    font-family: $font;
+                    color: $light-text;
+                }
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+2. Activity Sidebar
+========================================================================== */
+
+.support-activity-quickview {
+    .quickview-header {
+        background: $white;
+        border-bottom-color: transparent;
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: $font-alt;
+            color: $blue-grey;
+        }
+
+        .material-icons {
+            font-size: 20px;
+        }
+    }
+
+    .quickview-body {
+        position: relative;
+        max-height: calc(100% - 122px);
+
+        .body-inner {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            padding: 10px 0;
+            overflow-y: auto;
+
+            .activity-block {
+                display: flex;
+                align-items: stretch;
+                padding: 12px;
+
+                img {
+                    display: block;
+                    height: 38px;
+                    width: 38px;
+                    border-radius: 50%;
+                }
+
+                .block-content {
+                    margin-left: 12px;
+
+                    p {
+                        font-family: $font;
+                        font-size: .95rem;
+                        color: $blue-grey;
+                        margin-bottom: 0;
+
+                        b {
+                            font-weight: 500;
+                            color: $blue-grey;
+                        }
+                    }
+
+                    span {
+                        font-family: $font;
+                        display: block;
+                        font-size: .9rem;
+                        color: $light-text;
+                    }
+                }
+            }
+        }
+    }
+
+    .quickview-footer {
+        background: $white;
+    }
+}
+
+/* ==========================================================================
+3. Ticket List
+========================================================================== */
+
+.support-tickets {
+    padding-bottom: 60px;
+
+    .is-ticket-list {
+        margin: 20px 0 20px 0;
+        border-radius: 6px;
+        padding: 20px;
+
+        .contacts-list-header {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+        }
+
+        .table {
+            width: 100%;
+
+            .b-checkbox {
+                display: flex;
+                min-height: 18px;
+                max-width: 18px;
+                margin: 0 auto;
+            }
+
+            th {
+                font-weight: 500;
+                vertical-align: middle;
+                padding: 7px 0;
+
+                &.w-50 {
+                    width: 50%;
+                }
+
+                &.w-35 {
+                    width: 35%;
+                }
+
+                &.w-5 {
+                    width: 5%;
+                }
+
+                .b-checkbox {
+                    margin: 0 auto;
+                }
+
+                .dropdown {
+                    &.filter-dropdown {
+                        .drodown-menu {
+                            width: 200px;
+                        }
+
+                        .dropdown-item {
+                            span {
+                                .fa, .fas {
+                                    margin-right: 10px;
+                                    color: $secondary;
+                                    visibility: hidden;
+                                }
+                            }
+
+                            &.is-spaced {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                padding-right: 1rem !important;
+
+                                > span {
+                                    display: block;
+                                }
+
+                                .material-icons {
+                                    font-size: 22px;
+                                    line-height: 0;
+                                }
+                            }
+
+                            &.is-active {
+                                background-color: transparent !important;
+                                color: $secondary !important;
+                                font-weight: 500;
+
+                                .fa, .fas {
+                                    visibility: visible;
+                                }
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        .button {
+                            background: $widget-grey;
+                        }
+                    }
+
+                    .button {
+                        display: flex;
+                        align-items: center;
+                        padding: 0 8px;
+                        border-radius: 100px;
+
+                        i {
+                            font-size: 20px;
+                            padding-right: 0 !important;
+                        }
+                    }
+
+                    .filter-title {
+                        text-transform: uppercase;
+                        font-size: .8rem !important;
+                        font-weight: 600 !important;
+                        font-family: $font;
+                        pointer-events: none;
+                    }
+
+                    .dropdown-item {
+                        font-family: $font;
+                        font-size: 1rem;
+                        font-weight: normal;
+                    }
+                }
+            }
+
+            td {
+                font-family: $font;
+                vertical-align: middle;
+                padding: 0.75em;
+
+                &.ticket-id {
+                    max-width: 110px;
+                    font-weight: 600;
+                    font-size: .85rem;
+                    color: $muted-grey;
+                }
+
+                &.ticket-name {
+                    font-weight: 600;
+                    color: $blue-grey;
+
+                    span {
+                        display: block;
+                        max-width: 300px;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                    }
+                }
+
+                &.priority-type {
+                    width: 82px;
+
+                    &.is-high {
+                        .dot {
+                            border-color: $red;
+                        }
+                    }
+
+                    &.is-medium {
+                        .dot {
+                            border-color: $orange;
+                        }
+                    }
+
+                    &.is-low {
+                        .dot {
+                            border-color: $green;
+                        }
+                    }
+
+                    .dot {
+                        height: 14px;
+                        width: 14px;
+                        border-radius: 50%;
+                        border: 2px solid $support-grey-light;
+                        margin: 0 auto;
+                    }
+                }
+
+                &.assignee {
+                    .inner {
+                        display: flex;
+                        align-items: center;
+
+                        img {
+                            display: block;
+                            min-width: 30px;
+                            max-width: 30px;
+                            max-height: 30px;
+                            border-radius: 50%;
+                            object-fit: cover;
+                            margin: 0 auto;
+                        }
+                    }
+                }
+
+                &.modifications {
+                    span {
+                        display: block;
+
+                        small {
+                            color: $muted-grey;
+                        }
+
+                        .date {
+                            display: inline-block;
+                            font-size: .95rem;
+                            font-weight: 500;
+                        }
+
+                        .time {
+                            display: inline-block;
+                            font-size: .85rem;
+                            color: $muted-grey;
+                        }
+                    }
+                }
+
+                &.ticket-age {
+                    font-size: .9rem;
+                    color: $muted-grey;
+                }
+
+                &.status {
+                    color: $muted-grey;
+
+                    &.is-new {
+                        .tag {
+                            background: $green;
+                            color: $smoke-white;
+                        }
+                    }
+
+                    &.is-open {
+                        .tag {
+                            background: $blue;
+                            color: $smoke-white;
+                        }
+                    }
+
+                    &.is-in-progress {
+                        .tag {
+                            background: $secondary;
+                            color: $smoke-white;
+                        }
+                    }
+
+                    &.is-escalated {
+                        .tag {
+                            background: $orange;
+                            color: $smoke-white;
+                        }
+                    }
+
+                    .inner {
+                        display: flex;
+                        align-items: center;
+                    }
+
+                    span {
+                        display: block;
+                    }
+
+                    button {
+                        margin-left: auto;
+                        visibility: hidden;
+                        pointer-events: none;
+                    }
+
+                    .tag {
+                        margin-bottom: 0;
+                        line-height: 1.8;
+                        font-weight: 500;
+                        border-radius: 100px;
+                        min-width: 46px;
+                        text-align: center;
+                    }
+                }
+
+                &.actions {
+                    .button {
+                        border: 1px solid transparent;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 32px;
+                        height: 32px;
+
+                        i {
+                            padding: 0;
+                            top: 0 !important;
+                            font-size: 20px;
+                        }
+                    }
+
+                    .dropdown {
+                        position: relative;
+                        top: 2px;
+                        margin-left: auto;
+                    }
+                }
+
+                .dropdown-menu {
+                    &.is-text-bigger {
+                        .dropdown-item {
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+
+            tr {
+                padding: 8px 0;
+
+                &.is-highlighted {
+                    background: $fade-grey;
+                }
+
+                &.is-closed {
+                    .ticket-name {
+                        opacity: .5;
+                    }
+                }
+
+                &:hover {
+                    .contact-preview {
+                        .inner {
+                            i {
+                                display: block;
+                            }
+                        }
+                    }
+
+                    .status {
+                        button {
+                            visibility: visible;
+                            pointer-events: all;
+                        }
+                    }
+
+                    .actions {
+                        .button {
+                            border-color: $placeholder;
+                            background: $white !important;
+                        }
+                    }
+
+                    .button {
+                        &:hover {
+                            border-color: $secondary;
+                            color: $secondary;
+
+                            i {
+                                color: $secondary;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .support-pagination {
+        margin: 0 auto;
+        max-width: 308px;
+        border-radius: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: $white;
+        padding: 3px;
+
+        .pagination-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 40px;
+            width: 40px;
+            margin: 2px;
+            border-radius: 50%;
+            transition: all .3s;
+
+            &:hover {
+                background: lighten($fade-grey, 4%);
+            }
+
+            &.is-active {
+                background: $secondary;
+                box-shadow: $secondary-box-shadow;
+
+                span, .material-icons {
+                    color: $smoke-white;
+                }
+            }
+
+            .material-icons {
+                font-size: 20px;
+                color: $muted-grey;
+            }
+
+            span {
+                display: block;
+                font-size: .9rem;
+                font-weight: 600;
+                color: $muted-grey;
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+4. Ticket details
+========================================================================== */
+
+.ticket-wrapper {
+    .ticket-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            display: block;
+            height: 80px;
+            width: 80px;
+            border-radius: 50%;
+            margin: 0 auto;
+        }
+
+        .ticket-heading {
+            margin: 20px 0;
+
+            h2 {
+                font-size: 1.6rem;
+                font-family: $font-alt;
+                font-weight: 600;
+                color: $blue-grey;
+            }
+
+            span {
+                display: block;
+                color: $light-text;
+                font-family: $font;
+                font-size: 1.1rem;
+                margin: 10px 0;
+            }
+        }
+    }
+
+    .ticket-body {
+        max-width: 760px;
+        margin: 40px auto;
+
+        .conversation-wrap {
+            width: 100%;
+            margin-bottom: 40px;
+
+            &:nth-child(odd) {
+                .conversation-inner {
+                    flex-direction: row-reverse;
+
+                    .conversation-box {
+                        position: relative;
+                        width: 100%;
+                        background: #f7faff;
+                        border: 1px solid #c1d9ff;
+                        border-radius: 4px;
+                        margin-right: 20px;
+                        padding: 40px;
+
+                        &:after, &:before {
+                            left: 100%;
+                            top: 25px;
+                            border: solid transparent;
+                            content: " ";
+                            height: 0;
+                            width: 0;
+                            position: absolute;
+                            pointer-events: none;
+                        }
+
+                        &:after {
+                            border-color: rgba(255, 255, 255, 0);
+                            border-left-color: #f7faff;
+                            border-width: 8px;
+                            margin-top: -8px;
+                        }
+
+                        &:before {
+                            border-color: rgba(237, 237, 237, 0);
+                            border-left-color: #c1d9ff;
+                            border-width: 9px;
+                            margin-top: -9px;
+                        }
+                    }
+                }
+
+                .controls {
+                    margin-right: 70px;
+                }
+            }
+
+            &:nth-child(even) {
+                .conversation-inner {
+                    flex-direction: row;
+
+                    .conversation-box {
+                        position: relative;
+                        width: 100%;
+                        background: #fff;
+                        border: 1px solid #ededed;
+                        border-radius: 4px;
+                        margin-left: 20px;
+                        padding: 40px;
+
+                        &:after, &:before {
+                            right: 100%;
+                            top: 25px;
+                            border: solid transparent;
+                            content: " ";
+                            height: 0;
+                            width: 0;
+                            position: absolute;
+                            pointer-events: none;
+                        }
+
+                        &:after {
+                            border-color: rgba(255, 255, 255, 0);
+                            border-right-color: $white;
+                            border-width: 8px;
+                            margin-top: -8px;
+                        }
+
+                        &:before {
+                            border-color: rgba(237, 237, 237, 0);
+                            border-right-color: darken($fade-grey, 3%);
+                            border-width: 9px;
+                            margin-top: -9px;
+                        }
+                    }
+                }
+
+                .controls {
+                    margin-left: 70px;
+                }
+            }
+
+            .conversation-inner {
+                display: flex;
+                justify-content: flex-start;
+                align-items: stretch;
+
+                img {
+                    display: block;
+                    height: 50px;
+                    width: 50px;
+                    border-radius: 50%;
+                }
+            }
+
+            .controls {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 10px 0;
+
+                .timestamp {
+                    display: block;
+                    font-size: .95rem;
+                    font-family: $font;
+                    color: $light-text;
+                    margin-left: 10px;
+                }
+
+                .button-group {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                }
+
+                .conversation-control {
+                    height: 34px;
+                    width: 34px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 0 4px;
+                    border-radius: 50%;
+                    transition: background-color .3s;
+                    cursor: pointer;
+
+                    &:hover {
+                        background: $white;
+
+                        i {
+                            color: $blue-grey;
+                        }
+                    }
+
+                    i {
+                        font-size: 16px;
+                        color: $light-text;
+                        transition: color .3s;
+                    }
+                }
+            }
+        }
+    }
+
+    .compose-message {
+        display: flex;
+        align-items: stretch;
+        max-width: 680px;
+        padding: 12px;
+        border: 1px solid $border;
+        border-radius: 100px;
+        background: $white;
+        margin: 20px auto 10px auto;
+        transition: all .3s;
+
+        &.is-expanded {
+            border-radius: 6px;
+
+            .control {
+                min-height: 200px;
+            }
+        }
+
+        img {
+            display: block;
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+        }
+
+        .control {
+            position: relative;
+            margin-left: 12px;
+            width: 100%;
+            transition: all .3s;
+
+            .textarea {
+                box-shadow: none !important;
+                border-color: transparent;
+                resize: none;
+                transition: all .3s;
+            }
+
+            .send-button {
+                position: absolute;
+                top: 0;
+                right: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+                padding: 0;
+                transition: all .3s;
+
+                &:hover {
+                    background: $secondary;
+                    border-color: $secondary;
+                    box-shadow: $secondary-box-shadow;
+
+                    i {
+                        color: $smoke-white;
+                    }
+                }
+
+                i {
+                    position: relative;
+                    right: -2px;
+                    font-size: 18px;
+                    color: $support-grey-light;
+                    padding: 0;
+                    transition: color .3s;
+                }
+            }
+        }
+    }
+
+    .add-attachments {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 680px;
+        min-height: 48px;
+        margin: 0 auto 60px auto;
+
+        .upload {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+            color: $secondary;
+            font-weight: 500;
+            cursor: pointer;
+            user-select: none;
+
+            input {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                z-index: 1;
+            }
+
+            .main-preview {
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                z-index: -1;
+            }
+
+            span {
+                position: relative;
+                display: block;
+                margin-left: 2px;
+                z-index: 0;
+            }
+
+            i {
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+.small-uploader {
+    .uploader-previews {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+
+        .uploader-preview {
+            position: relative;
+            height: 48px;
+            width: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: $white;
+            border-radius: 50%;
+
+            &:not(:first-child) {
+                $var: 12;
+
+                @for $i from 1 through 99 {
+                    &:nth-child(#{$i}) {
+                        margin-left: -#{$var}px;
+                    }
+                }
+            }
+
+            img {
+                height: 38px;
+                width: 38px;
+                display: block;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+
+            .remove {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 22px;
+                width: 22px;
+
+                .button {
+                    padding: 0;
+                    height: 22px;
+                    width: 22px;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    i {
+                        font-size: 12px;
+                        font-weight: 600;
+                        padding: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+5. Ticket Sidebar
+========================================================================== */
+
+.ticket-details-quickview {
+    .quickview-header {
+        background: $white;
+        border-bottom-color: transparent;
+
+        h3 {
+            font-size: 1.1rem;
+            font-family: $font-alt;
+            font-weight: 600;
+        }
+
+        .material-icons {
+            font-size: 20px;
+        }
+    }
+
+    .quickview-body {
+        position: relative;
+        max-height: calc(100% - 122px);
+
+        .body-inner {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            padding: 10px 0;
+            overflow-y: auto;
+
+            .field {
+                display: block;
+                padding: 6px 12px;
+                margin-bottom: 0;
+                height: auto;
+
+                .control {
+                    margin-bottom: 0;
+                    width: 100%;
+                }
+
+                .combo-label, .grey-label-compact {
+                    text-transform: uppercase;
+                }
+
+                .sidebar-tags {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    margin-top: 10px;
+
+                    .control {
+                        margin-right: 8px;
+                        width: auto;
+
+                        .tag {
+                            &.is-link {
+                                background: $fade-grey;
+                                color: $blue-grey;
+                            }
+                        }
+                    }
+                }
+
+                .add-tags {
+                    display: flex;
+                    align-items: center;
+                    color: $secondary;
+                    margin-top: 16px;
+
+                    span {
+                        position: relative;
+                        display: block;
+                        font-weight: 500;
+                        margin-left: 2px;
+                        z-index: 0;
+                    }
+
+                    i {
+                        font-size: 18px;
+                    }
+                }
+            }
+
+            .datepicker-field {
+                .control {
+                    position: relative;
+
+                    input {
+                        border: 1px solid darken($fade-grey, 4%);
+                        border-radius: 4px;
+                        height: 40px;
+                        font-size: 1rem;
+                        padding-left: 40px;
+                        transition: all .3s;
+
+                        &:focus {
+                            + .form-icon i {
+                                color: $secondary;
+                            }
+                        }
+                    }
+
+                    .form-icon {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 40px;
+                        width: 40px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+
+                        i {
+                            color: $muted-grey;
+                            font-size: 20px;
+                            transition: all .3s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .quickview-footer {
+        background: lighten($fade-grey, 3%);
+
+        .button {
+            line-height: 0;
+            max-width: 180px;
+        }
+    }
+}
+
+/* ==========================================================================
+6. Media Queries
+========================================================================== */
+
+@media only screen and (max-width: 767px) {
+    .support-title-wrapper {
+        &.is-mobile {
+            flex-direction: column;
+
+            img {
+                margin-right: 0;
+            }
+
+            .support-title {
+                text-align: center;
+            }
+
+            .actions {
+                margin: 20px 0 0 0;
+                justify-content: space-between;
+                width: 100%;
+            }
+        }
+    }
+
+    .is-ticket-list {
+        max-width: 100% !important;
+        overflow-x: auto !important;
+    }
+
+    .controls .button-group {
+        display: none !important;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .is-ticket-list {
+        max-width: 100% !important;
+        overflow-x: auto !important;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .support-tickets {
+        .is-ticket-list {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+        }
+    }
+}

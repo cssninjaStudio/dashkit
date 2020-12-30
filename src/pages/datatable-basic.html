@@ -1,0 +1,45 @@
+---
+layout: default
+title: Basic Datatable
+---
+
+<!-- Main dashboard container -->
+<div id="dashboard-wrapper" class="dashboard-outer" x-data="initDatatableBasic()" :class="{
+        'is-pushed': $store.app.sidebarOpenedState,
+        '': !$store.app.sidebarOpenedState
+    }">
+    <div class="dashboard-inner">
+
+        <!-- Dashboard Wrapper -->
+        <div class="dashboard-wrapper">
+
+            <div id="main-dashboard" class="section-wrapper">
+                <!-- Dashboard content -->
+                <div class="dashboard-columns">
+
+                    <h2 class="demo-title is-font-alt">Basic Datatable</h2>
+
+                    <!-- Basic Datatable -->
+                    <div class="table-wrapper">
+                        <table id="basic-datatable" class="table is-datatable">
+                            <thead>
+                                <tr>
+                                    <th>Firstname</th>
+                                    <th>Lastname</th>
+                                    <th>Position</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <div id="paging-first-datatable" class="pagination"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

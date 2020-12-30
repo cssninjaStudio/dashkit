@@ -1,0 +1,78 @@
+<!-- Top Navbar -->
+<nav class="navbar dashboard-nav" x-data="initNavbar()"  x-on:scroll.window="scroll()" :class="{
+        'is-pushed': $store.app.sidebarOpenedState,
+        '': !$store.app.sidebarOpenedState,
+        'is-scrolled': scrolled,
+        '': !scrolled
+    }">
+    <!-- Nav left -->
+    <div class="navbar-brand">
+
+        <!-- Reader mode switch -->
+        <div class="navbar-item reader-switch is-hidden-desktop is-hidden-tablet">
+            <div class="field">
+                <label class="f-switch is-primary scale-8" :class="{
+                        'is-disabled': $store.app.sidebarOpenedState,
+                        '': !$store.app.sidebarOpenedState
+                    }">
+                    <input x-on:change="toggleReaderMode()" id="reader-mode-switch" type="checkbox" class="is-primary">
+                    <i></i>
+                </label>
+            </div>
+        </div>
+
+        <!--Search-->
+        <div class="control searchbox">
+            <input x-on:keyup="searchMocked($event)" type="text" class="input search-field" placeholder="Search app...">
+            <div class="form-icon">
+                <i data-feather="search"></i>
+            </div>
+            <div id="search-results-wrapper" class="search-results has-slimscroll">
+                <div id="search-results-container" class="search-results-inner">
+
+                </div>
+                <div id="search-results-placeholder" class="search-results-placeholder is-hidden">
+                    <div class="has-text-centered">
+                        No Results Found
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a @click="openMobileMenu()" class="navbar-item hamburger-btn is-hidden-desktop" href="javascript:">
+            <span class="menu-toggle">
+                <span class="icon-box-toggle" :class="{
+                        'active': mobileOpen,
+                        '': !mobileOpen
+                    }">
+                    <span class="rotate">
+                        <i class="icon-line-top"></i>
+                        <i class="icon-line-center"></i>
+                        <i class="icon-line-bottom"></i>
+                    </span>
+                </span>
+            </span>
+        </a>
+    </div>
+
+    <!-- Nav right -->
+    <div class="navbar-menu" :class="{
+            'is-active': mobileOpen,
+            '': !mobileOpen
+        }">
+        <div class="navbar-end">
+
+            {{> notifications-dropdown}}
+
+            {{> messages-dropdown}}
+
+            <!-- Right sidebar trigger (desktop and tablet only) -->
+            <div class="icon-button chat-button" @click="openRightSidebar()">
+                <i data-feather="message-square"></i>
+                <span class="indicator is-alt"></span>
+            </div>
+
+            {{> account-dropdown}}
+        </div>
+    </div>
+</nav>

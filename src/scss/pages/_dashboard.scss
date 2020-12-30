@@ -1,0 +1,146 @@
+
+/*! _dashboard.scss | Dashkit | CSS Ninja */
+
+/* ==========================================================================
+Dashboard page
+========================================================================== */
+
+/***
+TABLE OF CONTENTS
+=============================================================================
+0. Tiles
+=============================================================================
+***/
+
+/* ==========================================================================
+0. Tiles
+========================================================================== */
+
+.dashboard-tiles {
+    padding-top: 20px;
+
+    .dashboard-tile {
+        @extend .flex-card;
+
+        overflow: visible;
+        display: flex;
+        align-items: center;
+        padding: 16px;
+        overflow: visible !important;
+
+        .icon-header i {
+            position: absolute;
+            top: -16px;
+            left: 12px;
+            padding: 22px;
+            font-size: 24px;
+            font-weight: normal;
+            color: $white;
+            border-radius: .85rem;
+
+            &.primary {
+                background-color: $primary;
+                box-shadow: $primary-box-shadow;
+            }
+
+            &.secondary {
+                background-color: $secondary;
+                box-shadow: $secondary-box-shadow;
+            }
+
+            &.accent {
+                background-color: $accent;
+                box-shadow: $accent-box-shadow;
+            }
+        }
+
+        .tile-content {
+            margin-left: 80px;
+
+            h3 {
+                font-family: $font-alt;
+                font-size: 1.4rem;
+                color: $blue-grey;
+            }
+
+            p {
+                font-family: $font;
+
+                span {
+                    &:first-child {
+                        font-family: $font;
+                        font-weight: 700;
+                        font-size: 1.6rem;
+                        color: $blue-grey;
+                    }
+
+                    &:nth-child(2) {
+                        color: $light-text;
+                    }
+                }
+            }
+        }
+
+        .view-all-button {
+            position: absolute;
+            top: -12px;
+            right: 18px;
+            height: 36px;
+            width: 36px;
+            border-radius: 50%;
+            border: 1px solid $border;
+            background: $white;
+            box-shadow: $light-box-shadow;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all .3s;
+
+            &:hover {
+                background: $secondary;
+                box-shadow: $secondary-box-shadow;
+
+                i {
+                    color: $white;
+                }
+            }
+
+            i {
+                color: $light-text;
+                transition: color .3s;
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .dashboard-tiles {
+        padding-top: 20px !important;
+
+        .dashboard-tile {
+            .icon-header i {
+                top: -10px !important;
+                left: -12px !important;
+                padding: 16px !important;
+                font-size: 20px !important;
+            }
+
+            .tile-content {
+                margin-left: 40px !important;
+
+                h3 {
+                    font-size: 1.2rem !important;
+                }
+
+                p {
+                    span {
+                        &:first-child {
+                            font-size: 1.3rem !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

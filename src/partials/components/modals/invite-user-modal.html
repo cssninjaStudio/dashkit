@@ -1,0 +1,37 @@
+<!-- Invite User Modal -->
+<div class="modal modal-md invite-user-modal" :class="{
+        'is-active': inviteMemberModalOpened,
+        '': !inviteMemberModalOpened
+    }">
+    <div @click="toggleInviteMemberModal()" class="modal-background"></div>
+    <div class="modal-content">
+        <div class="flex-card">
+            <h2 class="dark-text">Invite Users</h2>
+            <div class="card-body">
+                <div class="has-text-centered">
+                    <div class="image">
+                        <img src="/img/logo/square-violet.svg" alt="">
+                    </div>
+                    <div class="help-text has-text-left">Send an invite link via email to add members to this team</div>
+
+                    <div class="field">
+                        <div class="control has-icons-left">
+                            <input class="input is-medium" type="text" placeholder="Recipient email address">
+                            <span class="icon is-left">
+                                <i class="fa fa-envelope"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="add-more">
+                        <i class="material-icons">add</i>
+                        <span>Add another</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="button is-modal">Invite Users</button>
+            </div>
+        </div>
+    </div>
+</div>

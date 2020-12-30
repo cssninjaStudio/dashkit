@@ -1,0 +1,159 @@
+/*! _layout.scss | Dashkit | CSS Ninja */
+
+/* ==========================================================================
+Dashboard layout
+========================================================================== */
+
+/***
+TABLE OF CONTENTS
+=============================================================================
+0. Wrappers
+=============================================================================
+***/
+
+/* ==========================================================================
+0. Wrappers
+========================================================================== */
+
+body {
+    overflow-x: hidden;
+
+    //overflow-y: auto;
+}
+
+.dashboard-outer, .dashboard-wrapper {
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+
+.dashboard-outer {
+    position: relative;
+    padding: 65px 40px 80px 40px;
+    width: calc(100% - 80px);
+    min-height: 100vh;
+    margin-left: 80px;
+
+    &.is-docked {
+        padding: 0;
+
+        .dashboard-inner {
+            max-width: 100% !important;
+        }
+    }
+
+    .dashboard-inner {
+        max-width: 1340px;
+        margin: 0 auto;
+    }
+}
+
+/* ==========================================================================
+1. Media Queries
+========================================================================== */
+
+@media (max-width: 767px) {
+    body {
+        &.reader-mode {
+            .main-menu {
+                transform: translateX(-60px);
+            }
+
+            .child-menu {
+                transform: translateX(-311px);
+            }
+
+            .dashboard-nav {
+                margin-left: 0;
+                max-width: 100%;
+            }
+
+            .dashboard-outer {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+    }
+
+    .dashboard-outer {
+        margin-left: 60px;
+        width: calc(100% - 60px);
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 80px !important;
+
+        &.is-docked {
+            padding: 0 !important;
+        }
+
+        .dashboard-inner {
+            .dashboard-wrapper {
+                .dashboard-tiles {
+                    padding-top: 20px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    body {
+        &.reader-mode {
+            .main-menu {
+                transform: translateX(-100%);
+            }
+
+            .child-menu {
+                transform: translateX(-100%) translateX(-82px);
+            }
+
+            .dashboard-nav {
+                margin-left: 0;
+                max-width: 100%;
+            }
+
+            .dashboard-outer {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+    }
+
+    .dashboard-outer {
+        margin-left: 80px;
+        width: calc(100% - 80px);
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 80px !important;
+
+        &.is-docked {
+            padding: 0 !important;
+        }
+
+        .dashboard-inner {
+            .dashboard-wrapper {
+                .dashboard-tiles {
+                    padding-top: 20px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .dashboard-outer {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        width: calc(100% - 70px) !important;
+        margin-left: 70px !important;
+
+        &.is-docked {
+            padding: 0 !important;
+        }
+
+        .dashboard-inner {
+            .dashboard-wrapper {
+                margin-left: 0 !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,69 @@
+import { bb } from "billboard.js";
+import { themeColors } from '../utils/constants'
+
+export function initBillboardDonutChart() {
+    const billboardDonutChart = document.getElementById('billboardDonutChart');
+
+    if (typeof (billboardDonutChart) != 'undefined' && billboardDonutChart != null) {
+        const billboardDonutChartInstance = bb.generate({
+            data: {
+                columns: [
+                    ["data1", 30],
+                    ["data2", 120]
+                ],
+                colors: {
+                    data1: themeColors.accent,
+                    data2: themeColors.secondary,
+                    data3: themeColors.orange,
+                    data4: themeColors.purple,
+                    setosa: themeColors.orange,
+                    versicolor: themeColors.purple,
+                    virginica: themeColors.success
+                },
+                type: "donut",
+                onclick: function (d, i) {
+                    console.log("onclick", d, i);
+                },
+                onover: function (d, i) {
+                    console.log("onover", d, i);
+                },
+                onout: function (d, i) {
+                    console.log("onout", d, i);
+                }
+            },
+            donut: {
+                title: "Inner Title"
+            },
+            size: {
+                height: 280
+            },
+            padding: {
+                bottom: 20
+            },
+            legend: {
+                position: "inset"
+            },
+            bindto: "#billboardDonutChart"
+        });
+
+        setTimeout(function () {
+            billboardDonutChartInstance.load({
+                columns: [
+                    ["setosa", 0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1, 0.2, 0.2, 0.1, 0.1, 0.2, 0.4, 0.4, 0.3, 0.3, 0.3, 0.2, 0.4, 0.2, 0.5, 0.2, 0.2, 0.4, 0.2, 0.2, 0.2, 0.2, 0.4, 0.1, 0.2, 0.2, 0.2, 0.2, 0.1, 0.2, 0.2, 0.3, 0.3, 0.2, 0.6, 0.4, 0.3, 0.2, 0.2, 0.2, 0.2],
+                    ["versicolor", 1.4, 1.5, 1.5, 1.3, 1.5, 1.3, 1.6, 1.0, 1.3, 1.4, 1.0, 1.5, 1.0, 1.4, 1.3, 1.4, 1.5, 1.0, 1.5, 1.1, 1.8, 1.3, 1.5, 1.2, 1.3, 1.4, 1.4, 1.7, 1.5, 1.0, 1.1, 1.0, 1.2, 1.6, 1.5, 1.6, 1.5, 1.3, 1.3, 1.3, 1.2, 1.4, 1.2, 1.0, 1.3, 1.2, 1.3, 1.3, 1.1, 1.3],
+                    ["virginica", 2.5, 1.9, 2.1, 1.8, 2.2, 2.1, 1.7, 1.8, 1.8, 2.5, 2.0, 1.9, 2.1, 2.0, 2.4, 2.3, 1.8, 2.2, 2.3, 1.5, 2.3, 2.0, 2.0, 1.8, 2.1, 1.8, 1.8, 1.8, 2.1, 1.6, 1.9, 2.0, 2.2, 1.5, 1.4, 2.3, 2.4, 1.8, 1.8, 2.1, 2.4, 2.3, 1.9, 2.3, 2.5, 2.3, 1.9, 2.0, 2.3, 1.8],
+                ]
+            });
+        }, 1500);
+
+        setTimeout(function () {
+            billboardDonutChartInstance.unload({
+                ids: "data1"
+            });
+            billboardDonutChartInstance.unload({
+                ids: "data2"
+            });
+        }, 2500);
+    }
+
+}

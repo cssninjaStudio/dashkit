@@ -1,0 +1,203 @@
+<div id="add-conversation-modal" class="modal modal-white add-conversation-modal" :class="{
+        'is-active': newConversationModalOpened,
+        '': !newConversationModalOpened
+    }">
+    <div @click="toggleConversationModal()" class="modal-background"></div>
+    <div class="modal-content">
+
+        <div class="new-list">
+            <div class="list-header">
+                <h3>New Conversation</h3>
+                <!-- Close X button -->
+                <div class="close-wrap">
+                    <span @click="toggleConversationModal()" class="close-modal modal-dismiss">
+                        <i class="material-icons">close</i>
+                    </span>
+                </div>
+            </div>
+            <div x-show="!newConversationUserSelected" id="user-list" class="list-body has-slimscroll">
+                <div class="list-item is-chatting">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/alex.jpg" alt="" data-username="Alex Walsh"
+                        data-position="Financial analyst">
+                </div>
+                <div class="list-item is-chatting">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/elie.jpg" alt="" data-username="Elie Daniels"
+                        data-position="Head of Marketing">
+                </div>
+                <div class="list-item">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/terry.jpg" alt="" data-username="Terry Slone"
+                        data-position="Software Engineer">
+                </div>
+                <div class="list-item">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/alan.jpg" alt="" data-username="Alan Maynard"
+                        data-position="Web Developer">
+                </div>
+                <div class="list-item is-chatting">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/lakisha.jpg" alt="" data-username="Lakisha Williams"
+                        data-position="HR Manager">
+                </div>
+                <div class="list-item">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/marc.jpg" alt="" data-username="Mark Walters"
+                        data-position="graphic Designer">
+                </div>
+                <div class="list-item is-chatting">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/dan.png" alt="" data-username="Dan Walker"
+                        data-position="Business Developer">
+                </div>
+                <div class="list-item">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/carolin.png" alt="" data-username="Marjory Cambell"
+                        data-position="Business Analyst">
+                </div>
+                <div class="list-item">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/kareem.jpg" alt="" data-username="Kareem Jabbar"
+                        data-position="Accountant">
+                </div>
+                <div class="list-item">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/christina.jpg" alt="" data-username="Christina Chu"
+                        data-position="Marketing Manager">
+                </div>
+                <div class="list-item is-chatting">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/anthony.jpg" alt="" data-username="Anthony Briggs"
+                        data-position="Software Engineer">
+                </div>
+                <div class="list-item">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/aaron.jpg" alt="" data-username="Aaron Brettner"
+                        data-position="HR Consultant">
+                </div>
+                <div class="list-item">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/eric.jpg" alt="" data-username="Eric White"
+                        data-position="Web Designer">
+                </div>
+                <div class="list-item">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/elisabeth.jpg" alt="" data-username="Elisabeth Brennings"
+                        data-position="Accountant">
+                </div>
+                <div class="list-item">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/mila.jpg" alt="" data-username="Mila Mariani"
+                        data-position="Development Coach">
+                </div>
+                <div class="list-item">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/thomas.jpg" alt="" data-username="Thomas Schuller"
+                        data-position="CFO">
+                </div>
+                <div class="list-item is-chatting">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/nick.jpg" alt="" data-username="Nick Frost"
+                        data-position="Head of Sales">
+                </div>
+                <div class="list-item">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/nicole.jpg" alt="" data-username="Nicole Ferrier"
+                        data-position="Financial analyst">
+                </div>
+                <div class="list-item is-chatting">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/ray.jpg" alt="" data-username="Ray Stockton"
+                        data-position="Business Developer">
+                </div>
+                <div class="list-item">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/nina.jpg" alt="" data-username="Nina Wallace"
+                        data-position="Head of Research">
+                </div>
+                <div class="list-item">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/terry.jpg" alt="" data-username="Terry Whyatt"
+                        data-position="Senior Engineer">
+                </div>
+                <div class="list-item">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/william.jpg" alt="" data-username="William Bulugga"
+                        data-position="Junior Developer">
+                </div>
+                <div class="list-item">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/mira.jpg" alt="" data-username="Mira Shandayar"
+                        data-position="Software Architect">
+                </div>
+                <div class="list-item is-chatting">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/sally.jpg" alt="" data-username="Sally Mitchells"
+                        data-position="Lead Developer">
+                </div>
+                <div class="list-item">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/barry.jpg" alt="" data-username="Barry Bronsfield"
+                        data-position="CTO">
+                </div>
+                <div class="list-item">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/ben.jpg" alt="" data-username="Ben Smith"
+                        data-position="Financial analyst">
+                </div>
+                <div class="list-item">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/anwar.jpg" alt="" data-username="Anwar Ibrahim"
+                        data-position="Financial Consutant">
+                </div>
+                <div class="list-item">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/eric.png" alt="" data-username="John Statterfield"
+                        data-position="Mobile Developer">
+                </div>
+                <div class="list-item">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/eleanor.jpg" alt="" data-username="Eleanor Harris"
+                        data-position="Photographer">
+                </div>
+                <div class="list-item">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/jhonny.jpg" alt="" data-username="Harry Chipovski"
+                        data-position="Sales Analyst">
+                </div>
+                <div class="list-item">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/john.jpg" alt="" data-username="Eddie Mac Farlane"
+                        data-position="Virtual Reality">
+                </div>
+                <div class="list-item">
+                    <img @click="selectUser($event)" class="user-avatar" src="https://via.placeholder.com/150x150"
+                        data-demo-src="/img/avatars/marge.jpg" alt="" data-username="Marge Simpson"
+                        data-position="Outfit Designer">
+                </div>
+                <div class="list-item is-add">
+                    <a>
+                        <i class="sl icon-people"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div x-show="newConversationUserSelected" id="user-details" class="list-body">
+                <div class="details-inner">
+                    <div class="details-content">
+                        <img class="user-avatar" :src="selectedUserPhoto"
+                            data-demo-src="/img/avatars/alex.jpg" alt="">
+                        <h3 x-text="selectedUserName" class="username">Alex Walsh</h3>
+                        <p x-text="selectedUserPosition" class="user-position">Business Developer</p>
+                        <div class="button-wrap">
+                            <a @click="cancelSelection()" class="button">Cancel</a>
+                            <a @click="toggleConversationModal()"
+                                class="button is-primary is-raised ripple">Chat</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

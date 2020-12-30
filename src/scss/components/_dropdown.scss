@@ -1,0 +1,131 @@
+/*! _dropdown.scss | Bold | Css ninja 2020-2021 */
+
+/*
+    1. Dropdown
+*/
+
+/* ==========================================================================
+1. Dropdown
+========================================================================== */
+
+.styled-dropdown {
+    height: 36px;
+    width: 36px;
+
+    &.is-round {
+        > .button {
+            border-radius: 50%;
+            border: none;
+        }
+    }
+
+    > .button:not(.is-primary):not(.is-secondary):not(.is-light):not(.is-info):not(.is-success):not(.is-warning):not(.is-danger) {
+        height: 36px;
+        width: 36px;
+        box-shadow: none !important;
+
+        i {
+            padding: 0;
+            color: $light-text;
+        }
+
+        &:hover {
+            background: lighten($fade-grey, 4%) !important;
+
+            i {
+                color: $blue-grey;
+            }
+        }
+    }
+
+    .dropdown-menu {
+        width: 280px;
+
+        .dropdown-content {
+            background: $white;
+            border: 1px solid $border;
+            box-shadow: $light-box-shadow;
+
+            .dropdown-item {
+                display: flex;
+                align-items: center;
+                width: 100%;
+
+                > span {
+                    margin-left: 10px;
+                    line-height: 1.4;
+
+                    span {
+                        display: block;
+
+                        &:first-child {
+                            font-family: $font-alt;
+                            font-weight: 600;
+                            font-size: .9rem;
+                        }
+
+                        &:nth-child(2) {
+                            font-size: .9rem;
+                            font-weight: 400;
+                            font-family: $font;
+                            color: $light-text;
+                        }
+                    }
+                }
+
+                i {
+                    font-size: 16px;
+                    color: $light-text;
+                }
+            }
+        }
+    }
+}
+
+
+.button-dropdown {
+    > .button {
+        min-width: 110px;
+
+        &.is-secondary {
+            background-color: $secondary !important;
+            width: auto !important;
+        }
+    }
+
+    .dropdown-menu {
+        width: 280px;
+
+        .dropdown-content {
+            .dropdown-item {
+                display: flex;
+                align-items: center;
+                width: 100%;
+
+                span {
+                    display: block;
+                    margin: 0 10px;
+
+                    span {
+                        &:first-child {
+                            font-family: $font-alt;
+                            font-size: em;
+                            font-weight: 600;
+                        }
+
+                        &:nth-child(2) {
+                            font-family: $font;
+                            font-size: .9rem;
+                            color: $light-text;
+                        }
+                    }
+                }
+
+                i {
+                    font-size: 16px;
+                    color: $light-text;
+                }
+            }
+        }
+    }
+}

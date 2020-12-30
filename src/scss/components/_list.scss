@@ -1,0 +1,102 @@
+/*! _list.scss | Bold | Css ninja 2020-2021 */
+
+/*
+    1. User List
+*/
+
+/* ==========================================================================
+1. User list
+========================================================================== */
+
+.user-list {
+    li {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: .75rem 0;
+    }
+
+    .user-list-avatar {
+        width: 40px;
+        min-width: 40px;
+        height: 40px;
+        max-height: 40px;
+
+        img {
+            display: block;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    }
+
+    .user-list-info {
+        margin: 0 10px;
+
+        .name {
+            font-family: $font-alt;
+            font-size: 14px;
+            font-weight: 500;
+            color: $blue-grey;
+        }
+
+        .position {
+            font-family: $font;
+            font-size: 12px;
+            color: $light-text;
+        }
+    }
+
+    .user-list-action {
+        margin-left: auto;
+        height: 36px;
+        width: 36px;
+        border-radius: 50%;
+        border: 1px solid $border;
+        background: $white;
+        box-shadow: $light-box-shadow;
+        color: $light-text;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all .3s;
+
+        &:hover {
+            background: $secondary;
+            box-shadow: $secondary-box-shadow;
+            color: $white;
+        }
+
+        i {
+            transition: color .3s;
+        }
+
+        svg {
+            height: 16px;
+            width: 16px;
+            transition: stroke .3s;
+        }
+    }
+
+    .user-list-status {
+        height: 10px;
+        width: 10px;
+        border-radius: 100px;
+        background: $light-text;
+        margin-left: auto;
+
+        &.is-offline {
+            background: $fade-grey;
+        }
+
+        &.is-online {
+            background: $green;
+        }
+
+        &.is-busy {
+            background: $orange;
+        }
+    }
+}

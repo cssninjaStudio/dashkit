@@ -1,0 +1,319 @@
+---
+layout: default
+title: Document Details
+---
+
+<!-- Main dashboard container -->
+<div id="dashboard-wrapper" class="dashboard-outer" x-data="initDocumentDetails()" :class="{
+        'is-pushed': $store.app.sidebarOpenedState,
+        '': !$store.app.sidebarOpenedState
+    }">
+    <div class="dashboard-inner">
+
+        <!-- Dashboard Wrapper -->
+        <div class="dashboard-wrapper">
+
+            <div id="main-dashboard" class="section-wrapper">
+                <!-- Dashboard content -->
+                <div class="dashboard-columns">
+
+                    <div class="columns is-multiline">
+
+                        <div class="column is-8 is-hidden-mobile">
+                            <!-- Google docs iframe -->
+                            <div class="document-wrapper">
+                                <div class="is-document">
+                                    <iframe id="document-iframe"
+                                        src="https://docs.google.com/document/d/e/2PACX-1vRUbrA2NoWfqkdCViy8gCpXx6-VTne7gpOGtl47bUrcw5APVzj9_m-K0DI_fafD18AYXdwWRgyK-lM-/pub?chrome=true?embedded=true"
+                                        height="800"></iframe>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="column is-4 is-hidden-mobile">
+                            <!-- Right side menu -->
+                            <div class="flex-card p-8">
+                                <div class="right-options">
+                                    <!-- Members -->
+                                    <div class="members">
+                                        <img src="https://via.placeholder.com/150x150"
+                                            data-demo-src="/img/avatars/helen.jpg" data-toggle="tooltip"
+                                            data-placement="top" data-title="You are the owner" data-trigger="hover" alt="">
+                                        <img src="https://via.placeholder.com/150x150" alt=""
+                                            data-demo-src="/img/avatars/terry.jpg">
+                                        <img src="https://via.placeholder.com/150x150" alt=""
+                                            data-demo-src="/img/avatars/elie.jpg">
+                                    </div>
+        
+                                    <!-- Share button -->
+                                    <button type="button"
+                                        class="button is-secondary is-fullwidth is-medium is-rounded-md is-raised">Share
+                                        document</button>
+        
+                                    <!-- Actions tabs -->
+                                    <div class="navigation-tabs animated-tabs simple-tabs document-details-tabs">
+                                        <div class="tabs is-fullwidth">
+                                            <ul>
+                                                <li @click="toggleTabs('actions-tab')" :class="{
+                                                    'is-active': activeTab === 'actions-tab',
+                                                    '': activeTab !== 'actions-tab',
+                                                }"><a>Actions</a></li>
+                                                <li @click="toggleTabs('comments-tab')" :class="{
+                                                    'is-active': activeTab === 'comments-tab',
+                                                    '': activeTab !== 'comments-tab',
+                                                }"><a>Comments</a></li>
+                                                <li @click="toggleTabs('activity-tab')" :class="{
+                                                    'is-active': activeTab === 'activity-tab',
+                                                    '': activeTab !== 'activity-tab',
+                                                }"><a>Activity</a></li>
+                                            </ul>
+                                        </div>
+        
+                                        <!-- Basic actions -->
+                                        <div x-show.transition="activeTab === 'actions-tab'" id="actions" class="navtab-content is-active">
+                                            <div class="controls">
+                                                <a class="control-block">
+                                                    <i class="sl icon-layers"></i> New version
+                                                </a>
+                                                <a class="control-block">
+                                                    <i class="sl icon-arrow-right-circle"></i> Move file
+                                                </a>
+                                                <a class="control-block">
+                                                    <i class="sl icon-docs"></i> Copy file
+                                                </a>
+                                                <a class="control-block">
+                                                    <i class="sl icon-lock"></i> Lock file
+                                                </a>
+                                                <a class="control-block">
+                                                    <i class="sl icon-trash"></i> Delete file
+                                                </a>
+                                                <a class="control-block">
+                                                    <i class="sl icon-printer"></i> Print
+                                                </a>
+                                                <a class="control-block">
+                                                    <i class="sl icon-envelope-open"></i> Send by email
+                                                </a>
+                                            </div>
+                                        </div>
+        
+                                        <!-- Comments -->
+                                        <div x-show.transition="activeTab === 'comments-tab'" id="comments" class="navtab-content">
+                                            <!-- Header -->
+                                            <div class="comments-header">
+                                                <div class="control is-document-comment">
+                                                    <textarea class="textarea" placeholder="Add a comment"></textarea>
+                                                    <div class="comment-avatar">
+                                                        <img src="https://via.placeholder.com/150x150" alt=""
+                                                            data-demo-src="/img/avatars/helen.jpg">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Comments body -->
+                                            <div class="comments-body has-slimscroll">
+        
+                                                <!-- Comment -->
+                                                <div class="media is-comment">
+                                                    <figure class="media-left">
+                                                        <p class="image is-32x32">
+                                                            <img src="https://via.placeholder.com/150x150" alt=""
+                                                                data-demo-src="/img/avatars/terry.jpg">
+                                                        </p>
+                                                    </figure>
+                                                    <div class="media-content">
+                                                        <a href="#">Terry Daniels</a> <br><small>2 hours ago</small>
+                                                        <p>Lorem ipsum dolor sit amet, te sit facer dicam interesset. Est dictas
+                                                            sensibus expetenda
+                                                            ad, et vitae.</p>
+                                                    </div>
+                                                </div>
+                                                <!-- Comment -->
+                                                <div class="media is-comment">
+                                                    <figure class="media-left">
+                                                        <p class="image is-32x32">
+                                                            <img src="https://via.placeholder.com/150x150" alt=""
+                                                                data-demo-src="/img/avatars/helen.jpg">
+                                                        </p>
+                                                    </figure>
+                                                    <div class="media-content">
+                                                        <a href="#">Helen Miller</a> <br><small>5 hours ago</small>
+                                                        <p>Lorem ipsum dolor sit amet, te sit facer dicam interesset.</p>
+                                                    </div>
+                                                </div>
+                                                <!-- Comment -->
+                                                <div class="media is-comment">
+                                                    <figure class="media-left">
+                                                        <p class="image is-32x32">
+                                                            <img src="https://via.placeholder.com/150x150" alt=""
+                                                                data-demo-src="/img/avatars/elie.jpg">
+                                                        </p>
+                                                    </figure>
+                                                    <div class="media-content">
+                                                        <a href="#">Elie Mayers</a> <br><small>Yesterday</small>
+                                                        <p>Lorem ipsum dolor sit amet, te sit facer dicam interesset. Est dictas
+                                                            sensibus.</p>
+                                                    </div>
+                                                </div>
+                                                <!-- Comment -->
+                                                <div class="media is-comment">
+                                                    <figure class="media-left">
+                                                        <p class="image is-32x32">
+                                                            <img src="https://via.placeholder.com/150x150" alt=""
+                                                                data-demo-src="/img/avatars/helen.jpg">
+                                                        </p>
+                                                    </figure>
+                                                    <div class="media-content">
+                                                        <a href="#">Helen Miller</a> <br><small>Yesterday</small>
+                                                        <p>Lorem ipsum dolor sit amet, te sit facer dicam interesset xpetenda
+                                                            ad, et vitae.</p>
+                                                    </div>
+                                                </div>
+                                                <!-- Comment -->
+                                                <div class="media is-comment">
+                                                    <figure class="media-left">
+                                                        <p class="image is-32x32">
+                                                            <img src="https://via.placeholder.com/150x150" alt=""
+                                                                data-demo-src="/img/avatars/terry.jpg">
+                                                        </p>
+                                                    </figure>
+                                                    <div class="media-content">
+                                                        <a href="#">Terry Daniels</a> <br><small>2 days ago</small>
+                                                        <p>Lorem ipsum dolor sit amet, te sit facer dicam interesset.</p>
+                                                    </div>
+                                                </div>
+        
+                                            </div>
+                                        </div>
+        
+                                        <!-- Activity -->
+                                        <div x-show.transition="activeTab === 'activity-tab'" id="activity" class="navtab-content">
+                                            <div class="activity-wrapper">
+                                                <!-- Notifications list -->
+                                                <ul class="notifications-list">
+                                                    <!-- List item -->
+                                                    <li>
+                                                        <i class="sl icon-bubble"></i>
+                                                        <div class="notification-content">
+                                                            <img src="https://via.placeholder.com/250x250" alt=""
+                                                                data-demo-src="/img/avatars/barry.jpg">
+                                                            <div class="notification-text">
+                                                                <div class="text">
+                                                                    <b>Commented</b> this.
+                                                                </div>
+                                                                <div class="timestamp">
+                                                                    23 minutes ago
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <!-- List item -->
+                                                    <li>
+                                                        <i class="sl icon-cloud-download"></i>
+                                                        <div class="notification-content">
+                                                            <img src="https://via.placeholder.com/250x250" alt=""
+                                                                data-demo-src="/img/avatars/helen.jpg">
+                                                            <div class="notification-text">
+                                                                <div class="text">
+                                                                    <b>Downloaded</b> this.
+                                                                </div>
+                                                                <div class="timestamp">
+                                                                    1 hour ago
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <!-- List item -->
+                                                    <li>
+                                                        <i class="sl icon-eye"></i>
+                                                        <div class="notification-content">
+                                                            <img src="https://via.placeholder.com/250x250" alt=""
+                                                                data-demo-src="/img/avatars/elie.jpg">
+                                                            <div class="notification-text">
+                                                                <div class="text">
+                                                                    <b>Viewed</b> this.
+                                                                </div>
+                                                                <div class="timestamp">
+                                                                    Yesterday
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+        
+                                </div>
+                            </div>
+
+                            <!--Widget-->
+                            <div class="widget multi-circle-widget p-6">
+                                <div class="card-head is-spaced">
+                                    <div>
+                                        <h3>Metrics</h3>
+                                        <p class="is-font text-light">Based on stats from last 7 days</p>
+                                    </div>
+                                </div>
+                                <div class="statistics pt-6 pb-2">
+                                    <div class="statistic">
+                                        <div class="circle-container">
+                                            <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="50"
+                                                height="50" xmlns="http://www.w3.org/2000/svg">
+                                                <circle class="circle-chart-background" stroke="#efefef"
+                                                    stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431"
+                                                    r="15.91549431" />
+                                                <circle class="circle-chart-circle" stroke="#9e3dff" stroke-width="2"
+                                                    stroke-dasharray="58,100" stroke-linecap="round" fill="none"
+                                                    cx="16.91549431" cy="16.91549431" r="15.91549431" />
+                                            </svg>
+                                            <div class="circle-icon">
+                                                <span>58%</span>
+                                            </div>
+                                        </div>
+
+                                        <span>Disk Speed</span>
+                                    </div>
+                                    <div class="statistic">
+                                        <div class="circle-container">
+                                            <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="50"
+                                                height="50" xmlns="http://www.w3.org/2000/svg">
+                                                <circle class="circle-chart-background" stroke="#efefef"
+                                                    stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431"
+                                                    r="15.91549431" />
+                                                <circle class="circle-chart-circle" stroke="#00d1b2" stroke-width="2"
+                                                    stroke-dasharray="82,100" stroke-linecap="round" fill="none"
+                                                    cx="16.91549431" cy="16.91549431" r="15.91549431" />
+                                            </svg>
+                                            <div class="circle-icon">
+                                                <span>82%</span>
+                                            </div>
+                                        </div>
+
+                                        <span>Storage</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <!-- Mobile placeholder -->
+                        <div class="column is-8 is-offset-2 is-hidden-desktop is-hidden-tablet">
+                            <div class="flex-card is-not-supported light-bordered">
+                                <img src="/img/illustrations/not-mobile.svg" alt="">
+                                <div class="has-text-centered">
+                                    <h3>Ouch...</h3>
+                                    <p>Sorry, the document view is not supported on mobile. Please try a device with a wider
+                                        screen.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

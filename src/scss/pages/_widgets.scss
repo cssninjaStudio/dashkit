@@ -1,0 +1,1073 @@
+/*! _widgets.scss | Dashkit | CSS Ninja */
+
+/* ==========================================================================
+General Widgets
+========================================================================== */
+
+/***
+TABLE OF CONTENTS
+=============================================================================
+0. Base
+1. Circle chart widget
+2. Tweet widget
+3. Logo widget
+4. List widget
+5. Table widget
+6. Circle side widget
+7. Follow widget
+8. Rating widget
+9. Profile Widget
+=============================================================================
+***/
+
+/* ==========================================================================
+0. Base
+========================================================================== */
+
+.widget {
+    @extend .flex-card;
+}
+
+/* ==========================================================================
+1. Circle chart widget
+========================================================================== */
+
+.widget {
+    &.circle-chart-widget {
+        text-align: center;
+
+        .chart-avatar {
+            position: absolute;
+            top: 43%;
+            left: 0;
+            width: 100%;
+            height: 40px;
+
+            img {
+                position: relative;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+            }
+        }
+
+        .ring-title {
+            span {
+                font-size: 1.2rem;
+                color: $light-text;
+            }
+        }
+    }
+}
+
+.circle-chart-circle {
+    animation: circle-chart-fill 2s reverse;
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+
+@keyframes circle-chart-fill {
+    to {
+        stroke-dasharray: 0 100;
+    }
+}
+
+/* ==========================================================================
+2. Tweet Widget
+========================================================================== */
+
+.widget {
+    &.tweet-widget {
+        padding: 20px;
+        margin-bottom: 1.5rem;
+        text-align: left;
+
+        &.is-branded {
+            background: $twitter;
+
+            .tweet-header {
+                .user-info {
+                    margin-left: 0;
+
+                    .name, .alias {
+                        color: $white !important;
+                    }
+                }
+
+                .twitter-icon {
+                    color: $white;
+                }
+            }
+
+            .tweet-content, .hashtags span {
+                color: $white;
+            }
+        }
+
+        .tweet-header {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+            img {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+            }
+
+            .user-info {
+                margin-left: .75rem;
+                line-height: 1.3;
+
+                .name {
+                    font-size: .95rem;
+                    font-family: $font-alt;
+                    font-weight: 600;
+                    color: $blue-grey;
+                }
+
+                .alias {
+                    font-family: $font;
+                    font-size: 90%;
+                    color: $light-text;
+                }
+            }
+
+            .twitter-icon {
+                margin-left: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.4rem;
+                color: $twitter;
+            }
+        }
+
+        .tweet-content {
+            color: $blue-grey;
+            font-family: $font;
+            font-size: .95rem;
+            padding-top: .75rem;
+            padding-bottom: .75rem;
+        }
+
+        .hashtags span {
+            font-size: .9rem;
+            font-family: $font-alt;
+            font-weight: 600;
+            color: darken($twitter, 6%);
+            margin: 0 5px;
+            font-size: 90%;
+        }
+    }
+}
+
+/* ==========================================================================
+3. Logo widget
+========================================================================== */
+
+.widget {
+    &.logo-widget {
+        min-height: 300px;
+        overflow: hidden;
+
+        .lib-logo {
+            height: 100px;
+            background: $secondary;
+            position: relative;
+            display: flex;
+            justify-content: center;
+
+            img {
+                height: 90px;
+                position: relative;
+                bottom: -55px;
+            }
+        }
+
+        .logo-card-content {
+            text-align: center;
+            padding-top: 55px;
+
+            .lib-name {
+                font-family: $font-alt;
+                font-size: 1.6rem;
+            }
+
+            .subname {
+                font-family: $font;
+                font-size: 95%;
+                color: $light-text;
+            }
+        }
+
+        .filigrane {
+            position: absolute;
+            font-size: 150px;
+            color: $fade-grey;
+            opacity: 0.5;
+            right: -20px;
+            bottom: -90px;
+        }
+    }
+}
+
+/* ==========================================================================
+4. List widget
+========================================================================== */
+
+.widget {
+    &.list-widget {
+        .inner-list {
+            &.is-clean {
+                li {
+                    border-bottom: none !important;
+
+                    &:last-child {
+                        padding-bottom: 2.5rem;
+                    }
+                }
+            }
+
+            li {
+                display: flex;
+                justify-content: space-between;
+                padding: 16px;
+                border-bottom: 1px solid $border;
+
+                &:last-child {
+                    border-bottom: none !important;
+                }
+
+                .list-item-data {
+                    display: flex;
+
+                    img {
+                        display: block;
+                        height: 36px;
+                        width: 36px;
+                        min-width: 36px;
+                        border-radius: 50%;
+                    }
+
+                    .item-icon {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 36px;
+                        width: 36px;
+                        min-width: 36px;
+                        border-radius: 50%;
+                        background: darken($widget-grey, 2%);
+                        color: $blue-grey;
+
+                        i {
+                            font-size: 1.1rem;
+                        }
+                    }
+
+                    .item-info {
+                        margin-left: 12px;
+
+                        span {
+                            display: block;
+
+                            &.item-title {
+                                color: $blue-grey;
+                                font-size: .9rem;
+                                font-family: $font-alt;
+                                font-weight: 600;
+                            }
+
+                            &:nth-child(2) {
+                                font-family: $font;
+                                font-size: .95rem;
+                                color: $light-text;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+5. Table widget
+========================================================================== */
+
+.widget {
+    &.table-widget {
+        .table {
+            overflow: auto !important;
+            width: 100%;
+
+            th {
+                font-family: $font-alt;
+                font-weight: 600 !important;
+                color: $blue-grey;
+                padding: 1rem .75em !important;
+            }
+
+            td {
+                font-family: $font;
+                padding: 1rem .75em !important;
+                vertical-align: middle !important;
+                color: $blue-grey;
+
+                &.light-cell {
+                    font-size: 1rem;
+                    color: $light-text;
+                }
+
+                &.heavy-cell {
+                    font-weight: 500;
+                    font-size: 1rem;
+                    color: $blue-grey;
+                }
+
+                > img {
+                    display: block;
+                    min-width: 40px !important;
+                    height: 40px;
+                    border-radius: 50%;
+                    margin: 0 auto;
+                }
+
+                .people {
+                    display: flex;
+                    align-items: center;
+
+                    a {
+                        display: block;
+                        height: 32px;
+                        width: 32px;
+                        min-width: 32px;
+                        max-width: 32px;
+                        margin: 0 .25rem;
+
+                        img {
+                            display: block;
+                            height: 32px;
+                            width: 32px;
+                            min-width: 32px;
+                            max-width: 32px;
+                            border-radius: 50%;
+                        }
+                    }
+                }
+
+                .circle-container {
+                    position: relative;
+                    max-width: 44px;
+
+                    .circle-icon {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 28px;
+                        width: 28px;
+                        min-width: 28px;
+                        color: $blue-grey;
+
+                        span {
+                            position: relative;
+                            top: -2px;
+                            right: -2px;
+                            font-family: $font;
+                            font-weight: 700;
+                            color: $blue-grey;
+                            font-size: .9rem;
+                        }
+                    }
+                }
+            }
+
+            a {
+                color: $blue-grey;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+6. Circle side widget
+========================================================================== */
+
+.widget {
+    &.circle-side-widget {
+        display: flex;
+        align-items: center;
+
+        .circle-container {
+            position: relative;
+
+            .circle-icon {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 36px;
+                width: 36px;
+                min-width: 36px;
+                border-radius: 50%;
+                background: darken($widget-grey, 2%);
+                color: $blue-grey;
+
+                &.has-image {
+                    border-radius: 0;
+                    background: none;
+
+                    img {
+                        position: relative;
+                        top: -2px;
+                        display: block;
+                        height: 32px;
+                        width: 32px;
+                        min-width: 32px;
+                        border-radius: 50%;
+                    }
+                }
+
+                i {
+                    font-size: 1.1rem;
+                }
+
+                span {
+                    position: relative;
+                    top: -2px;
+                    right: -3px;
+                    font-family: $font;
+                    font-weight: 700;
+                    color: $blue-grey;
+                    font-size: 1.2rem;
+                }
+            }
+        }
+
+        .circle-meta {
+            margin-left: 1.5rem;
+
+            h3 {
+                font-family: $font-alt;
+                font-weight: 600;
+                font-size: 1.1rem;
+                color: $blue-grey;
+            }
+
+            p {
+                color: $light-text;
+                font-family: $font;
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+6. Multi circle widget
+========================================================================== */
+
+.widget {
+    &.multi-circle-widget {
+        .statistics {
+            display: flex;
+
+            .statistic {
+                flex: 1 1 0px;
+                text-align: center;
+
+                .circle-container {
+                    position: relative;
+
+                    .circle-icon {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 28px;
+                        width: 28px;
+                        min-width: 28px;
+                        color: $blue-grey;
+
+                        span {
+                            position: relative;
+                            top: -2px;
+                            right: -2px;
+                            font-family: $font;
+                            font-weight: 700;
+                            color: $blue-grey;
+                            font-size: .9rem;
+                        }
+                    }
+                }
+
+                > span {
+                    display: block;
+                    font-family: $font-alt;
+                    font-weight: 600;
+                    font-size: .9rem;
+                    color: $blue-grey;
+                    padding: .5rem 0;
+                }
+            }
+        }
+
+        > p {
+            font-family: $font;
+            color: $light-text;
+        }
+    }
+}
+
+/* ==========================================================================
+7. Follow widget
+========================================================================== */
+
+.widget {
+    &.follow-widget {
+        overflow: hidden;
+
+        &.is-minimal {
+            .header {
+                background: $info;
+                height: 100px;
+            }
+
+            .twitter-icon {
+                position: absolute;
+                background: $info;
+                left: 20px;
+                bottom: -45px;
+                border-radius: 50%;
+                border: 5px solid white;
+                height: 90px;
+                width: 90px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                i {
+                    color: $white;
+                    font-size: 40px;
+                }
+            }
+        }
+
+        .header {
+            position: relative;
+            width: 100%;
+            max-height: 100px;
+
+            .cover {
+                width: 100%;
+            }
+
+            .avatar {
+                position: absolute;
+                left: 20px;
+                bottom: -45px;
+                border-radius: 50%;
+                border: 5px solid white;
+                height: 90px;
+                width: 90px;
+            }
+
+            span {
+                position: absolute;
+                right: 20px;
+                top: 20px;
+                font-family: $font;
+                font-weight: 600;
+                color: $white;
+
+                span {
+                    font-size: 90%;
+                    font-weight: 500;
+                    right: 0;
+                }
+            }
+        }
+
+        button {
+            margin: 20px;
+        }
+    }
+}
+
+/* ==========================================================================
+8. Rating widget
+========================================================================== */
+
+.widget {
+    &.rating-widget {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 1.5rem;
+
+        .rating-avatar {
+            img {
+                max-height: 55px;
+                max-width: 55px;
+                border-radius: 50%;
+            }
+        }
+
+        .rating-content {
+            margin-left: 15px;
+
+            .star-rating {
+                position: absolute;
+                right: 20px;
+
+                i {
+                    font-size: 1.25rem;
+                    color: $h-yellow;
+
+                    &.unstared {
+                        color: darken($widget-grey, 3%) !important;
+                    }
+                }
+
+                &.is-heart i {
+                    font-size: 16px;
+                    color: $red;
+                }
+            }
+
+            .rating-title {
+                padding-top: 1rem;
+                font-family: $font-alt;
+                font-weight: 600;
+                color: $blue-grey;
+            }
+
+            .rating-text {
+                font-family: $font;
+                color: $medium-text;
+                font-size: .9rem;
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+9. Profile widget
+========================================================================== */
+
+.widget {
+    &.profile-widget {
+        overflow: hidden;
+
+        &.is-skewed {
+            .img-header {
+                transform: skewY(-8deg);
+                margin-top: -50px;
+                min-height: 270px;
+                background: $secondary;
+            }
+    
+            .img-block {
+                transform: skewY(8deg);
+                padding-top: 50px;
+            }
+    
+            .card-body {
+                padding-top: 50px;
+            }
+        }
+
+        .img-header {
+            min-height: 220px;
+            width: 100%;
+            background: $primary;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &.is-skewed {
+                .img-header {
+                    transform: skewY(-8deg);
+                    margin-top: -50px;
+                    min-height: 270px;
+                    background: $secondary;
+                }
+
+                .img-block {
+                    transform: skewY(8deg);
+                    padding-top: 50px;
+                }
+
+                .card-body {
+                    padding-top: 50px;
+                }
+            }
+
+            .img-block {
+                img {
+                    max-height: 100px;
+                    border-radius: 50%;
+                }
+
+                .name {
+                    font-family: $font-alt;
+                    font-size: 1.4rem;
+                    color: $white;
+                    font-weight: 500;
+                }
+
+                .name-details {
+                    font-family: $font;
+                    color: $white;
+                    font-size: 90%;
+                }
+            }
+        }
+
+        .inline-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .stats-item {
+                font-family: $font;
+
+                .stat-name {
+                    font-weight: 400;
+                    color: $light-text;
+                }
+
+                .stat-data {
+                    font-weight: bold;
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+10. Following widget
+========================================================================== */
+
+.widget {
+    &.following-widget {
+        padding: 1.5rem;
+        background: $info;
+
+        .icon-heading {
+            width: 100%;
+            padding-bottom: 20px;
+
+            .counter {
+                font-family: $font;
+                font-size: 2rem;
+                font-weight: 700;
+                color: $white;
+            }
+
+            h3 {
+                font-family: $font-alt;
+                font-weight: 600;
+                color: $white;
+            }
+        }
+
+        .achievement {
+            padding-top: 15px;
+            padding-bottom: 20px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: $white;
+            width: 100%;
+        }
+
+        .avatars {
+            text-align: center;
+
+            img {
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                border: 3px solid $white;
+
+                &:not(:first-child) {
+                    margin-left: -15px;
+                }
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+11. Call Widget
+========================================================================== */
+
+.widget {
+    &.call-widget {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 1.5rem;
+
+        .skype-avatar {
+            position: relative;
+
+            img {
+                width: 64px;
+                min-width: 64px;
+                height: 64px;
+                border-radius: 50%;
+            }
+
+            i {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                font-size: 1rem;
+                padding: 6px;
+                background: $blue;
+                border: 2x solid $white;
+                border-radius: 50%;
+                color: $white;
+            }
+        }
+
+        .skype-info {
+            margin-left: 1rem;
+
+            .name {
+                font-size: 1.1rem;
+                font-family: $font-alt;
+                font-weight: 600;
+                color: $blue-grey;
+            }
+
+            .status {
+                font-family: $font;
+                font-size: .9rem;
+                color: $blue;
+            }
+        }
+
+        .call {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+    }
+}
+
+/* ==========================================================================
+12. Social Widget
+========================================================================== */
+
+.widget {
+    &.social-widget {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 1.5rem;
+
+        &.is-facebook {
+            background: $facebook;
+        }
+
+        &.is-twitter {
+            background: $twitter;
+        }
+
+        &.is-github {
+            background: $github;
+        }
+
+        .social-icon {
+            font-size: 40px;
+            color: $white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .stat-count {
+            margin-left: 20px;
+
+            .count {
+                font-family: $font-alt;
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: $white;
+
+                span {
+                    font-family: $font;
+                    font-weight: 400;
+                    font-size: 1.3rem;
+                }
+            }
+
+            .count-info {
+                color: $white;
+                font-size: 85%;
+            }
+        }
+    }
+}
+
+
+/* ==========================================================================
+13. Portrait Profile Widget
+========================================================================== */
+
+.widget {
+    &.profile-widget-portrait {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        min-height: 300px;
+    
+        .vertical-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            width: 25%;
+            height: 300px;
+            padding: 30px;
+    
+            .stats-item {
+                font-family: $font;
+
+                .stat-name {
+                    font-weight: 400;
+                    color: $light-text;
+                }
+    
+                .stat-data {
+                    font-weight: bold;
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    
+        .img-header {
+            min-height: 300px;
+            width: 75%;
+            background: $secondary;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+    
+            .img-block {
+                img {
+                    max-height: 100px;
+                    border-radius: 50%;
+                }
+    
+                .name {
+                    font-family: $font-alt;
+                    font-size: 1.4rem;
+                    color: $white;
+                    font-weight: 500;
+                }
+
+                .name-details {
+                    font-family: $font;
+                    color: $white;
+                    font-size: 90%;
+                }
+            }
+        }
+    }
+    
+}
+
+/* ==========================================================================
+14. Social metro widget
+========================================================================== */
+
+.widget {
+    &.social-metro-widget {
+        background: none;
+        border: none;
+
+        .metro-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2px;
+            cursor: pointer;
+            border-radius: .75rem;
+            transition: opacity 0.3s;
+    
+            &:hover {
+                opacity: 0.8;
+    
+                i {
+                    transform: scale(0.8);
+                }
+            }
+    
+            i {
+                color: $white;
+                transition: transform .3s;
+            }
+    
+            &.is-big {
+                height: 180px;
+    
+                i {
+                    font-size: 50px;
+                }
+            }
+    
+            &.is-small {
+                height: 90px;
+    
+                i {
+                    font-size: 25px;
+                }
+            }
+    
+            &.is-facebook {
+                background: $facebook;
+            }
+    
+            &.is-twitter {
+                background: $twitter;
+            }
+    
+            &.is-google-plus {
+                background: $google-plus;
+            }
+    
+            &.is-github {
+                background: $github;
+            }
+    
+            &.is-linkedin {
+                background: $linkedin;
+            }
+    
+            &.is-youtube {
+                background: $youtube;
+            }
+    
+            &.is-rss {
+                background: $orange;
+            }
+        }
+    }
+    
+}
