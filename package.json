@@ -6,7 +6,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
     "@ryangjchandler/spruce": "^2.4.0",
-    "alpinejs": "^2.7.3",
+    "alpinejs": "^2.8.0",
     "apexcharts": "^3.23.0",
     "billboard.js": "^2.1.1",
     "bulma": "^0.9.1",
