@@ -1,6 +1,6 @@
 {
   "name": "dashkit",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Dashkit - Dashboard UI Kit",
   "main": "gulpfile.js",
   "dependencies": {
