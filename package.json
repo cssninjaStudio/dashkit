@@ -1,6 +1,6 @@
 {
   "name": "dashkit",
-  "version": "4.0.0",
+  "version": "3.0.0",
   "description": "Dashkit - Dashboard UI Kit",
   "main": "gulpfile.js",
   "dependencies": {
@@ -58,9 +58,8 @@
     "ini": "1.3.6"
   },
   "scripts": {
-    "dev": "gulp",
-    "build": "gulp prod",
-    "prod": "gulp prod",
+    "dev": "gulp dev",
+    "build": "gulp build",
     "preinstall": "npx npm-force-resolutions"
   },
   "repository": {

@@ -190,13 +190,26 @@ function devClean() {
   return del([options.paths.dist.base]);
 }
 
+const buildTasks = [
+  devClean, // Clean Dist Folder
+  resetPages,
+  parallel(
+    concatCssPlugins, 
+    compileSCSS, 
+    javascriptBuild, 
+    devImages, 
+    compileHTML
+  ),
+]
 
 exports.setup = series(setupBulma);
 
-exports.default = series(
-  devClean, // Clean Dist Folder
-  resetPages,
-  parallel(concatJs, concatCssPlugins, copyFonts, compileSCSS, javascriptBuild, devImages, compileHTML),
+exports.build = series(
+  ...buildTasks,
+);
+
+exports.default = exports.dev = series(
+  ...buildTasks,
   livePreview, // Live Preview Build
   watchFiles // Watch for Live Changes
 );
