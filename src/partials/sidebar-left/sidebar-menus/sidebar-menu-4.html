@@ -11,7 +11,7 @@
             <span class="material-icons">grid_on</span>
             Datatables
         </a>
-        <ul x-show.transition.fade="$store.app.activeSidebarMenu == 'misc-menu-1'">
+        <ul x-show="$store.app.activeSidebarMenu == 'misc-menu-1'" x-collapse>
             <li><a href="datatable-basic.html">Basic Datatable</a></li>
             <li><a href="datatable-variations.html">Variations</a></li>
             <li><a href="datatable-advanced.html">Advanced Example</a></li>
@@ -25,7 +25,7 @@
             <span class="material-icons">apps</span>
             Apps
         </a>
-        <ul x-show.transition.fade="$store.app.activeSidebarMenu == 'misc-menu-2'">
+        <ul x-show="$store.app.activeSidebarMenu == 'misc-menu-2'" x-collapse>
             <li><a href="chat.html">Chat UI</a></li>
             <li><a href="inbox.html">Inbox UI</a></li>
         </ul>
@@ -38,7 +38,7 @@
             <span class="material-icons">thumbs_up_down</span>
             Forum
         </a>
-        <ul x-show.transition.fade="$store.app.activeSidebarMenu == 'misc-menu-3'">
+        <ul x-show="$store.app.activeSidebarMenu == 'misc-menu-3'" x-collapse>
             <li><a href="forum-home.html">Forum Home</a></li>
             <li><a href="forum-channel.html">Forum Channel</a></li>
             <li><a href="forum-topic.html">Forum Topic</a></li>

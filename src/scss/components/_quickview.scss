@@ -20,167 +20,153 @@ TABLE OF CONTENTS
 0. Variables
 ========================================================================== */
 
-$quickview-shadow: 5px 0px 13px 3px rgba(0, 0, 0, 0.1) !default;
-$quickview-divider: 1px solid $fade-grey !default;
+$quickview-shadow: 5px 0px 13px 3px rgba(0, 0, 0, 0.1);
+$quickview-divider: 1px solid var(--wrap-border-color);
 
 /* ==========================================================================
 1. Base styles
 ========================================================================== */
 .quickview {
-    display: flex;
-    flex-direction: column;
-    background-color: $white;
-    min-width: 300px;
-    max-width: 300px;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    z-index: 999;
-    transition: 0.3s ease;
-    backface-visibility: hidden;
-    perspective: 1000;
-    will-change: transform;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--quickview-bg-color);
+  min-width: 300px;
+  max-width: 300px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 999;
+  transition: 0.3s ease;
+  backface-visibility: hidden;
+  perspective: 1000;
+  will-change: transform;
 
-    &.is-right {
-        //left: auto;
-        right: 0;
-        transform: translateX(100%);
+  &.is-right {
+    right: 0;
+    transform: translateX(100%);
 
-        //active state
-        &.is-active {
-            transform: translateX(0) !important;
-            box-shadow: $quickview-shadow;
-        }
-
-        &.is-chat {
-            min-width: 400px !important;
-            max-width: 400px !important;
-            transform: translateX(100%);
-        }
+    &.is-active {
+      transform: translateX(0) !important;
+      box-shadow: $quickview-shadow;
     }
 
-    &.is-left {
-        left: -300px;
-
-        //active state
-        &.is-active {
-            left: 100%;
-            box-shadow: $quickview-shadow;
-        }
+    &.is-chat {
+      min-width: 400px !important;
+      max-width: 400px !important;
+      transform: translateX(100%);
     }
+  }
+
+  &.is-left {
+    left: -300px;
+
+    &.is-active {
+      left: 100%;
+      box-shadow: $quickview-shadow;
+    }
+  }
 }
 
 /* ==========================================================================
 2. Header
 ========================================================================== */
+
 .quickview-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1rem;
-    min-height: 66px !important;
-    border-bottom: $quickview-divider;
-    background: lighten($fade-grey, 5%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  min-height: 66px !important;
+  border-bottom: 1px solid var(--quickview-border-color);
+  background: var(--quickview-bg-color);
 
-    //title
-    .title {
-        margin-bottom: 0;
-    }
+  .title {
+    margin-bottom: 0;
+  }
 
-    //secondary header
-    &.is-secondary {
-        background: $secondary;
-
-        p {
-            color: $white;
-            font-size: 1.4rem;
-            font-weight: 400;
-        }
-
-        i {
-            color: $white;
-            font-size: 20px;
-        }
-    }
+  &.is-secondary {
+    background: var(--secondary);
 
     p {
-        color: $muted-grey;
-        font-size: 1.4rem;
-        font-weight: 400;
+      color: var(--white);
+      font-size: 1.4rem;
+      font-weight: 400;
     }
 
     i {
-        color: $muted-grey !important;
-        font-size: 20px;
+      color: var(--white);
+      font-size: 20px;
     }
+  }
 
-    //close icon
-    .cross-container {
-        transition: transform 0.3s;
+  p {
+    color: var(--light-text);
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
 
-        &:hover {
-            //transform: rotate(90deg);
-        }
-    }
+  i {
+    color: var(--light-text) !important;
+    font-size: 20px;
+  }
 
-    .material-icons {
-        display: block;
-        color: $muted-grey;
-        transition: transform 0.3s;
-        cursor: pointer;
+  .cross-container {
+    transition: transform 0.3s;
+  }
 
-        &:hover {
-            //transform: rotate(180deg);
-        }
-    }
+  .material-icons {
+    display: block;
+    color: var(--light-text);
+    transition: transform 0.3s;
+    cursor: pointer;
+  }
 }
 
 /* ==========================================================================
 3. Body
 ========================================================================== */
 .quickview-body {
-    -webkit-box-flex: 1;
-    flex: 1 1 0%;
+  background: var(--quickview-bg-color);
+  flex: 1 1 0%;
 }
 
 /* ==========================================================================
 4. Footer
 ========================================================================== */
 .quickview-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 1rem;
-    min-height: 4rem;
-    background-color: $white;
-    border-top: $quickview-divider;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  min-height: 4rem;
+  background-color: var(--quickview-bg-color);
+  border-top: $quickview-divider;
 
-    > * {
-        margin: 0 0.4rem;
-    }
+  > * {
+    margin: 0 0.4rem;
+  }
 }
-
 
 /* ==========================================================================
 5. Media Queries
 ========================================================================== */
 
 @media (max-width: 767px) {
-    .quickview {
-        &.is-active {
-            min-width: 100%;
-            z-index: 1001;
-    
-            .user-list {
-                max-height: 346px !important;
-            }
-        }
+  .quickview {
+    &.is-active {
+      min-width: 100%;
+      z-index: 1001;
 
-        &.chat-quickview {
-            &.is-active {
-                min-width: 100%;
-                z-index: 1002 !important;
-            }
-        }
+      .user-list {
+        max-height: 346px !important;
+      }
     }
+
+    &.chat-quickview {
+      &.is-active {
+        min-width: 100%;
+        z-index: 1002 !important;
+      }
+    }
+  }
 }

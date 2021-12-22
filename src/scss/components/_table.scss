@@ -40,7 +40,7 @@
             align-items: center;
             font-size: .8rem;
             font-weight: 600;
-            color: $light-text;
+            color: var(--flex-table-header-color);
             text-transform: uppercase;
             padding: 0 10px 10px 10px;
 
@@ -87,9 +87,9 @@
         align-items: stretch;
         width: 100%;
         min-height: 60px;
-        background: $white;
+        background: var(--card-bg-color);
         border-radius: 8px;
-        border: 1px solid darken($fade-grey, 3%);
+        border: 1px solid var(--card-border-color);
         padding: 1rem;
         margin-bottom: 6px;
 
@@ -103,7 +103,7 @@
             display: flex;
             align-items: center;
             padding: 0 10px;
-            font-family: $font;
+            font-family: var(--font);
 
             &.is-grow {
                 flex-grow: 2;
@@ -142,7 +142,7 @@
 
             &.is-bold {
                 > span {
-                    font-family: $font-alt;
+                    font-family: var(--font-alt);
                     font-size: .9rem;
                     font-weight: 600;
                 }
@@ -185,14 +185,14 @@
                     line-height: 1.2;
 
                     .item-name {
-                        font-family: $font-alt;
+                        font-family: var(--font-alt);
                         font-size: .9rem;
                         font-weight: 600;
-                        color: $dark-text;
+                        color: var(--flex-table-item-color);
                     }
 
                     .item-meta {
-                        color: $light-text;
+                        color: var(--flex-table-item-meta-color);
 
                         svg {
                             position: relative;
@@ -242,7 +242,7 @@
 
             .cell-icon {
                 margin-right: 4px;
-                color: $light-text;
+                color: var(--flex-table-item-meta-color);
             }
 
             .tag {
@@ -262,8 +262,8 @@
                     span {
                         display: block !important;
                         font-size: .8rem;
-                        color: $light-text;
-                        font-family: $font;
+                        color: var(--flex-table-item-meta-color);
+                        font-family: var(--font);
                     }
                 }
             }
@@ -274,17 +274,17 @@
 
                 .dot {
                     font-size: 8px;
-                    color: lighten($light-text, 6%);
+                    color: var(--card-grey-bg-color);
                     margin: 0 6px;
 
                     &.active {
-                        color: $primary;
+                        color: var(--primary);
                     }
                 }
             }
 
             > span:not(.tag) {
-                font-family: $font;
+                font-family: var(--font);
                 font-size: .95rem;
             }
         }
@@ -337,7 +337,7 @@
                 font-size: .9rem;
                 text-transform: uppercase;
                 font-weight: 500;
-                color: $medium-text;
+                color: var(--flex-table-header-color);
             }
 
             &.no-label-mobile {

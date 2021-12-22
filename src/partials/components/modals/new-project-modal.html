@@ -5,7 +5,7 @@
     }">
     <div @click="toggleNewProjectModal()" class="modal-background"></div>
     <div class="modal-content">
-        <div class="flex-card p-8">
+        <div class="flex-card p-5">
             <div class="modal-title">
                 <h2>New Project</h2>
             </div>
@@ -28,7 +28,7 @@
                         <div class="content">
                             <form>
 
-                                <div class="field mb-10">
+                                <div class="field mb-5">
                                     <label class="label dark-text">Project Dates</label>
                                     <div class="columns is-vcentered is-fieldset">
                                         <div class="column is-3">
@@ -44,23 +44,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="columns is-fieldset">
-                                        <div class="column is-3">
-                                            <div class="field-label">End Date*</div>
-                                        </div>
-                                        <div class="column is-9">
-                                            <div class="control has-icon">
-                                                <input type="text" class="input event-datepicker-end"
-                                                    placeholder="End Date">
-                                                <span class="form-icon">
-                                                    <i class="im icon-Calendar-4"></i>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
 
-                                <div class="field mb-10">
+                                <div class="field mb-5">
                                     <label class="label dark-text">Project Meta</label>
                                     <div class="columns is-vcentered is-fieldset">
                                         <div class="column is-3">
@@ -81,7 +67,7 @@
                                 </div>
 
                                 <div class="form-footer">
-                                    <button @click="toggleNewProjectModal()" type="button" class="button is-light">Cancel</button>
+                                    <button @click="toggleNewProjectModal()" type="button" class="button">Cancel</button>
                                     <button type="submit" class="button is-secondary">Create Project</button>
                                 </div>
 

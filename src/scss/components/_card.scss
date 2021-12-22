@@ -11,17 +11,17 @@
 ========================================================================== */
 
 .card {
-    box-shadow: $light-box-shadow;
-    border: 1px solid $border;
+    box-shadow: var(--light-box-shadow);
+    border: 1px solid var(--card-border-color);
 
     .card-footer {
         .card-footer-item {
-            color: $medium-text;
+            color: var(--medium-text);
             transition: all .3s;
 
             &:hover {
-                color: $primary;
-                background: $widget-grey;
+                color: var(--primary);
+                //background: $widget-grey;
             }
         }
     }
@@ -32,8 +32,8 @@
 ========================================================================== */
 
 .box {
-    box-shadow: $light-box-shadow;
-    border: 1px solid $border;
+    box-shadow: var(--light-box-shadow);
+    border: 1px solid var(--card-border-color);
 }
 
 /* ==========================================================================
@@ -42,8 +42,8 @@
 
 .flex-card {
     position: relative;
-    background-color: $white;
-    border: 1px solid $border;
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--card-border-color);
     border-radius: .5rem;
     position: relative;
     width: 100%;
@@ -53,6 +53,10 @@
         margin-bottom: 1.5rem;
     }
 
+    &.is-curved {
+        border-radius: 1rem;
+    }
+
     .card-head {
         display: flex;
         justify-content: space-between;
@@ -60,7 +64,7 @@
         align-content: center;
         
         &.is-bordered {
-            border-bottom: 1px solid $border;
+            border-bottom: 1px solid var(--card-border-color);
         }
 
         &.is-spaced {
@@ -68,10 +72,10 @@
         }
 
         h3 {
-            font-family: $font-alt;
+            font-family: var(--font-alt);
             font-size: 1.1rem;
             font-weight: 600;
-            color: $blue-grey;
+            color: var(--title-color);
         }
     }
 }

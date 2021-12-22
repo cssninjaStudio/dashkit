@@ -1,0 +1,13 @@
+:root {
+  --f-switch-bg-color: var(--widget-grey-dark-2);
+  --f-switch-knob-color: var(--white);
+  --checkbox-base-bg-color: var(--white);
+  --checkbox-base-border-color: var(--border);
+}
+
+.is-dark {
+  --f-switch-bg-color: var(--night-dark-2);
+  --f-switch-knob-color: var(--night-light-20);
+  --checkbox-base-bg-color: var(--night-light-2);
+  --checkbox-base-border-color: var(--night-light-14);
+}

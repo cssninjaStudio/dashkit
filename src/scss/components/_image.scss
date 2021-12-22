@@ -114,7 +114,7 @@
             height: 100%;
             width: 100%;
             margin: 4px;
-            background: $dark-text;
+            background: var(--dark);
             opacity: 0;
             pointer-events: none;
             z-index: 1;
@@ -135,14 +135,14 @@
                 height: 38px;
                 width: 38px;
                 border-radius: 50%;
-                border: 1.4px solid $white;
+                border: 1.4px solid var(--wrap-border-color);
                 transform: scale(0);
                 transition: all .3s;
             }
 
             .name {
-                color: $white;
-                font-family: $font;
+                color: var(--title-inverted-color);
+                font-family: var(--font);
                 font-size: .9rem;
                 margin-left: 8px;
                 opacity: 0;
@@ -155,8 +155,8 @@
             position: absolute;
             top: 20px;
             left: 14px;
-            color: $white;
-            font-family: $font;
+            color: var(--title-inverted-color);
+            font-family: var(--font);
             font-size: .85rem;
             margin-left: 8px;
             opacity: 0;
@@ -172,7 +172,7 @@
             height: 38px;
             width: 38px;
             border-radius: 50%;
-            background: $white;
+            background: var(--title-inverted-color);
             z-index: 2;
             transform: scale(0);
             transition: all .3s;
@@ -180,13 +180,13 @@
             &:hover {
                 .inner {
                     svg {
-                        stroke: $danger;
+                        stroke: var(--danger);
                     }
                 }
             }
 
             &.is-liked {
-                box-shadow: $danger-box-shadow;
+                box-shadow: var(--danger-box-shadow);
 
                 .inner {
                     .like-overlay {
@@ -194,8 +194,8 @@
                     }
 
                     svg {
-                        stroke: $white;
-                        fill: $white;
+                        stroke: var(--white);
+                        fill: var(--white);
                     }
                 }
             }
@@ -217,7 +217,7 @@
                     height: calc(100% + 4px);
                     width: calc(100% + 4px);
                     border-radius: 50%;
-                    background: darken($danger, 8%);
+                    background: var(--danger-dark-8);
                     transform: scale(0);
                     transition: all .3s;
                     z-index: 1;
@@ -227,7 +227,7 @@
                     position: relative;
                     height: 16px;
                     width: 16px;
-                    stroke: $dark-text;
+                    stroke: var(--title-color);
                     z-index: 2;
                     transition: all .3s;
                 }
@@ -300,7 +300,7 @@
         padding: 15px;
         font-size: 28px;
         font-weight: 600;
-        color: $white;
+        color: var(--white);
         margin-bottom: 0 !important;
     
         &.frame-1x1 {

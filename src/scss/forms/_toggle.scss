@@ -18,7 +18,7 @@
     &.is-primary {
         input {
             &:checked + i {
-                background-color: $primary;
+                background-color: var(--primary);
             }
         }
     }
@@ -26,7 +26,7 @@
     &.is-accent {
         input {
             &:checked + i {
-                background-color: $accent;
+                background-color: var(--accent);
             }
         }
     }
@@ -34,7 +34,7 @@
     &.is-success {
         input {
             &:checked + i {
-                background-color: $success;
+                background-color: var(--success);
             }
         }
     }
@@ -42,7 +42,7 @@
     &.is-info {
         input {
             &:checked + i {
-                background-color: $info;
+                background-color: var(--info);
             }
         }
     }
@@ -50,7 +50,7 @@
     &.is-warning {
         input {
             &:checked + i {
-                background-color: $warning;
+                background-color: var(--warning);
             }
         }
     }
@@ -58,7 +58,7 @@
     &.is-danger {
         input {
             &:checked + i {
-                background-color: $danger;
+                background-color: var(--danger);
             }
         }
     }
@@ -69,7 +69,7 @@
         margin-right: .5rem;
         width: 46px;
         height: 26px;
-        background-color: #e6e6e6;
+        background-color: var(--f-switch-bg-color);
         border-radius: 23px;
         vertical-align: text-bottom;
         transition: all 0.3s linear;
@@ -80,7 +80,7 @@
             left: 0;
             width: 42px;
             height: 22px;
-            background-color: $white;
+            background-color: var(--f-switch-bg-color);
             border-radius: 11px;
             transform: translate3d(2px, 2px, 0) scale3d(1, 1, 1);
             transition: all 0.25s linear;
@@ -92,7 +92,7 @@
             left: 0;
             width: 22px;
             height: 22px;
-            background-color: $white;
+            background-color: var(--f-switch-knob-color);
             border-radius: 11px;
             box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24);
             transform: translate3d(2px, 2px, 0);
@@ -119,7 +119,7 @@
         pointer-events: none;
 
         &:checked + i {
-            background-color: $green;
+            background-color: var(--success);
 
             &::before {
                 transform: translate3d(18px, 2px, 0) scale3d(0, 0, 0);
@@ -132,7 +132,7 @@
     }
 
     small {
-        color: $muted-grey;
+        color: var(--light-text);
         position: relative;
         top: -4px;
     }
@@ -161,7 +161,7 @@
         cursor: pointer;
 
         &:checked ~ .toggler {
-            border-color: $secondary;
+            border-color: var(--secondary);
 
             .active, .inactive {
                 transform: translateX(100%) rotate(360deg);
@@ -182,7 +182,7 @@
         display: block;
         height: 34px;
         width: 61px;
-        border: 1.8px solid $placeholder;
+        border: 1.8px solid var(--input-base-border-color);
         border-radius: 100px;
         transition: all .3s;
 
@@ -201,7 +201,7 @@
             transition: all .3s ease;
 
             svg {
-                stroke: $white;
+                stroke: var(--white);
                 height: 14px;
                 width: 14px;
                 stroke-width: 3px;
@@ -210,22 +210,98 @@
             i {
                 font-size: 14px;
                 font-weight: 600;
-                color: $white;
+                color: var(--white);
             }
         }
 
         .inactive {
-            background: $placeholder;
-            border-color: $placeholder;
+            background: var(--light-text);
+            border-color: var(--light-text);
             opacity: 1;
             z-index: 1;
         }
 
         .active {
-            background: $secondary;
-            border-color: $secondary;
+            background: var(--secondary);
+            border-color: var(--secondary);
             opacity: 0;
             z-index: 0;
         }
     }
 }
+
+
+/* ==========================================================================
+3. Theme Toggle
+========================================================================== */
+
+.theme-toggle {
+    position: relative;
+    display: block;
+    overflow: hidden;
+  
+    input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 0%;
+      cursor: pointer;
+      z-index: 2;
+  
+      &:checked {
+        + .theme-toggle-inner {
+          .sun-icon {
+            transform: translate(-45%, 150%);
+            opacity: 0%;
+          }
+  
+          .moon-icon {
+            transform: translate(-45%, -50%);
+            opacity: 100%;
+          }
+        }
+      }
+    }
+  
+    .theme-toggle-inner {
+      display: block;
+      position: relative;
+      height: 36px;
+      width: 36px;
+      background: var(--wrap-bg-color);
+      border: 1px solid var(--wrap-border-color);
+      font-size: 1.25rem;
+      border-radius: 50%;
+  
+      .sun-icon,
+      .moon-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        height: 20px;
+        width: 20px;
+        opacity: 0%;
+        transition: transform 0.3s, opacity 0.3s;
+        color: var(--yellow);
+        pointer-events: none;
+  
+        circle,
+        path {
+          fill: var(--yellow);
+        }
+      }
+  
+      .sun-icon {
+        transform: translate(-50%, -50%);
+        opacity: 100%;
+      }
+  
+      .moon-icon {
+        transform: translate(-50%, -150%);
+      }
+    }
+  }
+  

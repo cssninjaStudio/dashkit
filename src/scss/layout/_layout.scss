@@ -17,13 +17,12 @@ TABLE OF CONTENTS
 
 body {
     overflow-x: hidden;
-
-    //overflow-y: auto;
+    background: var(--dashboard-bg-color);
 }
 
 .dashboard-outer, .dashboard-wrapper {
-    -webkit-transition: all .3s;
     transition: all .3s;
+    background: var(--dashboard-bg-color);
 }
 
 .dashboard-outer {

@@ -11,7 +11,7 @@
             <span class="material-icons">insert_drive_file</span>
             Documents
         </a>
-        <ul x-show.transition.fade="$store.app.activeSidebarMenu == 'documents-menu-1'">
+        <ul x-show="$store.app.activeSidebarMenu == 'documents-menu-1'" x-collapse>
             <li><a href="document-list.html">Document list</a></li>
             <li><a href="document-details.html">Document details</a></li>
             <li><a href="document-invoice.html">Invoice</a></li>
@@ -25,7 +25,7 @@
             <span class="material-icons">assignment</span>
             Projects
         </a>
-        <ul x-show.transition.fade="$store.app.activeSidebarMenu == 'documents-menu-2'">
+        <ul x-show="$store.app.activeSidebarMenu == 'documents-menu-2'" x-collapse>
             <li><a href="projects-list.html">Project list</a></li>
             <li><a href="projects-details.html">Project details</a></li>
         </ul>
@@ -38,7 +38,7 @@
             <span class="material-icons">assignment_turned_in</span>
             Tasks
         </a>
-        <ul x-show.transition.fade="$store.app.activeSidebarMenu == 'documents-menu-3'">
+        <ul x-show="$store.app.activeSidebarMenu == 'documents-menu-3'" x-collapse>
             <li><a href="projects-task.html">Single Task</a></li>
             <li><a href="projects-mytasks.html">My Tasks</a></li>
             <li><a href="events-board.html">Events</a></li>

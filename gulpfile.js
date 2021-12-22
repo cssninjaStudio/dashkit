@@ -3,9 +3,8 @@ const del = require('del');
 const options = require("./config");
 const browserSync = require('browser-sync').create();
 
-const sass = require('gulp-sass');
+const sass = require('gulp-sass')(require('sass'));
 const bourbon = require('node-bourbon').includePaths;
-const postcss = require('gulp-postcss');
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const imagemin = require('gulp-imagemin');
@@ -45,22 +44,7 @@ function setupBulma() {
     .pipe(dest('src/sass/'));
 }
 
-//Compile Sass code
-function compileSASS() {
-  console.log("\n\t" + logSymbols.info, "Compiling Bulma Sass..\n");
-  return src(['src/sass/bulma.sass'])
-    .pipe(sass({
-      outputStyle: 'compressed',
-      sourceComments: 'map',
-      sourceMap: 'sass',
-      includePaths: bourbon
-    }).on('error', sass.logError))
-    .pipe(autoprefixer('last 2 versions'))
-    .pipe(dest('dist/assets/css'))
-    .pipe(browserSync.stream());
-}
-
-//Compile Scss code
+//Compile SCSS code
 function compileSCSS() {
   console.log("\n\t" + logSymbols.info, "Compiling App SCSS..\n");
   return src(['src/scss/main.scss'])

@@ -17,10 +17,10 @@
     }
 
     .user-list-avatar {
-        width: 40px;
-        min-width: 40px;
-        height: 40px;
-        max-height: 40px;
+        width: 42px;
+        min-width: 42px;
+        height: 42px;
+        max-height: 42px;
 
         img {
             display: block;
@@ -35,16 +35,16 @@
         margin: 0 10px;
 
         .name {
-            font-family: $font-alt;
+            font-family: var(--font-alt);
             font-size: 14px;
             font-weight: 500;
-            color: $blue-grey;
+            color: var(--title-color);
         }
 
         .position {
-            font-family: $font;
+            font-family: var(--font);
             font-size: 12px;
-            color: $light-text;
+            color: var(--light-text);
         }
     }
 
@@ -53,10 +53,10 @@
         height: 36px;
         width: 36px;
         border-radius: 50%;
-        border: 1px solid $border;
-        background: $white;
-        box-shadow: $light-box-shadow;
-        color: $light-text;
+        border: 1px solid var(--wrap-border-color);
+        background: var(--wrap-bg-color);
+        box-shadow: var(--light-box-shadow);
+        color: var(--light-text);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -64,9 +64,9 @@
         transition: all .3s;
 
         &:hover {
-            background: $secondary;
-            box-shadow: $secondary-box-shadow;
-            color: $white;
+            background: var(--secondary);
+            box-shadow: var(--secondary-box-shadow);
+            color: var(--white);
         }
 
         i {
@@ -84,19 +84,19 @@
         height: 10px;
         width: 10px;
         border-radius: 100px;
-        background: $light-text;
+        background: var(--light-text);
         margin-left: auto;
 
         &.is-offline {
-            background: $fade-grey;
+            background: var(--wrap-muted-color);
         }
 
         &.is-online {
-            background: $green;
+            background: var(--success);
         }
 
         &.is-busy {
-            background: $orange;
+            background: var(--warning);
         }
     }
 }

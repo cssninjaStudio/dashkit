@@ -1,0 +1,9 @@
+:root {
+  --html-bg-color: var(--white);
+  --dashboard-bg-color: var(--dashboard-grey);
+}
+
+.is-dark {
+  --html-bg-color: var(--night-light-3);
+  --dashboard-bg-color: var(--night-light-3);
+}

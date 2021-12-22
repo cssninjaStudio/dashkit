@@ -9,57 +9,35 @@ SCSS Imports
 @import "icons/simple-line-icons";
 @import "icons/iconsmind";
 
-@import "abstracts/variables";
-@import "abstracts/brands";
-@import "abstracts/shadows";
-@import "abstracts/typography";
+//CSS vars setup
+@import './bulma-generated/generated-vars.sass';
+@import './css-variables/all';
 
-@import "../sass/bulma";
+//Additional variables
+@import './abstracts/variables';
 
-@import "utilities/utilities";
+//Bulma
+@import '../../node_modules/bulma-css-vars/bulma-cv-lib';
+@import '../sass/sass/base/_all.sass';
+@import '../sass/sass/elements/_all.sass';
+@import '../sass/sass/form/_all.sass';
+@import '../sass/sass/components/_all.sass';
+@import '../sass/sass/grid/_all.sass';
+@import '../sass/sass/helpers/_all.sass';
+@import '../sass/sass/layout/_all.sass';
+@import '../sass/sass/extensions/_all.sass';
 
-@import "abstracts/animations";
-@import "abstracts/helpers";
+//Utilities
+@import "utilities/all";
 
-@import "components/pageloader";
-@import "components/hamburger";
-@import "components/button";
-@import "components/card";
-@import "components/dropdown";
-@import "components/datepicker";
-@import "components/table";
-@import "components/tabs";
-@import "components/modal";
-@import "components/list";
-@import "components/image";
-@import "components/chart";
-@import "components/video";
-@import "components/tag";
-@import "components/pricing";
-@import "components/map";
-@import "components/quickview";
+//Components
+@import "components/all";
 
-@import "forms/input";
-@import "forms/toggle";
-@import "forms/checkbox";
-@import "forms/combo";
+//Forms
+@import "forms/all";
 
-@import "layout/sidebar";
-@import "layout/sidebar-right";
-@import "layout/navbar";
-@import "layout/layout";
+//Layout
+@import "layout/all";
 
-@import "pages/dashboard";
-@import "pages/widgets";
-@import "pages/feed";
-@import "pages/documents";
-@import "pages/projects";
-@import "pages/contacts";
-@import "pages/kanban";
-@import "pages/deal";
-@import "pages/forum";
-@import "pages/support";
-@import "pages/datatables";
-@import "pages/inbox";
-@import "pages/chat";
-@import "pages/auth";
+//Pages
+@import "pages/all";

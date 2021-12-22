@@ -5,6 +5,7 @@ export function getUrlParams(param) {
 }
 
 export function switchDemoImages(environment) {
+  console.log('ENV:', environment)
   if (environment === "development") {
     const targets = document.querySelectorAll("[data-demo-src]");
     const bgTargets = document.querySelectorAll("[data-demo-background]");

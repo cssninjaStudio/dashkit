@@ -10,24 +10,24 @@
 
 .pricing-table {
     .pricing-plan {
-        border: 1px solid $border;
+        border: 1px solid var(--card-border-color);
         box-shadow: none;
 
         &.is-active {
-            box-shadow: $light-box-shadow !important;
-            border: 1px solid $border !important;
+            box-shadow: var(--light-box-shadow) !important;
+            border: 1px solid var(--card-border-color) !important;
         }
 
         .plan-header {
-            font-family: $font-alt;
-            color: $dark-text;
+            font-family: var(--font-alt);
+            color: var(--title-color);
         }
 
         .plan-price, .plan-items {
-            font-family: $font;
+            font-family: var(--font);
 
             .plan-item {
-                background: $widget-grey;
+                background: var(--wrap-muted-color);
             }
         }
     }
@@ -38,7 +38,7 @@
     .pricing-table {
         .pricing-plan {
             width: 100%;
-            border: 1px solid $border !important;
+            border: 1px solid var(--card-border-color) !important;
         }
     }
 

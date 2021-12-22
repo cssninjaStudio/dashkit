@@ -1,5 +1,5 @@
 <!-- Notifications dropdown (hidden on mobile) -->
-<div class="drop-pop" @click="openNavbarDropdowns('notifications-nav-drop')"  @click.away="closeNavbarDropdowns('notifications-nav-drop')">
+<div x-cloak class="drop-pop" @click="openNavbarDropdowns('notifications-nav-drop')"  @click.away="closeNavbarDropdowns('notifications-nav-drop')">
     <div class="icon-button">
         <i data-feather="bell"></i>
         <span class="indicator"></span>
@@ -33,7 +33,7 @@
                         <i class="sl icon-check"></i>
                         <div class="notification-content">
                             <img src="https://via.placeholder.com/250x250" alt=""
-                                data-demo-src="/img/avatars/carolin.png">
+                                data-demo-src="/img/avatars/carolin.jpg">
                             <div class="notification-text">
                                 <div class="text">
                                     <b>Marjory</b> followed you.

@@ -20,16 +20,16 @@ TABLE OF CONTENTS
     margin-bottom: 20px;
 
     .combo-label {
-        font-family: $font;
+        font-family: var(--font);
         font-weight: 400;
         font-size: .95rem;
-        color: $medium-text;
+        color: var(--input-label-color);
     }
 
     .combo-box, .image-combo-box, .stacked-combo-box, .user-combo-box {
         position: relative;
-        background: $white;
-        border: 1px solid darken($fade-grey, 4%);
+        background: var(--input-base-bg-color);
+        border: 1px solid var(--input-base-border-color);
         border-radius: 4px;
         height: 40px;
         margin-top: 4px;
@@ -54,7 +54,7 @@ TABLE OF CONTENTS
                 padding-left: 8px;
 
                 i {
-                    color: $secondary;
+                    color: var(--secondary);
                     font-size: 20px;
                     margin-right: 8px;
                 }
@@ -65,23 +65,23 @@ TABLE OF CONTENTS
                     font-size: 14px;
 
                     &.is-green {
-                        color: $green;
+                        color: var(--success);
                     }
 
                     &.is-blue {
-                        color: $blue;
+                        color: var(--info);
                     }
 
                     &.is-orange {
-                        color: $warning;
+                        color: var(--warning);
                     }
 
                     &.is-red {
-                        color: $red;
+                        color: var(--danger);
                     }
 
                     &.is-secondary {
-                        color: $secondary;
+                        color: var(--secondary);
                     }
                 }
 
@@ -95,7 +95,7 @@ TABLE OF CONTENTS
                     &.is-stacked {
                         height: 26px;
                         width: 26px;
-                        border: 2px solid $white;
+                        border: 2px solid var(--card-bg-color);
                         margin-right: 0 !important;
 
                         &:not(:first-child) {
@@ -130,14 +130,14 @@ TABLE OF CONTENTS
                         height: 16px;
                         width: 16px;
                         border-radius: 50%;
-                        border: 2px solid $white;
+                        border: 2px solid var(--card-bg-color);
                         margin: 0;
                     }
                 }
 
                 span {
                     display: block;
-                    color: $blue-grey;
+                    color: var(--title-color);
                     font-size: .9rem;
                     font-weight: 500;
                     margin-left: 8px;
@@ -157,7 +157,7 @@ TABLE OF CONTENTS
 
             i {
                 font-size: 18px;
-                stroke: $blue-grey;
+                stroke: var(--title-color);
                 transform: rotate(0);
                 transition: all .3s;
             }
@@ -165,7 +165,7 @@ TABLE OF CONTENTS
             svg {
                 height: 18px;
                 width: 18px;
-                stroke: $blue-grey;
+                stroke: var(--title-color);
                 transform: rotate(0);
                 transition: all .3s;
             }
@@ -195,8 +195,8 @@ TABLE OF CONTENTS
                 position: relative;
                 width: 100%;
                 height: 100%;
-                background: $white;
-                border: 1px solid $border;
+                background: var(--dropdown-bg-color);
+                border: 1px solid var(--dropdown-border-color);
                 border-radius: 4px;
                 margin-top: 10px;
                 max-height: 190px;
@@ -226,7 +226,7 @@ TABLE OF CONTENTS
                             margin-right: 8px;
 
                             i {
-                                color: $muted-grey;
+                                color: var(--light-text);
                                 font-size: 20px;
                             }
 
@@ -236,23 +236,23 @@ TABLE OF CONTENTS
                                 top: 1px;
 
                                 &.is-green {
-                                    color: $green;
+                                    color: var(--success);
                                 }
 
                                 &.is-blue {
-                                    color: $blue;
+                                    color: var(--info);
                                 }
 
                                 &.is-orange {
-                                    color: $warning;
+                                    color: var(--warning);
                                 }
 
                                 &.is-red {
-                                    color: $red;
+                                    color: var(--danger);
                                 }
 
                                 &.is-secondary {
-                                    color: $secondary;
+                                    color: var(--secondary);
                                 }
                             }
 
@@ -282,7 +282,7 @@ TABLE OF CONTENTS
                                 height: 12px;
                                 width: 12px;
                                 border-radius: 50%;
-                                border: 2px solid $white;
+                                border: 2px solid var(--card-bg-color);
                             }
                         }
 
@@ -298,7 +298,7 @@ TABLE OF CONTENTS
                             transition: all .3s;
 
                             svg {
-                                stroke: $secondary;
+                                stroke: var(--secondary);
                                 stroke-width: 3px;
                                 height: 16px;
                                 width: 16px;
@@ -306,26 +306,26 @@ TABLE OF CONTENTS
 
                             i {
                                 font-size: 16px;
-                                color: $secondary;
+                                color: var(--secondary);
                             }
                         }
 
                         span {
                             display: block;
-                            color: $light-text;
-                            font-family: $font;
+                            color: var(--light-text);
+                            font-family: var(--font);
                             font-size: .9rem;
                             font-weight: 500;
                         }
 
                         &:hover {
-                            background: darken($widget-grey, 2%);
+                            background: var(--wrap-muted-color);
                         }
 
                         &.is-active {
                             .item-icon {
                                 i {
-                                    color: $secondary;
+                                    color: var(--secondary);
                                 }
 
                                 .faded-img {
@@ -334,7 +334,7 @@ TABLE OF CONTENTS
                             }
 
                             span {
-                                color: $blue-grey;
+                                color: var(--title-color);
                             }
 
                             .checkmark {
@@ -347,8 +347,8 @@ TABLE OF CONTENTS
         }
 
         &.is-active {
-            border-color: darken($fade-grey, 3%);
-            box-shadow: $light-box-shadow;
+            border-color: var(--dropdown-border-color);
+            box-shadow: var(--light-box-shadow);
 
             .box-chevron svg, .box-chevron i {
                 transform: rotate(180deg);
@@ -364,13 +364,13 @@ TABLE OF CONTENTS
 
     .help-text {
         font-size: .75rem;
-        color: $muted-grey;
+        color: var(--light-text);
     }
 
     .big-combo-box {
         position: relative;
         background: $white;
-        border: 1px solid darken($fade-grey, 4%);
+        border: 1px solid var(--dropdown-border-color);
         border-radius: 4px;
         height: 58px;
         margin-top: 4px;
@@ -390,7 +390,7 @@ TABLE OF CONTENTS
                 padding-left: 8px;
 
                 i {
-                    color: $secondary;
+                    color: var(--secondary);
                     font-size: 1.6rem;
                 }
 
@@ -401,13 +401,13 @@ TABLE OF CONTENTS
                         display: block;
 
                         &:first-child {
-                            color: $blue-grey;
+                            color: var(--title-color);
                             font-size: .9rem;
                             font-weight: 500;
                         }
 
                         &:nth-child(2) {
-                            color: $muted-grey;
+                            color: var(--light-text);
                             font-size: .8rem;
                             max-width: 330px;
                             white-space: nowrap;
@@ -432,7 +432,7 @@ TABLE OF CONTENTS
             svg {
                 height: 18px;
                 width: 18px;
-                stroke: $blue-grey;
+                stroke: var(--title-color);
                 transform: rotate(0);
                 transition: all .3s;
             }
@@ -453,8 +453,8 @@ TABLE OF CONTENTS
                 position: relative;
                 width: 100%;
                 height: 100%;
-                background: $white;
-                border: 1px solid darken($fade-grey, 4%);
+                background: var(--dropdown-bg-color);
+                border: 1px solid var(--dropdown-border-color);
                 border-radius: 4px;
                 margin-top: 10px;
                 max-height: 190px;
@@ -482,7 +482,7 @@ TABLE OF CONTENTS
                             margin-right: 16px;
 
                             i {
-                                color: $muted-grey;
+                                color: var(--light-text);
                                 font-size: 1.6rem;
                             }
                         }
@@ -492,13 +492,13 @@ TABLE OF CONTENTS
                                 display: block;
 
                                 &:first-child {
-                                    color: $blue-grey;
+                                    color: var(--title-color);
                                     font-size: .9rem;
                                     font-weight: 500;
                                 }
 
                                 &:nth-child(2) {
-                                    color: $muted-grey;
+                                    color: var(--light-text);
                                     font-size: .8rem;
                                     white-space: nowrap;
                                     overflow: hidden;
@@ -508,16 +508,16 @@ TABLE OF CONTENTS
                         }
 
                         &:hover {
-                            background: lighten($fade-grey, 2%);
+                            background: var(--dropdown-bg-color-hover);
                         }
 
                         &.is-active {
                             .item-icon i {
-                                color: $secondary;
+                                color: var(--secondary);
                             }
 
                             span {
-                                color: $blue-grey;
+                                color: var(--title-color);
                             }
                         }
                     }
@@ -526,7 +526,7 @@ TABLE OF CONTENTS
         }
 
         &.is-active {
-            border-color: $secondary;
+            border-color: var(--secondary);
 
             .box-chevron svg {
                 transform: rotate(180deg);

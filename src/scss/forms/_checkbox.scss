@@ -25,7 +25,6 @@ TABLE OF CONTENTS
         line-height: 1;
     }
 
-    //label
     label::before {
         content: "";
         position: absolute;
@@ -33,10 +32,10 @@ TABLE OF CONTENTS
         height: 17px;
         left: 0;
         top: 1px;
-        border: 1px solid #dbdbdb;
+        border: 1px solid var(--checkbox-base-bg-color);
+        background: var(--checkbox-base-bg-color);
         border-radius: 3px;
-        background-color: $white;
-        transition: background .1s ease-in-out;
+        transition: background-color .1s ease-in-out;
     }
 
     label::after {
@@ -46,7 +45,7 @@ TABLE OF CONTENTS
         left: 3.5px;
         top: 5px;
         font-size: 12px;
-        color: #363636;
+        color: var(--title-color);
     }
 
     //hide native input
@@ -79,7 +78,7 @@ TABLE OF CONTENTS
 
     input[type="checkbox"]:disabled + label::before,
     input[type="radio"]:disabled + label::before {
-        background-color: whitesmoke;
+        background-color: var(--input-base-bg-color);
         cursor: not-allowed;
     }
 
@@ -100,8 +99,8 @@ TABLE OF CONTENTS
 
     //colors
     &.is-primary input[type="checkbox"]:checked + label::before {
-        background-color: $primary;
-        border-color: $primary;
+        background-color: var(--primary);
+        border-color: var(--primary);
     }
 
     &.is-primary input[type="checkbox"]:checked + label::after {
@@ -109,8 +108,8 @@ TABLE OF CONTENTS
     }
 
     &.is-secondary input[type="checkbox"]:checked + label::before {
-        background-color: $secondary;
-        border-color: $secondary;
+        background-color: var(--secondary);
+        border-color: var(--secondary);
     }
 
     &.is-secondary input[type="checkbox"]:checked + label::after {
@@ -118,8 +117,8 @@ TABLE OF CONTENTS
     }
 
     &.is-accent input[type="checkbox"]:checked + label::before {
-        background-color: $accent;
-        border-color: $accent;
+        background-color: var(--accent);
+        border-color: var(--accent);
     }
 
     &.is-accent input[type="checkbox"]:checked + label::after {
@@ -127,48 +126,48 @@ TABLE OF CONTENTS
     }
 
     &.is-danger input[type="checkbox"]:checked + label::before {
-        background-color: $red;
-        border-color: $red;
+        background-color: var(--danger);
+        border-color: var(--danger);
     }
 
     &.is-danger input[type="checkbox"]:checked + label::after {
-        color: $white;
+        color: var(--white);
     }
 
     &.is-info input[type="checkbox"]:checked + label::before {
-        background-color: $blue;
-        border-color: $blue;
+        background-color: var(--info);
+        border-color: var(--info);
     }
 
     &.is-info input[type="checkbox"]:checked + label::after {
-        color: $white;
+        color: var(--white);
     }
 
     &.is-warning input[type="checkbox"]:checked + label::before {
-        background-color: $orange;
-        border-color: $orange;
+        background-color: var(--warning);
+        border-color: var(--warning);
     }
 
     &.is-warning input[type="checkbox"]:checked + label::after {
-        color: $white;
+        color: var(--white);
     }
 
     &.is-success input[type="checkbox"]:checked + label::before {
-        background-color: $green;
-        border-color: $green;
+        background-color: var(--success);
+        border-color: var(--success);
     }
 
     &.is-success input[type="checkbox"]:checked + label::after {
-        color: $white;
+        color: var(--white);
     }
 
     &.is-dark input[type="checkbox"]:checked + label::before {
-        background-color: $dark;
-        border-color: $dark;
+        background-color: var(--dark);
+        border-color: var(--dark);
     }
 
     &.is-dark input[type="checkbox"]:checked + label::after {
-        color: $white;
+        color: var(--white);
     }
 
     input[type="checkbox"].styled:checked + label:after {
@@ -179,11 +178,11 @@ TABLE OF CONTENTS
     }
 
     input[type="checkbox"] .styled:checked + label:before {
-        color: $white;
+        color: var(--white);
     }
 
     input[type="checkbox"] .styled:checked + label:after {
-        color: $white;
+        color: var(--white);
         
     }
 }

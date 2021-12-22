@@ -20,11 +20,11 @@ TABLE OF CONTENTS
 ========================================================================== */
 
 .demo-title {
-    font-family: 'Nexa Bold', sans-serif;
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: $blue-grey;
-    margin-bottom: 20px;
+  font-family: var(--font-alt);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--title-color);
+  margin-bottom: 20px;
 }
 
 /* ==========================================================================
@@ -32,26 +32,26 @@ TABLE OF CONTENTS
 ========================================================================== */
 
 .pagination {
-    text-align: center;
+  text-align: center;
 
-    li {
-        list-style-type: none;
-        float: left;
+  li {
+    list-style-type: none;
+    float: left;
 
-        a {
-            padding: 0 5px;
-            cursor: pointer;
-        }
-
-        &.active {
-            background: $secondary !important;
-
-            a {
-                cursor: default;
-                color: $smoke-white !important;
-            }
-        }
+    a {
+      padding: 0 5px;
+      cursor: pointer;
     }
+
+    &.active {
+      background: var(--secondary) !important;
+
+      a {
+        cursor: default;
+        color: var(--white-smoke) !important;
+      }
+    }
+  }
 }
 
 /* ==========================================================================
@@ -59,18 +59,18 @@ TABLE OF CONTENTS
 ========================================================================== */
 
 .sorting {
-    cursor: pointer;
-    background-image: url("../img/icons/datatable/sort_both.png");
-    background-repeat: no-repeat;
-    background-position: center right;
+  cursor: pointer;
+  background-image: url("../img/icons/datatable/sort_both.png");
+  background-repeat: no-repeat;
+  background-position: center right;
 }
 
 .sorting-desc {
-    background-image: url("../img/icons/datatable/sort_desc.png");
+  background-image: url("../img/icons/datatable/sort_desc.png");
 }
 
 .sorting-asc {
-    background-image: url("../img/icons/datatable/sort_asc.png");
+  background-image: url("../img/icons/datatable/sort_asc.png");
 }
 
 /* ==========================================================================
@@ -78,22 +78,22 @@ TABLE OF CONTENTS
 ========================================================================== */
 
 .datatable-load-bar {
-    width: 100%;
-    margin: 8px 0;
+  width: 100%;
+  margin: 8px 0;
 }
 
 .datatable-load-bar {
-    border: 1px solid gray;
-    height: 10px;
+  border: 1px solid gray;
+  height: 10px;
 }
 
 .datatable-load-bar .bar {
-    height: 10px;
-    background-color: #AEF;
+  height: 10px;
+  background-color: #aef;
 }
 
 .datatable-filter-line {
-    background: #fcfcfc;
+  background: var(--wrap-muted-color);
 }
 
 /* ==========================================================================
@@ -101,81 +101,118 @@ TABLE OF CONTENTS
 ========================================================================== */
 
 .table-wrapper {
+  &.has-margin-bottom {
+    margin-bottom: 40px;
+  }
 
-    &.has-margin-bottom {
-        margin-bottom: 40px;
+  .table {
+    display: table;
+    width: 100%;
+    background: var(--wrap-bg-color);
+    border-color: var(--wrap-border-color);
+
+    &.is-striped {
+      tbody tr:not(.is-selected):nth-child(even) {
+        background-color: var(--wrap-muted-color);
+      }
     }
 
-    .table {
-        display: table;
-        width: 100%;
-
-        &.is-datatable {
-            th, td {
-                vertical-align: middle;
-            }
-
-            th {
-                font-family: $font;
-                padding: 16px 20px;
-            }
-
-            td {
-                font-family: $font;
-                padding: 12px 20px;
-            }
-
-            input {
-                padding: 6px 8px;
-                border-radius: 4px;
-                border: 1px solid $placeholder;
-                box-shadow: none;
-                outline: none !important;
-            }
-
-            .datatable-avatar {
-                width: 36px;
-                height: 36px;
-                border-radius: 50%;
-            }
+    &.is-hoverable {
+      tbody tr:hover {
+        background-color: var(--wrap-muted-color);
+      }
+      
+      &.is-striped {
+        tbody tr:nth-child(even):hover {
+          background-color: var(--wrap-bg-color);
         }
+
+        tbody tr:nth-child(odd):hover {
+          background-color: var(--wrap-muted-color);
+        }
+      }
     }
 
-    .pagination {
+    &.is-datatable {
+      th,
+      td {
+        vertical-align: middle;
+        border-color: var(--wrap-border-color);
+      }
+
+      th {
+        font-family: var(--font);
+        padding: 16px 20px;
+        color: var(--medium-text);
+      }
+
+      td {
+        font-family: var(--font);
+        padding: 12px 20px;
+        color: var(--light-text);
+      }
+
+      input {
+        padding: 6px 8px;
+        border-radius: 4px;
+        border: 1px solid var(--input-base-border-color);
+        background: var(--input-base-bg-color);
+        color: var(--input-base-color);
+        box-shadow: none;
+        outline: none !important;
+
+        &::placeholder {
+          color: var(--input-placeholder-color);
+        }
+
+        &:hover {
+          border-color: var(--input-base-border-color-hover);
+        }
+      }
+
+      .datatable-avatar {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    ul {
+      li {
         display: flex;
         justify-content: center;
         align-items: center;
+        width: 36px !important;
+        height: 36px !important;
+        border-radius: 50%;
+        margin: 04px;
+        background: var(--wrap-muted-color);
 
-        ul {
-            li {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 36px !important;
-                height: 36px !important;
-                border-radius: 50%;
-                margin: 04px;
-                background: $fade-grey;
+        &.is-selected {
+          background: var(--primary);
 
-                &.is-selected {
-                    background: $primary;
-
-                    a {
-                        color: $white;
-                    }
-                }
-
-                a {
-                    color: $blue-grey;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-
-                    i {
-                        font-size: 18px;
-                    }
-                }
-            }
+          a {
+            color: var(--white);
+          }
         }
+
+        a {
+          color: var(--title-color);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          i {
+            font-size: 18px;
+          }
+        }
+      }
     }
+  }
 }

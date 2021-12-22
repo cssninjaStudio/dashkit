@@ -13,21 +13,21 @@
     ul li {
         &.is-active {
             a {
-                color: $dark-text;
-                border-color: $primary;
+                color: var(--tab-active-color);
+                border-color: var(--tab-active-border-color);
             }
         }
 
         &:hover:not(.is-active) {
             a {
-                color: $medium-text;
+                color: var(--tab-hover-color);
                 border-color: transparent;
             }
         }
 
         a {
-            color: $light-text;
-            font-family: $font;
+            color: var(--tab-default-color);
+            font-family: var(--font);
             border-width: 3px;
             border-color: transparent;
         }
@@ -49,7 +49,7 @@
                     li {
                         &.is-active {
                             a {
-                                border-bottom-color: $primary;
+                                border-bottom-color: var(--tab-active-border-color);
                             }
                         }
                     }
@@ -79,14 +79,14 @@
 
                         &.is-active {
                             a {
-                                border-right-color: $primary;
+                                border-right-color: var(--tab-active-border-color);
                             }
                         }
 
                         a {
                             display: block;
                             border-bottom-color: transparent !important;
-                            border-right: 3px solid #dbdbdb;
+                            border-right: 3px solid var(--tab-default-border-color);
                         }
                     }
                 }

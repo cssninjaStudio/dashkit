@@ -9,265 +9,294 @@
 ========================================================================== */
 
 .button {
-    font-family: $font;
-    transition: all .3s;
+  font-family: var(--font);
+  background: var(--button-base-bg-color);
+  border-color: var(--button-base-border-color);
+  border-radius: .65rem;
+  color: var(--button-base-color);
+  transition: all 0.3s;
 
-    &.is-long-1 {
-        min-width: 10rem;
+  &:hover {
+    border-color: var(--button-base-border-color-hover);
+    color: var(--button-base-color);
+  }
+
+  &.is-long-1 {
+    min-width: 10rem;
+  }
+
+  &.is-long-2 {
+    min-width: 12rem;
+  }
+
+  &.is-long-3 {
+    min-width: 14rem;
+  }
+
+  &.is-medium {
+    font-size: 1.15rem;
+    padding-bottom: calc(0.6em - 1px);
+  }
+
+  &.is-large {
+    font-size: 1.35rem;
+  }
+
+  &.is-default {
+    background: var(--button-base-bg-color);
+    border: 1px solid var(--button-base-border-color);
+    box-shadow: var(--light-box-shadow);
+    color: var(--button-base-color);
+  }
+
+  &.is-primary {
+    background: var(--button-primary-bg-color);
+    border-color: var(--button-primary-border-color);
+    color: var(--white);
+
+    &.is-raised {
+      &:hover {
+        box-shadow: var(--primary-box-shadow);
+      }
     }
+  }
 
-    &.is-long-2 {
-        min-width: 12rem;
+  &.is-secondary {
+    background: var(--button-secondary-bg-color);
+    border-color: var(--button-secondary-border-color);
+    color: var(--white);
+
+    &.is-raised {
+      &:hover {
+        box-shadow: var(--secondary-box-shadow);
+      }
     }
-
-    &.is-long-3 {
-        min-width: 14rem;
-    }
-
-    &.is-medium {
-        font-size: 1.15rem;
-        padding-bottom: calc(0.6em - 1px);
-    }
-
-    &.is-large {
-        font-size: 1.35rem;
-    }
-
-    &.is-default {
-        background: $white;
-        border: 1px solid $border;
-        box-shadow: $light-box-shadow;
-        color: $medium-text;
-    }
-
-    &.is-secondary {
-        background: $secondary;
-        border-color: $secondary;
-        color: $white;
-
-        &.is-raised {
-            &:hover {
-                box-shadow: $secondary-box-shadow;
-            }
-        }
-    }
+  }
 }
-
 
 /* ==========================================================================
 2. FAB button
 ========================================================================== */
 
 .fab-btn {
-    box-sizing: border-box;
-    width: 56px;
-    height: 56px;
-    padding: 16px;
-    border: none;
-    border-radius: 50%;
-    color: $white;
-    transition: all 0.2s ease;
-    cursor: pointer;
+  box-sizing: border-box;
+  width: 56px;
+  height: 56px;
+  padding: 16px;
+  border: none;
+  border-radius: 50%;
+  color: var(--button-base-bg-color);
+  transition: all 0.2s ease;
+  cursor: pointer;
 
-    &:active, &:focus {
-        outline: none !important;
-    }
+  &:active,
+  &:focus {
+    outline: none !important;
+  }
 }
 
 .fab-btn.mini {
-    width: 48px;
-    height: 48px;
-    padding: 12px;
-    transform: rotate(-600deg);
-    background: $primary;
+  width: 48px;
+  height: 48px;
+  padding: 12px;
+  transform: rotate(-600deg);
+  background: var(--primary);
 }
 
 .profile-fab {
-    position: absolute;
-    width: 56px;
-    height: 56px;
-    padding: 0px;
-    bottom: -28px;
-    right: 25px;
-    z-index: 100;
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  padding: 0px;
+  bottom: -28px;
+  right: 25px;
+  z-index: 100;
 }
 
-.profile-fab .notifications, .profile-fab .team, .profile-fab .details {
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    opacity: 0;
+.profile-fab .notifications,
+.profile-fab .team,
+.profile-fab .details {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  opacity: 0;
+  color: var(--white);
+  font-size: 1.5rem;
+
+  .material-icons {
+    font-size: 1.5rem;
+  }
 }
 
 .profile-fab .fab-wrapper {
-    width: 56px;
-    height: 56px;
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
 }
 
 .profile-fab .fab-wrapper .pop-fab {
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    background: $secondary;
-    box-shadow: $secondary-box-shadow;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  background: var(--secondary);
+  box-shadow: var(--secondary-box-shadow);
 
-    .profile-menu-wrapper {
-        position: relative;
-        font-size: 20px;
-        color: #A9ABAC;
-        line-height: 56px;
-        text-align: center;
-        background: transparent;
-        display: block;
-        width: 56px;
-        height: 56px;
-        cursor: pointer;
-        padding: 0px;
-        top: -16px;
-        left: -15px;
+  .profile-menu-wrapper {
+    position: relative;
+    font-size: 20px;
+    color: #a9abac;
+    line-height: 56px;
+    text-align: center;
+    background: transparent;
+    display: block;
+    width: 56px;
+    height: 56px;
+    cursor: pointer;
+    padding: 0px;
+    top: -16px;
+    left: -15px;
 
-        .icon-box-toggle {
-            height: 100%;
-            width: 100%;
-            background: transparent;
-            position: relative;
-            display: block;
+    .icon-box-toggle {
+      height: 100%;
+      width: 100%;
+      background: transparent;
+      position: relative;
+      display: block;
 
-            //active state
-            &.active {
-                .rotate {
-                    -webkit-transform: rotate(90deg);
-                    -moz-transform: translate(0px, 0px) rotate(90deg);
-                    -ms-transform: translate(0px, 0px) rotate(90deg);
-                    -o-transform: translate(0px, 0px) rotate(90deg);
-                    transform: translate(0px, 0px) rotate(90deg);
-                }
-
-                i.icon-line-top {
-                    margin: -1.5px 0 0 -10px;
-                    left: 50%;
-                    top: 50%;
-                    -webkit-transform: rotate(45deg);
-                    -moz-transform: translate(0px, 0px) rotate(45deg);
-                    -ms-transform: translate(0px, 0px) rotate(45deg);
-                    -o-transform: translate(0px, 0px) rotate(45deg);
-                    transform: translate(0px, 0px) rotate(45deg);
-                }
-
-                i.icon-line-center {
-                    visibility: hidden;
-                    width: 1px;
-                    height: 2px;
-                    left: 70%;
-                }
-
-                i.icon-line-bottom {
-                    margin: -1.5px 0 0 -10px;
-                    left: 50%;
-                    top: 50%;
-                    -webkit-transform: rotate(135deg);
-                    -moz-transform: translate(0px, 0px) rotate(135deg);
-                    -ms-transform: translate(0px, 0px) rotate(135deg);
-                    -o-transform: translate(0px, 0px) rotate(135deg);
-                    transform: translate(0px, 0px) rotate(135deg);
-                }
-            }
-        }
-
+      //active state
+      &.active {
         .rotate {
-            background: transparent;
-            display: block;
-            width: 56px;
-            height: 56px;
-            padding: 0px;
-            -webkit-transition: all .5s ease;
-            -moz-transition: all .5s ease;
-            -o-transition: all .5s ease;
-            transition: all .5s ease;
+          -webkit-transform: rotate(90deg);
+          -moz-transform: translate(0px, 0px) rotate(90deg);
+          -ms-transform: translate(0px, 0px) rotate(90deg);
+          -o-transform: translate(0px, 0px) rotate(90deg);
+          transform: translate(0px, 0px) rotate(90deg);
         }
 
-        .icon-line-top {
-            position: absolute;
-            width: 20px;
-            height: 2px;
-            background: $white;
-            margin: -3px 0 0 -10px;
-            left: 50%;
-            top: 40%;
-            -webkit-transition: all .2s ease;
-            -moz-transition: all .2s ease;
-            -o-transition: all .2s ease;
-            transition: all .2s ease;
+        i.icon-line-top {
+          margin: -1.5px 0 0 -10px;
+          left: 50%;
+          top: 50%;
+          -webkit-transform: rotate(45deg);
+          -moz-transform: translate(0px, 0px) rotate(45deg);
+          -ms-transform: translate(0px, 0px) rotate(45deg);
+          -o-transform: translate(0px, 0px) rotate(45deg);
+          transform: translate(0px, 0px) rotate(45deg);
         }
 
-        .icon-line-center {
-            position: absolute;
-            width: 20px;
-            height: 2px;
-            background: $white;
-            margin: -1.5px 0 0 -10px;
-            left: 50%;
-            top: 50%;
-            -webkit-transition: all .2s ease;
-            -moz-transition: all .2s ease;
-            -o-transition: all .2s ease;
-            transition: all .2s ease;
+        i.icon-line-center {
+          visibility: hidden;
+          width: 1px;
+          height: 2px;
+          left: 70%;
         }
 
-        .icon-line-bottom {
-            position: absolute;
-            width: 20px;
-            height: 2px;
-            background: $white;
-            margin: 1.2px 0 0 -10px;
-            left: 50%;
-            top: 58%;
-            -webkit-transition: all .2s ease;
-            -moz-transition: all .2s ease;
-            -o-transition: all .2s ease;
-            transition: all .2s ease;
+        i.icon-line-bottom {
+          margin: -1.5px 0 0 -10px;
+          left: 50%;
+          top: 50%;
+          -webkit-transform: rotate(135deg);
+          -moz-transform: translate(0px, 0px) rotate(135deg);
+          -ms-transform: translate(0px, 0px) rotate(135deg);
+          -o-transform: translate(0px, 0px) rotate(135deg);
+          transform: translate(0px, 0px) rotate(135deg);
         }
+      }
     }
+
+    .rotate {
+      background: transparent;
+      display: block;
+      width: 56px;
+      height: 56px;
+      padding: 0px;
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+    }
+
+    .icon-line-top {
+      position: absolute;
+      width: 20px;
+      height: 2px;
+      background: var(--white);
+      margin: -3px 0 0 -10px;
+      left: 50%;
+      top: 40%;
+      -webkit-transition: all 0.2s ease;
+      -moz-transition: all 0.2s ease;
+      -o-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+    }
+
+    .icon-line-center {
+      position: absolute;
+      width: 20px;
+      height: 2px;
+      background: var(--white);
+      margin: -1.5px 0 0 -10px;
+      left: 50%;
+      top: 50%;
+      -webkit-transition: all 0.2s ease;
+      -moz-transition: all 0.2s ease;
+      -o-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+    }
+
+    .icon-line-bottom {
+      position: absolute;
+      width: 20px;
+      height: 2px;
+      background: var(--white);
+      margin: 1.2px 0 0 -10px;
+      left: 50%;
+      top: 58%;
+      -webkit-transition: all 0.2s ease;
+      -moz-transition: all 0.2s ease;
+      -o-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+    }
+  }
 }
 
 .details {
-    background: $secondary !important;
+  background: var(--secondary) !important;
 }
 
 .team {
-    background: $secondary !important;
+  background: var(--secondary) !important;
 }
 
 .notifications {
-    background: $secondary !important;
+  background: var(--secondary) !important;
 }
 
 .profile-fab.is-open {
-    width: 150px;
-    height: 150px;
+  width: 150px;
+  height: 150px;
 
-    .fab-btn.mini {
-        transform: rotate(0);
-    }
+  .fab-btn.mini {
+    transform: rotate(0);
+  }
 }
 
 .profile-fab.is-open .notifications {
-    left: -94px;
-    top: 4px;
-    opacity: 1;
+  left: -94px;
+  top: 4px;
+  opacity: 1;
 }
 
 .profile-fab.is-open .team {
-    left: -65.296px;
-    top: -65.296px;
-    opacity: 1;
+  left: -65.296px;
+  top: -65.296px;
+  opacity: 1;
 }
 
 .profile-fab.is-open .details {
-    left: 4px;
-    top: -94px;
-    opacity: 1;
+  left: 4px;
+  top: -94px;
+  opacity: 1;
 }
