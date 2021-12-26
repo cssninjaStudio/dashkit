@@ -1,7 +1,5 @@
-/*! _helpers.scss | Faqster | Css ninja 2020-2021 */
-
 /*
-    1. Color & Background
+    1. Theme images
     2. State
     3. Border Radius
     4. Border
@@ -14,12 +12,42 @@
 */
 
 /* ==========================================================================
-1. Sizing helpers
+1. Theme images
 ========================================================================== */
 
-/* ==========================================================================
-1. Color & Background
-========================================================================== */
+.light-image {
+  display: inline-block !important;
+}
+
+.light-image-block {
+  display: block !important;
+}
+
+.dark-image-block {
+  display: none !important;
+}
+
+.dark-image {
+  display: none !important;
+}
+
+.is-dark {
+  .light-image {
+    display: none !important;
+  }
+
+  .dark-image {
+    display: inline-block !important;
+  }
+
+  .light-image-block {
+    display: none !important;
+  }
+
+  .dark-image-block {
+    display: block !important;
+  }
+}
 
 /* ==========================================================================
 2. State
@@ -326,44 +354,5 @@
   &::-webkit-scrollbar-thumb {
     border-radius: 10px !important;
     background: rgba(0, 0, 0, 0.2) !important;
-  }
-}
-
-
-/* ==========================================================================
-8. Dark images
-========================================================================== */
-
-.light-image {
-  display: inline-block !important;
-}
-
-.light-image-block {
-  display: block !important;
-}
-
-.dark-image-block {
-  display: none !important;
-}
-
-.dark-image {
-  display: none !important;
-}
-
-.is-dark {
-  .light-image {
-    display: none !important;
-  }
-
-  .dark-image {
-    display: inline-block !important;
-  }
-
-  .light-image-block {
-    display: none !important;
-  }
-
-  .dark-image-block {
-    display: block !important;
   }
 }

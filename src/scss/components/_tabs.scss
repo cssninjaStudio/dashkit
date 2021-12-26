@@ -10,87 +10,86 @@
 ========================================================================== */
 
 .tabs {
-    ul li {
-        &.is-active {
-            a {
-                color: var(--tab-active-color);
-                border-color: var(--tab-active-border-color);
-            }
-        }
-
-        &:hover:not(.is-active) {
-            a {
-                color: var(--tab-hover-color);
-                border-color: transparent;
-            }
-        }
-
-        a {
-            color: var(--tab-default-color);
-            font-family: var(--font);
-            border-width: 3px;
-            border-color: transparent;
-        }
+  ul li {
+    &.is-active {
+      a {
+        color: var(--tab-active-color);
+        border-color: var(--tab-active-border-color);
+      }
     }
-}
 
+    &:hover:not(.is-active) {
+      a {
+        color: var(--tab-hover-color);
+        border-color: transparent;
+      }
+    }
+
+    a {
+      color: var(--tab-default-color);
+      font-family: var(--font);
+      border-width: 3px;
+      border-color: transparent;
+    }
+  }
+}
 
 /* ==========================================================================
 2. Vertical Tabs
 ========================================================================== */
 
 @media only screen and (max-width: 767px) {
-    .tabs-container {
-        &.is-vertical {
-            .tabs {
-                margin-bottom: 2.5rem;
+  .tabs-container {
+    &.is-vertical {
+      .tabs {
+        margin-bottom: 2.5rem;
 
-                ul {
-                    li {
-                        &.is-active {
-                            a {
-                                border-bottom-color: var(--tab-active-border-color);
-                            }
-                        }
-                    }
-                }
+        ul {
+          li {
+            &.is-active {
+              a {
+                border-bottom-color: var(--tab-active-border-color);
+              }
             }
+          }
         }
+      }
     }
+  }
 }
 
 @media only screen and (min-width: 768px) {
-    .tabs-container {
-        &.is-vertical {
-            display: flex;
+  .tabs-container {
+    &.is-vertical {
+      display: flex;
 
-            .tabs {
-                flex-grow: 2;
-                min-width: 25%;
-                margin-right: 60px;
+      .tabs {
+        flex-grow: 2;
+        min-width: 25%;
+        margin-right: 60px;
 
-                ul {
-                    display: block;
-                    text-align: left;
-                    border-bottom-color: transparent !important;
+        ul {
+          display: block;
+          text-align: left;
+          border-bottom-color: transparent !important;
 
-                    li {
-                        display: block;
+          li {
+            display: block;
 
-                        &.is-active {
-                            a {
-                                border-right-color: var(--tab-active-border-color);
-                            }
-                        }
-
-                        a {
-                            display: block;
-                            border-bottom-color: transparent !important;
-                            border-right: 3px solid var(--tab-default-border-color);
-                        }
-                    }
-                }
+            &.is-active {
+              a {
+                border-right-color: var(--tab-active-border-color);
+              }
             }
+
+            a {
+              display: block;
+              border-bottom-color: transparent !important;
+              border-right: 3px solid var(--tab-default-border-color);
+            }
+          }
         }
+      }
     }
+  }
 }

@@ -5,7 +5,6 @@ Dashboard sidebar styles
 ========================================================================== */
 
 /***
-TABLE OF CONTENTS
 =============================================================================
 0. Left Sidebar
 1. Menu items
@@ -259,7 +258,7 @@ TABLE OF CONTENTS
         }
 
         ul {
-          padding: .75rem 0;
+          padding: 0.75rem 0;
           background-color: var(--sidebar-child-item-expanded);
 
           li {
@@ -391,7 +390,7 @@ TABLE OF CONTENTS
   border-radius: 50%;
   z-index: 1;
   transform: scale(0.001) translateZ(0);
-  transition: transform .8s, opacity .5s;
+  transition: transform 0.8s, opacity 0.5s;
   transition-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
   pointer-events: none;
 }
@@ -751,7 +750,7 @@ TABLE OF CONTENTS
             background: var(--secondary) !important;
             box-shadow: var(--secondary-box-shadow);
             color: var(--white) !important;
-            border-radius: .65rem;
+            border-radius: 0.65rem;
           }
         }
       }
