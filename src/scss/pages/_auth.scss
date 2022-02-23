@@ -11,106 +11,116 @@
 ========================================================================== */
 
 .auth-wrapper {
-    overflow: hidden !important;
-    height: 100%;
-    padding: 0;
-    margin: 0;
+  overflow: hidden !important;
+  height: 100%;
+  padding: 0;
+  margin: 0;
 
-    &.is-gapless:not(:last-child) {
-        margin-bottom: 0 !important;
+  &.is-gapless:not(:last-child) {
+    margin-bottom: 0 !important;
+  }
+
+  &.is-single {
+    background: var(--wrap-muted-color);
+    min-height: 100vh;
+  }
+
+  .login-hero {
+      background: var(--wrap-muted-color);
+  }
+
+  .form-login-hero{
+    background: var(--card-bg-color);
+  }
+
+  .hero-banner {
+    position: relative;
+    background: var(--wrap-muted-color);
+
+    &.has-image {
+      background: #f0f0f0;
     }
 
-    &.is-single {
-        background: $widget-grey;
-        min-height: 100vh;
+    .signup-image {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+  }
+
+  .hero {
+    .hero-heading {
+      max-width: 360px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 20px 0 0 0;
+
+      .auth-logo {
+        .top-logo {
+          height: 36px;
+        }
+      }
     }
 
-    .hero-banner {
-        position: relative;
-        background: $widget-grey;
+    .hero-body {
+      .login {
+        padding: 10px 0;
+      }
 
-        &.has-image {
-            background: #f0f0f0;
+      .auth-content {
+        max-width: 320px;
+        width: 100%;
+        margin: 0 auto;
+        margin-top: -40px;
+        margin-bottom: 40px;
+
+        h2 {
+          color: var(--title-color);
+          font-size: 2rem;
+          font-family: var(--font-alt);
+          line-height: 1;
         }
 
-        .signup-image {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 100%;
-            display: block;
+        p {
+          font-family: var(--font);
+          font-size: 1rem;
+          margin-bottom: 8px;
+          color: var(--light-text);
         }
-    }
-
-    .hero {
-        .hero-heading {
-            max-width: 360px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 20px 0 0 0;
-
-            .auth-logo {
-                .top-logo {
-                    height: 36px;
-                }
-            }
-        }
-
-        .hero-body {
-            .login {
-                padding: 10px 0;
-            }
-
-            .auth-content {
-                max-width: 320px;
-                width: 100%;
-                margin: 0 auto;
-                margin-top: -40px;
-                margin-bottom: 40px;
-
-                h2 {
-                    font-size: 2rem;
-                    font-family: $font-alt;
-                    line-height: 1;
-                }
-
-                p {
-                    font-family: $font;
-                    font-size: 1rem;
-                    margin-bottom: 8px;
-                    color: $light-text;
-                }
-
-                a {
-                    font-size: .9rem;
-                    font-family: $font;
-                    font-weight: 500;
-                    color: $secondary;
-                }
-            }
-
-            .auth-form-wrapper {
-                max-width: 320px;
-                width: 100%;
-                margin: 0 auto;
-            }
-        }
-    }
-
-    .forgot-link {
-        margin-top: 10px;
 
         a {
-            font-family: $font;
-            font-size: .9rem;
-            color: $medium-text;
-            transition: color .3s;
-
-            &:hover {
-                color: $secondary;
-            }
+          font-size: 0.9rem;
+          font-family: var(--font);
+          font-weight: 500;
+          color: var(--secondary);
         }
+      }
+
+      .auth-form-wrapper {
+        max-width: 320px;
+        width: 100%;
+        margin: 0 auto;
+      }
     }
+  }
+
+  .forgot-link {
+    margin-top: 10px;
+
+    a {
+      font-family: var(--font);
+      font-size: 0.9rem;
+      color: var(--medium-text);
+      transition: color 0.3s;
+
+      &:hover {
+        color: var(--secondary);
+      }
+    }
+  }
 }
 
 /* ==========================================================================
@@ -118,133 +128,129 @@
 ========================================================================== */
 
 .auth-nav {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 80px;
-    width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+
+  .left,
+  .right {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    width: 20%;
+  }
 
-    .left, .right {
-        display: flex;
-        align-items: center;
-        width: 20%;
+  .right {
+    justify-content: flex-end;
+  }
+
+  .center {
+    flex-grow: 2;
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        display: block;
+        width: 100%;
+        max-width: 140px;
+      }
     }
-
-    .right {
-        justify-content: flex-end;
-    }
-
-    .center {
-        flex-grow: 2;
-
-        a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            img {
-                display: block;
-                width: 100%;
-                max-width: 140px;
-            }
-        }
-    }
+  }
 }
 
 .auth-wrapper {
-    .single-form-wrap {
-        min-height: 690px;
-        padding: 0 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+  .single-form-wrap {
+    min-height: 690px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        .inner-wrap {
-            width: 100%;
-            max-width: 400px;
-            margin: 40px auto 0 auto;
+    .inner-wrap {
+      width: 100%;
+      max-width: 400px;
+      margin: 40px auto 0 auto;
 
-            .auth-head {
-                max-width: 320px;
-                width: 100%;
-                margin: 0 auto;
-                margin-bottom: 20px;
-                text-align: center;
+      .auth-head {
+        max-width: 320px;
+        width: 100%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        text-align: center;
 
-                h2 {
-                    font-family: $font-alt;
-                    font-size: 2rem;
-                    font-weight: 600;
-                    color: $blue-grey;
-                    line-height: 1;
-                }
-
-                p {
-                    font-family: $font;
-                    font-size: 1rem;
-                    margin-bottom: 8px;
-                    color: $light-text;
-                }
-
-                a {
-                    font-size: .9rem;
-                    font-family: $font;
-                    font-weight: 500;
-                    color: $secondary;
-                }
-            }
-
-            .form-card {
-                background: $white;
-                border: 1px solid $border;
-                border-radius: 10px;
-                padding: 50px;
-            }
+        h2 {
+          font-family: var(--font-alt);
+          font-size: 2rem;
+          font-weight: 600;
+          color: var(--title-color);
+          line-height: 1;
         }
-    }
-}
 
+        p {
+          font-family: var(--font);
+          font-size: 1rem;
+          margin-bottom: 8px;
+          color: var(--light-text);
+        }
+
+        a {
+          font-size: 0.9rem;
+          font-family: var(--font);
+          font-weight: 500;
+          color: var(--secondary);
+        }
+      }
+
+      .form-card {
+        background: var(--card-bg-color);
+        border: 1px solid var(--card-border-color);
+        border-radius: 10px;
+        padding: 50px;
+      }
+    }
+  }
+}
 
 /* ==========================================================================
 3. Media Queries
 ========================================================================== */
 
 @media (max-width: 767px) {
-
-    .auth-wrapper {
-        .hero {
-            .hero-body {
-                .auth-content {
-                    text-align: center !important;
-                }
-            }
+  .auth-wrapper {
+    .hero {
+      .hero-body {
+        .auth-content {
+          text-align: center !important;
         }
-
-        .single-form-wrap {
-            .inner-wrap {
-                .form-card {
-                    padding: 40px;
-                }
-            }
-        }
+      }
     }
 
+    .single-form-wrap {
+      .inner-wrap {
+        .form-card {
+          padding: 40px;
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-
-    .auth-wrapper {
-        .hero {
-            .hero-body {
-                .auth-content {
-                    text-align: center !important;
-                }
-            }
+  .auth-wrapper {
+    .hero {
+      .hero-body {
+        .auth-content {
+          text-align: center !important;
         }
+      }
     }
-
+  }
 }

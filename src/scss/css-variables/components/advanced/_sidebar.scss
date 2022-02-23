@@ -1,0 +1,26 @@
+:root {
+  --sidebar-default-bg-color: var(--white);
+  --sidebar-default-border-color: var(--border);
+  --sidebar-child-bg-color: var(--dark);
+  --sidebar-child-border-color: var(--dark);
+  --sidebar-child-item-active-bg-color: #3d4970;
+  --sidebar-child-item-active-color: var(--secondary);
+  --sidebar-child-item-icon-color: var(--light-text);
+  --sidebar-child-item-expanded: #202842;
+  --quickview-bg-color: var(--white);
+  --quickview-border-color: var(--border);
+  --quickview-list-item-bg-hover: var(--widget-grey);
+}
+
+.is-dark {
+  --sidebar-default-bg-color: var(--night-dark-4);
+  --sidebar-default-border-color: var(--night-dark-16);
+  --sidebar-child-bg-color: var(--night-dark-1);
+  --sidebar-child-border-color: var(--night-dark-1);
+  --sidebar-child-item-active-bg-color: var(--night);
+  --sidebar-child-item-icon-color: var(--medium-text);
+  --sidebar-child-item-expanded: var(--night-dark-4);
+  --quickview-bg-color: var(--night-light-6);
+  --quickview-border-color: var(--night-dark-16);
+  --quickview-list-item-bg-hover: var(--night-light-12);
+}

@@ -1,0 +1,11 @@
+:root {
+  --tab-default-color: var(--light-text);
+  --tab-default-border-color: var(--border);
+  --tab-hover-color: var(--medium-text);
+  --tab-active-color: var(--blue-grey);
+  --tab-active-border-color: var(--primary);
+}
+
+.is-dark {
+  --tab-default-border-color: var(--night-light-16);
+}

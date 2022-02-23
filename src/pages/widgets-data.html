@@ -4,1425 +4,2051 @@ title: Data Widgets
 ---
 
 <!-- Main dashboard container -->
-<div id="dashboard-wrapper" class="dashboard-outer" x-data="initBlank()" :class="{
+<div
+  id="dashboard-wrapper"
+  class="dashboard-outer"
+  x-data="initBlank()"
+  :class="{
         'is-pushed': $store.app.sidebarOpenedState,
         '': !$store.app.sidebarOpenedState
-    }">
-    <div class="dashboard-inner">
-
-        <!-- Dashboard Wrapper -->
-        <div class="dashboard-wrapper">
-
-            <div id="main-dashboard" class="section-wrapper">
-                <!-- Dashboard content -->
-                <div class="dashboard-columns">
-
-                    <div class="columns is-multiline">
-
-                        <!--List Widget-->
-                        <div class="column is-4">
-                            <div class="widget list-widget">
-                                <div class="card-head pt-6 px-6 is-spaced">
-                                    <h3>Tickets</h3>
-                                    <!--Dropdown-->
-                                    <div x-ref="menu1" @click.away="$refs.menu1.classList.remove('is-active')"
-                                        class="dropdown is-right dropdown-trigger styled-dropdown is-round">
-                                        <div @click="$refs.menu1.classList.add('is-active')" class="button">
-                                            <i class="material-icons">more_vert</i>
-                                        </div>
-                                        <div class="dropdown-menu is-text-bigger" role="menu">
-                                            <div class="dropdown-content">
-                                                <a class="dropdown-item">
-                                                    <i class="sl icon-refresh"></i>
-                                                    <span>
-                                                        <span>Reload</span>
-                                                        <span>Reload widget data</span>
-                                                    </span>
-                                                </a>
-                                                <a href="#" class="dropdown-item">
-                                                    <i class="sl icon-pencil"></i>
-                                                    <span>
-                                                        <span>Settings</span>
-                                                        <span>Edit widget settings</span>
-                                                    </span>
-                                                </a>
-                                                <div class="dropdown-divider"></div>
-                                                <a href="#" class="dropdown-item">
-                                                    <i class="sl icon-bell"></i>
-                                                    <span>
-                                                        <span>Notifications</span>
-                                                        <span>Notify me of changes</span>
-                                                    </span>
-                                                </a>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item">
-                                                    <i class="sl icon-trash"></i>
-                                                    <span>
-                                                        <span>Delete</span>
-                                                        <span>Delete this widget</span>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <ul class="inner-list">
-                                    <li>
-                                        <div class="list-item-data">
-                                            <img class="small-avatar" src="https://via.placeholder.com/250x250" alt=""
-                                                data-demo-src="/img/avatars/william.jpg">
-                                            <div class="item-info">
-                                                <span class="item-title">[#223] Can't connect to account</span>
-                                                <span>Will Brettner | 3 min ago</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <span class="tag is-web is-primary">New</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-item-data">
-                                            <img class="small-avatar" src="https://via.placeholder.com/250x250" alt=""
-                                                data-demo-src="/img/avatars/carolin.png">
-                                            <div class="item-info">
-                                                <span class="item-title">[#518] Upload problem</span>
-                                                <span>Marjory Cambell | 15 min ago</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <span class="tag is-web is-secondary">Open</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-item-data">
-                                            <img class="small-avatar" src="https://via.placeholder.com/250x250" alt=""
-                                                data-demo-src="/img/avatars/terry.jpg">
-                                            <div class="item-info">
-                                                <span class="item-title">[#248] Invoices are not sent by email</span>
-                                                <span>Terry Daniels | 1 day ago</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <span class="tag is-web is-secondary">Open</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-item-data">
-                                            <img class="small-avatar" src="https://via.placeholder.com/250x250" alt=""
-                                                data-demo-src="/img/avatars/marge.jpg">
-                                            <div class="item-info">
-                                                <span class="item-title">[#154] Uploads do not display</span>
-                                                <span>Stella Henriks | 1 day ago</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <span class="tag is-web">Closed</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-item-data">
-                                            <img class="small-avatar" src="https://via.placeholder.com/250x250" alt=""
-                                                data-demo-src="/img/avatars/nick.jpg">
-                                            <div class="item-info">
-                                                <span class="item-title">[#152] App crashes constantly</span>
-                                                <span>Nick Fraiser | 2 days ago</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <span class="tag is-web">Closed</span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!--List Widget-->
-                        <div class="column is-4">
-                            <div class="widget list-widget">
-                                <div class="card-head pt-6 px-6 is-spaced">
-                                    <h3>Trending</h3>
-                                    <!--Dropdown-->
-                                    <div x-ref="menu2" @click.away="$refs.menu2.classList.remove('is-active')"
-                                        class="dropdown is-right dropdown-trigger styled-dropdown is-round">
-                                        <div @click="$refs.menu2.classList.add('is-active')" class="button">
-                                            <i class="material-icons">more_vert</i>
-                                        </div>
-                                        <div class="dropdown-menu is-text-bigger" role="menu">
-                                            <div class="dropdown-content">
-                                                <a class="dropdown-item">
-                                                    <i class="sl icon-refresh"></i>
-                                                    <span>
-                                                        <span>Reload</span>
-                                                        <span>Reload widget data</span>
-                                                    </span>
-                                                </a>
-                                                <a href="#" class="dropdown-item">
-                                                    <i class="sl icon-pencil"></i>
-                                                    <span>
-                                                        <span>Settings</span>
-                                                        <span>Edit widget settings</span>
-                                                    </span>
-                                                </a>
-                                                <div class="dropdown-divider"></div>
-                                                <a href="#" class="dropdown-item">
-                                                    <i class="sl icon-bell"></i>
-                                                    <span>
-                                                        <span>Notifications</span>
-                                                        <span>Notify me of changes</span>
-                                                    </span>
-                                                </a>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item">
-                                                    <i class="sl icon-trash"></i>
-                                                    <span>
-                                                        <span>Delete</span>
-                                                        <span>Delete this widget</span>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <ul class="inner-list">
-                                    <li>
-                                        <div class="list-item-data">
-                                            <img class="small-avatar" src="https://via.placeholder.com/250x250" alt=""
-                                                data-demo-src="/img/logo/companies/airbnb.svg">
-                                            <div class="item-info">
-                                                <span class="item-title">Airbnb</span>
-                                                <span>24k followers</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <a class="button">View</a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-item-data">
-                                            <img class="small-avatar" src="https://via.placeholder.com/250x250" alt=""
-                                                data-demo-src="/img/logo/companies/alfresco.svg">
-                                            <div class="item-info">
-                                                <span class="item-title">Alfresco</span>
-                                                <span>21k followers</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <a class="button">View</a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-item-data">
-                                            <img class="small-avatar" src="https://via.placeholder.com/250x250" alt=""
-                                                data-demo-src="/img/logo/companies/amazon.svg">
-                                            <div class="item-info">
-                                                <span class="item-title">Amazon</span>
-                                                <span>19k followers</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <a class="button">View</a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-item-data">
-                                            <img class="small-avatar" src="https://via.placeholder.com/250x250" alt=""
-                                                data-demo-src="/img/logo/companies/tesla.svg">
-                                            <div class="item-info">
-                                                <span class="item-title">Tesla</span>
-                                                <span>16k followers</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <a class="button">View</a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-item-data">
-                                            <img class="small-avatar" src="https://via.placeholder.com/250x250" alt=""
-                                                data-demo-src="/img/logo/companies/hm.svg">
-                                            <div class="item-info">
-                                                <span class="item-title">H&M</span>
-                                                <span>9k followers</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <a class="button">View</a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!--List Widget-->
-                        <div class="column is-4">
-                            <div class="widget list-widget">
-                                <div class="card-head pt-6 px-6 is-spaced">
-                                    <h3>Topics</h3>
-                                    <!--Dropdown-->
-                                    <div x-ref="menu3" @click.away="$refs.menu3.classList.remove('is-active')"
-                                        class="dropdown is-right dropdown-trigger styled-dropdown is-round">
-                                        <div @click="$refs.menu3.classList.add('is-active')" class="button">
-                                            <i class="material-icons">more_vert</i>
-                                        </div>
-                                        <div class="dropdown-menu is-text-bigger" role="menu">
-                                            <div class="dropdown-content">
-                                                <a class="dropdown-item">
-                                                    <i class="sl icon-refresh"></i>
-                                                    <span>
-                                                        <span>Reload</span>
-                                                        <span>Reload widget data</span>
-                                                    </span>
-                                                </a>
-                                                <a href="#" class="dropdown-item">
-                                                    <i class="sl icon-pencil"></i>
-                                                    <span>
-                                                        <span>Settings</span>
-                                                        <span>Edit widget settings</span>
-                                                    </span>
-                                                </a>
-                                                <div class="dropdown-divider"></div>
-                                                <a href="#" class="dropdown-item">
-                                                    <i class="sl icon-bell"></i>
-                                                    <span>
-                                                        <span>Notifications</span>
-                                                        <span>Notify me of changes</span>
-                                                    </span>
-                                                </a>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item">
-                                                    <i class="sl icon-trash"></i>
-                                                    <span>
-                                                        <span>Delete</span>
-                                                        <span>Delete this widget</span>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <ul class="inner-list">
-                                    <li>
-                                        <div class="list-item-data">
-                                            <div class="item-icon">
-                                                <i class="sl icon-tag"></i>
-                                            </div>
-                                            <div class="item-info">
-                                                <span class="item-title">Ecommerce</span>
-                                                <span>268 posts</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <a class="button">View</a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-item-data">
-                                            <div class="item-icon">
-                                                <i class="sl icon-rocket"></i>
-                                            </div>
-                                            <div class="item-info">
-                                                <span class="item-title">Startups</span>
-                                                <span>329 posts</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <a class="button">View</a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-item-data">
-                                            <div class="item-icon">
-                                                <i class="sl icon-chart"></i>
-                                            </div>
-                                            <div class="item-info">
-                                                <span class="item-title">Finance</span>
-                                                <span>112 posts</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <a class="button">View</a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-item-data">
-                                            <div class="item-icon">
-                                                <i class="sl icon-lock"></i>
-                                            </div>
-                                            <div class="item-info">
-                                                <span class="item-title">Cyber Security</span>
-                                                <span>39 posts</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <a class="button">View</a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-item-data">
-                                            <div class="item-icon">
-                                                <i class="sl icon-mustache"></i>
-                                            </div>
-                                            <div class="item-info">
-                                                <span class="item-title">Mustaches</span>
-                                                <span>77 posts</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <a class="button">View</a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!--Table Widget-->
-                        <div class="column is-12">
-                            <div class="widget table-widget">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th class="has-text-centered muted-text">
-                                                <i class="sl icon-camera"></i>
-                                            </th>
-                                            <th>Username</th>
-                                            <th>Position</th>
-                                            <th>Experience</th>
-                                            <th>Skills</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>
-                                                <img src="https://via.placeholder.com/250x250" alt=""
-                                                    data-demo-src="/img/avatars/terry.jpg">
-                                            </td>
-                                            <td><a>Terry Daniels</a></td>
-                                            <td class="light-cell">Engineer</td>
-                                            <td class="heavy-cell">8 <span>years</span></td>
-                                            <td>
-                                                <span class="tag is-web is-secondary">Php</span>
-                                                <span class="tag is-web is-warning">Javascript</span>
-                                                <span class="tag is-web is-accent">CSS 3</span>
-                                            </td>
-                                            <td class="has-text-centered">
-                                                <a class="button is-rounded-md">Details</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img src="https://via.placeholder.com/250x250" alt=""
-                                                    data-demo-src="/img/avatars/carolin.png">
-                                            </td>
-                                            <td><a>Marjory Cambell</a></td>
-                                            <td class="light-cell">Sales Manager</td>
-                                            <td class="heavy-cell">5 <span>years</span></td>
-                                            <td>
-                                                <span class="tag is-web is-success">Sales</span>
-                                                <span class="tag is-web is-success">Marketing</span>
-                                            </td>
-                                            <td class="has-text-centered">
-                                                <a class="button is-rounded-md">Details</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img src="https://via.placeholder.com/250x250" alt=""
-                                                    data-demo-src="/img/avatars/kareem.jpg">
-                                            </td>
-                                            <td><a>Kareem Jabbar</a></td>
-                                            <td class="light-cell">Accountant</td>
-                                            <td class="heavy-cell">9 <span>years</span></td>
-                                            <td>
-                                                <span class="tag is-web is-secondary">Budget</span>
-                                                <span class="tag is-web is-secondary">Accounting</span>
-                                            </td>
-                                            <td class="has-text-centered">
-                                                <a class="button is-rounded-md">Details</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img src="https://via.placeholder.com/250x250" alt=""
-                                                    data-demo-src="/img/avatars/ray.jpg">
-                                            </td>
-                                            <td><a>Adrian Fallow</a></td>
-                                            <td class="light-cell">Project Manager</td>
-                                            <td class="heavy-cell">10 <span>years</span></td>
-                                            <td>
-                                                <span class="tag is-web is-secondary">Projects</span>
-                                                <span class="tag is-web is-info">Sales</span>
-                                            </td>
-                                            <td class="has-text-centered">
-                                                <a class="button is-rounded-md">Details</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img src="https://via.placeholder.com/250x250" alt=""
-                                                    data-demo-src="/img/avatars/helen.jpg">
-                                            </td>
-                                            <td><a>Helen Miller</a></td>
-                                            <td class="light-cell">Sales Manager</td>
-                                            <td class="heavy-cell">7 <span>years</span></td>
-                                            <td>
-                                                <span class="tag is-web is-secondary">Marketing</span>
-                                                <span class="tag is-web is-info">Sales</span>
-                                            </td>
-                                            <td class="has-text-centered">
-                                                <a class="button is-rounded-md">Details</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <img src="https://via.placeholder.com/250x250" alt=""
-                                                    data-demo-src="/img/avatars/nina.jpg">
-                                            </td>
-                                            <td><a>Sarah Mitchells</a></td>
-                                            <td class="light-cell">Records Manager</td>
-                                            <td class="heavy-cell">4 <span>years</span></td>
-                                            <td>
-                                                <span class="tag is-web is-secondary">ECM</span>
-                                                <span class="tag is-web is-success">Management</span>
-                                            </td>
-                                            <td class="has-text-centered">
-                                                <a class="button is-rounded-md">Details</a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <!--List Widget-->
-                        <div class="column is-4">
-                            <div class="widget list-widget">
-                                <div class="card-head pt-6 px-6 is-spaced">
-                                    <h3>Tickets</h3>
-                                    <!--Dropdown-->
-                                    <div x-ref="menu4" @click.away="$refs.menu4.classList.remove('is-active')"
-                                        class="dropdown is-right dropdown-trigger styled-dropdown is-round">
-                                        <div @click="$refs.menu4.classList.add('is-active')" class="button">
-                                            <i class="material-icons">more_vert</i>
-                                        </div>
-                                        <div class="dropdown-menu is-text-bigger" role="menu">
-                                            <div class="dropdown-content">
-                                                <a class="dropdown-item">
-                                                    <i class="sl icon-refresh"></i>
-                                                    <span>
-                                                        <span>Reload</span>
-                                                        <span>Reload widget data</span>
-                                                    </span>
-                                                </a>
-                                                <a href="#" class="dropdown-item">
-                                                    <i class="sl icon-pencil"></i>
-                                                    <span>
-                                                        <span>Settings</span>
-                                                        <span>Edit widget settings</span>
-                                                    </span>
-                                                </a>
-                                                <div class="dropdown-divider"></div>
-                                                <a href="#" class="dropdown-item">
-                                                    <i class="sl icon-bell"></i>
-                                                    <span>
-                                                        <span>Notifications</span>
-                                                        <span>Notify me of changes</span>
-                                                    </span>
-                                                </a>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item">
-                                                    <i class="sl icon-trash"></i>
-                                                    <span>
-                                                        <span>Delete</span>
-                                                        <span>Delete this widget</span>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <ul class="inner-list is-clean">
-                                    <li>
-                                        <div class="list-item-data">
-                                            <img class="small-avatar" src="https://via.placeholder.com/250x250" alt=""
-                                                data-demo-src="/img/avatars/william.jpg">
-                                            <div class="item-info">
-                                                <span class="item-title">[#223] Can't connect to account</span>
-                                                <span>Will Brettner | 3 min ago</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <span class="tag is-web is-primary">New</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-item-data">
-                                            <img class="small-avatar" src="https://via.placeholder.com/250x250" alt=""
-                                                data-demo-src="/img/avatars/carolin.png">
-                                            <div class="item-info">
-                                                <span class="item-title">[#518] Upload problem</span>
-                                                <span>Marjory Cambell | 15 min ago</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <span class="tag is-web is-secondary">Open</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-item-data">
-                                            <img class="small-avatar" src="https://via.placeholder.com/250x250" alt=""
-                                                data-demo-src="/img/avatars/terry.jpg">
-                                            <div class="item-info">
-                                                <span class="item-title">[#248] Invoices are not sent by email</span>
-                                                <span>Terry Daniels | 1 day ago</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <span class="tag is-web is-secondary">Open</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-item-data">
-                                            <img class="small-avatar" src="https://via.placeholder.com/250x250" alt=""
-                                                data-demo-src="/img/avatars/marge.jpg">
-                                            <div class="item-info">
-                                                <span class="item-title">[#154] Uploads do not display</span>
-                                                <span>Stella Henriks | 1 day ago</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <span class="tag is-web">Closed</span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-item-data">
-                                            <img class="small-avatar" src="https://via.placeholder.com/250x250" alt=""
-                                                data-demo-src="/img/avatars/nick.jpg">
-                                            <div class="item-info">
-                                                <span class="item-title">[#152] App crashes constantly</span>
-                                                <span>Nick Fraiser | 2 days ago</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <span class="tag is-web">Closed</span>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!--List Widget-->
-                        <div class="column is-4">
-                            <div class="widget list-widget">
-                                <div class="card-head pt-6 px-6 is-spaced">
-                                    <h3>Trending</h3>
-                                    <!--Dropdown-->
-                                    <div x-ref="menu5" @click.away="$refs.menu5.classList.remove('is-active')"
-                                        class="dropdown is-right dropdown-trigger styled-dropdown is-round">
-                                        <div @click="$refs.menu5.classList.add('is-active')" class="button">
-                                            <i class="material-icons">more_vert</i>
-                                        </div>
-                                        <div class="dropdown-menu is-text-bigger" role="menu">
-                                            <div class="dropdown-content">
-                                                <a class="dropdown-item">
-                                                    <i class="sl icon-refresh"></i>
-                                                    <span>
-                                                        <span>Reload</span>
-                                                        <span>Reload widget data</span>
-                                                    </span>
-                                                </a>
-                                                <a href="#" class="dropdown-item">
-                                                    <i class="sl icon-pencil"></i>
-                                                    <span>
-                                                        <span>Settings</span>
-                                                        <span>Edit widget settings</span>
-                                                    </span>
-                                                </a>
-                                                <div class="dropdown-divider"></div>
-                                                <a href="#" class="dropdown-item">
-                                                    <i class="sl icon-bell"></i>
-                                                    <span>
-                                                        <span>Notifications</span>
-                                                        <span>Notify me of changes</span>
-                                                    </span>
-                                                </a>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item">
-                                                    <i class="sl icon-trash"></i>
-                                                    <span>
-                                                        <span>Delete</span>
-                                                        <span>Delete this widget</span>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <ul class="inner-list is-clean">
-                                    <li>
-                                        <div class="list-item-data">
-                                            <img class="small-avatar" src="https://via.placeholder.com/250x250" alt=""
-                                                data-demo-src="/img/logo/companies/airbnb.svg">
-                                            <div class="item-info">
-                                                <span class="item-title">Airbnb</span>
-                                                <span>24k followers</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <a class="button">View</a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-item-data">
-                                            <img class="small-avatar" src="https://via.placeholder.com/250x250" alt=""
-                                                data-demo-src="/img/logo/companies/alfresco.svg">
-                                            <div class="item-info">
-                                                <span class="item-title">Alfresco</span>
-                                                <span>21k followers</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <a class="button">View</a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-item-data">
-                                            <img class="small-avatar" src="https://via.placeholder.com/250x250" alt=""
-                                                data-demo-src="/img/logo/companies/amazon.svg">
-                                            <div class="item-info">
-                                                <span class="item-title">Amazon</span>
-                                                <span>19k followers</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <a class="button">View</a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-item-data">
-                                            <img class="small-avatar" src="https://via.placeholder.com/250x250" alt=""
-                                                data-demo-src="/img/logo/companies/tesla.svg">
-                                            <div class="item-info">
-                                                <span class="item-title">Tesla</span>
-                                                <span>16k followers</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <a class="button">View</a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-item-data">
-                                            <img class="small-avatar" src="https://via.placeholder.com/250x250" alt=""
-                                                data-demo-src="/img/logo/companies/hm.svg">
-                                            <div class="item-info">
-                                                <span class="item-title">H&M</span>
-                                                <span>9k followers</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <a class="button">View</a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!--List Widget-->
-                        <div class="column is-4">
-                            <div class="widget list-widget">
-                                <div class="card-head pt-6 px-6 is-spaced">
-                                    <h3>Topics</h3>
-                                    <!--Dropdown-->
-                                    <div x-ref="menu6" @click.away="$refs.menu6.classList.remove('is-active')"
-                                        class="dropdown is-right dropdown-trigger styled-dropdown is-round">
-                                        <div @click="$refs.menu6.classList.add('is-active')" class="button">
-                                            <i class="material-icons">more_vert</i>
-                                        </div>
-                                        <div class="dropdown-menu is-text-bigger" role="menu">
-                                            <div class="dropdown-content">
-                                                <a class="dropdown-item">
-                                                    <i class="sl icon-refresh"></i>
-                                                    <span>
-                                                        <span>Reload</span>
-                                                        <span>Reload widget data</span>
-                                                    </span>
-                                                </a>
-                                                <a href="#" class="dropdown-item">
-                                                    <i class="sl icon-pencil"></i>
-                                                    <span>
-                                                        <span>Settings</span>
-                                                        <span>Edit widget settings</span>
-                                                    </span>
-                                                </a>
-                                                <div class="dropdown-divider"></div>
-                                                <a href="#" class="dropdown-item">
-                                                    <i class="sl icon-bell"></i>
-                                                    <span>
-                                                        <span>Notifications</span>
-                                                        <span>Notify me of changes</span>
-                                                    </span>
-                                                </a>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item">
-                                                    <i class="sl icon-trash"></i>
-                                                    <span>
-                                                        <span>Delete</span>
-                                                        <span>Delete this widget</span>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <ul class="inner-list is-clean">
-                                    <li>
-                                        <div class="list-item-data">
-                                            <div class="item-icon">
-                                                <i class="sl icon-tag"></i>
-                                            </div>
-                                            <div class="item-info">
-                                                <span class="item-title">Ecommerce</span>
-                                                <span>268 posts</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <a class="button">View</a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-item-data">
-                                            <div class="item-icon">
-                                                <i class="sl icon-rocket"></i>
-                                            </div>
-                                            <div class="item-info">
-                                                <span class="item-title">Startups</span>
-                                                <span>329 posts</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <a class="button">View</a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-item-data">
-                                            <div class="item-icon">
-                                                <i class="sl icon-chart"></i>
-                                            </div>
-                                            <div class="item-info">
-                                                <span class="item-title">Finance</span>
-                                                <span>112 posts</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <a class="button">View</a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-item-data">
-                                            <div class="item-icon">
-                                                <i class="sl icon-lock"></i>
-                                            </div>
-                                            <div class="item-info">
-                                                <span class="item-title">Cyber Security</span>
-                                                <span>39 posts</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <a class="button">View</a>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="list-item-data">
-                                            <div class="item-icon">
-                                                <i class="sl icon-mustache"></i>
-                                            </div>
-                                            <div class="item-info">
-                                                <span class="item-title">Mustaches</span>
-                                                <span>77 posts</span>
-                                            </div>
-                                        </div>
-                                        <div class="item-action">
-                                            <a class="button">View</a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!--Circle chart widgets-->
-                        <div class="column is-4">
-                            <!--Widgets-->
-                            <div class="widget circle-chart-widget p-8">
-                                <div class="card-head px-2 mb-6">
-                                    <h3>Deals</h3>
-                                    <a class="button is-default is-rounded">View All</a>
-                                </div>
-                                <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="140" height="140"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <circle class="circle-chart-background" stroke="#efefef" stroke-width="2"
-                                        fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
-                                    <circle class="circle-chart-circle" stroke="#7F00FF" stroke-width="2"
-                                        stroke-dasharray="68,100" stroke-linecap="round" fill="none" cx="16.91549431"
-                                        cy="16.91549431" r="15.91549431" />
-                                </svg>
-                                <div class="chart-avatar">
-                                    <img src="https://via.placeholder.com/250x250" alt=""
-                                        data-demo-src="/img/avatars/ray.jpg">
-                                </div>
-                                <div class="ring-title has-text-centered">
-                                    <span>68% Deals Won</span>
-                                </div>
-                            </div>
-
-                            <!--Widgets-->
-                            <div class="widget circle-chart-widget p-8">
-                                <div class="card-head px-2 mb-6">
-                                    <h3>Tasks</h3>
-                                    <a class="button is-default is-rounded">View All</a>
-                                </div>
-                                <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="140" height="140"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <circle class="circle-chart-background" stroke="#efefef" stroke-width="2"
-                                        fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
-                                    <circle class="circle-chart-circle" stroke="#00d1b2" stroke-width="2"
-                                        stroke-dasharray="77,100" stroke-linecap="round" fill="none" cx="16.91549431"
-                                        cy="16.91549431" r="15.91549431" />
-                                </svg>
-                                <div class="chart-avatar">
-                                    <img src="https://via.placeholder.com/250x250" alt=""
-                                        data-demo-src="/img/avatars/lakisha.jpg">
-                                </div>
-                                <div class="ring-title has-text-centered">
-                                    <span>8 average tasks / day</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--Side Circle Widgets-->
-                        <div class="column is-4">
-
-                            <!--Widget-->
-                            <div class="widget circle-side-widget p-6">
-                                <div class="circle-container">
-                                    <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="70"
-                                        height="70" xmlns="http://www.w3.org/2000/svg">
-                                        <circle class="circle-chart-background" stroke="#efefef" stroke-width="2"
-                                            fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
-                                        <circle class="circle-chart-circle" stroke="#00d1b2" stroke-width="2"
-                                            stroke-dasharray="84,100" stroke-linecap="round" fill="none"
-                                            cx="16.91549431" cy="16.91549431" r="15.91549431" />
-                                    </svg>
-                                    <div class="circle-icon">
-                                        <i class="sl icon-chart"></i>
-                                    </div>
-                                </div>
-                                <div class="circle-meta">
-                                    <h3>Sales Revenue</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ad eos igitur converte
-                                        te, quaeso. </p>
-                                </div>
-                            </div>
-
-                            <!--Widget-->
-                            <div class="widget circle-side-widget p-6">
-                                <div class="circle-container">
-                                    <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="70"
-                                        height="70" xmlns="http://www.w3.org/2000/svg">
-                                        <circle class="circle-chart-background" stroke="#efefef" stroke-width="2"
-                                            fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
-                                        <circle class="circle-chart-circle" stroke="#E82127" stroke-width="2"
-                                            stroke-dasharray="43,100" stroke-linecap="round" fill="none"
-                                            cx="16.91549431" cy="16.91549431" r="15.91549431" />
-                                    </svg>
-                                    <div class="circle-icon has-image">
-                                        <img src="https://via.placeholder.com/250x250" alt=""
-                                            data-demo-src="/img/logo/companies/tesla.svg">
-                                    </div>
-                                </div>
-                                <div class="circle-meta">
-                                    <h3>Overall Growth</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ad eos igitur converte
-                                        te, quaeso. </p>
-                                </div>
-                            </div>
-
-                            <!--Widget-->
-                            <div class="widget circle-side-widget p-6">
-                                <div class="circle-container">
-                                    <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="70"
-                                        height="70" xmlns="http://www.w3.org/2000/svg">
-                                        <circle class="circle-chart-background" stroke="#efefef" stroke-width="2"
-                                            fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
-                                        <circle class="circle-chart-circle" stroke="#fcba03" stroke-width="2"
-                                            stroke-dasharray="59,100" stroke-linecap="round" fill="none"
-                                            cx="16.91549431" cy="16.91549431" r="15.91549431" />
-                                    </svg>
-                                    <div class="circle-icon has-image">
-                                        <span>59<small>%</small></span>
-                                    </div>
-                                </div>
-                                <div class="circle-meta">
-                                    <h3>Overall Growth</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ad eos igitur converte
-                                        te, quaeso. </p>
-                                </div>
-                            </div>
-
-                            <!--Widget-->
-                            <div class="widget circle-side-widget p-6">
-                                <div class="circle-container">
-                                    <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="70"
-                                        height="70" xmlns="http://www.w3.org/2000/svg">
-                                        <circle class="circle-chart-background" stroke="#efefef" stroke-width="2"
-                                            fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431" />
-                                        <circle class="circle-chart-circle" stroke="#9e3dff" stroke-width="2"
-                                            stroke-dasharray="77,100" stroke-linecap="round" fill="none"
-                                            cx="16.91549431" cy="16.91549431" r="15.91549431" />
-                                    </svg>
-                                    <div class="circle-icon has-image">
-                                        <img src="https://via.placeholder.com/250x250" alt=""
-                                            data-demo-src="/img/avatars/elie.jpg">
-                                    </div>
-                                </div>
-                                <div class="circle-meta">
-                                    <h3>Overall Growth</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ad eos igitur converte
-                                        te, quaeso. </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!--Stat Widgets-->
-                        <div class="column is-4">
-                            <!--Widget-->
-                            <div class="widget multi-circle-widget p-6">
-                                <div class="card-head is-spaced">
-                                    <h3>Statistics</h3>
-                                </div>
-                                <div class="statistics pt-6 pb-2">
-                                    <div class="statistic">
-                                        <div class="circle-container">
-                                            <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="50"
-                                                height="50" xmlns="http://www.w3.org/2000/svg">
-                                                <circle class="circle-chart-background" stroke="#efefef"
-                                                    stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431"
-                                                    r="15.91549431" />
-                                                <circle class="circle-chart-circle" stroke="#9e3dff" stroke-width="2"
-                                                    stroke-dasharray="58,100" stroke-linecap="round" fill="none"
-                                                    cx="16.91549431" cy="16.91549431" r="15.91549431" />
-                                            </svg>
-                                            <div class="circle-icon">
-                                                <span>58%</span>
-                                            </div>
-                                        </div>
-
-                                        <span>Efficiency</span>
-                                    </div>
-                                    <div class="statistic">
-                                        <div class="circle-container">
-                                            <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="50"
-                                                height="50" xmlns="http://www.w3.org/2000/svg">
-                                                <circle class="circle-chart-background" stroke="#efefef"
-                                                    stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431"
-                                                    r="15.91549431" />
-                                                <circle class="circle-chart-circle" stroke="#FFA981" stroke-width="2"
-                                                    stroke-dasharray="34,100" stroke-linecap="round" fill="none"
-                                                    cx="16.91549431" cy="16.91549431" r="15.91549431" />
-                                            </svg>
-                                            <div class="circle-icon">
-                                                <span>34%</span>
-                                            </div>
-                                        </div>
-
-                                        <span>Engagment</span>
-                                    </div>
-                                    <div class="statistic">
-                                        <div class="circle-container">
-                                            <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="50"
-                                                height="50" xmlns="http://www.w3.org/2000/svg">
-                                                <circle class="circle-chart-background" stroke="#efefef"
-                                                    stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431"
-                                                    r="15.91549431" />
-                                                <circle class="circle-chart-circle" stroke="#00d1b2" stroke-width="2"
-                                                    stroke-dasharray="82,100" stroke-linecap="round" fill="none"
-                                                    cx="16.91549431" cy="16.91549431" r="15.91549431" />
-                                            </svg>
-                                            <div class="circle-icon">
-                                                <span>82%</span>
-                                            </div>
-                                        </div>
-
-                                        <span>Performance</span>
-                                    </div>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ad eos igitur converte te,
-                                    quaeso. </p>
-                            </div>
-
-                            <!--Widget-->
-                            <div class="widget multi-circle-widget p-6">
-                                <div class="card-head is-spaced">
-                                    <h3>Team Metrics</h3>
-                                </div>
-                                <div class="statistics pt-6 pb-2">
-                                    <div class="statistic">
-                                        <div class="circle-container">
-                                            <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="50"
-                                                height="50" xmlns="http://www.w3.org/2000/svg">
-                                                <circle class="circle-chart-background" stroke="#efefef"
-                                                    stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431"
-                                                    r="15.91549431" />
-                                                <circle class="circle-chart-circle" stroke="#9e3dff" stroke-width="2"
-                                                    stroke-dasharray="58,100" stroke-linecap="round" fill="none"
-                                                    cx="16.91549431" cy="16.91549431" r="15.91549431" />
-                                            </svg>
-                                            <div class="circle-icon">
-                                                <span>58%</span>
-                                            </div>
-                                        </div>
-
-                                        <span>Team 1</span>
-                                    </div>
-                                    <div class="statistic">
-                                        <div class="circle-container">
-                                            <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="50"
-                                                height="50" xmlns="http://www.w3.org/2000/svg">
-                                                <circle class="circle-chart-background" stroke="#efefef"
-                                                    stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431"
-                                                    r="15.91549431" />
-                                                <circle class="circle-chart-circle" stroke="#FFA981" stroke-width="2"
-                                                    stroke-dasharray="34,100" stroke-linecap="round" fill="none"
-                                                    cx="16.91549431" cy="16.91549431" r="15.91549431" />
-                                            </svg>
-                                            <div class="circle-icon">
-                                                <span>34%</span>
-                                            </div>
-                                        </div>
-
-                                        <span>Team 2</span>
-                                    </div>
-                                    <div class="statistic">
-                                        <div class="circle-container">
-                                            <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="50"
-                                                height="50" xmlns="http://www.w3.org/2000/svg">
-                                                <circle class="circle-chart-background" stroke="#efefef"
-                                                    stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431"
-                                                    r="15.91549431" />
-                                                <circle class="circle-chart-circle" stroke="#00d1b2" stroke-width="2"
-                                                    stroke-dasharray="82,100" stroke-linecap="round" fill="none"
-                                                    cx="16.91549431" cy="16.91549431" r="15.91549431" />
-                                            </svg>
-                                            <div class="circle-icon">
-                                                <span>82%</span>
-                                            </div>
-                                        </div>
-
-                                        <span>Team 3</span>
-                                    </div>
-                                    <div class="statistic">
-                                        <div class="circle-container">
-                                            <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862" width="50"
-                                                height="50" xmlns="http://www.w3.org/2000/svg">
-                                                <circle class="circle-chart-background" stroke="#efefef"
-                                                    stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431"
-                                                    r="15.91549431" />
-                                                <circle class="circle-chart-circle" stroke="#ff5c85" stroke-width="2"
-                                                    stroke-dasharray="42,100" stroke-linecap="round" fill="none"
-                                                    cx="16.91549431" cy="16.91549431" r="15.91549431" />
-                                            </svg>
-                                            <div class="circle-icon">
-                                                <span>42%</span>
-                                            </div>
-                                        </div>
-
-                                        <span>Team 4</span>
-                                    </div>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ad eos igitur converte te,
-                                    quaeso. </p>
-                            </div>
-                        </div>
-
-                        <!--Table Widget-->
-                        <div class="column is-12">
-                            <div class="widget table-widget">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Name</th>
-                                            <th>Completed</th>
-                                            <th>Deadline</th>
-                                            <th>Team</th>
-                                            <th>Status</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="light-cell">
-                                                <span>001</span>
-                                            </td>
-                                            <td><a>Blake & Daniels</a></td>
-                                            <td>
-                                                <div class="circle-container">
-                                                    <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862"
-                                                        width="44" height="44" xmlns="http://www.w3.org/2000/svg">
-                                                        <circle class="circle-chart-background" stroke="#efefef"
-                                                            stroke-width="2" fill="none" cx="16.91549431"
-                                                            cy="16.91549431" r="15.91549431" />
-                                                        <circle class="circle-chart-circle" stroke="#7F00FF"
-                                                            stroke-width="2" stroke-dasharray="42,100"
-                                                            stroke-linecap="round" fill="none" cx="16.91549431"
-                                                            cy="16.91549431" r="15.91549431" />
-                                                    </svg>
-                                                    <div class="circle-icon">
-                                                        <span>42%</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="light-cell">nov 30 2020</td>
-                                            <td>
-                                                <div class="people">
-                                                    <a href="#">
-                                                        <img src="https://via.placeholder.com/250x250" alt=""
-                                                            data-demo-src="/img/avatars/nick.jpg">
-                                                    </a>
-                                                    <a href="#">
-                                                        <img src="https://via.placeholder.com/250x250" alt=""
-                                                            data-demo-src="/img/avatars/elie.jpg">
-                                                    </a>
-                                                    <a href="#">
-                                                        <img src="https://via.placeholder.com/250x250" alt=""
-                                                            data-demo-src="/img/avatars/stella.jpg">
-                                                    </a>
-                                                    <span class="is-font is-weight-600 rem-100 ml-2">+ 2</span>
-                                                </div>
-                                            </td>
-                                            <td><span class="tag is-web is-secondary">In progress</span></td>
-                                            <td class="has-text-centered">
-                                                <a class="button is-rounded-md">Details</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="light-cell">
-                                                <span>002</span>
-                                            </td>
-                                            <td><a>Fresh Wear Ltd.</a></td>
-                                            <td>
-                                                <div class="circle-container">
-                                                    <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862"
-                                                        width="44" height="44" xmlns="http://www.w3.org/2000/svg">
-                                                        <circle class="circle-chart-background" stroke="#efefef"
-                                                            stroke-width="2" fill="none" cx="16.91549431"
-                                                            cy="16.91549431" r="15.91549431" />
-                                                        <circle class="circle-chart-circle" stroke="#7F00FF"
-                                                            stroke-width="2" stroke-dasharray="61,100"
-                                                            stroke-linecap="round" fill="none" cx="16.91549431"
-                                                            cy="16.91549431" r="15.91549431" />
-                                                    </svg>
-                                                    <div class="circle-icon">
-                                                        <span>61%</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="light-cell">may 1 2021</td>
-                                            <td>
-                                                <div class="people">
-                                                    <a href="#">
-                                                        <img src="https://via.placeholder.com/250x250" alt=""
-                                                            data-demo-src="/img/avatars/helen.jpg">
-                                                    </a>
-                                                    <a href="#">
-                                                        <img src="https://via.placeholder.com/250x250" alt=""
-                                                            data-demo-src="/img/avatars/marc.jpg">
-                                                    </a>
-                                                </div>
-                                            </td>
-                                            <td><span class="tag is-web is-warning">Needs info</span></td>
-                                            <td class="has-text-centered">
-                                                <a class="button is-rounded-md">Details</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="light-cell">
-                                                <span>003</span>
-                                            </td>
-                                            <td><a>Gallagher</a></td>
-                                            <td>
-                                                <div class="circle-container">
-                                                    <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862"
-                                                        width="44" height="44" xmlns="http://www.w3.org/2000/svg">
-                                                        <circle class="circle-chart-background" stroke="#efefef"
-                                                            stroke-width="2" fill="none" cx="16.91549431"
-                                                            cy="16.91549431" r="15.91549431" />
-                                                        <circle class="circle-chart-circle" stroke="#7F00FF"
-                                                            stroke-width="2" stroke-dasharray="27,100"
-                                                            stroke-linecap="round" fill="none" cx="16.91549431"
-                                                            cy="16.91549431" r="15.91549431" />
-                                                    </svg>
-                                                    <div class="circle-icon">
-                                                        <span>27%</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="light-cell">jun 31 2021</td>
-                                            <td>
-                                                <div class="people">
-                                                    <a href="#">
-                                                        <img src="https://via.placeholder.com/250x250" alt=""
-                                                            data-demo-src="/img/avatars/terry.jpg">
-                                                    </a>
-                                                    <a href="#">
-                                                        <img src="https://via.placeholder.com/250x250" alt=""
-                                                            data-demo-src="/img/avatars/elie.jpg">
-                                                    </a>
-                                                    <a href="#">
-                                                        <img src="https://via.placeholder.com/250x250" alt=""
-                                                            data-demo-src="/img/avatars/janet.jpg">
-                                                    </a>
-                                                    <span class="is-font is-weight-600 rem-100 ml-2">+ 1</span>
-                                                </div>
-                                            </td>
-                                            <td><span class="tag is-web is-secondary">In progress</span></td>
-                                            <td class="has-text-centered">
-                                                <a class="button is-rounded-md">Details</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="light-cell">
-                                                <span>004</span>
-                                            </td>
-                                            <td><a>Crash Records</a></td>
-                                            <td>
-                                                <div class="circle-container">
-                                                    <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862"
-                                                        width="44" height="44" xmlns="http://www.w3.org/2000/svg">
-                                                        <circle class="circle-chart-background" stroke="#efefef"
-                                                            stroke-width="2" fill="none" cx="16.91549431"
-                                                            cy="16.91549431" r="15.91549431" />
-                                                        <circle class="circle-chart-circle" stroke="#7F00FF"
-                                                            stroke-width="2" stroke-dasharray="34,100"
-                                                            stroke-linecap="round" fill="none" cx="16.91549431"
-                                                            cy="16.91549431" r="15.91549431" />
-                                                    </svg>
-                                                    <div class="circle-icon">
-                                                        <span>34%</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="light-cell">mar 31 2021</td>
-                                            <td>
-                                                <div class="people">
-                                                    <a href="#">
-                                                        <img src="https://via.placeholder.com/250x250" alt=""
-                                                            data-demo-src="/img/avatars/carolin.png">
-                                                    </a>
-                                                </div>
-                                            </td>
-                                            <td><span class="tag is-web is-secondary">In progress</span></td>
-                                            <td class="has-text-centered">
-                                                <a class="button is-rounded-md">Details</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="light-cell">
-                                                <span>005</span>
-                                            </td>
-                                            <td><a>Someco Inc.</a></td>
-                                            <td>
-                                                <div class="circle-container">
-                                                    <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862"
-                                                        width="44" height="44" xmlns="http://www.w3.org/2000/svg">
-                                                        <circle class="circle-chart-background" stroke="#efefef"
-                                                            stroke-width="2" fill="none" cx="16.91549431"
-                                                            cy="16.91549431" r="15.91549431" />
-                                                        <circle class="circle-chart-circle" stroke="#7F00FF"
-                                                            stroke-width="2" stroke-dasharray="5,100"
-                                                            stroke-linecap="round" fill="none" cx="16.91549431"
-                                                            cy="16.91549431" r="15.91549431" />
-                                                    </svg>
-                                                    <div class="circle-icon">
-                                                        <span>5%</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="light-cell">Aug 31 2021</td>
-                                            <td>
-                                                <div class="people">
-                                                    <a href="#">
-                                                        <img src="https://via.placeholder.com/250x250" alt=""
-                                                            data-demo-src="/img/avatars/alex.jpg">
-                                                    </a>
-                                                    <a href="#">
-                                                        <img src="https://via.placeholder.com/250x250" alt=""
-                                                            data-demo-src="/img/avatars/anthony.jpg">
-                                                    </a>
-                                                    <a href="#">
-                                                        <img src="https://via.placeholder.com/250x250" alt=""
-                                                            data-demo-src="/img/avatars/fred.jpg">
-                                                    </a>
-                                                    <span class="is-font is-weight-600 rem-100 ml-2">+ 2</span>
-                                                </div>
-                                            </td>
-                                            <td><span class="tag is-web is-danger">Has issues</span></td>
-                                            <td class="has-text-centered">
-                                                <a class="button is-rounded-md">Details</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="light-cell">
-                                                <span>006</span>
-                                            </td>
-                                            <td><a>Mortimer & Sons</a></td>
-                                            <td>
-                                                <div class="circle-container">
-                                                    <svg class="circle-chart" viewbox="0 0 33.83098862 33.83098862"
-                                                        width="44" height="44" xmlns="http://www.w3.org/2000/svg">
-                                                        <circle class="circle-chart-background" stroke="#efefef"
-                                                            stroke-width="2" fill="none" cx="16.91549431"
-                                                            cy="16.91549431" r="15.91549431" />
-                                                        <circle class="circle-chart-circle" stroke="#7F00FF"
-                                                            stroke-width="2" stroke-dasharray="3,100"
-                                                            stroke-linecap="round" fill="none" cx="16.91549431"
-                                                            cy="16.91549431" r="15.91549431" />
-                                                    </svg>
-                                                    <div class="circle-icon">
-                                                        <span>3%</span>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="light-cell">Jun 31 2021</td>
-                                            <td>
-                                                <div class="people">
-                                                    <a href="#">
-                                                        <img src="https://via.placeholder.com/250x250" alt=""
-                                                            data-demo-src="/img/avatars/eric.jpg">
-                                                    </a>
-                                                    <a href="#">
-                                                        <img src="https://via.placeholder.com/250x250" alt=""
-                                                            data-demo-src="/img/avatars/alan.jpg">
-                                                    </a>
-                                                </div>
-                                            </td>
-                                            <td><span class="tag is-web">Canceled</span></td>
-                                            <td class="has-text-centered">
-                                                <a class="button is-rounded-md">Details</a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
+    }"
+>
+  <div class="dashboard-inner">
+    <!-- Dashboard Wrapper -->
+    <div class="dashboard-wrapper">
+      <div id="main-dashboard" class="section-wrapper">
+        <!-- Dashboard content -->
+        <div class="dashboard-columns">
+          <div class="columns is-multiline">
+            <!--List Widget-->
+            <div class="column is-4">
+              <div class="widget list-widget">
+                <div class="card-head p-4 m-0 is-spaced">
+                  <h3>Tickets</h3>
+                  <!--Dropdown-->
+                  <div
+                    x-ref="menu1"
+                    @click.away="$refs.menu1.classList.remove('is-active')"
+                    class="
+                      dropdown
+                      is-right
+                      dropdown-trigger
+                      styled-dropdown
+                      is-round
+                    "
+                  >
+                    <div
+                      @click="$refs.menu1.classList.add('is-active')"
+                      class="button"
+                    >
+                      <i class="material-icons">more_vert</i>
                     </div>
-
+                    <div class="dropdown-menu is-text-bigger" role="menu">
+                      <div class="dropdown-content">
+                        <a class="dropdown-item">
+                          <i class="sl icon-refresh"></i>
+                          <span>
+                            <span>Reload</span>
+                            <span>Reload widget data</span>
+                          </span>
+                        </a>
+                        <a href="#" class="dropdown-item">
+                          <i class="sl icon-pencil"></i>
+                          <span>
+                            <span>Settings</span>
+                            <span>Edit widget settings</span>
+                          </span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                          <i class="sl icon-bell"></i>
+                          <span>
+                            <span>Notifications</span>
+                            <span>Notify me of changes</span>
+                          </span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item">
+                          <i class="sl icon-trash"></i>
+                          <span>
+                            <span>Delete</span>
+                            <span>Delete this widget</span>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-
+                <ul class="inner-list">
+                  <li>
+                    <div class="list-item-data">
+                      <img
+                        class="small-avatar"
+                        src="https://via.placeholder.com/250x250"
+                        alt=""
+                        data-demo-src="/img/avatars/william.jpg"
+                      />
+                      <div class="item-info">
+                        <span class="item-title"
+                          >[#223] Can't connect to account</span
+                        >
+                        <span>Will Brettner | 3 min ago</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <span class="tag is-web is-primary">New</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="list-item-data">
+                      <img
+                        class="small-avatar"
+                        src="https://via.placeholder.com/250x250"
+                        alt=""
+                        data-demo-src="/img/avatars/carolin.jpg"
+                      />
+                      <div class="item-info">
+                        <span class="item-title">[#518] Upload problem</span>
+                        <span>Marjory Cambell | 15 min ago</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <span class="tag is-web is-secondary">Open</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="list-item-data">
+                      <img
+                        class="small-avatar"
+                        src="https://via.placeholder.com/250x250"
+                        alt=""
+                        data-demo-src="/img/avatars/terry.jpg"
+                      />
+                      <div class="item-info">
+                        <span class="item-title"
+                          >[#248] Invoices are not sent by email</span
+                        >
+                        <span>Terry Daniels | 1 day ago</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <span class="tag is-web is-secondary">Open</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="list-item-data">
+                      <img
+                        class="small-avatar"
+                        src="https://via.placeholder.com/250x250"
+                        alt=""
+                        data-demo-src="/img/avatars/marge.jpg"
+                      />
+                      <div class="item-info">
+                        <span class="item-title"
+                          >[#154] Uploads do not display</span
+                        >
+                        <span>Stella Henriks | 1 day ago</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <span class="tag is-web">Closed</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="list-item-data">
+                      <img
+                        class="small-avatar"
+                        src="https://via.placeholder.com/250x250"
+                        alt=""
+                        data-demo-src="/img/avatars/nick.jpg"
+                      />
+                      <div class="item-info">
+                        <span class="item-title"
+                          >[#152] App crashes constantly</span
+                        >
+                        <span>Nick Fraiser | 2 days ago</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <span class="tag is-web">Closed</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
 
-        </div>
+            <!--List Widget-->
+            <div class="column is-4">
+              <div class="widget list-widget">
+                <div class="card-head p-4 m-0 is-spaced">
+                  <h3>Trending</h3>
+                  <!--Dropdown-->
+                  <div
+                    x-ref="menu2"
+                    @click.away="$refs.menu2.classList.remove('is-active')"
+                    class="
+                      dropdown
+                      is-right
+                      dropdown-trigger
+                      styled-dropdown
+                      is-round
+                    "
+                  >
+                    <div
+                      @click="$refs.menu2.classList.add('is-active')"
+                      class="button"
+                    >
+                      <i class="material-icons">more_vert</i>
+                    </div>
+                    <div class="dropdown-menu is-text-bigger" role="menu">
+                      <div class="dropdown-content">
+                        <a class="dropdown-item">
+                          <i class="sl icon-refresh"></i>
+                          <span>
+                            <span>Reload</span>
+                            <span>Reload widget data</span>
+                          </span>
+                        </a>
+                        <a href="#" class="dropdown-item">
+                          <i class="sl icon-pencil"></i>
+                          <span>
+                            <span>Settings</span>
+                            <span>Edit widget settings</span>
+                          </span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                          <i class="sl icon-bell"></i>
+                          <span>
+                            <span>Notifications</span>
+                            <span>Notify me of changes</span>
+                          </span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item">
+                          <i class="sl icon-trash"></i>
+                          <span>
+                            <span>Delete</span>
+                            <span>Delete this widget</span>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <ul class="inner-list">
+                  <li>
+                    <div class="list-item-data">
+                      <img
+                        class="small-avatar"
+                        src="https://via.placeholder.com/250x250"
+                        alt=""
+                        data-demo-src="/img/logo/companies/airbnb.svg"
+                      />
+                      <div class="item-info">
+                        <span class="item-title">Airbnb</span>
+                        <span>24k followers</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <a class="button">View</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="list-item-data">
+                      <img
+                        class="small-avatar"
+                        src="https://via.placeholder.com/250x250"
+                        alt=""
+                        data-demo-src="/img/logo/companies/alfresco.svg"
+                      />
+                      <div class="item-info">
+                        <span class="item-title">Alfresco</span>
+                        <span>21k followers</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <a class="button">View</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="list-item-data">
+                      <img
+                        class="small-avatar"
+                        src="https://via.placeholder.com/250x250"
+                        alt=""
+                        data-demo-src="/img/logo/companies/amazon.svg"
+                      />
+                      <div class="item-info">
+                        <span class="item-title">Amazon</span>
+                        <span>19k followers</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <a class="button">View</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="list-item-data">
+                      <img
+                        class="small-avatar"
+                        src="https://via.placeholder.com/250x250"
+                        alt=""
+                        data-demo-src="/img/logo/companies/tesla.svg"
+                      />
+                      <div class="item-info">
+                        <span class="item-title">Tesla</span>
+                        <span>16k followers</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <a class="button">View</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="list-item-data">
+                      <img
+                        class="small-avatar"
+                        src="https://via.placeholder.com/250x250"
+                        alt=""
+                        data-demo-src="/img/logo/companies/hm.svg"
+                      />
+                      <div class="item-info">
+                        <span class="item-title">H&M</span>
+                        <span>9k followers</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <a class="button">View</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
 
+            <!--List Widget-->
+            <div class="column is-4">
+              <div class="widget list-widget">
+                <div class="card-head p-4 m-0 is-spaced">
+                  <h3>Topics</h3>
+                  <!--Dropdown-->
+                  <div
+                    x-ref="menu3"
+                    @click.away="$refs.menu3.classList.remove('is-active')"
+                    class="
+                      dropdown
+                      is-right
+                      dropdown-trigger
+                      styled-dropdown
+                      is-round
+                    "
+                  >
+                    <div
+                      @click="$refs.menu3.classList.add('is-active')"
+                      class="button"
+                    >
+                      <i class="material-icons">more_vert</i>
+                    </div>
+                    <div class="dropdown-menu is-text-bigger" role="menu">
+                      <div class="dropdown-content">
+                        <a class="dropdown-item">
+                          <i class="sl icon-refresh"></i>
+                          <span>
+                            <span>Reload</span>
+                            <span>Reload widget data</span>
+                          </span>
+                        </a>
+                        <a href="#" class="dropdown-item">
+                          <i class="sl icon-pencil"></i>
+                          <span>
+                            <span>Settings</span>
+                            <span>Edit widget settings</span>
+                          </span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                          <i class="sl icon-bell"></i>
+                          <span>
+                            <span>Notifications</span>
+                            <span>Notify me of changes</span>
+                          </span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item">
+                          <i class="sl icon-trash"></i>
+                          <span>
+                            <span>Delete</span>
+                            <span>Delete this widget</span>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <ul class="inner-list">
+                  <li>
+                    <div class="list-item-data">
+                      <div class="item-icon">
+                        <i class="sl icon-tag"></i>
+                      </div>
+                      <div class="item-info">
+                        <span class="item-title">Ecommerce</span>
+                        <span>268 posts</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <a class="button">View</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="list-item-data">
+                      <div class="item-icon">
+                        <i class="sl icon-rocket"></i>
+                      </div>
+                      <div class="item-info">
+                        <span class="item-title">Startups</span>
+                        <span>329 posts</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <a class="button">View</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="list-item-data">
+                      <div class="item-icon">
+                        <i class="sl icon-chart"></i>
+                      </div>
+                      <div class="item-info">
+                        <span class="item-title">Finance</span>
+                        <span>112 posts</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <a class="button">View</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="list-item-data">
+                      <div class="item-icon">
+                        <i class="sl icon-lock"></i>
+                      </div>
+                      <div class="item-info">
+                        <span class="item-title">Cyber Security</span>
+                        <span>39 posts</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <a class="button">View</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="list-item-data">
+                      <div class="item-icon">
+                        <i class="sl icon-mustache"></i>
+                      </div>
+                      <div class="item-info">
+                        <span class="item-title">Mustaches</span>
+                        <span>77 posts</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <a class="button">View</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!--Table Widget-->
+            <div class="column is-12">
+              <div class="widget table-widget">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th class="has-text-centered muted-text">
+                        <i class="sl icon-camera"></i>
+                      </th>
+                      <th>Username</th>
+                      <th>Position</th>
+                      <th>Experience</th>
+                      <th>Skills</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <img
+                          src="https://via.placeholder.com/250x250"
+                          alt=""
+                          data-demo-src="/img/avatars/terry.jpg"
+                        />
+                      </td>
+                      <td><a>Terry Daniels</a></td>
+                      <td class="light-cell">Engineer</td>
+                      <td class="heavy-cell">8 <span>years</span></td>
+                      <td>
+                        <span class="tag is-curved is-secondary">Php</span>
+                        <span class="tag is-curved is-warning">Javascript</span>
+                        <span class="tag is-curved is-accent">CSS 3</span>
+                      </td>
+                      <td class="has-text-centered">
+                        <a class="button is-rounded-md">Details</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img
+                          src="https://via.placeholder.com/250x250"
+                          alt=""
+                          data-demo-src="/img/avatars/carolin.jpg"
+                        />
+                      </td>
+                      <td><a>Marjory Cambell</a></td>
+                      <td class="light-cell">Sales Manager</td>
+                      <td class="heavy-cell">5 <span>years</span></td>
+                      <td>
+                        <span class="tag is-curved is-success">Sales</span>
+                        <span class="tag is-curved is-success">Marketing</span>
+                      </td>
+                      <td class="has-text-centered">
+                        <a class="button is-rounded-md">Details</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img
+                          src="https://via.placeholder.com/250x250"
+                          alt=""
+                          data-demo-src="/img/avatars/kareem.jpg"
+                        />
+                      </td>
+                      <td><a>Kareem Jabbar</a></td>
+                      <td class="light-cell">Accountant</td>
+                      <td class="heavy-cell">9 <span>years</span></td>
+                      <td>
+                        <span class="tag is-curved is-secondary">Budget</span>
+                        <span class="tag is-curved is-secondary"
+                          >Accounting</span
+                        >
+                      </td>
+                      <td class="has-text-centered">
+                        <a class="button is-rounded-md">Details</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img
+                          src="https://via.placeholder.com/250x250"
+                          alt=""
+                          data-demo-src="/img/avatars/ray.jpg"
+                        />
+                      </td>
+                      <td><a>Adrian Fallow</a></td>
+                      <td class="light-cell">Project Manager</td>
+                      <td class="heavy-cell">10 <span>years</span></td>
+                      <td>
+                        <span class="tag is-curved is-secondary">Projects</span>
+                        <span class="tag is-curved is-info">Sales</span>
+                      </td>
+                      <td class="has-text-centered">
+                        <a class="button is-rounded-md">Details</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img
+                          src="https://via.placeholder.com/250x250"
+                          alt=""
+                          data-demo-src="/img/avatars/helen.jpg"
+                        />
+                      </td>
+                      <td><a>Helen Miller</a></td>
+                      <td class="light-cell">Sales Manager</td>
+                      <td class="heavy-cell">7 <span>years</span></td>
+                      <td>
+                        <span class="tag is-curved is-secondary"
+                          >Marketing</span
+                        >
+                        <span class="tag is-curved is-info">Sales</span>
+                      </td>
+                      <td class="has-text-centered">
+                        <a class="button is-rounded-md">Details</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img
+                          src="https://via.placeholder.com/250x250"
+                          alt=""
+                          data-demo-src="/img/avatars/nina.jpg"
+                        />
+                      </td>
+                      <td><a>Sarah Mitchells</a></td>
+                      <td class="light-cell">Records Manager</td>
+                      <td class="heavy-cell">4 <span>years</span></td>
+                      <td>
+                        <span class="tag is-curved is-secondary">ECM</span>
+                        <span class="tag is-curved is-success">Management</span>
+                      </td>
+                      <td class="has-text-centered">
+                        <a class="button is-rounded-md">Details</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!--List Widget-->
+            <div class="column is-4">
+              <div class="widget list-widget">
+                <div class="card-head p-4 m-0 is-spaced">
+                  <h3>Tickets</h3>
+                  <!--Dropdown-->
+                  <div
+                    x-ref="menu4"
+                    @click.away="$refs.menu4.classList.remove('is-active')"
+                    class="
+                      dropdown
+                      is-right
+                      dropdown-trigger
+                      styled-dropdown
+                      is-round
+                    "
+                  >
+                    <div
+                      @click="$refs.menu4.classList.add('is-active')"
+                      class="button"
+                    >
+                      <i class="material-icons">more_vert</i>
+                    </div>
+                    <div class="dropdown-menu is-text-bigger" role="menu">
+                      <div class="dropdown-content">
+                        <a class="dropdown-item">
+                          <i class="sl icon-refresh"></i>
+                          <span>
+                            <span>Reload</span>
+                            <span>Reload widget data</span>
+                          </span>
+                        </a>
+                        <a href="#" class="dropdown-item">
+                          <i class="sl icon-pencil"></i>
+                          <span>
+                            <span>Settings</span>
+                            <span>Edit widget settings</span>
+                          </span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                          <i class="sl icon-bell"></i>
+                          <span>
+                            <span>Notifications</span>
+                            <span>Notify me of changes</span>
+                          </span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item">
+                          <i class="sl icon-trash"></i>
+                          <span>
+                            <span>Delete</span>
+                            <span>Delete this widget</span>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <ul class="inner-list is-clean">
+                  <li>
+                    <div class="list-item-data">
+                      <img
+                        class="small-avatar"
+                        src="https://via.placeholder.com/250x250"
+                        alt=""
+                        data-demo-src="/img/avatars/william.jpg"
+                      />
+                      <div class="item-info">
+                        <span class="item-title"
+                          >[#223] Can't connect to account</span
+                        >
+                        <span>Will Brettner | 3 min ago</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <span class="tag is-web is-primary">New</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="list-item-data">
+                      <img
+                        class="small-avatar"
+                        src="https://via.placeholder.com/250x250"
+                        alt=""
+                        data-demo-src="/img/avatars/carolin.jpg"
+                      />
+                      <div class="item-info">
+                        <span class="item-title">[#518] Upload problem</span>
+                        <span>Marjory Cambell | 15 min ago</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <span class="tag is-web is-secondary">Open</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="list-item-data">
+                      <img
+                        class="small-avatar"
+                        src="https://via.placeholder.com/250x250"
+                        alt=""
+                        data-demo-src="/img/avatars/terry.jpg"
+                      />
+                      <div class="item-info">
+                        <span class="item-title"
+                          >[#248] Invoices are not sent by email</span
+                        >
+                        <span>Terry Daniels | 1 day ago</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <span class="tag is-web is-secondary">Open</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="list-item-data">
+                      <img
+                        class="small-avatar"
+                        src="https://via.placeholder.com/250x250"
+                        alt=""
+                        data-demo-src="/img/avatars/marge.jpg"
+                      />
+                      <div class="item-info">
+                        <span class="item-title"
+                          >[#154] Uploads do not display</span
+                        >
+                        <span>Stella Henriks | 1 day ago</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <span class="tag is-web">Closed</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="list-item-data">
+                      <img
+                        class="small-avatar"
+                        src="https://via.placeholder.com/250x250"
+                        alt=""
+                        data-demo-src="/img/avatars/nick.jpg"
+                      />
+                      <div class="item-info">
+                        <span class="item-title"
+                          >[#152] App crashes constantly</span
+                        >
+                        <span>Nick Fraiser | 2 days ago</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <span class="tag is-web">Closed</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!--List Widget-->
+            <div class="column is-4">
+              <div class="widget list-widget">
+                <div class="card-head p-4 m-0 is-spaced">
+                  <h3>Trending</h3>
+                  <!--Dropdown-->
+                  <div
+                    x-ref="menu5"
+                    @click.away="$refs.menu5.classList.remove('is-active')"
+                    class="
+                      dropdown
+                      is-right
+                      dropdown-trigger
+                      styled-dropdown
+                      is-round
+                    "
+                  >
+                    <div
+                      @click="$refs.menu5.classList.add('is-active')"
+                      class="button"
+                    >
+                      <i class="material-icons">more_vert</i>
+                    </div>
+                    <div class="dropdown-menu is-text-bigger" role="menu">
+                      <div class="dropdown-content">
+                        <a class="dropdown-item">
+                          <i class="sl icon-refresh"></i>
+                          <span>
+                            <span>Reload</span>
+                            <span>Reload widget data</span>
+                          </span>
+                        </a>
+                        <a href="#" class="dropdown-item">
+                          <i class="sl icon-pencil"></i>
+                          <span>
+                            <span>Settings</span>
+                            <span>Edit widget settings</span>
+                          </span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                          <i class="sl icon-bell"></i>
+                          <span>
+                            <span>Notifications</span>
+                            <span>Notify me of changes</span>
+                          </span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item">
+                          <i class="sl icon-trash"></i>
+                          <span>
+                            <span>Delete</span>
+                            <span>Delete this widget</span>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <ul class="inner-list is-clean">
+                  <li>
+                    <div class="list-item-data">
+                      <img
+                        class="small-avatar"
+                        src="https://via.placeholder.com/250x250"
+                        alt=""
+                        data-demo-src="/img/logo/companies/airbnb.svg"
+                      />
+                      <div class="item-info">
+                        <span class="item-title">Airbnb</span>
+                        <span>24k followers</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <a class="button">View</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="list-item-data">
+                      <img
+                        class="small-avatar"
+                        src="https://via.placeholder.com/250x250"
+                        alt=""
+                        data-demo-src="/img/logo/companies/alfresco.svg"
+                      />
+                      <div class="item-info">
+                        <span class="item-title">Alfresco</span>
+                        <span>21k followers</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <a class="button">View</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="list-item-data">
+                      <img
+                        class="small-avatar"
+                        src="https://via.placeholder.com/250x250"
+                        alt=""
+                        data-demo-src="/img/logo/companies/amazon.svg"
+                      />
+                      <div class="item-info">
+                        <span class="item-title">Amazon</span>
+                        <span>19k followers</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <a class="button">View</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="list-item-data">
+                      <img
+                        class="small-avatar"
+                        src="https://via.placeholder.com/250x250"
+                        alt=""
+                        data-demo-src="/img/logo/companies/tesla.svg"
+                      />
+                      <div class="item-info">
+                        <span class="item-title">Tesla</span>
+                        <span>16k followers</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <a class="button">View</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="list-item-data">
+                      <img
+                        class="small-avatar"
+                        src="https://via.placeholder.com/250x250"
+                        alt=""
+                        data-demo-src="/img/logo/companies/hm.svg"
+                      />
+                      <div class="item-info">
+                        <span class="item-title">H&M</span>
+                        <span>9k followers</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <a class="button">View</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!--List Widget-->
+            <div class="column is-4">
+              <div class="widget list-widget">
+                <div class="card-head p-4 m-0 is-spaced">
+                  <h3>Topics</h3>
+                  <!--Dropdown-->
+                  <div
+                    x-ref="menu6"
+                    @click.away="$refs.menu6.classList.remove('is-active')"
+                    class="
+                      dropdown
+                      is-right
+                      dropdown-trigger
+                      styled-dropdown
+                      is-round
+                    "
+                  >
+                    <div
+                      @click="$refs.menu6.classList.add('is-active')"
+                      class="button"
+                    >
+                      <i class="material-icons">more_vert</i>
+                    </div>
+                    <div class="dropdown-menu is-text-bigger" role="menu">
+                      <div class="dropdown-content">
+                        <a class="dropdown-item">
+                          <i class="sl icon-refresh"></i>
+                          <span>
+                            <span>Reload</span>
+                            <span>Reload widget data</span>
+                          </span>
+                        </a>
+                        <a href="#" class="dropdown-item">
+                          <i class="sl icon-pencil"></i>
+                          <span>
+                            <span>Settings</span>
+                            <span>Edit widget settings</span>
+                          </span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                          <i class="sl icon-bell"></i>
+                          <span>
+                            <span>Notifications</span>
+                            <span>Notify me of changes</span>
+                          </span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item">
+                          <i class="sl icon-trash"></i>
+                          <span>
+                            <span>Delete</span>
+                            <span>Delete this widget</span>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <ul class="inner-list is-clean">
+                  <li>
+                    <div class="list-item-data">
+                      <div class="item-icon">
+                        <i class="sl icon-tag"></i>
+                      </div>
+                      <div class="item-info">
+                        <span class="item-title">Ecommerce</span>
+                        <span>268 posts</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <a class="button">View</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="list-item-data">
+                      <div class="item-icon">
+                        <i class="sl icon-rocket"></i>
+                      </div>
+                      <div class="item-info">
+                        <span class="item-title">Startups</span>
+                        <span>329 posts</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <a class="button">View</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="list-item-data">
+                      <div class="item-icon">
+                        <i class="sl icon-chart"></i>
+                      </div>
+                      <div class="item-info">
+                        <span class="item-title">Finance</span>
+                        <span>112 posts</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <a class="button">View</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="list-item-data">
+                      <div class="item-icon">
+                        <i class="sl icon-lock"></i>
+                      </div>
+                      <div class="item-info">
+                        <span class="item-title">Cyber Security</span>
+                        <span>39 posts</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <a class="button">View</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="list-item-data">
+                      <div class="item-icon">
+                        <i class="sl icon-mustache"></i>
+                      </div>
+                      <div class="item-info">
+                        <span class="item-title">Mustaches</span>
+                        <span>77 posts</span>
+                      </div>
+                    </div>
+                    <div class="item-action">
+                      <a class="button">View</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!--Circle chart widgets-->
+            <div class="column is-4">
+              <!--Widgets-->
+              <div class="widget circle-chart-widget px-4 pt-4 pb-8">
+                <div class="card-head px-4 pt-4 pb-6">
+                  <h3>Deals</h3>
+                  <a class="button is-default is-rounded">View All</a>
+                </div>
+                <svg
+                  class="circle-chart"
+                  viewbox="0 0 33.83098862 33.83098862"
+                  width="140"
+                  height="140"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    class="circle-chart-background"
+                    stroke-width="2"
+                    fill="none"
+                    cx="16.91549431"
+                    cy="16.91549431"
+                    r="15.91549431"
+                  />
+                  <circle
+                    class="circle-chart-circle"
+                    stroke="#7F00FF"
+                    stroke-width="2"
+                    stroke-dasharray="68,100"
+                    stroke-linecap="round"
+                    fill="none"
+                    cx="16.91549431"
+                    cy="16.91549431"
+                    r="15.91549431"
+                  />
+                </svg>
+                <div class="chart-avatar">
+                  <img
+                    src="https://via.placeholder.com/250x250"
+                    alt=""
+                    data-demo-src="/img/avatars/ray.jpg"
+                  />
+                </div>
+                <div class="ring-title has-text-centered">
+                  <span>68% Deals Won</span>
+                </div>
+              </div>
+
+              <!--Widgets-->
+              <div class="widget circle-chart-widget px-4 pt-4 pb-8">
+                <div class="card-head px-4 pt-4 pb-6">
+                  <h3>Tasks</h3>
+                  <a class="button is-default is-rounded">View All</a>
+                </div>
+                <svg
+                  class="circle-chart"
+                  viewbox="0 0 33.83098862 33.83098862"
+                  width="140"
+                  height="140"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    class="circle-chart-background"
+                    stroke-width="2"
+                    fill="none"
+                    cx="16.91549431"
+                    cy="16.91549431"
+                    r="15.91549431"
+                  />
+                  <circle
+                    class="circle-chart-circle"
+                    stroke="#00d1b2"
+                    stroke-width="2"
+                    stroke-dasharray="77,100"
+                    stroke-linecap="round"
+                    fill="none"
+                    cx="16.91549431"
+                    cy="16.91549431"
+                    r="15.91549431"
+                  />
+                </svg>
+                <div class="chart-avatar">
+                  <img
+                    src="https://via.placeholder.com/250x250"
+                    alt=""
+                    data-demo-src="/img/avatars/lakisha.jpg"
+                  />
+                </div>
+                <div class="ring-title has-text-centered">
+                  <span>8 average tasks / day</span>
+                </div>
+              </div>
+            </div>
+
+            <!--Side Circle Widgets-->
+            <div class="column is-4">
+              <!--Widget-->
+              <div class="widget circle-side-widget p-5">
+                <div class="circle-container">
+                  <svg
+                    class="circle-chart"
+                    viewbox="0 0 33.83098862 33.83098862"
+                    width="70"
+                    height="70"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle
+                      class="circle-chart-background"
+                      stroke="#efefef"
+                      stroke-width="2"
+                      fill="none"
+                      cx="16.91549431"
+                      cy="16.91549431"
+                      r="15.91549431"
+                    />
+                    <circle
+                      class="circle-chart-circle"
+                      stroke="#00d1b2"
+                      stroke-width="2"
+                      stroke-dasharray="84,100"
+                      stroke-linecap="round"
+                      fill="none"
+                      cx="16.91549431"
+                      cy="16.91549431"
+                      r="15.91549431"
+                    />
+                  </svg>
+                  <div class="circle-icon">
+                    <i class="sl icon-chart"></i>
+                  </div>
+                </div>
+                <div class="circle-meta">
+                  <h3>Sales Revenue</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ad
+                    eos igitur converte te, quaeso.
+                  </p>
+                </div>
+              </div>
+
+              <!--Widget-->
+              <div class="widget circle-side-widget p-5">
+                <div class="circle-container">
+                  <svg
+                    class="circle-chart"
+                    viewbox="0 0 33.83098862 33.83098862"
+                    width="70"
+                    height="70"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle
+                      class="circle-chart-background"
+                      stroke="#efefef"
+                      stroke-width="2"
+                      fill="none"
+                      cx="16.91549431"
+                      cy="16.91549431"
+                      r="15.91549431"
+                    />
+                    <circle
+                      class="circle-chart-circle"
+                      stroke="#E82127"
+                      stroke-width="2"
+                      stroke-dasharray="43,100"
+                      stroke-linecap="round"
+                      fill="none"
+                      cx="16.91549431"
+                      cy="16.91549431"
+                      r="15.91549431"
+                    />
+                  </svg>
+                  <div class="circle-icon has-image">
+                    <img
+                      src="https://via.placeholder.com/250x250"
+                      alt=""
+                      data-demo-src="/img/logo/companies/tesla.svg"
+                    />
+                  </div>
+                </div>
+                <div class="circle-meta">
+                  <h3>Overall Growth</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ad
+                    eos igitur converte te, quaeso.
+                  </p>
+                </div>
+              </div>
+
+              <!--Widget-->
+              <div class="widget circle-side-widget p-5">
+                <div class="circle-container">
+                  <svg
+                    class="circle-chart"
+                    viewbox="0 0 33.83098862 33.83098862"
+                    width="70"
+                    height="70"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle
+                      class="circle-chart-background"
+                      stroke="#efefef"
+                      stroke-width="2"
+                      fill="none"
+                      cx="16.91549431"
+                      cy="16.91549431"
+                      r="15.91549431"
+                    />
+                    <circle
+                      class="circle-chart-circle"
+                      stroke="#fcba03"
+                      stroke-width="2"
+                      stroke-dasharray="59,100"
+                      stroke-linecap="round"
+                      fill="none"
+                      cx="16.91549431"
+                      cy="16.91549431"
+                      r="15.91549431"
+                    />
+                  </svg>
+                  <div class="circle-icon has-image">
+                    <span>59<small>%</small></span>
+                  </div>
+                </div>
+                <div class="circle-meta">
+                  <h3>Overall Growth</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ad
+                    eos igitur converte te, quaeso.
+                  </p>
+                </div>
+              </div>
+
+              <!--Widget-->
+              <div class="widget circle-side-widget p-5">
+                <div class="circle-container">
+                  <svg
+                    class="circle-chart"
+                    viewbox="0 0 33.83098862 33.83098862"
+                    width="70"
+                    height="70"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle
+                      class="circle-chart-background"
+                      stroke="#efefef"
+                      stroke-width="2"
+                      fill="none"
+                      cx="16.91549431"
+                      cy="16.91549431"
+                      r="15.91549431"
+                    />
+                    <circle
+                      class="circle-chart-circle"
+                      stroke="#9e3dff"
+                      stroke-width="2"
+                      stroke-dasharray="77,100"
+                      stroke-linecap="round"
+                      fill="none"
+                      cx="16.91549431"
+                      cy="16.91549431"
+                      r="15.91549431"
+                    />
+                  </svg>
+                  <div class="circle-icon has-image">
+                    <img
+                      src="https://via.placeholder.com/250x250"
+                      alt=""
+                      data-demo-src="/img/avatars/elie.jpg"
+                    />
+                  </div>
+                </div>
+                <div class="circle-meta">
+                  <h3>Overall Growth</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ad
+                    eos igitur converte te, quaeso.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!--Stat Widgets-->
+            <div class="column is-4">
+              <!--Widget-->
+              <div class="widget multi-circle-widget p-5">
+                <div class="card-head is-spaced">
+                  <h3>Statistics</h3>
+                </div>
+                <div class="statistics pt-6 pb-2">
+                  <div class="statistic">
+                    <div class="circle-container">
+                      <svg
+                        class="circle-chart"
+                        viewbox="0 0 33.83098862 33.83098862"
+                        width="50"
+                        height="50"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          class="circle-chart-background"
+                          stroke="#efefef"
+                          stroke-width="2"
+                          fill="none"
+                          cx="16.91549431"
+                          cy="16.91549431"
+                          r="15.91549431"
+                        />
+                        <circle
+                          class="circle-chart-circle"
+                          stroke="#9e3dff"
+                          stroke-width="2"
+                          stroke-dasharray="58,100"
+                          stroke-linecap="round"
+                          fill="none"
+                          cx="16.91549431"
+                          cy="16.91549431"
+                          r="15.91549431"
+                        />
+                      </svg>
+                      <div class="circle-icon">
+                        <span>58%</span>
+                      </div>
+                    </div>
+
+                    <span>Efficiency</span>
+                  </div>
+                  <div class="statistic">
+                    <div class="circle-container">
+                      <svg
+                        class="circle-chart"
+                        viewbox="0 0 33.83098862 33.83098862"
+                        width="50"
+                        height="50"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          class="circle-chart-background"
+                          stroke="#efefef"
+                          stroke-width="2"
+                          fill="none"
+                          cx="16.91549431"
+                          cy="16.91549431"
+                          r="15.91549431"
+                        />
+                        <circle
+                          class="circle-chart-circle"
+                          stroke="#FFA981"
+                          stroke-width="2"
+                          stroke-dasharray="34,100"
+                          stroke-linecap="round"
+                          fill="none"
+                          cx="16.91549431"
+                          cy="16.91549431"
+                          r="15.91549431"
+                        />
+                      </svg>
+                      <div class="circle-icon">
+                        <span>34%</span>
+                      </div>
+                    </div>
+
+                    <span>Engagment</span>
+                  </div>
+                  <div class="statistic">
+                    <div class="circle-container">
+                      <svg
+                        class="circle-chart"
+                        viewbox="0 0 33.83098862 33.83098862"
+                        width="50"
+                        height="50"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          class="circle-chart-background"
+                          stroke="#efefef"
+                          stroke-width="2"
+                          fill="none"
+                          cx="16.91549431"
+                          cy="16.91549431"
+                          r="15.91549431"
+                        />
+                        <circle
+                          class="circle-chart-circle"
+                          stroke="#00d1b2"
+                          stroke-width="2"
+                          stroke-dasharray="82,100"
+                          stroke-linecap="round"
+                          fill="none"
+                          cx="16.91549431"
+                          cy="16.91549431"
+                          r="15.91549431"
+                        />
+                      </svg>
+                      <div class="circle-icon">
+                        <span>82%</span>
+                      </div>
+                    </div>
+
+                    <span>Performance</span>
+                  </div>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ad
+                  eos igitur converte te, quaeso.
+                </p>
+              </div>
+
+              <!--Widget-->
+              <div class="widget multi-circle-widget p-5">
+                <div class="card-head is-spaced">
+                  <h3>Team Metrics</h3>
+                </div>
+                <div class="statistics pt-6 pb-2">
+                  <div class="statistic">
+                    <div class="circle-container">
+                      <svg
+                        class="circle-chart"
+                        viewbox="0 0 33.83098862 33.83098862"
+                        width="50"
+                        height="50"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          class="circle-chart-background"
+                          stroke="#efefef"
+                          stroke-width="2"
+                          fill="none"
+                          cx="16.91549431"
+                          cy="16.91549431"
+                          r="15.91549431"
+                        />
+                        <circle
+                          class="circle-chart-circle"
+                          stroke="#9e3dff"
+                          stroke-width="2"
+                          stroke-dasharray="58,100"
+                          stroke-linecap="round"
+                          fill="none"
+                          cx="16.91549431"
+                          cy="16.91549431"
+                          r="15.91549431"
+                        />
+                      </svg>
+                      <div class="circle-icon">
+                        <span>58%</span>
+                      </div>
+                    </div>
+
+                    <span>Team 1</span>
+                  </div>
+                  <div class="statistic">
+                    <div class="circle-container">
+                      <svg
+                        class="circle-chart"
+                        viewbox="0 0 33.83098862 33.83098862"
+                        width="50"
+                        height="50"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          class="circle-chart-background"
+                          stroke="#efefef"
+                          stroke-width="2"
+                          fill="none"
+                          cx="16.91549431"
+                          cy="16.91549431"
+                          r="15.91549431"
+                        />
+                        <circle
+                          class="circle-chart-circle"
+                          stroke="#FFA981"
+                          stroke-width="2"
+                          stroke-dasharray="34,100"
+                          stroke-linecap="round"
+                          fill="none"
+                          cx="16.91549431"
+                          cy="16.91549431"
+                          r="15.91549431"
+                        />
+                      </svg>
+                      <div class="circle-icon">
+                        <span>34%</span>
+                      </div>
+                    </div>
+
+                    <span>Team 2</span>
+                  </div>
+                  <div class="statistic">
+                    <div class="circle-container">
+                      <svg
+                        class="circle-chart"
+                        viewbox="0 0 33.83098862 33.83098862"
+                        width="50"
+                        height="50"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          class="circle-chart-background"
+                          stroke="#efefef"
+                          stroke-width="2"
+                          fill="none"
+                          cx="16.91549431"
+                          cy="16.91549431"
+                          r="15.91549431"
+                        />
+                        <circle
+                          class="circle-chart-circle"
+                          stroke="#00d1b2"
+                          stroke-width="2"
+                          stroke-dasharray="82,100"
+                          stroke-linecap="round"
+                          fill="none"
+                          cx="16.91549431"
+                          cy="16.91549431"
+                          r="15.91549431"
+                        />
+                      </svg>
+                      <div class="circle-icon">
+                        <span>82%</span>
+                      </div>
+                    </div>
+
+                    <span>Team 3</span>
+                  </div>
+                  <div class="statistic">
+                    <div class="circle-container">
+                      <svg
+                        class="circle-chart"
+                        viewbox="0 0 33.83098862 33.83098862"
+                        width="50"
+                        height="50"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <circle
+                          class="circle-chart-background"
+                          stroke="#efefef"
+                          stroke-width="2"
+                          fill="none"
+                          cx="16.91549431"
+                          cy="16.91549431"
+                          r="15.91549431"
+                        />
+                        <circle
+                          class="circle-chart-circle"
+                          stroke="#ff5c85"
+                          stroke-width="2"
+                          stroke-dasharray="42,100"
+                          stroke-linecap="round"
+                          fill="none"
+                          cx="16.91549431"
+                          cy="16.91549431"
+                          r="15.91549431"
+                        />
+                      </svg>
+                      <div class="circle-icon">
+                        <span>42%</span>
+                      </div>
+                    </div>
+
+                    <span>Team 4</span>
+                  </div>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ad
+                  eos igitur converte te, quaeso.
+                </p>
+              </div>
+            </div>
+
+            <!--Table Widget-->
+            <div class="column is-12">
+              <div class="widget table-widget">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Completed</th>
+                      <th>Deadline</th>
+                      <th>Team</th>
+                      <th>Status</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="light-cell">
+                        <span>001</span>
+                      </td>
+                      <td><a>Blake & Daniels</a></td>
+                      <td>
+                        <div class="circle-container">
+                          <svg
+                            class="circle-chart"
+                            viewbox="0 0 33.83098862 33.83098862"
+                            width="44"
+                            height="44"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <circle
+                              class="circle-chart-background"
+                              stroke="#efefef"
+                              stroke-width="2"
+                              fill="none"
+                              cx="16.91549431"
+                              cy="16.91549431"
+                              r="15.91549431"
+                            />
+                            <circle
+                              class="circle-chart-circle"
+                              stroke="#7F00FF"
+                              stroke-width="2"
+                              stroke-dasharray="42,100"
+                              stroke-linecap="round"
+                              fill="none"
+                              cx="16.91549431"
+                              cy="16.91549431"
+                              r="15.91549431"
+                            />
+                          </svg>
+                          <div class="circle-icon">
+                            <span>42%</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="light-cell">nov 30 2020</td>
+                      <td>
+                        <div class="people">
+                          <a href="#">
+                            <img
+                              src="https://via.placeholder.com/250x250"
+                              alt=""
+                              data-demo-src="/img/avatars/nick.jpg"
+                            />
+                          </a>
+                          <a href="#">
+                            <img
+                              src="https://via.placeholder.com/250x250"
+                              alt=""
+                              data-demo-src="/img/avatars/elie.jpg"
+                            />
+                          </a>
+                          <a href="#">
+                            <img
+                              src="https://via.placeholder.com/250x250"
+                              alt=""
+                              data-demo-src="/img/avatars/stella.jpg"
+                            />
+                          </a>
+                          <span class="is-font is-weight-600 rem-100 ml-2"
+                            >+ 2</span
+                          >
+                        </div>
+                      </td>
+                      <td>
+                        <span class="tag is-curved is-secondary">In progress</span>
+                      </td>
+                      <td class="has-text-centered">
+                        <a class="button is-rounded-md">Details</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="light-cell">
+                        <span>002</span>
+                      </td>
+                      <td><a>Fresh Wear Ltd.</a></td>
+                      <td>
+                        <div class="circle-container">
+                          <svg
+                            class="circle-chart"
+                            viewbox="0 0 33.83098862 33.83098862"
+                            width="44"
+                            height="44"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <circle
+                              class="circle-chart-background"
+                              stroke="#efefef"
+                              stroke-width="2"
+                              fill="none"
+                              cx="16.91549431"
+                              cy="16.91549431"
+                              r="15.91549431"
+                            />
+                            <circle
+                              class="circle-chart-circle"
+                              stroke="#7F00FF"
+                              stroke-width="2"
+                              stroke-dasharray="61,100"
+                              stroke-linecap="round"
+                              fill="none"
+                              cx="16.91549431"
+                              cy="16.91549431"
+                              r="15.91549431"
+                            />
+                          </svg>
+                          <div class="circle-icon">
+                            <span>61%</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="light-cell">may 1 2021</td>
+                      <td>
+                        <div class="people">
+                          <a href="#">
+                            <img
+                              src="https://via.placeholder.com/250x250"
+                              alt=""
+                              data-demo-src="/img/avatars/helen.jpg"
+                            />
+                          </a>
+                          <a href="#">
+                            <img
+                              src="https://via.placeholder.com/250x250"
+                              alt=""
+                              data-demo-src="/img/avatars/marc.jpg"
+                            />
+                          </a>
+                        </div>
+                      </td>
+                      <td>
+                        <span class="tag is-curved is-warning">Needs info</span>
+                      </td>
+                      <td class="has-text-centered">
+                        <a class="button is-rounded-md">Details</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="light-cell">
+                        <span>003</span>
+                      </td>
+                      <td><a>Gallagher</a></td>
+                      <td>
+                        <div class="circle-container">
+                          <svg
+                            class="circle-chart"
+                            viewbox="0 0 33.83098862 33.83098862"
+                            width="44"
+                            height="44"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <circle
+                              class="circle-chart-background"
+                              stroke="#efefef"
+                              stroke-width="2"
+                              fill="none"
+                              cx="16.91549431"
+                              cy="16.91549431"
+                              r="15.91549431"
+                            />
+                            <circle
+                              class="circle-chart-circle"
+                              stroke="#7F00FF"
+                              stroke-width="2"
+                              stroke-dasharray="27,100"
+                              stroke-linecap="round"
+                              fill="none"
+                              cx="16.91549431"
+                              cy="16.91549431"
+                              r="15.91549431"
+                            />
+                          </svg>
+                          <div class="circle-icon">
+                            <span>27%</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="light-cell">jun 31 2021</td>
+                      <td>
+                        <div class="people">
+                          <a href="#">
+                            <img
+                              src="https://via.placeholder.com/250x250"
+                              alt=""
+                              data-demo-src="/img/avatars/terry.jpg"
+                            />
+                          </a>
+                          <a href="#">
+                            <img
+                              src="https://via.placeholder.com/250x250"
+                              alt=""
+                              data-demo-src="/img/avatars/elie.jpg"
+                            />
+                          </a>
+                          <a href="#">
+                            <img
+                              src="https://via.placeholder.com/250x250"
+                              alt=""
+                              data-demo-src="/img/avatars/janet.jpg"
+                            />
+                          </a>
+                          <span class="is-font is-weight-600 rem-100 ml-2"
+                            >+ 1</span
+                          >
+                        </div>
+                      </td>
+                      <td>
+                        <span class="tag is-curved is-secondary">In progress</span>
+                      </td>
+                      <td class="has-text-centered">
+                        <a class="button is-rounded-md">Details</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="light-cell">
+                        <span>004</span>
+                      </td>
+                      <td><a>Crash Records</a></td>
+                      <td>
+                        <div class="circle-container">
+                          <svg
+                            class="circle-chart"
+                            viewbox="0 0 33.83098862 33.83098862"
+                            width="44"
+                            height="44"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <circle
+                              class="circle-chart-background"
+                              stroke="#efefef"
+                              stroke-width="2"
+                              fill="none"
+                              cx="16.91549431"
+                              cy="16.91549431"
+                              r="15.91549431"
+                            />
+                            <circle
+                              class="circle-chart-circle"
+                              stroke="#7F00FF"
+                              stroke-width="2"
+                              stroke-dasharray="34,100"
+                              stroke-linecap="round"
+                              fill="none"
+                              cx="16.91549431"
+                              cy="16.91549431"
+                              r="15.91549431"
+                            />
+                          </svg>
+                          <div class="circle-icon">
+                            <span>34%</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="light-cell">mar 31 2021</td>
+                      <td>
+                        <div class="people">
+                          <a href="#">
+                            <img
+                              src="https://via.placeholder.com/250x250"
+                              alt=""
+                              data-demo-src="/img/avatars/carolin.jpg"
+                            />
+                          </a>
+                        </div>
+                      </td>
+                      <td>
+                        <span class="tag is-curved is-secondary">In progress</span>
+                      </td>
+                      <td class="has-text-centered">
+                        <a class="button is-rounded-md">Details</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="light-cell">
+                        <span>005</span>
+                      </td>
+                      <td><a>Someco Inc.</a></td>
+                      <td>
+                        <div class="circle-container">
+                          <svg
+                            class="circle-chart"
+                            viewbox="0 0 33.83098862 33.83098862"
+                            width="44"
+                            height="44"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <circle
+                              class="circle-chart-background"
+                              stroke="#efefef"
+                              stroke-width="2"
+                              fill="none"
+                              cx="16.91549431"
+                              cy="16.91549431"
+                              r="15.91549431"
+                            />
+                            <circle
+                              class="circle-chart-circle"
+                              stroke="#7F00FF"
+                              stroke-width="2"
+                              stroke-dasharray="5,100"
+                              stroke-linecap="round"
+                              fill="none"
+                              cx="16.91549431"
+                              cy="16.91549431"
+                              r="15.91549431"
+                            />
+                          </svg>
+                          <div class="circle-icon">
+                            <span>5%</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="light-cell">Aug 31 2021</td>
+                      <td>
+                        <div class="people">
+                          <a href="#">
+                            <img
+                              src="https://via.placeholder.com/250x250"
+                              alt=""
+                              data-demo-src="/img/avatars/alex.jpg"
+                            />
+                          </a>
+                          <a href="#">
+                            <img
+                              src="https://via.placeholder.com/250x250"
+                              alt=""
+                              data-demo-src="/img/avatars/anthony.jpg"
+                            />
+                          </a>
+                          <a href="#">
+                            <img
+                              src="https://via.placeholder.com/250x250"
+                              alt=""
+                              data-demo-src="/img/avatars/fred.jpg"
+                            />
+                          </a>
+                          <span class="is-font is-weight-600 rem-100 ml-2"
+                            >+ 2</span
+                          >
+                        </div>
+                      </td>
+                      <td>
+                        <span class="tag is-curved is-danger">Has issues</span>
+                      </td>
+                      <td class="has-text-centered">
+                        <a class="button is-rounded-md">Details</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="light-cell">
+                        <span>006</span>
+                      </td>
+                      <td><a>Mortimer & Sons</a></td>
+                      <td>
+                        <div class="circle-container">
+                          <svg
+                            class="circle-chart"
+                            viewbox="0 0 33.83098862 33.83098862"
+                            width="44"
+                            height="44"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <circle
+                              class="circle-chart-background"
+                              stroke="#efefef"
+                              stroke-width="2"
+                              fill="none"
+                              cx="16.91549431"
+                              cy="16.91549431"
+                              r="15.91549431"
+                            />
+                            <circle
+                              class="circle-chart-circle"
+                              stroke="#7F00FF"
+                              stroke-width="2"
+                              stroke-dasharray="3,100"
+                              stroke-linecap="round"
+                              fill="none"
+                              cx="16.91549431"
+                              cy="16.91549431"
+                              r="15.91549431"
+                            />
+                          </svg>
+                          <div class="circle-icon">
+                            <span>3%</span>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="light-cell">Jun 31 2021</td>
+                      <td>
+                        <div class="people">
+                          <a href="#">
+                            <img
+                              src="https://via.placeholder.com/250x250"
+                              alt=""
+                              data-demo-src="/img/avatars/eric.jpg"
+                            />
+                          </a>
+                          <a href="#">
+                            <img
+                              src="https://via.placeholder.com/250x250"
+                              alt=""
+                              data-demo-src="/img/avatars/alan.jpg"
+                            />
+                          </a>
+                        </div>
+                      </td>
+                      <td><span class="tag is-curved">Canceled</span></td>
+                      <td class="has-text-centered">
+                        <a class="button is-rounded-md">Details</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

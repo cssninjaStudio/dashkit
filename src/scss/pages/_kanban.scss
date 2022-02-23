@@ -44,7 +44,6 @@ TABLE OF CONTENTS
 1. Title
 ========================================================================== */
 
-//Wrapper
 .kanban-title-wrapper {
     display: flex;
     justify-content: space-between;
@@ -95,8 +94,8 @@ TABLE OF CONTENTS
                 width: 40px !important;
                 min-width: 40px !important;
                 border-radius: 50%;
-                border-color: $primary;
-                background: $primary;
+                border-color: var(--primary);
+                background: var(--primary);
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -105,7 +104,7 @@ TABLE OF CONTENTS
 
                 &:hover {
                     opacity: .9;
-                    box-shadow: $secondary-box-shadow;
+                    box-shadow: var(--secondary-box-shadow);
                 }
 
                 &.is-disabled {
@@ -114,7 +113,7 @@ TABLE OF CONTENTS
 
                 .fa {
                     font-size: 10px;
-                    color: $smoke-white;
+                    color: var(--white-smoke);
                 }
             }
         }
@@ -123,7 +122,7 @@ TABLE OF CONTENTS
 
 .kanban-title {
     font-weight: 600;
-    color: $blue-grey;
+    color: var(--title-color);
     margin-bottom: 0 !important;
 }
 
@@ -149,10 +148,10 @@ TABLE OF CONTENTS
         .board-box {
             width: 100%;
             padding: 8px 10px;
-            background: $smoke-white;
+            background: var(--wrap-muted-color);
             border-radius: 6px;
-            box-shadow: $light-box-shadow;
-            border: 1px solid $border;
+            box-shadow: var(--light-box-shadow);
+            border: 1px solid var(--wrap-border-color);
 
             &.is-empty {
                 .column-placeholder {
@@ -171,10 +170,6 @@ TABLE OF CONTENTS
                         height: 36px;
                         font-size: 1.2rem;
                         padding-bottom: 8px;
-
-                        &:focus {
-                            border-color: lighten(#ccc, 5%) !important;
-                        }
                     }
                 }
 
@@ -184,20 +179,20 @@ TABLE OF CONTENTS
 
                     .name {
                         font-weight: 600;
-                        font-family: $font-alt;
+                        font-family: var(--font-alt);
                         font-size: 1.1rem;
-                        color: $blue-grey;
+                        color: var(--title-color);
                     }
 
                     .count {
                         margin: 0 6px;
 
                         span {
-                            font-family: $font;
+                            font-family: var(--font);
                             display: block;
                             font-size: 16px;
                             font-weight: bold;
-                            color: $medium-text;
+                            color: var(--medium-text);
                         }
                     }
                 }
@@ -226,17 +221,17 @@ TABLE OF CONTENTS
                         padding: 10px 0;
 
                         h3 {
-                            font-family: $font-alt;
+                            font-family: var(--font-alt);
                             font-weight: 600;
                             font-size: 1.1rem;
-                            color: $blue-grey;
+                            color: var(--title-color);
                             margin-bottom: 0;
                         }
 
                         p {
-                            font-family: $font;
+                            font-family: var(--font);
                             font-size: 1rem;
-                            color: $light-text;
+                            color: var(--light-text);
                             max-width: 230px;
                             margin: 0 auto;
                         }
@@ -254,26 +249,26 @@ TABLE OF CONTENTS
             .board-placeholder {
                 .placeholder-inner {
                     padding: 20px;
-                    background: lighten($fade-grey, 4%);
-                    border: 2px dashed $placeholder;
+                    background: var(--dropdown-bg-color-hover);
+                    border: 2px dashed var(--placeholder);
                     border-radius: 6px;
                     font-size: 1.25rem;
-                    color: $muted-grey;
+                    color: var(--light-text);
                     font-weight: 600;
                     text-align: center;
                     transition: all .3s;
                     cursor: pointer;
 
                     &:hover {
-                        border-color: $muted-grey;
-                        color: darken($muted-grey, 5%);
+                        border-color: var(--light-text);
+                        color: var(--light-text);
                     }
                 }
 
                 .create-box {
                     width: 100%;
                     padding: 8px 10px;
-                    background: $smoke-white;
+                    background: var(--white-smoke);
                     border-radius: 6px;
                     box-shadow: 0 2px 2px rgba(10, 10, 10, 0.095), 0 0 0 1px rgba(10, 10, 10, 0.095);
 
@@ -286,7 +281,7 @@ TABLE OF CONTENTS
 
                         a {
                             display: block;
-                            color: $blue-grey;
+                            color: var(--title-color);
                             font-weight: 500;
                         }
                     }
@@ -300,11 +295,12 @@ TABLE OF CONTENTS
     position: relative;
     padding: 1rem;
     box-shadow: none;
-    border: 1px solid darken($fade-grey, 3%);
+    border: 1px solid var(--card-border-color);
+    background: var(--card-bg-color);
     transition: all .3s;
 
     &:hover {
-        box-shadow: $light-box-shadow;
+        box-shadow: var(--light-box-shadow);
     }
 
     &:not(:last-child) {
@@ -313,8 +309,8 @@ TABLE OF CONTENTS
 
     .box-title {
         font-size: 1rem;
-        font-family: $font-alt;
-        color: $blue-grey;
+        font-family: var(--font-alt);
+        color: var(--title-color);
         font-weight: 600;
         max-width: 285px;
         overflow: hidden;
@@ -324,8 +320,8 @@ TABLE OF CONTENTS
 
     .box-subtitle {
         font-size: 14px;
-        font-family: $font;
-        color: $light-text;
+        font-family: var(--font);
+        color: var(--light-text);
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -338,8 +334,8 @@ TABLE OF CONTENTS
     .time {
         margin-bottom: 20px;
         font-size: .9rem;
-        font-family: $font;
-        color: $light-text;
+        font-family: var(--font);
+        color: var(--light-text);
     }
 
     .box-meta {
@@ -356,9 +352,9 @@ TABLE OF CONTENTS
                 width: 38px;
                 font-size: .8rem;
                 border-radius: 50%;
-                border: 3px solid $white;
-                font-family: $font;
-                color: $blue-grey;
+                border: 3px solid var(--card-border-color);
+                font-family: var(--font);
+                color: var(--title-color);
 
                 &:not(:first-child) {
                     $var: 14;
@@ -377,16 +373,16 @@ TABLE OF CONTENTS
                     height: 38px;
                     width: 38px;
                     font-weight: 500;
-                    background: darken($widget-grey, 3%);
+                    background: var(--wrap-muted-color);
                 }
             }
         }
 
         .deal-value {
             margin-left: auto;
-            font-family: $font;
+            font-family: var(--font);
             font-size: 1.2rem;
-            color: $blue-grey;
+            color: var(--title-color);
             font-weight: 600;
         }
 
@@ -479,13 +475,13 @@ TABLE OF CONTENTS
                 transition: all .3s;
 
                 &:hover {
-                    background: $fade-grey;
+                    background: var(--wrap-muted-color);
                 }
 
                 i {
                     font-size: 18px;
                     font-weight: 600;
-                    color: $muted-grey;
+                    color: var(--light-text);
                     transition: all .3s;
                 }
             }
@@ -507,13 +503,13 @@ TABLE OF CONTENTS
             h3 {
                 font-size: 1.4rem;
                 font-weight: 600;
-                color: $blue-grey;
+                color: var(--title-color);
                 font-family: 'Nexa Bold', sans-serif;
             }
 
             p {
                 font-size: 1.2rem;
-                color: $muted-grey;
+                color: var(--light-text);
             }
         }
 
@@ -587,10 +583,10 @@ TABLE OF CONTENTS
             padding: 40px;
 
             .board-title {
-                font-family: $font-alt;
+                font-family: var(--font-alt);
                 font-weight: 500;
                 font-size: 1.2rem;
-                color: $blue-grey;
+                color: var(--title-color);
             }
 
             .board-icon {
@@ -605,10 +601,10 @@ TABLE OF CONTENTS
             }
 
             .board-summary {
-                font-family: $font-alt;
+                font-family: var(--font-alt);
                 font-weight: 500;
                 font-size: 1rem;
-                color: $light-text;
+                color: var(--light-text);
             }
 
             .board-meta {
@@ -635,7 +631,7 @@ TABLE OF CONTENTS
                         cursor: pointer;
 
                         &:checked ~ .toggler {
-                            border-color: $orange;
+                            border-color: var(--warning);
 
                             .happy, .sad {
                                 transform: translateX(100%) rotate(360deg);
@@ -656,8 +652,8 @@ TABLE OF CONTENTS
                         display: block;
                         height: 30px;
                         width: 76px;
-                        border: 1.6px solid darken($widget-grey, 3%);
-                        background: darken($widget-grey, 3%);
+                        border: 1.6px solid var(--wrap-muted-color);
+                        background: var(--wrap-muted-color);
                         border-radius: 100px;
                         transition: all .3s;
 
@@ -676,21 +672,21 @@ TABLE OF CONTENTS
                             transition: all .3s ease;
 
                             i {
-                                color: $white;
+                                color: var(--white);
                                 font-size: 18px;
                             }
                         }
 
                         .sad {
-                            background: $secondary;
-                            border-color: $secondary;
+                            background: var(--secondary);
+                            border-color: var(--secondary);
                             opacity: 1;
                             z-index: 1;
                         }
 
                         .happy {
-                            background: $orange;
-                            border-color: $orange;
+                            background: var(--warning);
+                            border-color: var(--warning);
                             opacity: 0;
                             z-index: 0;
                         }
@@ -711,8 +707,8 @@ TABLE OF CONTENTS
                         font-size: .9rem;
                         font-weight: 600;
                         border-radius: 50%;
-                        border: 3px solid $white;
-                        color: $blue-grey;
+                        border: 3px solid var(--card-bg-color);
+                        color: var(--title-color);
 
                         &:not(:first-child) {
                             $var: 14;
@@ -726,12 +722,12 @@ TABLE OF CONTENTS
 
                         &.is-more {
                             display: flex;
-                            background: darken($widget-grey, 3%);
+                            background: var(--wrap-muted-color);
                             justify-content: center;
                             align-items: center;
                             height: 44px;
                             width: 44px;
-                            font-family: $font;
+                            font-family: var(--font);
                             font-weight: 500;
                         }
                     }
@@ -742,7 +738,7 @@ TABLE OF CONTENTS
         .card-foot {
             display: flex;
             align-items: center;
-            border-top: 1px solid $border;
+            border-top: 1px solid var(--card-border-color);
 
             .footer-block {
                 width: 50%;
@@ -752,7 +748,7 @@ TABLE OF CONTENTS
                 align-items: center;
 
                 &:first-child {
-                    border-right: 1px solid $border;
+                    border-right: 1px solid var(--card-border-color);
                 }
 
                 span {
@@ -760,9 +756,9 @@ TABLE OF CONTENTS
 
                     &:first-child {
                         font-size: 1.1rem;
-                        font-family: $font-alt;
+                        font-family: var(--font-alt);
                         font-weight: 600;
-                        color: $blue-grey;
+                        color: var(--title-color);
 
                         &:before {
                             content: '$';
@@ -770,8 +766,8 @@ TABLE OF CONTENTS
                     }
 
                     &:nth-child(2) {
-                        font-family: $font;
-                        color: $light-text;
+                        font-family: var(--font);
+                        color: var(--light-text);
                     }
                 }
             }

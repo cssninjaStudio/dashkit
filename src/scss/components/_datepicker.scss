@@ -7,11 +7,12 @@
 1. Datepicker
 ========================================================================== */
 
+@use "sass:math";
+
 $width: 18.625em;
 $radius: $width * 0.016891;
 $transition: 0.3s;
 $font-size: $width * 0.056;
-$lightblue: lightblue;
 
 /*
   All a user has to do to change the calendar size is
@@ -19,258 +20,267 @@ $lightblue: lightblue;
   magically resizes accordingly. Relative units ftw!
 */
 .qs-datepicker-container {
-    font-size: 1rem;
-    font-family: sans-serif;
-    color: black;
-    position: absolute;
-    width: $width;
-    display: flex;
-    flex-direction: column;
-    z-index: 9001;
-    user-select: none;
-    border-radius: 8px;
-    padding: 30px;
-    overflow: hidden;
-    background: $white;
-    box-shadow: $medium-box-shadow;
+  font-size: 1rem;
+  font-family: sans-serif;
+  color: black;
+  position: absolute;
+  width: $width;
+  display: flex;
+  flex-direction: column;
+  z-index: 9001;
+  user-select: none;
+  border-radius: 8px;
+  padding: 30px;
+  overflow: hidden;
+  background: var(--datepicker-bg-color);
+  box-shadow: var(--medium-box-shadow);
 
-    * {
-        box-sizing: border-box;
-    }
+  * {
+    box-sizing: border-box;
+  }
 }
 
 .qs-centered {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .qs-hidden {
-    display: none;
+  display: none;
 }
 
 .qs-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--night-light-4);
+  color: var(--white);
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  z-index: 1;
+  opacity: 1;
+  transition: opacity $transition;
+  display: flex;
+  flex-direction: column;
+
+  &.qs-hidden {
+    opacity: 0;
+    z-index: -1;
+  }
+
+  .qs-overlay-year {
+    // Overlay year input element.
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid var(--datepicker-border-color);
+    border-radius: 0;
+    color: var(--white);
+    font-size: var(--font)-size;
+    padding: 0.25em 0 !important;
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    outline: none !important;
+
+    // https://goo.gl/oUuGkG
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+
+    &::placeholder {
+      color: var(--placeholder);
+    }
+
+    &:focus {
+      border-color: var(--input-base-border-color-hover);
+    }
+  }
+
+  .qs-close {
+    padding: 0.5em;
+    cursor: pointer;
     position: absolute;
     top: 0;
-    left: 0;
-    background: rgba($dark-text, 0.85);
-    color: $white;
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-    z-index: 1;
-    opacity: 1;
-    transition: opacity $transition;
+    right: 8px;
+    color: var(--white);
+    font-weight: 600;
+    opacity: 0.7;
+  }
+
+  .qs-submit {
+    border: 1px solid var(--white);
+    border-radius: $radius;
+    padding: 0.35em 0.75em;
+    margin: 0 auto auto;
+    cursor: pointer;
+    background: var(--primary);
+    border-color: var(--primary);
+    color: var(--white);
+    border-radius: 8px;
+    min-width: 110px;
+    text-align: center;
+
+    &.qs-disabled {
+      opacity: 0.6;
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+  }
+
+  .qs-overlay-month-container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    flex-grow: 1;
+  }
 
-    &.qs-hidden {
-        opacity: 0;
-        z-index: -1;
+  .qs-overlay-month {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: math.div(100%, 3);
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity math.div($transition, 2);
+    color: var(--white);
+    font-family: var(--font);
+
+    &.active,
+    &:hover {
+      opacity: 1;
     }
-
-    .qs-overlay-year { // Overlay year input element.
-        border: none;
-        background: transparent;
-        border-bottom: 1px solid white;
-        border-radius: 0;
-        color: $white;
-        font-size: $font-size;
-        padding: .25em 0;
-        width: 80%;
-        text-align: center;
-        margin: 0 auto;
-        display: block;
-
-        // https://goo.gl/oUuGkG
-        &::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-        }
-
-        &::placeholder {
-            color: darken($white, 8%);
-        }
-    }
-
-    .qs-close {
-        padding: .5em;
-        cursor: pointer;
-        position: absolute;
-        top: 0;
-        right: 8px;
-        color: $white;
-        font-weight: 600;
-        opacity: .7;
-    }
-
-    .qs-submit {
-        border: 1px solid white;
-        border-radius: $radius;
-        padding: .35em .75em;
-        margin: 0 auto auto;
-        cursor: pointer;
-        background: $secondary;
-        border-color: $secondary;
-        color: $white;
-        border-radius: 8px;
-        min-width: 110px;
-        text-align: center;
-
-        &.qs-disabled {
-            opacity: .6;
-            pointer-events: none;
-            cursor: not-allowed;
-        }
-    }
-
-    .qs-overlay-month-container {
-        display: flex;
-        flex-wrap: wrap;
-        flex-grow: 1;
-    }
-
-    .qs-overlay-month {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: calc(100% / 3);
-        cursor: pointer;
-        opacity: .5;
-        transition: opacity ($transition / 2);
-        color: $white;
-        font-family: $font;
-
-        &.active, &:hover {
-            opacity: 1;
-        }
-    }
+  }
 }
 
 .qs-controls {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-grow: 1;
-    flex-shrink: 0;
-    background: $white;
-    filter: blur(0px);
-    transition: filter $transition;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+  flex-shrink: 0;
+  background: var(--datepicker-bg-color);
+  filter: blur(0px);
+  transition: filter $transition;
 
-    &.qs-blur {
-        filter: blur(5px);
-    }
+  &.qs-blur {
+    filter: blur(5px);
+  }
 }
 
 .qs-arrow {
-    height: $width / 10;
-    width: $width / 10;
-    position: relative;
-    cursor: pointer;
-    border-radius: $radius;
-    transition: background .15s;
+  height: math.div($width, 10);
+  width: math.div($width, 10);
+  position: relative;
+  cursor: pointer;
+  border-radius: $radius;
+  transition: background 0.15s;
 
-    &:hover {
-        &.qs-left:after {
-            border-right-color: black;
-        }
-
-        &.qs-right:after {
-            border-left-color: black;
-        }
-
-        background: rgba(0, 0, 0, 0.1);
-    }
-
-    &:after {
-        content: '';
-        border: ($width / 40) solid transparent;
-        position: absolute;
-        top: 50%;
-        transition: border .2s;
-    }
-
+  &:hover {
     &.qs-left:after {
-        border-right-color: gray;
-        right: 50%;
-        transform: translate(25%, -50%) scale(.7);
+      border-right-color: black;
     }
 
     &.qs-right:after {
-        border-left-color: gray;
-        left: 50%;
-        transform: translate(-25%, -50%) scale(.7);
+      border-left-color: black;
     }
+
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  &:after {
+    content: "";
+    border: math.div($width, 40) solid transparent;
+    position: absolute;
+    top: 50%;
+    transition: border 0.2s;
+  }
+
+  &.qs-left:after {
+    border-right-color: gray;
+    right: 50%;
+    transform: translate(25%, -50%) scale(0.7);
+  }
+
+  &.qs-right:after {
+    border-left-color: gray;
+    left: 50%;
+    transform: translate(-25%, -50%) scale(0.7);
+  }
 }
 
 .qs-month-year {
-    font-family: $font;
-    font-weight: bold;
-    transition: border .2s;
-    border-bottom: 1px solid transparent;
-    cursor: pointer;
+  font-family: var(--font);
+  font-weight: bold;
+  transition: border 0.2s;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+  color: var(--title-color);
 
-    &:hover {
-        border-bottom: 1px solid gray;
-    }
+  &:hover {
+    border-bottom: 1px solid gray;
+  }
 
-    &:focus,
-    &:active:focus {
-        outline: none;
-    }
+  &:focus,
+  &:active:focus {
+    outline: none;
+  }
 }
 
 .qs-month {
-    padding-right: .5ex;
+  padding-right: 0.5ex;
 }
 
 .qs-year {
-    padding-left: .5ex;
+  padding-left: 0.5ex;
 }
 
 .qs-squares {
-    display: flex;
-    flex-wrap: wrap;
-    padding: $width * 0.02;
-    filter: blur(0px);
-    transition: filter $transition;
+  display: flex;
+  flex-wrap: wrap;
+  padding: $width * 0.02;
+  filter: blur(0px);
+  transition: filter $transition;
 
-    &.qs-blur {
-        filter: blur(5px);
-    }
+  &.qs-blur {
+    filter: blur(5px);
+  }
 }
 
 .qs-square {
-    width: calc(100% / 7);
-    height: 2em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-family: $font;
-    font-size: .9rem;
-    transition: all .3s;
+  width: math.div(100%, 7);
+  height: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--light-text);
+  font-family: var(--font);
+  font-size: 0.9rem;
+  transition: all 0.3s;
 
-    // Overriden for date-range dates below.
-    border-radius: $radius;
+  // Overriden for date-range dates below.
+  border-radius: $radius;
 
-    &:not(.qs-empty):not(.qs-disabled):not(.qs-day):not(.qs-active) {
-        &:hover {
-            background: $secondary;
-            box-shadow: $secondary-box-shadow;
-            color: $white;
-        }
+  &:not(.qs-empty):not(.qs-disabled):not(.qs-day):not(.qs-active) {
+    &:hover {
+      background: var(--primary);
+      box-shadow: var(--primary-box-shadow);
+      color: var(--white);
     }
+  }
 }
 
 // Today's date
 .qs-current {
-    font-family: $font;
-    background: $accent !important;
-    color: $white !important;
-    box-shadow: $accent-box-shadow;
-    font-weight: 600;
+  font-family: var(--font);
+  background: var(--accent) !important;
+  color: var(--white) !important;
+  box-shadow: var(--accent)-box-shadow;
+  font-weight: 600;
 }
 
 /*
@@ -282,78 +292,78 @@ $lightblue: lightblue;
 .qs-active,
 .qs-range-start,
 .qs-range-end {
-    background: $secondary;
-    color: $white;
-    box-shadow: $secondary-box-shadow;
+  background: var(--primary);
+  color: var(--white);
+  box-shadow: var(--primary-box-shadow);
 }
 
 // Daterange start selection.
 .qs-range-start {
-    &:not(.qs-range-6) {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-    }
+  &:not(.qs-range-6) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 }
 
 // Daterange middle selections.
 .qs-range-middle {
-    background: lighten($secondary, 48%);
+  background: var(--primary-light-48);
 
-    &:not(.qs-range-0):not(.qs-range-6) {
-        border-radius: 0;
-    }
+  &:not(.qs-range-0):not(.qs-range-6) {
+    border-radius: 0;
+  }
 
-    &.qs-range-0 {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-    }
+  &.qs-range-0 {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 
-    &.qs-range-6 {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-    }
+  &.qs-range-6 {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 }
 
 // Daterange end selection.
 .qs-range-end {
-    &:not(.qs-range-0) {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-    }
+  &:not(.qs-range-0) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 }
 
 .qs-disabled,
 .qs-outside-current-month {
-    opacity: .2;
+  opacity: 0.4;
 }
 
 .qs-disabled {
-    cursor: not-allowed;
+  cursor: not-allowed;
 }
 
 .qs-empty {
-    cursor: default;
+  cursor: default;
 }
 
 .qs-day {
-    cursor: default;
-    font-family: $font;
-    font-size: .9rem;
-    font-weight: 500;
-    color: $light-text;
+  cursor: default;
+  font-family: var(--font);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--light-text);
 }
 
 .qs-event {
-    position: relative;
+  position: relative;
 
-    &:after {
-        content: '';
-        position: absolute;
-        width: $width * 0.03;
-        height: $width * 0.03;
-        border-radius: 50%;
-        background: #07f;
-        bottom: 0;
-        right: 0;
-    }
+  &:after {
+    content: "";
+    position: absolute;
+    width: $width * 0.03;
+    height: $width * 0.03;
+    border-radius: 50%;
+    background: var(--primary);
+    bottom: 0;
+    right: 0;
+  }
 }

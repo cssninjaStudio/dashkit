@@ -35,22 +35,22 @@ TABLE OF CONTENTS
             padding: 22px;
             font-size: 24px;
             font-weight: normal;
-            color: $white;
+            color: var(--white);
             border-radius: .85rem;
 
             &.primary {
-                background-color: $primary;
-                box-shadow: $primary-box-shadow;
+                background-color: var(--primary);
+                box-shadow: var(--primary-box-shadow);
             }
 
             &.secondary {
-                background-color: $secondary;
-                box-shadow: $secondary-box-shadow;
+                background-color: var(--secondary);
+                box-shadow: var(--secondary-box-shadow);
             }
 
             &.accent {
-                background-color: $accent;
-                box-shadow: $accent-box-shadow;
+                background-color: var(--accent);
+                box-shadow: var(--accent-box-shadow);
             }
         }
 
@@ -58,24 +58,24 @@ TABLE OF CONTENTS
             margin-left: 80px;
 
             h3 {
-                font-family: $font-alt;
+                font-family: var(--font-alt);
                 font-size: 1.4rem;
-                color: $blue-grey;
+                color: var(--title-color);
             }
 
             p {
-                font-family: $font;
+                font-family: var(--font);
 
                 span {
                     &:first-child {
-                        font-family: $font;
+                        font-family: var(--font);
                         font-weight: 700;
                         font-size: 1.6rem;
-                        color: $blue-grey;
+                        color: var(--title-color);
                     }
 
                     &:nth-child(2) {
-                        color: $light-text;
+                        color: var(--light-text);
                     }
                 }
             }
@@ -88,25 +88,25 @@ TABLE OF CONTENTS
             height: 36px;
             width: 36px;
             border-radius: 50%;
-            border: 1px solid $border;
-            background: $white;
-            box-shadow: $light-box-shadow;
+            border: 1px solid var(--button-base-border-color);
+            background: var(--button-base-bg-color);
+            box-shadow: var(--light-box-shadow);
             display: flex;
             justify-content: center;
             align-items: center;
             transition: all .3s;
 
             &:hover {
-                background: $secondary;
-                box-shadow: $secondary-box-shadow;
+                background: var(--secondary);
+                box-shadow: var(--secondary-box-shadow);
 
                 i {
-                    color: $white;
+                    color: var(--white);
                 }
             }
 
             i {
-                color: $light-text;
+                color: var(--light-text);
                 transition: color .3s;
             }
         }

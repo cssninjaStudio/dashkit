@@ -10,20 +10,19 @@
 ========================================================================== */
 
 .modal {
-
-    &.modal-white {
-        .modal-background {
-            background: $white;
-        }
-    }
-
+  &.modal-white {
     .modal-background {
-        background: rgba($dark, .7);
+      background: $white;
     }
+  }
 
-    .modal-content {
-        animation: fadeInDown .5s;
-    }
+  .modal-background {
+    background: rgba($dark, 0.7);
+  }
+
+  .modal-content {
+    animation: fadeInDown 0.5s;
+  }
 }
 
 /* ==========================================================================
@@ -31,27 +30,30 @@
 ========================================================================== */
 
 @media screen and (min-width: 769px) {
-    .modal.modal-lg {
-        .modal-card, .modal-content {
-            width: 100%;
-            max-width: 800px !important;
-            margin: 0 auto;
-        }
+  .modal.modal-lg {
+    .modal-card,
+    .modal-content {
+      width: 100%;
+      max-width: 800px !important;
+      margin: 0 auto;
     }
+  }
 
-    .modal.modal-md {
-        .modal-card, .modal-content {
-            width: 100%;
-            max-width: 500px !important;
-            margin: 0 auto;
-        }
+  .modal.modal-md {
+    .modal-card,
+    .modal-content {
+      width: 100%;
+      max-width: 500px !important;
+      margin: 0 auto;
     }
+  }
 
-    .modal.modal-sm {
-        .modal-card, .modal-content {
-            width: 100%;
-            max-width: 400px !important;
-            margin: 0 auto;
-        }
+  .modal.modal-sm {
+    .modal-card,
+    .modal-content {
+      width: 100%;
+      max-width: 400px !important;
+      margin: 0 auto;
     }
+  }
 }

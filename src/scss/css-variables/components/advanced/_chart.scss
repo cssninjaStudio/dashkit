@@ -1,0 +1,9 @@
+:root {
+  --apexcharts-title-text-color: var(--blue-grey);
+  --circle-chart-bg-color: #efefef;
+}
+
+.is-dark {
+  --apexcharts-title-text-color: var(--medium-text);
+  --circle-chart-bg-color: var(--night-light-2);
+}

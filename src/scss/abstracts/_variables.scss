@@ -1,83 +1,32 @@
 /* Dashkit | 2020-2021 | CSS Ninja */
 
 /*
-    1. Main Colors
-    2. Global colors
+    1. Global override
+    2. Bulma spacing override
 */
+
+/* ==========================================================================
+1. Global override
+========================================================================== */
 
 $fullhd-enabled: false;
 $body-size: 14px;
 
 /* ==========================================================================
-1. Main Colors
-========================================================================== */
-
-$primary: #00d1b2;
-$secondary: #7F00FF;
-$accent: #797bf2;
-
-/* ==========================================================================
-2. Global colors
-========================================================================== */
-
-$white: #fff;
-$smoke-white: #fcfcfc;
-$light-white: #f9f9f9;
-
-$placeholder: #cecece;
-$grey-white: #f2f2f2;
-$muted-grey: #999;
-$fade-grey: #ededed;
-$widget-grey: #f5f6fa;
-$dashboard-grey: #f4f6fb;
-$support-grey: #ACBFC5;
-$support-grey-light: #DEE3E7;
-
-$border: darken($fade-grey, 3%);
-$border-alt: #e5e5e5;
-
-$dark-text: #283252;
-$blue-grey: #444F60;
-$medium-text: #757a91;
-$light-text: #a2a5b9;
-
-$dark-dark-text: #aaaab3;
-
-$danger: #e62965;
-$info: #039BE5;
-$success: #06d6a0;
-$warning: #faae42;
-
-$h-purple: #8269B2;
-$h-blue: #37C3FF;
-$h-red: #F92B60;
-$h-orange: #FFA981;
-$h-yellow: #FFD66E;
-$h-green: #93E088;
-$h-pink: #FF9EB8;
-$h-light-blue: #77D2F3;
-
-
-$dark: #344258;
-$dark-sidebar: #232326;
-$dark-dark-text: #aaaab3;
-
-
-/* ==========================================================================
-3. Bulma spacing override
+2. Bulma spacing override
 ========================================================================== */
 
 $spacing-values: (
-    "0": 0, 
-    "1": 0.25rem, 
-    "2": 0.5rem, 
-    "3": 0.75rem, 
-    "4": 1rem, 
-    "5": 1.5rem, 
-    "6": 3rem,
-    "8": 4rem,
-    "10": 5rem,
-    "12": 6rem,
-    "14": 7rem,
-    "16": 8rem
+  "0": 0,
+  "1": 0.25rem,
+  "2": 0.5rem,
+  "3": 0.75rem,
+  "4": 1rem,
+  "5": 1.5rem,
+  "6": 3rem,
+  "8": 4rem,
+  "10": 5rem,
+  "12": 6rem,
+  "14": 7rem,
+  "16": 8rem,
 );

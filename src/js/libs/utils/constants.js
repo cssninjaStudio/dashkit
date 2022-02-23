@@ -1,3 +1,5 @@
+export const env = 'development';
+
 export const themeColors = {
     primary: '#00d1b2',
     primaryMedium: '#d4b3ff',

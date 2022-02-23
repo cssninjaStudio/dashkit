@@ -23,130 +23,131 @@ TABLE OF CONTENTS
 ========================================================================== */
 
 .forum-title-wrapper {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 
-    .forum-image {
-        display: block;
-        height: 44px;
-        width: 44px;
-        border-radius: 50%;
-        margin-right: 10px;
+  .forum-image {
+    display: block;
+    height: 44px;
+    width: 44px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .inner-wrap {
+    .forum-title {
+      font-size: 1.6rem;
+      font-family: var(--font-alt);
+      color: var(--title-color);
+      max-width: 380px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
 
-    .inner-wrap {
-        .forum-title {
-            font-size: 1.6rem;
-            font-family: 'Nexa Bold', sans-serif;
-            color: $blue-grey;
-            max-width: 380px;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        }
+    .title-meta {
+      display: flex;
+      align-items: center;
 
-        .title-meta {
-            display: flex;
-            align-items: center;
-
-            .meta {
-                display: flex;
-                align-items: center;
-                margin-right: 6px;
-
-                i {
-                    font-size: 20px;
-                    margin-right: 3px;
-                    color: $light-text;
-
-                    &.is-breadcrumb {
-                        font-size: 18px;
-                        position: relative;
-                        top: 2px;
-                    }
-                }
-
-                span, a {
-                    display: block;
-                    font-weight: 500;
-                    color: $light-text;
-                    font-size: .9rem;
-                }
-
-                a {
-                    transition: all .3s;
-
-                    &:hover {
-                        color: $secondary;
-                    }
-                }
-            }
-        }
-    }
-
-    .actions {
+      .meta {
         display: flex;
-        margin-left: auto;
+        align-items: center;
+        margin-right: 6px;
 
-        .forum-back {
-            height: 40px;
-            width: 40px;
-            min-width: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            border: 1px solid darken($fade-grey, 4%);
-            background: $white;
-            transition: all .3s;
-            cursor: pointer;
+        i {
+          font-size: 20px;
+          margin-right: 3px;
+          color: var(--light-text);
 
-            &:hover {
-                transform: rotate(360deg);
-                border-color: $secondary;
-
-                i {
-                    color: $secondary;
-
-                    &:first-child {
-                        display: none;
-                    }
-
-                    &:nth-child(2) {
-                        display: block;
-                    }
-                }
-            }
-
-            i {
-                font-size: 18px;
-                color: $placeholder;
-
-                &:first-child {
-                    display: block;
-                }
-
-                &:nth-child(2) {
-                    display: none;
-                }
-            }
+          &.is-breadcrumb {
+            font-size: 18px;
+            position: relative;
+            top: 2px;
+          }
         }
 
-        .button {
-            height: 40px !important;
-            margin-left: 8px;
-            min-width: 100px;
-
-            &.is-rounded {
-                min-width: 120px;
-            }
-
-            i {
-                padding-right: 0;
-            }
+        span,
+        a {
+          display: block;
+          font-weight: 500;
+          color: var(--light-text);
+          font-size: 0.9rem;
         }
+
+        a {
+          transition: all 0.3s;
+
+          &:hover {
+            color: var(--secondary);
+          }
+        }
+      }
     }
+  }
+
+  .actions {
+    display: flex;
+    margin-left: auto;
+
+    .forum-back {
+      height: 40px;
+      width: 40px;
+      min-width: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      border: 1px solid var(--wrap-border-color);
+      background: var(--wrap-bg-color);
+      transition: all 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        transform: rotate(360deg);
+        border-color: var(--secondary);
+
+        i {
+          color: var(--secondary);
+
+          &:first-child {
+            display: none;
+          }
+
+          &:nth-child(2) {
+            display: block;
+          }
+        }
+      }
+
+      i {
+        font-size: 18px;
+        color: var(--placeholder);
+
+        &:first-child {
+          display: block;
+        }
+
+        &:nth-child(2) {
+          display: none;
+        }
+      }
+    }
+
+    .button {
+      height: 40px !important;
+      margin-left: 8px;
+      min-width: 100px;
+
+      &.is-rounded {
+        min-width: 120px;
+      }
+
+      i {
+        padding-right: 0;
+      }
+    }
+  }
 }
 
 /* ==========================================================================
@@ -154,47 +155,45 @@ TABLE OF CONTENTS
 ========================================================================== */
 
 .forum-search {
-    margin: 30px auto;
-    position: relative;
-    transition: all .3s;
-    width: 100%;
-    max-width: 600px;
+  margin: 30px auto;
+  position: relative;
+  transition: all 0.3s;
+  width: 100%;
+  max-width: 600px;
 
-    .input {
-        height: 50px;
-        padding-left: 50px;
-        font-size: 1.2rem;
-        background: lighten($fade-grey, 6%);
-        border-color: darken($fade-grey, 1%);
-        transition: all .3s;
+  .input {
+    height: 50px;
+    padding-left: 50px;
+    font-size: 1.2rem;
+    background: var(--input-base-bg-color);
+    border-color: var(--input-base-border-color);
+    transition: all 0.3s;
 
-        &:focus {
-            background: $white;
-            border-color: darken($fade-grey, 3%);
-            box-shadow: $light-box-shadow !important;
+    &:focus {
+      border-color: var(--input-base-border-color-hover);
+      box-shadow: var(--light-box-shadow) !important;
 
-            + .search-icon i {
-                color: $secondary;
-            }
-        }
+      + .search-icon i {
+        color: var(--secondary);
+      }
     }
+  }
 
-    .search-icon {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 50px;
-        width: 50px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+  .search-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-        i {
-            font-size: 18px;
-            color: $placeholder;
-            transition: color .3s;
-        }
+    i {
+      font-size: 18px;
+      transition: color 0.3s;
     }
+  }
 }
 
 /* ==========================================================================
@@ -202,274 +201,270 @@ TABLE OF CONTENTS
 ========================================================================== */
 
 .forum-wrap {
-    padding: 10px;
-    background: $white;
-    border: 1px solid darken($fade-grey, 3%);
-    border-radius: 8px;
-    margin-top: 20px;
+  padding: 10px;
+  background: var(--wrap-muted-color);
+  border: 1px solid var(--wrap-border-color);
+  border-radius: 8px;
+  margin-top: 20px;
 
-    &:last-child {
-        margin-bottom: 60px !important;
+  &:last-child {
+    margin-bottom: 60px !important;
+  }
+
+  .latest-posts {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 20px 10px 10px 10px;
+
+    .avatars {
+      display: flex;
+      align-items: center;
+
+      .avatar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 38px;
+        width: 38px;
+        min-width: 38px;
+        border-radius: 50%;
+        background: var(--card-bg-color);
+        border: 3px solid var(--card-bg-color);
+
+        span {
+          position: relative;
+          left: -2px;
+          display: block;
+          font-family: var(--font);
+          font-weight: 600;
+          font-size: 1rem;
+          color: var(--title-color);
+        }
+
+        &:not(:first-child) {
+          margin-left: -12px;
+        }
+      }
     }
 
-    .latest-posts-wrap {
-        //display: none;
+    .latest-meta {
+      margin-left: 10px;
+
+      a {
+        font-family: var(--font);
+        color: var(--title-color);
+
+        &:hover {
+          color: var(--secondary);
+        }
+      }
+
+      span {
+        display: block;
+        font-family: var(--font);
+
+        &:first-child {
+          position: relative;
+          font-size: 1rem;
+          font-weight: 400;
+          color: var(--title-color);
+          width: auto;
+
+          a {
+            font-weight: 500;
+          }
+        }
+
+        &:nth-child(2) {
+          color: var(--light-text);
+        }
+      }
     }
 
-    .latest-posts {
+    .forum-stats {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+
+      .stat {
         display: flex;
         align-items: center;
-        width: 100%;
-        padding: 20px 10px 10px 10px;
+        margin-left: 20px;
 
-        .avatars {
-            display: flex;
-            align-items: center;
-
-            .avatar {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 38px;
-                width: 38px;
-                min-width: 38px;
-                border-radius: 50%;
-                background: $white;
-                border: 3px solid $white;
-
-                span {
-                    position: relative;
-                    left: -2px;
-                    display: block;
-                    font-family: $font;
-                    font-weight: 600;
-                    font-size: 1rem;
-                    color: $blue-grey;
-                }
-
-                &:not(:first-child) {
-                    margin-left: -12px;
-                }
-            }
+        i {
+          font-size: 18px;
+          margin-right: 6px;
+          color: var(--placeholder);
         }
 
-        .latest-meta {
-            margin-left: 10px;
-
-            a {
-                font-family: $font;
-                color: $blue-grey;
-
-                &:hover {
-                    color: $secondary;
-                }
-            }
-
-            span {
-                display: block;
-                font-family: $font;
-
-                &:first-child {
-                    position: relative;
-                    font-size: 1rem;
-                    font-weight: 400;
-                    color: $blue-grey;
-                    width: auto;
-
-                    a {
-                        font-weight: 500;
-                    }
-                }
-
-                &:nth-child(2) {
-                    color: $light-text;
-                }
-            }
+        span {
+          display: block;
+          font-family: var(--font);
+          font-weight: 400;
+          color: var(--light-text);
         }
-
-        .forum-stats {
-            margin-left: auto;
-            display: flex;
-            align-items: center;
-
-            .stat {
-                display: flex;
-                align-items: center;
-                margin-left: 20px;
-
-                i {
-                    font-size: 18px;
-                    margin-right: 6px;
-                    color: $placeholder;
-                }
-
-                span {
-                    display: block;
-                    font-family: $font;
-                    font-weight: 400;
-                    color: $light-text;
-                }
-            }
-        }
+      }
     }
+  }
 
-    .channel-moderators {
+  .channel-moderators {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+
+    .avatars {
+      display: flex;
+      align-items: center;
+
+      .avatar {
         display: flex;
+        justify-content: center;
         align-items: center;
-        width: 100%;
-        padding: 10px 0;
+        height: 38px;
+        width: 38px;
+        min-width: 38px;
+        border-radius: 50%;
+        border: 3px solid var(--card-bg-color);
 
-        .avatars {
-            display: flex;
-            align-items: center;
-
-            .avatar {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 38px;
-                width: 38px;
-                min-width: 38px;
-                border-radius: 50%;
-                border: 3px solid $white;
-
-                span {
-                    position: relative;
-                    left: -2px;
-                    display: block;
-                    font-weight: 600;
-                    font-size: 1rem;
-                    color: $smoke-white;
-                }
-
-                &:not(:first-child) {
-                    margin-left: -12px;
-                }
-            }
+        span {
+          position: relative;
+          left: -2px;
+          display: block;
+          font-weight: 600;
+          font-size: 1rem;
+          color: var(--white-smoke);
         }
 
-        .moderators-meta {
-            margin-left: 10px;
-
-            span {
-                display: block;
-                font-family: $font;
-
-                &:first-child {
-                    position: relative;
-                    font-size: 1rem;
-                    font-weight: 400;
-                    color: $blue-grey;
-                    width: auto;
-
-                    a {
-                        font-weight: 500;
-                        color: $blue-grey;
-
-                        &:hover {
-                            color: $secondary;
-                        }
-                    }
-                }
-
-                &:nth-child(2) {
-                    color: $light-text;
-                }
-            }
+        &:not(:first-child) {
+          margin-left: -12px;
         }
+      }
     }
 
-    .topic-stats {
+    .moderators-meta {
+      margin-left: 10px;
+
+      span {
+        display: block;
+        font-family: var(--font);
+
+        &:first-child {
+          position: relative;
+          font-size: 1rem;
+          font-weight: 400;
+          color: var(--title-color);
+          width: auto;
+
+          a {
+            font-weight: 500;
+            color: var(--title-color);
+
+            &:hover {
+              color: var(--secondary);
+            }
+          }
+        }
+
+        &:nth-child(2) {
+          color: var(--light-text);
+        }
+      }
+    }
+  }
+
+  .topic-stats {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+
+    .stat-block {
+      display: flex;
+      align-items: center;
+      margin-right: 40px;
+
+      .avatar {
         display: flex;
+        justify-content: center;
         align-items: center;
-        width: 100%;
-        padding: 10px 0;
+        height: 34px;
+        width: 34px;
+        min-width: 34px;
+        border-radius: 50%;
+        background: var(--wrap-muted-color);
 
-        .stat-block {
-            display: flex;
-            align-items: center;
-            margin-right: 40px;
-
-            .avatar {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 34px;
-                width: 34px;
-                min-width: 34px;
-                border-radius: 50%;
-                background: $white;
-
-                &.is-icon {
-                    border-radius: 6px;
-                }
-
-                span {
-                    position: relative;
-                    left: -2px;
-                    display: block;
-                    font-weight: 600;
-                    font-size: 1rem;
-                    color: $smoke-white;
-                }
-
-                i {
-                    font-size: 16px;
-                    color: $blue-grey;
-                }
-            }
-
-            .stat-meta {
-                margin-left: 6px;
-
-                span {
-                    display: block;
-                    font-size: .9rem;
-
-                    &:first-child {
-                        position: relative;
-                        font-weight: 500;
-                        color: $blue-grey;
-                    }
-
-                    &:nth-child(2) {
-                        color: $light-text;
-                    }
-                }
-            }
+        &.is-icon {
+          border-radius: 6px;
         }
 
-        .participants {
-            display: flex;
-            align-items: center;
-            margin-left: auto;
-
-            .participant {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 30px;
-                width: 30px;
-                min-width: 30px;
-                border-radius: 50%;
-                border: 2px solid lighten($fade-grey, 2%);
-                background: $secondary;
-
-                span {
-                    position: relative;
-                    left: -2px;
-                    display: block;
-                    font-weight: 600;
-                    font-size: .8rem;
-                    color: $smoke-white;
-                }
-
-                &:not(:first-child) {
-                    margin-left: -8px;
-                }
-            }
+        span {
+          position: relative;
+          left: -2px;
+          display: block;
+          font-weight: 600;
+          font-size: 1rem;
+          color: var(--white-smoke);
         }
+
+        i {
+          font-size: 16px;
+          color: var(--title-color);
+        }
+      }
+
+      .stat-meta {
+        margin-left: 6px;
+
+        span {
+          display: block;
+          font-size: 0.9rem;
+
+          &:first-child {
+            position: relative;
+            font-weight: 500;
+            color: var(--title-color);
+          }
+
+          &:nth-child(2) {
+            color: var(--light-text);
+          }
+        }
+      }
     }
+
+    .participants {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+
+      .participant {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 30px;
+        width: 30px;
+        min-width: 30px;
+        border-radius: 50%;
+        border: 2px solid var(--wrap-border-color);
+        background: var(--secondary);
+
+        span {
+          position: relative;
+          left: -2px;
+          display: block;
+          font-weight: 600;
+          font-size: 0.8rem;
+          color: var(--white-smoke);
+        }
+
+        &:not(:first-child) {
+          margin-left: -8px;
+        }
+      }
+    }
+  }
 }
 
 /* ==========================================================================
@@ -477,250 +472,250 @@ TABLE OF CONTENTS
 ========================================================================== */
 
 .forum-container {
-    position: relative;
-    padding: 20px;
-    background: lighten($fade-grey, 2%);
-    border: 1px solid darken($fade-grey, 5%);
-    border-radius: 6px;
+  position: relative;
+  padding: 20px;
+  background: var(--card-bg-color);
+  border: 1px solid var(--card-border-color);
+  border-radius: 6px;
 
-    .toggle-button {
-        position: absolute;
-        bottom: -20px;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        height: 36px;
-        width: 36px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        background: $white;
-        border: 1px solid darken($fade-grey, 5%);
-        transition: all .3s;
-        transform: rotate(0);
-        cursor: pointer;
+  .toggle-button {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    height: 36px;
+    width: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: var(--wrap-bg-color);
+    border: 1px solid var(--wrap-border-color);
+    transition: all 0.3s;
+    transform: rotate(0);
+    cursor: pointer;
 
-        &.is-active {
-            transform: rotate(180deg);
+    &.is-active {
+      transform: rotate(180deg);
 
-            i {
-                color: $blue-grey;
-            }
+      i {
+        color: var(--title-color);
+      }
+    }
+
+    i {
+      position: relative;
+      top: 1px;
+      font-size: 18px;
+      color: var(--placeholder);
+      pointer-events: none;
+    }
+  }
+
+  .channel-heading {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+
+    h3 {
+      font-size: 1.2rem;
+      color: var(--light-text);
+      font-family: "Nexa Bold", sans-serif;
+    }
+
+    .dropdown {
+      margin-left: auto;
+
+      .button {
+        &:hover {
+          background: var(--white-smoke) !important;
         }
+      }
+    }
+  }
+
+  .forum-channel {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: var(--card-bg-color);
+    border: 1px solid var(--card-border-color);
+    border-radius: 6px;
+    padding: 20px;
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    &:hover {
+      box-shadow: var(--light-box-shadow);
+      border-color: var(--secondary);
+
+      .channel-icon {
+        background: var(--secondary);
+        box-shadow: var(--secondary-box-shadow);
 
         i {
-            position: relative;
-            top: 1px;
-            font-size: 18px;
-            color: $placeholder;
-            pointer-events: none;
+          color: var(--white-smoke);
         }
+      }
     }
 
-    .channel-heading {
-        display: flex;
-        align-items: center;
-        margin-bottom: 16px;
+    .channel-icon {
+      position: relative;
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s;
 
-        h3 {
-            font-size: 1.2rem;
-            color: $light-text;
-            font-family: 'Nexa Bold', sans-serif;
-        }
+      i {
+        color: var(--light-text);
+        font-size: 2rem;
+      }
 
-        .dropdown {
-            margin-left: auto;
-
-            .button {
-                &:hover {
-                    background: $smoke-white !important;
-                }
-            }
-        }
-    }
-
-    .forum-channel {
-        display: flex;
-        align-items: center;
-        width: 100%;
-        background: $white;
-        border: 1px solid darken($fade-grey, 5%);
-        border-radius: 6px;
-        padding: 20px;
-
-        &:not(:last-child) {
-            margin-bottom: 10px;
-        }
-
-        &:hover {
-            box-shadow: $light-box-shadow;
-            border-color: $secondary;
-
-            .channel-icon {
-                background: $secondary;
-                box-shadow: $secondary-box-shadow;
-
-                i {
-                    color: $smoke-white;
-                }
-            }
-        }
-
-        .channel-icon {
-            position: relative;
-            height: 50px;
-            width: 50px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: all .3s;
-
-            i {
-                color: $light-text;
-                font-size: 2rem;
-            }
-
-            .new-indicator {
-                position: absolute;
-                top: -2px;
-                right: -6px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 22px;
-                min-width: 22px;
-                border: 2px solid $white;
-                border-radius: 50%;
-                background: $primary;
-
-                span {
-                    position: relative;
-                    display: block;
-                    font-size: .75rem;
-                    font-weight: 600;
-                    line-height: 0;
-                    color: $white;
-                }
-            }
-        }
-
-        .channel-meta {
-            margin-left: 20px;
-
-            span {
-                display: block;
-
-                &:first-child {
-                    position: relative;
-                    font-family: $font-alt;
-                    font-size: 1rem;
-                    font-weight: 600;
-                    color: $blue-grey;
-                    width: auto;
-                }
-
-                &:nth-child(2) {
-                    font-family: $font;
-                    color: $light-text;
-                }
-            }
-        }
-
-        .channel-topics {
-            margin-left: auto;
-            margin-right: 20px;
-            text-align: center;
-
-            span {
-                font-family: $font;
-                display: block;
-
-                &:first-child {
-                    font-size: .9rem;
-                    font-weight: 500;
-                    color: $blue-grey;
-                }
-
-                &:nth-child(2) {
-                    color: $secondary;
-                    font-weight: 500;
-                }
-            }
-        }
-
-        .top-contributors {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-
-            img {
-                display: block;
-                height: 38px;
-                width: 38px;
-                min-width: 38px;
-                border-radius: 50%;
-                border: 3px solid $white;
-
-                &:not(:first-child) {
-                    margin-left: -10px;
-                }
-            }
-        }
-    }
-
-    .pagination {
-        list-style-type: none;
+      .new-indicator {
+        position: absolute;
+        top: -2px;
+        right: -6px;
         display: flex;
         justify-content: center;
         align-items: center;
+        height: 22px;
+        min-width: 22px;
+        border: 2px solid var(--white);
+        border-radius: 50%;
+        background: var(--primary);
 
-        li {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 5px;
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            border: 1px solid darken($fade-grey, 4%);
-            background: $white;
-            color: $blue-grey;
-            transition: all .3s;
-            cursor: pointer;
-
-            &:hover {
-                border-color: lighten($secondary, 10%);
-                background: lighten($secondary, 10%);
-                color: $white;
-                box-shadow: 0px 5px 43px rgba(0, 0, 0, 0.25) !important;
-
-                i {
-                    color: $smoke-white;
-                }
-            }
-
-            &.is-active {
-                background: $secondary;
-                opacity: 1;
-                color: $white;
-            }
-
-            span {
-                position: relative;
-                top: -1px;
-                font-size: .9rem;
-                font-weight: 600;
-            }
-
-            i {
-                font-size: 16px;
-                font-weight: 600;
-                color: $blue-grey;
-            }
+        span {
+          position: relative;
+          display: block;
+          font-size: 0.75rem;
+          font-weight: 600;
+          line-height: 0;
+          color: var(--white);
         }
+      }
     }
+
+    .channel-meta {
+      margin-left: 20px;
+
+      span {
+        display: block;
+
+        &:first-child {
+          position: relative;
+          font-family: var(--font-alt);
+          font-size: 1rem;
+          font-weight: 600;
+          color: var(--title-color);
+          width: auto;
+        }
+
+        &:nth-child(2) {
+          font-family: var(--font);
+          color: var(--light-text);
+        }
+      }
+    }
+
+    .channel-topics {
+      margin-left: auto;
+      margin-right: 20px;
+      text-align: center;
+
+      span {
+        font-family: var(--font);
+        display: block;
+
+        &:first-child {
+          font-size: 0.9rem;
+          font-weight: 500;
+          color: var(--title-color);
+        }
+
+        &:nth-child(2) {
+          color: var(--secondary);
+          font-weight: 500;
+        }
+      }
+    }
+
+    .top-contributors {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+
+      img {
+        display: block;
+        height: 38px;
+        width: 38px;
+        min-width: 38px;
+        border-radius: 50%;
+        border: 3px solid var(--card-bg-color);
+
+        &:not(:first-child) {
+          margin-left: -10px;
+        }
+      }
+    }
+  }
+
+  .pagination {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 5px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--wrap-border-color);
+      background: var(--wrap-bg-color);
+      color: var(--title-color);
+      transition: all 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        border-color: var(--secondary-light-10);
+        background: var(--secondary-light-10);
+        color: var(--white);
+        box-shadow: 0px 5px 43px rgba(0, 0, 0, 0.25) !important;
+
+        i {
+          color: var(--white-smoke);
+        }
+      }
+
+      &.is-active {
+        background: var(--secondary);
+        opacity: 1;
+        color: var(--white);
+      }
+
+      span {
+        position: relative;
+        top: -1px;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      i {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--title-color);
+      }
+    }
+  }
 }
 
 /* ==========================================================================
@@ -728,216 +723,216 @@ TABLE OF CONTENTS
 ========================================================================== */
 
 .topic-list {
+  margin: 20px 0;
+
+  .divider-wrap {
     margin: 20px 0;
 
-    .divider-wrap {
-        margin: 20px 0;
+    .divider {
+      display: flex;
+      align-items: center;
+      margin: 1em -1em;
+      color: var(--light-text);
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      font-weight: 500;
 
-        .divider {
-            display: flex;
-            align-items: center;
-            margin: 1em -1em;
-            color: $light-text;
-            text-transform: uppercase;
-            font-size: .9rem;
-            font-weight: 500;
+      &:before,
+      &:after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        margin: 0 1em;
+        background: var(--wrap-border-color);
+      }
+    }
+  }
 
-            &:before,
-            &:after {
-                content: "";
-                flex: 1;
-                height: 1px;
-                margin: 0 1em;
-                background: lighten($placeholder, 5%);
-            }
-        }
+  .topic-card {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 1px solid var(--card-border-color);
+    background: var(--card-bg-color);
+    border-radius: 8px;
+    padding: 16px;
+    transition: all 0.3s;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
     }
 
-    .topic-card {
+    &.is-sticky {
+      background: var(--wrap-bg-color-heavy);
+      border-color: var(--wrap-border-color-heavy);
+
+      .tags .tag {
+        background: var(--white);
+      }
+    }
+
+    .topic-owner {
+      position: relative;
+      height: 48px;
+      width: 48px;
+      min-width: 48px;
+
+      .avatar {
+        display: block;
+        border-radius: 50%;
+      }
+
+      .badge {
+        position: absolute;
+        bottom: 0;
+        right: -6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 20px;
+        width: 20px;
+        border: 2px solid var(--wrap-bg-color-heavy);
+        border-radius: 50%;
+        background: var(--warning);
+
+        span {
+          display: block;
+        }
+
+        i {
+          font-size: 8px;
+          font-weight: 600;
+          color: var(--white);
+        }
+      }
+    }
+
+    .topic-meta {
+      margin-left: 16px;
+
+      .topic-title {
+        position: relative;
+        display: block;
+        font-family: var(--font-alt);
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--title-color);
+        transition: color 0.3s;
+        margin-bottom: 4px;
+
+        &:hover {
+          color: var(--secondary);
+        }
+      }
+
+      .flex-block {
         display: flex;
         align-items: center;
-        width: 100%;
-        background: $white;
-        border: 1px solid darken($fade-grey, 5%);
-        border-radius: 8px;
-        padding: 16px;
-        transition: all .3s;
+      }
 
-        &:not(:last-child) {
-            margin-bottom: 8px;
+      span {
+        font-family: var(--font);
+        color: var(--light-text);
+        font-size: 0.9rem;
+
+        a {
+          font-weight: 500;
         }
+      }
 
-        &.is-sticky {
-            background: #f7faff;
-            border-color: #c1d9ff;
+      .tags {
+        margin-left: 8px;
 
-            .tags .tag {
-                background: $white;
-            }
+        .tag {
+          font-family: var(--font);
+          color: var(--title-color);
+          font-size: 0.85rem;
+          border-radius: 100px;
         }
-
-        .topic-owner {
-            position: relative;
-            height: 48px;
-            width: 48px;
-            min-width: 48px;
-
-            .avatar {
-                display: block;
-                border-radius: 50%;
-            }
-
-            .badge {
-                position: absolute;
-                bottom: 0;
-                right: -6px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 20px;
-                width: 20px;
-                border: 2px solid $white;
-                border-radius: 50%;
-                background: $orange;
-
-                span {
-                    display: block;
-                }
-
-                i {
-                    font-size: 8px;
-                    font-weight: 600;
-                    color: $white;
-                }
-            }
-        }
-
-        .topic-meta {
-            margin-left: 16px;
-
-            .topic-title {
-                position: relative;
-                display: block;
-                font-family: $font-alt;
-                font-size: 1rem;
-                font-weight: 600;
-                color: $blue-grey;
-                transition: color .3s;
-                margin-bottom: 4px;
-
-                &:hover {
-                    color: $secondary;
-                }
-            }
-
-            .flex-block {
-                display: flex;
-                align-items: center;
-            }
-
-            span {
-                font-family: $font;
-                color: $light-text;
-                font-size: .9rem;
-
-                a {
-                    font-weight: 500;
-                }
-            }
-
-            .tags {
-                margin-left: 8px;
-
-                .tag {
-                    font-family: $font;
-                    color: $blue-grey;
-                    font-size: .85rem;
-                    border-radius: 100px;
-                }
-            }
-        }
-
-        .topic-actions {
-            margin-left: auto;
-            display: flex;
-            align-items: center;
-
-            .tag {
-                font-weight: 500;
-                margin-right: 20px;
-            }
-
-            .im {
-                font-size: 1.8rem;
-                color: $placeholder;
-                margin-right: 20px;
-            }
-
-            .topic-replies {
-                margin-right: 20px;
-                text-align: center;
-
-                span {
-                    font-family: $font;
-                    display: block;
-
-                    &:first-child {
-                        font-size: .9rem;
-                        font-weight: 500;
-                        color: $blue-grey;
-                    }
-
-                    &:nth-child(2) {
-                        color: $light-text;
-                        font-weight: 500;
-                    }
-                }
-            }
-
-            .last-reply {
-                display: flex;
-                align-items: center;
-
-                img {
-                    display: block;
-                    height: 26px;
-                    width: 26px;
-                    border-radius: 50%;
-                }
-
-                .last-reply-meta {
-                    margin-left: 10px;
-                    min-width: 90px;
-
-                    span {
-                        font-family: $font;
-                        display: block;
-
-                        &:first-child {
-                            font-size: .9rem;
-                            font-weight: 500;
-                            color: $blue-grey;
-                        }
-
-                        &:nth-child(2) {
-                            font-size: .9rem;
-                            color: $light-text;
-
-                            a {
-                                font-size: .9rem;
-                                color: $secondary;
-                                font-weight: 500;
-                            }
-                        }
-                    }
-                }
-            }
-
-            .dropdown {
-                margin-left: 30px;
-            }
-        }
+      }
     }
+
+    .topic-actions {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+
+      .tag {
+        font-weight: 500;
+        margin-right: 20px;
+      }
+
+      .im {
+        font-size: 1.8rem;
+        color: var(--placeholder);
+        margin-right: 20px;
+      }
+
+      .topic-replies {
+        margin-right: 20px;
+        text-align: center;
+
+        span {
+          font-family: var(--font);
+          display: block;
+
+          &:first-child {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--title-color);
+          }
+
+          &:nth-child(2) {
+            color: var(--light-text);
+            font-weight: 500;
+          }
+        }
+      }
+
+      .last-reply {
+        display: flex;
+        align-items: center;
+
+        img {
+          display: block;
+          height: 26px;
+          width: 26px;
+          border-radius: 50%;
+        }
+
+        .last-reply-meta {
+          margin-left: 10px;
+          min-width: 90px;
+
+          span {
+            font-family: var(--font);
+            display: block;
+
+            &:first-child {
+              font-size: 0.9rem;
+              font-weight: 500;
+              color: var(--title-color);
+            }
+
+            &:nth-child(2) {
+              font-size: 0.9rem;
+              color: var(--light-text);
+
+              a {
+                font-size: 0.9rem;
+                color: var(--secondary);
+                font-weight: 500;
+              }
+            }
+          }
+        }
+      }
+
+      .dropdown {
+        margin-left: 30px;
+      }
+    }
+  }
 }
 
 /* ==========================================================================
@@ -945,186 +940,200 @@ TABLE OF CONTENTS
 ========================================================================== */
 
 .topic-wrapper {
-    width: 100%;
-    max-width: 1040px;
-    margin: 0 auto;
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
 }
 
 .full-topic {
-    width: 100%;
-    background: $white;
-    border: 1px solid darken($fade-grey, 5%);
-    border-radius: 8px;
-    padding: 16px;
-    margin: 20px 0;
+  width: 100%;
+  border: 1px solid var(--wrap-border-color-heavy);
+  background: var(--wrap-bg-color-heavy);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 20px 0;
 
-    .post {
-        display: flex;
-        align-items: stretch;
-        padding: 20px 0;
+  .post {
+    display: flex;
+    align-items: stretch;
+    padding: 20px 0;
 
-        &:not(:last-child) {
-            border-bottom: 1px solid darken($fade-grey, 1%);
-        }
-
-        .post-meta {
-            .post-owner {
-                position: relative;
-                height: 48px;
-                width: 48px;
-                min-width: 48px;
-
-                .avatar {
-                    display: block;
-                    border-radius: 50%;
-                }
-
-                .badge {
-                    position: absolute;
-                    bottom: 0;
-                    right: -6px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    height: 20px;
-                    width: 20px;
-                    border: 2px solid $white;
-                    border-radius: 50%;
-                    background: $orange;
-
-                    span {
-                        font-family: $font;
-                        display: block;
-                    }
-
-                    i {
-                        font-size: 8px;
-                        font-weight: 600;
-                        color: $white;
-                    }
-                }
-            }
-        }
-
-        .post-content {
-            margin-left: 20px;
-            width: 100%;
-
-            iframe {
-                max-height: 160px;
-            }
-
-            .top-wrap {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                width: 100%;
-
-                .name-wrap {
-                    .name {
-                        font-family: $font-alt;
-                        font-weight: 600;
-                        color: $blue-grey;
-
-                        &:hover {
-                            color: $secondary;
-                        }
-                    }
-
-                    span {
-                        display: block;
-                        font-family: $font;
-                        font-weight: .9rem;
-                        color: $light-text;
-                    }
-                }
-
-                .top-actions {
-                    display: flex;
-                    justify-content: flex-end;
-                    align-items: center;
-
-                    .dropdown {
-                        margin-left: 6px;
-                    }
-
-                    .top-action {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        height: 34px;
-                        width: 34px;
-                        min-width: 34px;
-                        border-radius: 50%;
-                        border: 1px solid $placeholder;
-                        background: $white;
-                        font-family: $font;
-                        margin-left: 6px;
-                        transition: all .3s;
-
-                        &.is-like {
-                            &:hover, &.is-active {
-                                border-color: $red;
-                                background: $red;
-
-                                i {
-                                    color: $smoke-white;
-                                }
-                            }
-                        }
-
-                        &.is-secondary {
-                            &:hover, &.is-active {
-                                border-color: $secondary;
-                                background: $secondary;
-
-                                i {
-                                    color: $smoke-white;
-                                }
-                            }
-                        }
-
-                        i {
-                            font-size: 16px;
-                            color: $blue-grey;
-                            transition: all .3s;
-                        }
-                    }
-                }
-            }
-
-            .post-body {
-                margin: 20px 0;
-                max-width: 800px;
-                font-family: $font;
-
-                blockquote {
-                    max-width: 600px;
-
-                    .quote-title {
-                        display: flex;
-                        align-items: center;
-                        font-weight: 500;
-                        color: $blue-grey;
-
-                        img {
-                            display: block;
-                            height: 26px;
-                            width: 26px;
-                            min-width: 26px;
-                            border-radius: 50%;
-                            margin-right: 6px;
-                        }
-                    }
-                }
-            }
-
-            .edited-text {
-                color: $light-text;
-                font-size: .9rem;
-            }
-        }
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--card-border-color);
     }
+
+    .post-meta {
+      .post-owner {
+        position: relative;
+        height: 48px;
+        width: 48px;
+        min-width: 48px;
+
+        .avatar {
+          display: block;
+          border-radius: 50%;
+        }
+
+        .badge {
+          position: absolute;
+          bottom: 0;
+          right: -6px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 20px;
+          width: 20px;
+          border: 2px solid var(--card-border-color);
+          border-radius: 50%;
+          background: var(--warning);
+
+          span {
+            font-family: var(--font);
+            display: block;
+          }
+
+          i {
+            font-size: 8px;
+            font-weight: 600;
+            color: var(--white);
+          }
+        }
+      }
+    }
+
+    .post-content {
+      margin-left: 20px;
+      width: 100%;
+
+      iframe {
+        max-height: 160px;
+      }
+
+      .top-wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        .name-wrap {
+          .name {
+            font-family: var(--font-alt);
+            font-weight: 600;
+            color: var(--title-color);
+
+            &:hover {
+              color: var(--secondary);
+            }
+          }
+
+          span {
+            display: block;
+            font-family: var(--font);
+            font-weight: 0.9rem;
+            color: var(--light-text);
+          }
+        }
+
+        .top-actions {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+
+          > span {
+            color: var(--light-text);
+          }
+
+          .dropdown {
+            margin-left: 6px;
+          }
+
+          .top-action {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 34px;
+            width: 34px;
+            min-width: 34px;
+            border-radius: 50%;
+            border: 1px solid var(--wrap-border-color);
+            background: var(--wrap-bg-color);
+            font-family: var(--font);
+            margin-left: 6px;
+            transition: all 0.3s;
+
+            &.is-like {
+              &:hover,
+              &.is-active {
+                border-color: var(--danger);
+                background: var(--danger);
+
+                i {
+                  color: var(--white-smoke);
+                }
+              }
+            }
+
+            &.is-secondary {
+              &:hover,
+              &.is-active {
+                border-color: var(--secondary);
+                background: var(--secondary);
+
+                i {
+                  color: var(--white-smoke);
+                }
+              }
+            }
+
+            i {
+              font-size: 16px;
+              color: var(--title-color);
+              transition: all 0.3s;
+            }
+          }
+        }
+      }
+
+      .post-body {
+        margin: 20px 0;
+        max-width: 800px;
+        font-family: var(--font);
+
+        p,
+        ul {
+          color: var(--medium-text) !important;
+        }
+
+        blockquote {
+          max-width: 600px;
+          background-color: var(--wrap-bg-color);
+          color: var(--light-text);
+          border-color: var(--secondary);
+
+          .quote-title {
+            display: flex;
+            align-items: center;
+            font-weight: 500;
+            color: var(--title-color);
+
+            img {
+              display: block;
+              height: 26px;
+              width: 26px;
+              min-width: 26px;
+              border-radius: 50%;
+              margin-right: 6px;
+            }
+          }
+        }
+      }
+
+      .edited-text {
+        color: var(--light-text);
+        font-size: 0.9rem;
+      }
+    }
+  }
 }
 
 /* ==========================================================================
@@ -1132,178 +1141,179 @@ TABLE OF CONTENTS
 ========================================================================== */
 
 .reply-box {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: calc(100% - 80px);
-    margin-left: 80px;
-    height: auto;
-    padding: 20px;
-    min-height: 300px;
-    background: $white;
-    border-top: 1px solid $fade-grey;
-    transition: all .3s;
-    transform: translateY(100%);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - 80px);
+  margin-left: 80px;
+  height: auto;
+  padding: 20px;
+  min-height: 300px;
+  border: 1px solid var(--card-border-color);
+  background: var(--card-bg-color);
+  transition: all 0.3s;
+  transform: translateY(100%);
 
-    &.is-active {
-        transform: translateY(0);
+  &.is-active {
+    transform: translateY(0);
+  }
+
+  .box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .reply-form {
+      .button-wrap {
+        padding: 1rem 0;
+
+        .button {
+          min-width: 100px;
+        }
+      }
     }
 
-    .box-inner {
-        position: relative;
-        width: 100%;
-        height: 100%;
+    .note-editor.note-frame {
+      border-color: transparent;
+      border-radius: 6px;
 
-        .reply-form {
-            .button-wrap {
-                padding: 1rem 0;
-
-                .button {
-                    min-width: 100px;
-                }
-            }
-        }
-
-        .note-editor.note-frame {
-            border-color: transparent;
-            border-radius: 6px;
-
-            .note-toolbar {
-                border-radius: 6px 6px 0 0;
-                display: flex;
-                align-items: center;
-
-                .note-btn-group {
-                    display: flex;
-                    align-items: center;
-                    margin: 0;
-
-                    .note-btn {
-                        height: 36px;
-                        width: 36px;
-                        border-radius: 6px !important;
-                        margin: 0 2px !important;
-                        padding: 0;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-
-                        i {
-                            font-size: 12px;
-
-                            &:before {
-                                position: relative;
-                                top: -1px;
-                            }
-                        }
-                    }
-                }
-            }
-
-            .note-editing-area {
-                overflow: visible;
-
-                .note-placeholder {
-                    display: flex;
-                    align-items: center;
-                    color: $placeholder;
-
-                    img {
-                        position: absolute;
-                        top: -36px;
-                        left: -30px;
-                        display: block;
-                        height: 26px;
-                        width: 26px;
-                        border-radius: 50%;
-                        margin-right: 6px;
-                        z-index: 5;
-                    }
-                }
-            }
-
-            .note-statusbar {
-                display: none;
-            }
-        }
-    }
-}
-
-.note-modal-content {
-    .note-modal-header {
+      .note-toolbar {
+        border-radius: 6px 6px 0 0;
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        flex-direction: row-reverse;
-        padding: 20px;
 
-        h4 {
-            font-size: 1.1rem;
-            font-family: 'Nexa Bold', sans-serif;
-        }
+        .note-btn-group {
+          display: flex;
+          align-items: center;
+          margin: 0;
 
-        .close {
+          .note-btn {
+            height: 36px;
+            width: 36px;
+            border-radius: 6px !important;
+            margin: 0 2px !important;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 36px;
-            width: 36px;
-            border-radius: 50%;
-            outline: none !important;
-            transition: all .3s;
-            opacity: 1 !important;
-            margin-top: 0 !important;
-
-            &:hover {
-                background: lighten($fade-grey, 1%) !important;
-            }
 
             i {
-                font-size: 16px;
-                opacity: 1 !important;
-                color: $blue-grey !important;
+              font-size: 12px;
+
+              &:before {
+                position: relative;
+                top: -1px;
+              }
             }
+          }
         }
+      }
+
+      .note-editing-area {
+        overflow: visible;
+
+        .note-placeholder {
+          display: flex;
+          align-items: center;
+          color: var(--placeholder);
+
+          img {
+            position: absolute;
+            top: -36px;
+            left: -30px;
+            display: block;
+            height: 26px;
+            width: 26px;
+            border-radius: 50%;
+            margin-right: 6px;
+            z-index: 5;
+          }
+        }
+      }
+
+      .note-statusbar {
+        display: none;
+      }
+    }
+  }
+}
+
+.note-modal-content {
+  .note-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+    padding: 20px;
+
+    h4 {
+      font-size: 1.1rem;
+      font-family: "Nexa Bold", sans-serif;
     }
 
-    .note-modal-body {
-        .note-form-group, .note-group-image-url {
-            .note-form-label {
-                font-size: 1rem;
-                font-family: 'Nexa Bold', sans-serif;
-                color: $light-text;
-            }
-        }
+    .close {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 36px;
+      width: 36px;
+      border-radius: 50%;
+      outline: none !important;
+      transition: all 0.3s;
+      opacity: 1 !important;
+      margin-top: 0 !important;
 
-        .checkbox {
-            display: flex;
-            align-items: center;
+      &:hover {
+        background: var(--wrap-muted-color) !important;
+      }
 
-            label {
-                color: $light-text;
+      i {
+        font-size: 16px;
+        opacity: 1 !important;
+        color: var(--title-color) !important;
+      }
+    }
+  }
 
-                input {
-                    position: relative;
-                    top: 2px;
-                    left: -2px;
-                }
-            }
-        }
+  .note-modal-body {
+    .note-form-group,
+    .note-group-image-url {
+      .note-form-label {
+        font-size: 1rem;
+        font-family: "Nexa Bold", sans-serif;
+        color: var(--light-text);
+      }
     }
 
-    .note-modal-footer {
-        padding: 20px 30px;
-        text-align: left;
+    .checkbox {
+      display: flex;
+      align-items: center;
 
-        button {
-            height: 40px !important;
-            min-width: 120px !important;
-            border-radius: 100px !important;
-            font-weight: 500 !important;
-            background: $secondary !important;
-            transition: all .3s;
+      label {
+        color: var(--light-text);
+
+        input {
+          position: relative;
+          top: 2px;
+          left: -2px;
         }
+      }
     }
+  }
+
+  .note-modal-footer {
+    padding: 20px 30px;
+    text-align: left;
+
+    button {
+      height: 40px !important;
+      min-width: 120px !important;
+      border-radius: 100px !important;
+      font-weight: 500 !important;
+      background: var(--secondary) !important;
+      transition: all 0.3s;
+    }
+  }
 }
 
 /* ==========================================================================
@@ -1311,287 +1321,290 @@ TABLE OF CONTENTS
 ========================================================================== */
 
 @media only screen and (max-width: 767px) {
-    .forum-title-wrapper {
-        &.is-mobile {
-            flex-direction: column;
+  .forum-title-wrapper {
+    &.is-mobile {
+      flex-direction: column;
 
-            img {
-                margin-right: 0;
-            }
+      img {
+        margin-right: 0;
+      }
 
-            .forum-title {
-                text-align: center;
+      .forum-title {
+        text-align: center;
 
-                &.is-topic-title {
-                    max-width: 300px !important;
-                }
-            }
-
-            .actions {
-                margin: 20px 0 0 0;
-                justify-content: flex-end;
-                width: 100%;
-            }
+        &.is-topic-title {
+          max-width: 300px !important;
         }
-    }
+      }
 
-    .forum-container {
-        padding: 10px;
-
-        .forum-channel {
-            flex-direction: column;
-
-            .channel-meta {
-                margin-left: 0;
-                text-align: center;
-            }
-
-            .channel-topics {
-                margin: 10px auto;
-            }
-        }
-
-        .topic-card {
-            flex-direction: column;
-
-            .topic-owner {
-                margin-bottom: 10px;
-            }
-
-            .topic-meta {
-                margin: 0;
-
-                .topic-title {
-                    text-align: center;
-                }
-
-                .flex-block {
-                    flex-direction: column;
-                    margin: 10px 0;
-
-                    span {
-                        margin-bottom: 6px;
-                    }
-
-                    .tags {
-                        margin: 0;
-                    }
-                }
-            }
-
-            .topic-actions {
-                margin: 0 20px;
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-
-                .im {
-                    display: none !important;
-                }
-
-                .topic-replies {
-                    margin: 0;
-                }
-
-                .last-replie {
-                    .last-reply-meta {
-                        span {
-                            font-size: .8rem;
-                        }
-                    }
-                }
-
-                .dropdown {
-                    margin: 0;
-                }
-            }
-        }
-
-        .topic-stats {
-            flex-direction: column;
-
-            .stat-block {
-                margin: 6px auto;
-
-                .stat-meta {
-                    min-width: 60px;
-                }
-            }
-
-            .participants {
-                display: none !important;
-            }
-        }
-
-        .full-topic {
-            padding: 10px;
-
-            .post {
-                flex-direction: column;
-
-                .post-meta {
-                    .post-owner {
-                        margin: 0 auto;
-                    }
-                }
-
-                .post-content {
-                    margin-left: 0;
-
-                    .top-wrap {
-                        flex-direction: column;
-                        margin-top: 10px;
-
-                        .name-wrap {
-                            text-align: center;
-                            margin-bottom: 10px;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    .forum-wrap {
-        .latest-posts {
-            .avatars, .latest-meta {
-                display: none !important;
-            }
-
-            .forum-stats {
-                margin: 10px auto;
-                justify-content: center;
-
-                .stat {
-                    margin: 0 10px;
-                }
-            }
-        }
-    }
-
-    .reply-box {
+      .actions {
+        margin: 20px 0 0 0;
+        justify-content: flex-end;
         width: 100%;
-        margin-left: 0;
-        z-index: 1001;
-
-        .note-toolbar {
-            padding-left: 0;
-            overflow-x: auto;
-        }
-
-        .note-placeholder {
-            img {
-                display: none !important;
-            }
-        }
+      }
     }
+  }
+
+  .forum-container {
+    padding: 10px;
+
+    .forum-channel {
+      flex-direction: column;
+
+      .channel-meta {
+        margin-left: 0;
+        text-align: center;
+      }
+
+      .channel-topics {
+        margin: 10px auto;
+      }
+    }
+
+    .topic-card {
+      flex-direction: column;
+
+      .topic-owner {
+        margin-bottom: 10px;
+      }
+
+      .topic-meta {
+        margin: 0;
+
+        .topic-title {
+          text-align: center;
+        }
+
+        .flex-block {
+          flex-direction: column;
+          margin: 10px 0;
+
+          span {
+            margin-bottom: 6px;
+          }
+
+          .tags {
+            margin: 0;
+          }
+        }
+      }
+
+      .topic-actions {
+        margin: 0 20px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .im {
+          display: none !important;
+        }
+
+        .topic-replies {
+          margin: 0;
+        }
+
+        .last-replie {
+          .last-reply-meta {
+            span {
+              font-size: 0.8rem;
+            }
+          }
+        }
+
+        .dropdown {
+          margin: 0;
+        }
+      }
+    }
+
+    .topic-stats {
+      flex-direction: column;
+
+      .stat-block {
+        margin: 6px auto;
+
+        .stat-meta {
+          min-width: 60px;
+        }
+      }
+
+      .participants {
+        display: none !important;
+      }
+    }
+
+    .full-topic {
+      padding: 10px;
+
+      .post {
+        flex-direction: column;
+
+        .post-meta {
+          .post-owner {
+            margin: 0 auto;
+          }
+        }
+
+        .post-content {
+          margin-left: 0;
+
+          .top-wrap {
+            flex-direction: column;
+            margin-top: 10px;
+
+            .name-wrap {
+              text-align: center;
+              margin-bottom: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .forum-wrap {
+    .latest-posts {
+      .avatars,
+      .latest-meta {
+        display: none !important;
+      }
+
+      .forum-stats {
+        margin: 10px auto;
+        justify-content: center;
+
+        .stat {
+          margin: 0 10px;
+        }
+      }
+    }
+  }
+
+  .reply-box {
+    width: 100%;
+    margin-left: 0;
+    z-index: 1001;
+
+    .note-toolbar {
+      padding-left: 0;
+      overflow-x: auto;
+    }
+
+    .note-placeholder {
+      img {
+        display: none !important;
+      }
+    }
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-    .forum-channel {
-        .top-contributors {
-            min-width: 90px;
+  .forum-channel {
+    .top-contributors {
+      min-width: 90px;
 
-            img {
-                height: 30px !important;
-                width: 30px !important;
-                min-width: 30px !important;
-            }
+      img {
+        height: 30px !important;
+        width: 30px !important;
+        min-width: 30px !important;
+      }
+    }
+  }
+
+  .forum-container {
+    .topic-card {
+      flex-direction: column;
+
+      .topic-owner {
+        margin-bottom: 10px;
+      }
+
+      .topic-meta {
+        margin: 0;
+
+        .topic-title {
+          text-align: center;
         }
+
+        .flex-block {
+          flex-direction: column;
+          margin: 10px 0;
+
+          span {
+            margin-bottom: 6px;
+          }
+
+          .tags {
+            margin: 0;
+          }
+        }
+      }
+
+      .topic-actions {
+        margin: 0 20px;
+        width: 100%;
+        max-width: 490px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .im {
+          display: none !important;
+        }
+
+        .topic-replies {
+          margin: 0;
+        }
+
+        .dropdown {
+          margin: 0;
+        }
+      }
     }
 
-    .forum-container {
-        .topic-card {
-            flex-direction: column;
-
-            .topic-owner {
-                margin-bottom: 10px;
-            }
-
-            .topic-meta {
-                margin: 0;
-
-                .topic-title {
-                    text-align: center;
-                }
-
-                .flex-block {
-                    flex-direction: column;
-                    margin: 10px 0;
-
-                    span {
-                        margin-bottom: 6px;
-                    }
-
-                    .tags {
-                        margin: 0;
-                    }
-                }
-            }
-
-            .topic-actions {
-                margin: 0 20px;
-                width: 100%;
-                max-width: 490px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-
-                .im {
-                    display: none !important;
-                }
-
-                .topic-replies {
-                    margin: 0;
-                }
-
-                .dropdown {
-                    margin: 0;
-                }
-            }
+    .topic-stats {
+      .stat-block {
+        &:nth-child(5),
+        &:nth-child(6) {
+          display: none !important;
         }
+      }
 
-        .topic-stats {
-            .stat-block {
-                &:nth-child(5), &:nth-child(6) {
-                    display: none !important;
-                }
-            }
-
-            .participants {
-                display: none !important;
-            }
-        }
+      .participants {
+        display: none !important;
+      }
     }
+  }
 
-    .reply-box {
-        .note-placeholder {
-            img {
-                left: -16px !important;
-            }
-        }
+  .reply-box {
+    .note-placeholder {
+      img {
+        left: -16px !important;
+      }
     }
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
-    .topic-card {
-        .tags {
-            display: none !important;
-        }
+  .topic-card {
+    .tags {
+      display: none !important;
     }
+  }
 
-    .forum-container {
-        .topic-stats {
-            .stat-block {
-                &:nth-child(5), &:nth-child(6) {
-                    display: none !important;
-                }
-            }
-
-            .participants {
-                display: none !important;
-            }
+  .forum-container {
+    .topic-stats {
+      .stat-block {
+        &:nth-child(5),
+        &:nth-child(6) {
+          display: none !important;
         }
+      }
+
+      .participants {
+        display: none !important;
+      }
     }
+  }
 }

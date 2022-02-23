@@ -28,7 +28,7 @@
                     <div class="content">
                         <form>
 
-                            <div class="field mb-10">
+                            <div class="field mb-5">
                                 <label class="label dark-text">Project Dates</label>
                                 <div class="columns is-vcentered is-fieldset">
                                     <div class="column is-3">
@@ -44,23 +44,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="columns is-fieldset">
-                                    <div class="column is-3">
-                                        <div class="field-label">End Date*</div>
-                                    </div>
-                                    <div class="column is-9">
-                                        <div class="control has-icon">
-                                            <input data-toggle="datepicker" type="text" class="input"
-                                                placeholder="End Date">
-                                            <span class="form-icon">
-                                                <i class="im icon-Calendar-4"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
 
-                            <div class="field mb-10">
+                            <div class="field mb-5">
                                 <label class="label dark-text">Project Meta</label>
                                 <div class="columns is-vcentered is-fieldset">
                                     <div class="column is-3">
@@ -75,13 +61,13 @@
                                         <div class="field-label">Description*</div>
                                     </div>
                                     <div class="column is-9">
-                                        <textarea class="textarea" rows="4"></textarea>
+                                        <textarea class="textarea" rows="2"></textarea>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-footer">
-                                <button @click="toggleNewTaskModal()" type="button" class="button is-light">Cancel</button>
+                                <button @click="toggleNewTaskModal()" type="button" class="button">Cancel</button>
                                 <button type="submit" class="button is-secondary">Create Project</button>
                             </div>
 

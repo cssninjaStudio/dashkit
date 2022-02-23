@@ -11,7 +11,7 @@
             <span class="material-icons">group</span>
             Contacts
         </a>
-        <ul x-show.transition.fade="$store.app.activeSidebarMenu == 'business-menu-1'">
+        <ul x-show="$store.app.activeSidebarMenu == 'business-menu-1'" x-collapse>
             <li><a href="contacts-list.html">Contact list</a></li>
             <li><a href="contacts-grid.html">Contact grid</a></li>
             <li><a href="contacts-single.html">Contact details</a></li>
@@ -25,7 +25,7 @@
             <span class="material-icons">work</span>
             CRM
         </a>
-        <ul x-show.transition.fade="$store.app.activeSidebarMenu == 'business-menu-2'">
+        <ul x-show="$store.app.activeSidebarMenu == 'business-menu-2'" x-collapse>
             <li><a href="crm-boards.html">All Boards</a></li>
             <li><a href="crm-kanban.html">Deals Kanban</a></li>
             <li><a href="crm-deal.html">Single Deal</a></li>
@@ -39,7 +39,7 @@
             <span class="material-icons">verified_user</span>
             Support Desk
         </a>
-        <ul x-show.transition.fade="$store.app.activeSidebarMenu == 'business-menu-3'">
+        <ul x-show="$store.app.activeSidebarMenu == 'business-menu-3'" x-collapse>
             <li><a href="support-dashboard.html">Desk Dashboard</a></li>
             <li><a href="support-tickets.html">Ticket list</a></li>
             <li><a href="support-ticket.html">Single Ticket</a></li>

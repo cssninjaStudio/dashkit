@@ -11,20 +11,19 @@
 ========================================================================== */
 
 .card {
-    box-shadow: $light-box-shadow;
-    border: 1px solid $border;
+  box-shadow: var(--light-box-shadow);
+  border: 1px solid var(--card-border-color);
 
-    .card-footer {
-        .card-footer-item {
-            color: $medium-text;
-            transition: all .3s;
+  .card-footer {
+    .card-footer-item {
+      color: var(--medium-text);
+      transition: all 0.3s;
 
-            &:hover {
-                color: $primary;
-                background: $widget-grey;
-            }
-        }
+      &:hover {
+        color: var(--primary);
+      }
     }
+  }
 }
 
 /* ==========================================================================
@@ -32,8 +31,8 @@
 ========================================================================== */
 
 .box {
-    box-shadow: $light-box-shadow;
-    border: 1px solid $border;
+  box-shadow: var(--light-box-shadow);
+  border: 1px solid var(--card-border-color);
 }
 
 /* ==========================================================================
@@ -41,37 +40,41 @@
 ========================================================================== */
 
 .flex-card {
-    position: relative;
-    background-color: $white;
-    border: 1px solid $border;
-    border-radius: .5rem;
-    position: relative;
-    width: 100%;
-    transition: all 0.5s;
+  position: relative;
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--card-border-color);
+  border-radius: 0.5rem;
+  position: relative;
+  width: 100%;
+  transition: all 0.5s;
 
-    &:not(:last-child) {
-        margin-bottom: 1.5rem;
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+
+  &.is-curved {
+    border-radius: 1rem;
+  }
+
+  .card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+
+    &.is-bordered {
+      border-bottom: 1px solid var(--card-border-color);
     }
 
-    .card-head {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        align-content: center;
-        
-        &.is-bordered {
-            border-bottom: 1px solid $border;
-        }
-
-        &.is-spaced {
-            margin-bottom: 1rem;
-        }
-
-        h3 {
-            font-family: $font-alt;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: $blue-grey;
-        }
+    &.is-spaced {
+      margin-bottom: 1rem;
     }
+
+    h3 {
+      font-family: var(--font-alt);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--title-color);
+    }
+  }
 }

@@ -140,7 +140,7 @@ title: Deal
                                             <i class="material-icons">keyboard_arrow_right</i>
                                         </div>
                                     </div>
-                                    <div x-show.transition="detailsPanelOpened" class="deal-card-content">
+                                    <div x-show="detailsPanelOpened" class="deal-card-content" x-collapse>
                                         <div class="details-placeholder">
                                             <span>What do you know about this deal?</span>
                                             <a><i class="material-icons">add</i> Add more details</a>
@@ -158,7 +158,7 @@ title: Deal
                                             <i class="material-icons">keyboard_arrow_right</i>
                                         </div>
                                     </div>
-                                    <div x-show.transition="contactPanelOpened" class="deal-card-content">
+                                    <div x-show="contactPanelOpened" class="deal-card-content" x-collapse>
                                         <!-- Deal contact -->
                                         <div class="deal-contact">
                                             <img src="https://via.placeholder.com/150x150" alt=""
@@ -221,7 +221,7 @@ title: Deal
                                             <i class="material-icons">keyboard_arrow_right</i>
                                         </div>
                                     </div>
-                                    <div x-show.transition="organisationPanelOpened" class="deal-card-content">
+                                    <div x-show="organisationPanelOpened" class="deal-card-content" x-collapse>
                                         <!-- Deal contact -->
                                         <div class="deal-contact">
                                             <img src="https://via.placeholder.com/150x150" alt=""
