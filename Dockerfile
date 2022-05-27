@@ -1,15 +1,15 @@
-FROM bitnami/node:14 AS build
+FROM bitnami/node:16 AS build
 WORKDIR /app
 
 COPY package.json ./
-COPY package-lock.json ./
-RUN npm install --unsafe-perm
+COPY yarn.lock ./
+RUN CYPRESS_INSTALL_BINARY=0 yarn --frozen-lockfile
 
 COPY . .
-RUN npm run build
+RUN yarn run build
 
 
-FROM bitnami/nginx:1.19 AS prod
+FROM bitnami/nginx:1.21 AS prod
 WORKDIR /app
 
 COPY --from=build /app/dist .
