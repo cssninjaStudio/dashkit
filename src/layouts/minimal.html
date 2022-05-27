@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Dashkit</title>
+
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="{{root}}/css/app.css" />
+    <link rel="stylesheet" type="text/css" href="{{root}}/css/main.css" />
+  </head>
+
+  <body
+    x-data="initTheme()"
+    :class="{
+      'is-dark': $store.app.isDark,
+      '': !$store.app.isDark
+    }"
+  >
+
+    <!--Body partial-->
+    {{> body}}
+
+    <!--Back to top-->
+    {{> backtotop}}
+
+    <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+    <script src="./js/bundle.js"></script>
+  </body>
+</html>

@@ -1,460 +1,603 @@
 ---
-layout: default
-title: Index
+layout: minimal
+title: Home
 ---
 
-<!-- Main dashboard container -->
-<div
-  id="dashboard-wrapper"
-  class="dashboard-outer"
-  x-data="initDashboard()"
-  :class="{
-        'is-pushed': $store.app.sidebarOpenedState,
-        '': !$store.app.sidebarOpenedState
-    }"
->
-  <div class="dashboard-inner">
-    <!-- Dashboard Wrapper -->
-    <div class="dashboard-wrapper">
-      <div id="main-dashboard" class="section-wrapper">
-        <!-- Dashboard content -->
-        <div class="dashboard-columns">
-          <div class="columns dashboard-tiles">
-            <!-- Tile -->
-            <div class="column is-3">
-              <div class="dashboard-tile">
-                <div class="icon-header">
-                  <i class="material-icons primary">account_balance_wallet</i>
-                </div>
-                <div class="tile-content">
-                  <h3>Sales</h3>
-                  <p>
-                    <span>284</span>
-                    <span>This month</span>
-                  </p>
-                </div>
-                <a class="view-all-button">
-                  <i class="fa fa-angle-right"></i>
-                </a>
-              </div>
-            </div>
-            <!-- Tile -->
-            <div class="column is-3">
-              <div class="dashboard-tile">
-                <div class="icon-header">
-                  <i class="material-icons primary">account_balance</i>
-                </div>
-                <div class="tile-content">
-                  <h3>Balance</h3>
-                  <p>
-                    <span>$8647,23</span>
-                  </p>
-                </div>
-                <a class="view-all-button">
-                  <i class="fa fa-angle-right"></i>
-                </a>
-              </div>
-            </div>
-            <!-- Tile -->
-            <div class="column is-3">
-              <div class="dashboard-tile">
-                <div class="icon-header">
-                  <i class="material-icons secondary">work</i>
-                </div>
-                <div class="tile-content">
-                  <h3>Deals</h3>
-                  <p>
-                    <span>24</span>
-                    <span>pending</span>
-                  </p>
-                </div>
-                <a class="view-all-button">
-                  <i class="fa fa-angle-right"></i>
-                </a>
-              </div>
-            </div>
-            <!-- Tile -->
-            <div class="column is-3">
-              <div class="dashboard-tile">
-                <div class="icon-header">
-                  <i class="material-icons secondary">business</i>
-                </div>
-                <div class="tile-content">
-                  <h3>Leads</h3>
-                  <p>
-                    <span>53</span>
-                    <span>New Leads</span>
-                  </p>
-                </div>
-                <a class="view-all-button">
-                  <i class="fa fa-angle-right"></i>
-                </a>
+<!--Wrapper-->
+<div class="cssninja-product">
+  <!--Navigation-->
+  <div
+    class="cssninja-nav"
+    x-data="initDemoNavbar()"
+    x-init="initScrollAnchors()"
+    x-on:scroll.window="scroll()"
+    :class="{
+    'is-scrolled': scrolled,
+    '': !scrolled,
+    'is-solid': mobileOpen,
+    '': !mobileOpen
+}"
+  >
+    <div class="cssninja-nav-inner">
+      <div class="left">
+        <img class="brand-logo light-image" src="/img/logo/dashkit-violet.svg" class="logo" alt="">
+        <img class="brand-logo dark-image" src="/img/logo/dashkit-violet-dark.svg" class="logo" alt="">
+        <span class="version">v1.0</span>
+        <div class="nav-burger" @click="openMobileMenu()">
+          <div class="menu-toggle">
+            <div
+              class="icon-box-toggle is-navbar"
+              :class="{
+                  'active': mobileOpen,
+                  '': !mobileOpen
+              }"
+            >
+              <div class="rotate">
+                <i class="icon-line-top"></i>
+                <i class="icon-line-center"></i>
+                <i class="icon-line-bottom"></i>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div
+        class="right"
+        :class="{
+            'is-active': mobileOpen,
+            '': !mobileOpen
+        }"
+      >
+        <a href="https://cssninja.io/product/dashkit" class="nav-link">Product</a>
+        <a href="#template-demos" class="nav-link scroll-link">Demos</a>
+        <a href="https://docs.cssninja.io/gulp-alpine/" class="nav-link">Documentation</a>
+        <label class="theme-toggle mask mask-blob">
+          <input
+            type="checkbox"
+            x-on:change="toggleTheme()"
+            :checked="$store.app.isDark"
+          />
+          <span class="theme-toggle-inner">
+            <i class="sun-icon iconify" data-icon="feather:sun"></i>
+            <i class="moon-icon iconify" data-icon="feather:moon"></i>
+          </span>
+        </label>
+        <a href="https://support.cssninja.io" class="button is-secondary is-long-1 raised">Get Support</a>
+      </div>
+    </div>
+  </div>
 
-          <div class="columns is-multiline">
-            <div class="column is-4">
-              <div class="flex-card p-4">
-                <div class="card-head p-4 is-spaced">
-                  <h3>Customers</h3>
-                  <a class="button is-default is-rounded">Reports</a>
-                </div>
-                <div id="apexAreaChartDashboard"></div>
-              </div>
-            </div>
+  <!--Hero-->
+  <div class="cssninja-hero">
+    <img
+      class="plant-pattern"
+      src="/img/demo/plant-pattern.svg"
+      alt="pattern"
+    />
+    <div class="container">
+      <div class="cssninja-hero-inner">
+        <div class="hero-caption mx-auto max-w-6">
+          <h1 class="title is-1 is-bold is-narrow">Hi, Iam Dashkit.</h1>
+          <p class="product-stacks">Bulma + Alpine JS Dashboard UI Kit</p>
+          <h3 class="subtitle is-5">
+            Dashkit is a professional admin and dashboard UI template that will
+            help you jumpstart your development project seamlessly.
+          </h3>
+          <div class="buttons is-centered">
+            <a href="https://cssninja.io/product/dashkit" class="button is-primary raised scroll-link">Buy Now</a>
+            <a href="#get-started" class="button is-solid scroll-link">Discover</a>
+          </div>
+          <div class="product-stack product-stack-1">
+            <img src="/img/stacks/html5-light.svg" alt="stack" />
+          </div>
+          <div class="product-stack product-stack-2">
+            <img src="/img/stacks/alpinejs-light.svg" alt="stack" />
+          </div>
+          <div class="product-stack product-stack-3">
+            <img src="/img/stacks/sass-light.svg" alt="stack" />
+          </div>
+          <div class="product-stack product-stack-4">
+            <img src="/img/stacks/gulp.svg" alt="stack" />
+          </div>
+          <div class="product-stack product-stack-5">
+            <img src="/img/stacks/bulma-light.svg" alt="stack" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <img
+      class="template-mockup light-image-block"
+      src="/img/demo/dashkit-mockup-1.png"
+      alt="Dashkit header image"
+    />
+    <img
+      class="template-mockup dark-image-block"
+      src="/img/demo/dashkit-mockup-1-dark.png"
+      alt="Dashkit header image"
+    />
+    <img class="plant-pot" src="/img/demo/plant-pot.svg" alt="Plant" />
+  </div>
 
-            <div class="column is-4">
-              <div class="flex-card p-4">
-                <div class="card-head p-4 is-spaced">
-                  <h3>Energy</h3>
-                  <a class="button is-default is-rounded">Reports</a>
-                </div>
-                <div id="apexScatterChartDashboard"></div>
-              </div>
-            </div>
-
-            <div class="column is-4">
-              <div class="flex-card p-4">
-                <div class="card-head p-4">
-                  <h3>Members</h3>
-                  <a class="button is-default is-rounded">View All</a>
-                </div>
-                <ul class="user-list px-5 py-4">
-                  <li>
-                    <div class="user-list-avatar">
-                      <img
-                        src="https://via.placeholder.com/250x250"
-                        alt=""
-                        data-demo-src="/img/avatars/terry.jpg"
-                      />
-                    </div>
-                    <div class="user-list-info">
-                      <div class="name">Terry Daniels</div>
-                      <div class="position">CEO</div>
-                    </div>
-                    <div class="user-list-status is-online"></div>
-                  </li>
-                  <li>
-                    <div class="user-list-avatar">
-                      <img
-                        src="https://via.placeholder.com/250x250"
-                        alt=""
-                        data-demo-src="/img/avatars/carolin.jpg"
-                      />
-                    </div>
-                    <div class="user-list-info">
-                      <div class="name">Marjory Cambell</div>
-                      <div class="position">CFO</div>
-                    </div>
-                    <div class="user-list-status is-busy"></div>
-                  </li>
-                  <li>
-                    <div class="user-list-avatar">
-                      <img
-                        src="https://via.placeholder.com/250x250"
-                        alt=""
-                        data-demo-src="/img/avatars/ben.jpg"
-                      />
-                    </div>
-                    <div class="user-list-info">
-                      <div class="name">Kevin Smith</div>
-                      <div class="position">Software Engineer</div>
-                    </div>
-                    <div class="user-list-status is-offline"></div>
-                  </li>
-                  <li>
-                    <div class="user-list-avatar">
-                      <img
-                        src="https://via.placeholder.com/250x250"
-                        alt=""
-                        data-demo-src="/img/avatars/melany.jpg"
-                      />
-                    </div>
-                    <div class="user-list-info">
-                      <div class="name">Melany Wright</div>
-                      <div class="position">Sales Manager</div>
-                    </div>
-                    <div class="user-list-status is-online"></div>
-                  </li>
-                  <li>
-                    <div class="user-list-avatar">
-                      <img
-                        src="https://via.placeholder.com/250x250"
-                        alt=""
-                        data-demo-src="/img/avatars/helen.jpg"
-                      />
-                    </div>
-                    <div class="user-list-info">
-                      <div class="name">Helen Miller</div>
-                      <div class="position">Sales Manager</div>
-                    </div>
-                    <div class="user-list-status is-online"></div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="column is-4">
-              <div class="flex-card p-4">
-                <div class="card-head p-4">
-                  <h3>Companies</h3>
-                  <a class="button is-default is-rounded">View All</a>
-                </div>
-                <ul class="user-list px-5 py-4">
-                  <li>
-                    <div class="user-list-avatar">
-                      <img
-                        src="https://via.placeholder.com/250x250"
-                        alt=""
-                        data-demo-src="/img/logo/companies/airbnb.svg"
-                      />
-                    </div>
-                    <div class="user-list-info">
-                      <div class="name">Airbnb</div>
-                      <div class="position">Travel & Hosts</div>
-                    </div>
-                    <div class="user-list-action">
-                      <i data-feather="arrow-right"></i>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="user-list-avatar">
-                      <img
-                        src="https://via.placeholder.com/250x250"
-                        alt=""
-                        data-demo-src="/img/logo/companies/alfresco.svg"
-                      />
-                    </div>
-                    <div class="user-list-info">
-                      <div class="name">Alfresco</div>
-                      <div class="position">ECM Software</div>
-                    </div>
-                    <div class="user-list-action">
-                      <i data-feather="arrow-right"></i>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="user-list-avatar">
-                      <img
-                        src="https://via.placeholder.com/250x250"
-                        alt=""
-                        data-demo-src="/img/logo/companies/amazon.svg"
-                      />
-                    </div>
-                    <div class="user-list-info">
-                      <div class="name">Amazon</div>
-                      <div class="position">Ecommerce</div>
-                    </div>
-                    <div class="user-list-action">
-                      <i data-feather="arrow-right"></i>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="user-list-avatar">
-                      <img
-                        src="https://via.placeholder.com/250x250"
-                        alt=""
-                        data-demo-src="/img/logo/companies/tesla.svg"
-                      />
-                    </div>
-                    <div class="user-list-info">
-                      <div class="name">Tesla</div>
-                      <div class="position">Car Industry</div>
-                    </div>
-                    <div class="user-list-action">
-                      <i data-feather="arrow-right"></i>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="user-list-avatar">
-                      <img
-                        src="https://via.placeholder.com/250x250"
-                        alt=""
-                        data-demo-src="/img/logo/companies/hm.svg"
-                      />
-                    </div>
-                    <div class="user-list-info">
-                      <div class="name">H&M</div>
-                      <div class="position">Clothing & Fashion</div>
-                    </div>
-                    <div class="user-list-action">
-                      <i data-feather="arrow-right"></i>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="column is-4">
-              <div class="widget circle-chart-widget px-4 pt-4 pb-8">
-                <div class="card-head px-4 pt-4 pb-6">
-                  <h3>Deals</h3>
-                  <a class="button is-default is-rounded">View All</a>
-                </div>
-                <svg
-                  class="circle-chart"
-                  viewbox="0 0 33.83098862 33.83098862"
-                  width="140"
-                  height="140"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle
-                    class="circle-chart-background"
-                    stroke-width="2"
-                    fill="none"
-                    cx="16.91549431"
-                    cy="16.91549431"
-                    r="15.91549431"
-                  />
-                  <circle
-                    class="circle-chart-circle"
-                    stroke="#7F00FF"
-                    stroke-width="2"
-                    stroke-dasharray="68,100"
-                    stroke-linecap="round"
-                    fill="none"
-                    cx="16.91549431"
-                    cy="16.91549431"
-                    r="15.91549431"
-                  />
-                </svg>
-                <div class="chart-avatar">
-                  <img
-                    src="https://via.placeholder.com/250x250"
-                    alt=""
-                    data-demo-src="/img/avatars/ray.jpg"
-                  />
-                </div>
-                <div class="ring-title has-text-centered">
-                  <span>68% Deals Won</span>
-                </div>
-              </div>
-
-              <div class="widget circle-chart-widget px-4 pt-4 pb-8">
-                <div class="card-head px-4 pt-4 pb-6">
-                  <h3>Tasks</h3>
-                  <a class="button is-default is-rounded">View All</a>
-                </div>
-                <svg
-                  class="circle-chart"
-                  viewbox="0 0 33.83098862 33.83098862"
-                  width="140"
-                  height="140"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle
-                    class="circle-chart-background"
-                    stroke-width="2"
-                    fill="none"
-                    cx="16.91549431"
-                    cy="16.91549431"
-                    r="15.91549431"
-                  />
-                  <circle
-                    class="circle-chart-circle"
-                    stroke="#00d1b2"
-                    stroke-width="2"
-                    stroke-dasharray="77,100"
-                    stroke-linecap="round"
-                    fill="none"
-                    cx="16.91549431"
-                    cy="16.91549431"
-                    r="15.91549431"
-                  />
-                </svg>
-                <div class="chart-avatar">
-                  <img
-                    src="https://via.placeholder.com/250x250"
-                    alt=""
-                    data-demo-src="/img/avatars/lakisha.jpg"
-                  />
-                </div>
-                <div class="ring-title has-text-centered">
-                  <span>8 average tasks / day</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="column is-4">
-              <div class="flex-card tasks-card p-4">
-                <div class="card-head px-4 pt-4 pb-6">
-                  <h3>Tweet Feed</h3>
-                  <a class="button is-default is-rounded">View All</a>
-                </div>
-
-                <!--Tweet-->
-                <div class="widget tweet-widget">
-                  <div class="tweet-header">
-                    <img
-                      src="https://via.placeholder.com/250x250"
-                      alt=""
-                      data-demo-src="/img/avatars/alan.jpg"
-                    />
-                    <div class="user-info">
-                      <div class="name">Alan Maynard</div>
-                      <div class="alias">@amaynard</div>
-                    </div>
-                    <div class="twitter-icon">
-                      <i class="fab fa-twitter"></i>
-                    </div>
-                  </div>
-                  <p class="tweet-content">
-                    Lorem ipsum dolor sit amet, integre explicari has in, justo
-                    ipsum viderer mea ad.
+  <div class="section">
+    <div class="container">
+      <div class="cssninja-template">
+        <div class="columns">
+          <div class="column is-8">
+            <!--Template info-->
+            <div class="template-info">
+              <!--Section-->
+              <div id="get-started" class="template-info-section">
+                <!--Section title-->
+                <div class="max-w-4 mb-5">
+                  <h2 class="title is-3 is-bold is-leading">Built with</h2>
+                  <p class="paragraph">
+                    Although it is an HTML template, Dashkit relies on powerful
+                    stacks like Alpine JS v3.x and Bulma as a CSS framework,
+                    making you able to build beautiful apps.
                   </p>
-                  <div class="hashtags">
-                    <span>#codeTalk</span> <span>#iLoveCode</span>
-                  </div>
                 </div>
 
-                <!--Tweet-->
-                <div class="widget tweet-widget">
-                  <div class="tweet-header">
-                    <img
-                      src="https://via.placeholder.com/250x250"
-                      alt=""
-                      data-demo-src="/img/avatars/nick.jpg"
-                    />
-                    <div class="user-info">
-                      <div class="name">Nick Fraiser</div>
-                      <div class="alias">@nickthegeek</div>
+                <!--Stacks-->
+                <div class="template-stacks">
+                  <div class="columns is-multiline b-columns-half-mobile b-flex-tablet-p">
+                    <!--Stack-->
+                    <div class="column is-3">
+                      <div class="template-stack-card">
+                        <i
+                          class="iconify smaller"
+                          data-icon="logos:alpinejs-icon"
+                        ></i>
+                        <h3 class="title is-6 is-narrow">Alpine JS</h3>
+                        <p class="paragraph rem-85">Version 3.x</p>
+                      </div>
                     </div>
-                    <div class="twitter-icon">
-                      <i class="fab fa-twitter"></i>
+                    <!--Stack-->
+                    <div class="column is-3">
+                      <div class="template-stack-card">
+                        <i class="iconify" data-icon="logos:bulma"></i>
+                        <h3 class="title is-6 is-narrow">Bulma</h3>
+                        <p class="paragraph rem-85">Version 9.x</p>
+                      </div>
                     </div>
-                  </div>
-                  <p class="tweet-content">
-                    Lorem ipsum dolor sit amet, integre explicari has in, justo
-                    ipsum viderer mea ad.
-                  </p>
-                  <div class="hashtags">
-                    <span>#devOps</span> <span>#backend</span>
+                    <!--Stack-->
+                    <div class="column is-3">
+                      <div class="template-stack-card">
+                        <i class="iconify" data-icon="logos:sass"></i>
+                        <h3 class="title is-6 is-narrow">Sass</h3>
+                        <p class="paragraph rem-85">Dart Sass</p>
+                      </div>
+                    </div>
+                    <!--Stack-->
+                    <div class="column is-3">
+                      <div class="template-stack-card">
+                        <i class="iconify" data-icon="logos:gulp"></i>
+                        <h3 class="title is-6 is-narrow">Gulp</h3>
+                        <p class="paragraph rem-85">Version 4.x</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
+              </div>
 
-                <!--Tweet-->
-                <div class="widget tweet-widget">
-                  <div class="tweet-header">
-                    <img
-                      src="https://via.placeholder.com/250x250"
-                      alt=""
-                      data-demo-src="/img/avatars/janet.jpg"
-                    />
-                    <div class="user-info">
-                      <div class="name">Janet Briggs</div>
-                      <div class="alias">@theshoppist</div>
+              <!--Section-->
+              <div class="template-info-section">
+                <!--Section title-->
+                <div class="max-w-4 mb-5">
+                  <h2 class="title is-3 is-bold is-leading">Features</h2>
+                  <p class="paragraph">
+                    Dashkit ships with a lot of features to make your developer and
+                    customer experiences as nice as possible, without the hassle
+                    and unecessary effort.
+                  </p>
+                </div>
+
+                <!--Features-->
+                <div class="template-features">
+                  <div class="columns is-multiline b-columns-third-tablet-p">
+                    <!--Feature-->
+                    <div class="column is-4">
+                      <div class="template-feature">
+                        <i
+                          class="iconify"
+                          data-icon="ph:circles-three-duotone"
+                        ></i>
+                        <h3 class="title is-6 is-leading">Modern UI</h3>
+                        <p class="paragraph rem-90">
+                          A clean, well designed and well integrated UI for your
+                          app.
+                        </p>
+                      </div>
                     </div>
-                    <div class="twitter-icon">
-                      <i class="fab fa-twitter"></i>
+
+                    <!--Feature-->
+                    <div class="column is-4">
+                      <div class="template-feature">
+                        <i
+                          class="iconify"
+                          data-icon="ph:terminal-window-duotone"
+                        ></i>
+                        <h3 class="title is-6 is-leading">Clean code</h3>
+                        <p class="paragraph rem-90">
+                          A clean code structure is there to help you with your
+                          workflow.
+                        </p>
+                      </div>
+                    </div>
+
+                    <!--Feature-->
+                    <div class="column is-4">
+                      <div class="template-feature">
+                        <i
+                          class="iconify"
+                          data-icon="ph:moon-stars-duotone"
+                        ></i>
+                        <h3 class="title is-6 is-leading">Native dark mode</h3>
+                        <p class="paragraph rem-90">
+                          Dashkit uses native CSS variables and makes theming super
+                          easy.
+                        </p>
+                      </div>
+                    </div>
+                    <!--Feature-->
+                    <div class="column is-4">
+                      <div class="template-feature">
+                        <i
+                          class="iconify"
+                          data-icon="ph:globe-hemisphere-west-duotone"
+                        ></i>
+                        <h3 class="title is-6 is-leading">RTL support</h3>
+                        <p class="paragraph rem-90">
+                          Dashkit supports RTL based layouts, just switch the
+                          stylesheet.
+                        </p>
+                      </div>
+                    </div>
+                    <!--Feature-->
+                    <div class="column is-4">
+                      <div class="template-feature">
+                        <i
+                          class="iconify"
+                          data-icon="ph:github-logo-duotone"
+                        ></i>
+                        <h3 class="title is-6 is-leading">GitHub access</h3>
+                        <p class="paragraph rem-90">
+                          We grant you access to the private GitHub repo for
+                          live updates.
+                        </p>
+                      </div>
+                    </div>
+                    <!--Feature-->
+                    <div class="column is-4">
+                      <div class="template-feature">
+                        <i
+                          class="iconify"
+                          data-icon="ph:clock-clockwise-duotone"
+                        ></i>
+                        <h3 class="title is-6 is-leading">Lifetime updates</h3>
+                        <p class="paragraph rem-90">
+                          You're entitled to receive lifetime updates for this
+                          product.
+                        </p>
+                      </div>
+                    </div>
+                    <!--Feature-->
+                    <div class="column is-4">
+                      <div class="template-feature">
+                        <i class="iconify" data-icon="ph:books-duotone"></i>
+                        <h3 class="title is-6 is-leading">Documentation</h3>
+                        <p class="paragraph rem-90">
+                          An extensive documentation helps you setting up
+                          everything.
+                        </p>
+                      </div>
+                    </div>
+                    <!--Feature-->
+                    <div class="column is-4">
+                      <div class="template-feature">
+                        <i class="iconify" data-icon="ph:parachute-duotone"></i>
+                        <h3 class="title is-6 is-leading">Support</h3>
+                        <p class="paragraph rem-90">
+                          A dedicated customer support portal to post your
+                          requests.
+                        </p>
+                      </div>
+                    </div>
+                    <!--Feature-->
+                    <div class="column is-4">
+                      <div class="template-feature">
+                        <i
+                          class="iconify"
+                          data-icon="ph:figma-logo-duotone"
+                        ></i>
+                        <h3 class="title is-6 is-leading">Design files</h3>
+                        <p class="paragraph rem-90">
+                          A free and minimal XD/Figma UI kit to help with your
+                          mockups.
+                        </p>
+                      </div>
                     </div>
                   </div>
-                  <p class="tweet-content">
-                    Lorem ipsum dolor sit amet, integre explicari has in, justo
-                    ipsum viderer mea ad.
+                </div>
+              </div>
+
+              <!--Section-->
+              <div class="template-info-section">
+                <!--Section title-->
+                <div class="max-w-4 mb-5">
+                  <h2 class="title is-3 is-bold is-leading">Demo Pages</h2>
+                  <p class="paragraph">
+                    Dashkit ships with more than 35 superb demo pages to help you
+                    get started as fast as possible, and build an outstanding
+                    and memorable project.
                   </p>
-                  <div class="hashtags">
-                    <span>#shopping</span> <span>#fashiontime</span>
+                </div>
+
+                <!--Template demos-->
+                <div id="template-demos" class="template-demos" x-data="initRenderDemos()">
+                  <div class="columns is-multiline b-columns-third-tablet-p">
+                    <template x-for="screenshot in screenshots">
+                      <div class="column is-6 has-text-centered">
+                        <figure class="demo-wrapper">
+                          <template x-if="screenshot.new">
+                            <span class="new-tag">New</span>
+                          </template>
+
+                          <div class="image-wrapper">
+                            <img
+                              class="light-image-block"
+                              x-bind:data-src="screenshot.screenshotLight"
+                              alt="screenshot light image"
+                              data-lazy-load
+                            />
+                            <img
+                              class="dark-image-block"
+                              x-bind:data-src="screenshot.screenshotDark"
+                              alt="screenshot dark image"
+                              data-lazy-load
+                            />
+                          </div>
+
+                          <div class="circle-overlay is-landing"></div>
+                          <div class="demo-info has-text-centered">
+                            <div class="wrapper">
+                              <div
+                                class="demo-title"
+                                x-text="screenshot.name"
+                              ></div>
+                              <div class="demo-link">
+                                <a
+                                  class="is-dm"
+                                  x-bind:href="screenshot.link"
+                                  target="_blank"
+                                  >Go to demo
+                                  <i
+                                    class="iconify"
+                                    data-icon="ph:arrow-right-bold"
+                                  ></i
+                                ></a>
+                              </div>
+                            </div>
+                          </div>
+                        </figure>
+                      </div>
+                    </template>
+                  </div>
+                </div>
+              </div>
+
+              <!--Section-->
+              <div class="template-info-section">
+                <!--Section title-->
+                <div class="max-w-4 mb-5">
+                  <h2 class="title is-3 is-bold is-leading">FAQs</h2>
+                  <p class="paragraph">
+                    You probably already have a lot of questions. You can open a
+                    support ticket, or read some answers to the most common
+                    questions asked by our customers.
+                  </p>
+                </div>
+
+                <!--Template FAQ-->
+                <div class="template-faq">
+                  <div class="columns">
+                    <div class="column">
+                      <div
+                        class="accordion"
+                        x-data="initAccordion()"
+                        x-init="setup()"
+                      >
+                        <div class="accordion-item">
+                          <button id="accordion-button-1" aria-expanded="false">
+                            <span class="accordion-title"
+                              >What is the difference between regular and
+                              extended?</span
+                            ><span class="icon" aria-hidden="true"></span>
+                          </button>
+                          <div class="accordion-content">
+                            <p>
+                              The main difference between our licenses is the
+                              number of projects that you can build with our
+                              templates. If you're building a single project,
+                              the <a>regular license</a> is for you. However, if
+                              you are a professional developer or even an
+                              agency, you should consider purchasing an
+                              <a>extended license</a>, which will let you build
+                              up to 10 projects with the same license, saving up
+                              more than 30% on your purchase.
+                            </p>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <button id="accordion-button-2" aria-expanded="false">
+                            <span class="accordion-title"
+                              >What about licensing and SaaS projects?</span
+                            ><span class="icon" aria-hidden="true"></span>
+                          </button>
+                          <div class="accordion-content">
+                            <p>
+                              Unlike other platforms, it doesn't matter to us if
+                              your customers will need to pay to get access to
+                              your product. The price remains the same, whatever
+                              the type of project that you are building.
+                            </p>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <button id="accordion-button-3" aria-expanded="false">
+                            <span class="accordion-title"
+                              >What about theme customization?</span
+                            ><span class="icon" aria-hidden="true"></span>
+                          </button>
+                          <div class="accordion-content">
+                            <p>
+                              Theme customization is not part of our regular
+                              services and therefore not included in a product
+                              purchase. If you need customization services, feel
+                              free to reach us and make sure to send us your
+                              requirements so we can issue a quote for you or
+                              your company.
+                            </p>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <button id="accordion-button-4" aria-expanded="false">
+                            <span class="accordion-title"
+                              >What about the support scope?</span
+                            ><span class="icon" aria-hidden="true"></span>
+                          </button>
+                          <div class="accordion-content">
+                            <p>
+                              Our <a>support policy</a> is very clear. We only
+                              support what is directly related to the template
+                              UI. Anything else remains optional. We do not
+                              support 3rd party plugins as well though we can
+                              provide some guidance on how to use them best, but
+                              not on how to implement them or fix your own
+                              implementation.
+                            </p>
+                          </div>
+                        </div>
+                        <div class="accordion-item">
+                          <button id="accordion-button-5" aria-expanded="false">
+                            <span class="accordion-title"
+                              >Can I be refunded if I need to?</span
+                            ><span class="icon" aria-hidden="true"></span>
+                          </button>
+                          <div class="accordion-content">
+                            <p>
+                              If the product doesn't suit your needs you can
+                              always ask us to get a refund under 14 days after
+                              product purchase. After, that delay you won't be
+                              eligible for a refund anymore. Refund requests
+                              must be motivated and have a valid and reasonnable
+                              reason to be approved. For more details, please
+                              take a look at our <a>refund policy</a>.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column is-4">
+            <div x-data="initPurchaseCard()" class="purchase-card">
+              <div class="purchase-card-tabs">
+                <div class="inner-tabs">
+                  <a
+                    data-tab="regular"
+                    @click.prevent="toggleTabs($event)"
+                    :class="{
+                      'is-active': activeTab === 'regular'
+                    }"
+                    >Regular</a
+                  >
+                  <a
+                    data-tab="premium"
+                    @click.prevent="toggleTabs($event)"
+                    :class="{
+                      'is-active': activeTab === 'premium'
+                    }"
+                    >Premium</a
+                  >
+                  <a
+                    data-tab="extended"
+                    @click.prevent="toggleTabs($event)"
+                    :class="{
+                      'is-active': activeTab === 'extended'
+                    }"
+                    >Extended</a
+                  >
+                  <span class="naver"></span>
+                </div>
+
+                <div class="inner-tabs-content">
+                  <div class="inner-content">
+                    <!--Regular price-->
+                    <div x-show="activeTab === 'regular'" class="price-block">
+                      <h3 class="price-value">$39</h3>
+                      <div class="price-meta">
+                        <h4>Regular license</h4>
+                        <p class="paragraph rem-85">
+                          Build a single project for you or one of your
+                          customers.
+                        </p>
+                      </div>
+                    </div>
+
+                    <!--Premium price-->
+                    <div x-show="activeTab === 'premium'" class="price-block">
+                      <h3 class="price-value">$59</h3>
+                      <div class="price-meta">
+                        <h4>Premium license</h4>
+                        <p class="paragraph rem-85">
+                          Same as regular with private Github access.
+                        </p>
+                      </div>
+                    </div>
+
+                    <!--Extended price-->
+                    <div x-show="activeTab === 'extended'" class="price-block">
+                      <h3 class="price-value">$249</h3>
+                      <div class="price-meta">
+                        <h4>Extended license</h4>
+                        <p class="paragraph rem-85">
+                          Build up to 10 projects for you or your customers.
+                        </p>
+                      </div>
+                    </div>
+
+                    <!--Benefits-->
+                    <div class="benefits">
+                      <ul>
+                        <li x-show="activeTab !== 'extended'">
+                          <span>Up to 1 customer project</span>
+                        </li>
+                        <li x-show="activeTab === 'extended'">
+                          <span>Up to 10 customer projects</span>
+                        </li>
+                        <li :class="{
+                            'text-linethrough is-disabled': activeTab === 'regular'
+                          }">
+                          <span>Access to private repo</span>
+                        </li>
+                        <li>
+                          <span>Lifetime updates</span>
+                        </li>
+                        <li>
+                          <span>Support answers under 48h</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <!--Action-->
+                    <div class="purchase-action">
+                      <a href="https://cssninja.io/product/dashkit" class="button is-primary is-fullwidth raised"
+                        >Purchase Now</a
+                      >
+                    </div>
                   </div>
                 </div>
               </div>
@@ -464,4 +607,76 @@ title: Index
       </div>
     </div>
   </div>
+
+  <div class="section template-cta">
+    <div class="container">
+      <div class="inner">
+        <div class="columns is-vcentered">
+          <div class="column is-5">
+            <div class="cta-caption mx-auto max-w-6">
+              <h1 class="title is-2 is-bold">Ready to dive in?</h1>
+              <h3 class="subtitle is-5">
+                Forget about the hassle, about spaghetti sauce template code and
+                start working with a clean and professional UI template.
+              </h3>
+              <div class="buttons -mt-2">
+                <a href="https://cssninja.io/product/dashkit" class="button is-primary raised">Buy Now</a>
+                <a href="https://docs.cssninja.io/gulp-alpine/" class="button is-solid">Read Docs</a>
+              </div>
+            </div>
+          </div>
+          <div class="column is-6 is-offset-1">
+            <div class="template-image-wrapper">
+              <img
+                class="template-image light-image-block"
+                src="/img/demo/dashkit-mockup-1.png"
+                alt="Dashkit header image"
+              />
+              <img
+                class="template-image dark-image-block"
+                src="/img/demo/dashkit-mockup-1-dark.png"
+                alt="Dashkit header image"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Footer-->
+  <footer class="template-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="https://cssninja.io" class="footer-logo">
+          <img
+            class="inverted-filter"
+            src="/img/logo/cssninja.svg"
+            alt="css ninja logo"
+          />
+          <span>&copy; 2022-2023</span>
+          <span>All Rights Reserved.</span>
+        </a>
+
+        <div class="footer-socials">
+          <a href="https://github.com/cssninjaStudio" class="social-link">
+            <i class="iconify" data-icon="fa:github"></i>
+            <span class="is-sr-only">GitHub</span>
+          </a>
+          <a href="https://www.facebook.com/cssninjaStudio" class="social-link">
+            <i class="iconify" data-icon="fa:facebook"></i>
+            <span class="is-sr-only">Facebook</span>
+          </a>
+          <a href="https://twitter.com/cssninjaStudio" class="social-link">
+            <i class="iconify" data-icon="fa:twitter"></i>
+            <span class="is-sr-only">Twitter</span>
+          </a>
+          <a href="https://dribbble.com/DrissChelouati" class="social-link">
+            <i class="iconify" data-icon="fa:dribbble"></i>
+            <span class="is-sr-only">Twitter</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
 </div>

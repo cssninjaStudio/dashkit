@@ -20,6 +20,7 @@ $shadow-colors: 'primary', 'secondary', 'danger', 'warning', 'info', 'success', 
   --base-shadow: rgb(0 0 0 / 12%);
   --light-box-shadow: -1px 3px 10px 0 rgb(0 0 0 / 6%);
   --light-box-shadow-md: -1px 3px 10px 0 rgb(0 0 0 / 12%);
+  --spread-shadow: 0 0.25rem 1.875rem rgb(42 53 79 / 17%);
 
   @each $color in $shadow-colors {
     --#{$color}-shadow-from: hsl(

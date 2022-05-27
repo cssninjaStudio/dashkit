@@ -876,7 +876,7 @@ TABLE OF CONTENTS
 
       &.is-active {
         background: var(--secondary);
-        box-shadow: var(--secondary)-box-shadow;
+        box-shadow: var(--secondary-box-shadow);
 
         span,
         .material-icons {
@@ -1162,7 +1162,7 @@ TABLE OF CONTENTS
         &:hover {
           background: var(--secondary);
           border-color: var(--secondary);
-          box-shadow: var(--secondary)-box-shadow;
+          box-shadow: var(--secondary-box-shadow);
 
           i {
             color: var(--white-smoke);

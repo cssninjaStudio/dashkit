@@ -1,6 +1,6 @@
-export default {
+module.exports = {
 	config: {
-		port: 9050
+		port: 3000
 	},
 	paths: {
 		root: "./",

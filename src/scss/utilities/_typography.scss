@@ -138,6 +138,10 @@ var {
   text-transform: capitalize;
 }
 
+.text-linethrough {
+  text-decoration: line-through;
+}
+
 .is-font {
   font-family: var(--font);
 }

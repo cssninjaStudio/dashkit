@@ -15,7 +15,6 @@ Dashboard layout
 ========================================================================== */
 
 body {
-  overflow-x: hidden;
   background: var(--dashboard-bg-color);
 }
 
@@ -26,6 +25,7 @@ body {
 }
 
 .dashboard-outer {
+  overflow-x: hidden;
   position: relative;
   padding: 65px 40px 80px 40px;
   width: calc(100% - 80px);

@@ -37,6 +37,8 @@ import {
   insertBgImages,
   initRipple,
 } from "./libs/utils/utils";
+import { initLazyLoading } from './libs/utils/lazyload';
+import "./libs/demo";
 import "./libs/components";
 import "./libs/pages";
 
@@ -50,6 +52,9 @@ document.onreadystatechange = function () {
 
     //Feather Icons
     const featherIcons = feather.replace();
+
+    //Lazy Loading
+    const lazy = initLazyLoading();
 
     //Ripple effect
     const ripples = initRipple();

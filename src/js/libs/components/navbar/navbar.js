@@ -1,4 +1,4 @@
-import { searchData } from '../search/search';
+import { searchData } from "../search/search";
 
 export function initNavbar() {
   return {
@@ -22,7 +22,7 @@ export function initNavbar() {
     searchMocked(e) {
       let searchTerm = e.target.value;
       const batch = searchData(searchTerm);
-  },
+    },
 
     notificationsDropOpened: false,
     messagesDropOpened: false,
@@ -64,11 +64,53 @@ export function initNavbar() {
 
     openRightSidebar() {
       this.$store.app.isSidebarRightOpened = true;
-      console.log(`Trigger Right Sidebar`, this.$store.app.isSidebarRightOpened);
+      console.log(
+        `Trigger Right Sidebar`,
+        this.$store.app.isSidebarRightOpened
+      );
     },
 
     toggleReaderMode() {
-      document.querySelector('body').classList.toggle('reader-mode');
-    }
+      document.querySelector("body").classList.toggle("reader-mode");
+    },
+  };
+}
+
+export function initDemoNavbar() {
+  return {
+    scrolled: false,
+    height: 60,
+    mobileOpen: false,
+    scroll() {
+      let scrollValue = window.scrollY;
+      if (scrollValue >= this.height) {
+        this.scrolled = true;
+      } else {
+        this.scrolled = false;
+      }
+      this.searchExpanded = false;
+    },
+    openMobileMenu() {
+      this.mobileOpen = !this.mobileOpen;
+    },
+    initScrollAnchors() {
+      document
+        .querySelectorAll('.scroll-link[href^="#"]')
+        .forEach((trigger) => {
+          trigger.onclick = function (e) {
+            e.preventDefault();
+            let hash = this.getAttribute("href");
+            let target = document.querySelector(hash);
+            //let headerOffset = 72;
+            let elementPosition = target.offsetTop;
+            let offsetPosition = elementPosition + 800;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
+            });
+          };
+        });
+    },
   };
 }
