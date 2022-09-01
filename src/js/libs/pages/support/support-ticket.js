@@ -1,4 +1,4 @@
-import { successToast } from '../../components/toast/toast';
+import { successToast } from "../../components/toast/toast";
 
 export function initSupportTicket() {
   return {
@@ -80,12 +80,12 @@ export function initSupportTicket() {
     },
 
     saveTicket(e) {
-        e.target.classList.add('is-loading');
-        setTimeout(() => {
-            e.target.classList.remove('is-loading');
-            this.ticketSidebarOpen = false;
-            successToast('Changes saved successfully.')
-        }, 1200);
-    }
+      e.target.classList.add("is-loading");
+      setTimeout(() => {
+        e.target.classList.remove("is-loading");
+        this.ticketSidebarOpen = false;
+        successToast("Changes saved successfully.");
+      }, 1200);
+    },
   };
 }

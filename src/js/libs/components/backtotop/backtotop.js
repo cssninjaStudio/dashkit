@@ -8,12 +8,13 @@ export function initBackToTop() {
     height: 60,
     mobileOpen: false,
     setup() {
-      progressPath.style.transition = progressPath.style.WebkitTransition = "none";
+      progressPath.style.transition = progressPath.style.WebkitTransition =
+        "none";
       progressPath.style.strokeDasharray = pathLength + " " + pathLength;
       progressPath.style.strokeDashoffset = pathLength;
       progressPath.getBoundingClientRect();
-      progressPath.style.transition = progressPath.style.WebkitTransition = "stroke-dashoffset 10ms linear";
-      
+      progressPath.style.transition = progressPath.style.WebkitTransition =
+        "stroke-dashoffset 10ms linear";
     },
     updateProgress() {
       let scrollValue = window.scrollY;
@@ -27,15 +28,15 @@ export function initBackToTop() {
       let scrollValue = window.scrollY;
       if (scrollValue >= this.height) {
         this.scrolled = true;
-        progressWrap.classList.add('active-progress');
+        progressWrap.classList.add("active-progress");
       } else {
         this.scrolled = false;
-        progressWrap.classList.remove('active-progress');
+        progressWrap.classList.remove("active-progress");
       }
     },
     scrollTop() {
-      window.scrollTo({top: 0, behavior: 'smooth'});
+      window.scrollTo({ top: 0, behavior: "smooth" });
       return false;
-    }
+    },
   };
 }

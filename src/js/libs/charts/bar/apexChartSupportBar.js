@@ -4,7 +4,10 @@ import { themeColors } from "../../utils/constants";
 export function initApexSupportBarChart() {
   const apexSupportBarChart = document.getElementById("supportBar");
 
-  if (typeof apexSupportBarChart != "undefined" && apexSupportBarChart != null) {
+  if (
+    typeof apexSupportBarChart != "undefined" &&
+    apexSupportBarChart != null
+  ) {
     const apexSupportBarChartOptions = {
       series: [
         {
@@ -21,9 +24,9 @@ export function initApexSupportBarChart() {
       },
       plotOptions: {
         bar: {
-          startingShape: 'rounded',
-          endingShape: 'rounded',
-          columnWidth: '15%',
+          startingShape: "rounded",
+          endingShape: "rounded",
+          columnWidth: "15%",
           colors: {
             backgroundBarRadius: 100,
           },
@@ -33,7 +36,7 @@ export function initApexSupportBarChart() {
         },
       },
       grid: {
-        show: false
+        show: false,
       },
       dataLabels: {
         enabled: false,

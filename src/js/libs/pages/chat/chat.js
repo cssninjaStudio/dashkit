@@ -30,9 +30,9 @@ export function initChat() {
     },
 
     newConversationUserSelected: false,
-    selectedUserPhoto: '',
-    selectedUserName: '',
-    selectedUserPosition: '',
+    selectedUserPhoto: "",
+    selectedUserName: "",
+    selectedUserPosition: "",
     selectUser(e) {
       const username = e.target.getAttribute("data-username");
       const userPhoto = e.target.getAttribute("src");

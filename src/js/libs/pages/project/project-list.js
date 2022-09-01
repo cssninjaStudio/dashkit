@@ -1,4 +1,7 @@
-import { eventStartDatepicker, eventEndDatepicker } from '../../components/datepicker/datepicker';
+import {
+  eventStartDatepicker,
+  eventEndDatepicker,
+} from "../../components/datepicker/datepicker";
 
 export function initProjectList() {
   return {
@@ -35,9 +38,6 @@ export function initProjectList() {
           console.log(`Sorry, something went wrong.`);
       }
     },
-
-    //newProjectStartDatepicker: eventStartDatepicker,
-    //newProjectEndDatepicker: eventEndDatepicker,
 
     inviteMemberModalOpened: false,
     toggleInviteMemberModal() {

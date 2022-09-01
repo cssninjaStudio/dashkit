@@ -5,10 +5,11 @@ export function initForumTopic() {
       this.isReplyActive = !this.isReplyActive;
     },
 
-    replyPlaceholder: '',
+    replyPlaceholder: "",
     initReplyBox() {
       const topicTitle = "Payment now supports cryptocurrencies";
-      this.replyPlaceholder = 'Reply to "' + topicTitle; + '"';
+      this.replyPlaceholder = 'Reply to "' + topicTitle;
+      +'"';
     },
   };
 }

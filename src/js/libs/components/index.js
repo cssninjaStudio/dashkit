@@ -1,10 +1,10 @@
-import { initTheme } from './theme/theme';
-import { initDemoNavbar, initNavbar } from './navbar/navbar';
-import { initSidebar } from './sidebar/sidebar';
-import { initSidebarLeft } from './sidebar/sidebar-left';
-import { initSidebarRight } from './sidebar/sidebar-right';
-import { initAccordion } from './accordion/accordion';
-import { initBackToTop } from './backtotop/backtotop';
+import { initTheme } from "./theme/theme";
+import { initDemoNavbar, initNavbar } from "./navbar/navbar";
+import { initSidebar } from "./sidebar/sidebar";
+import { initSidebarLeft } from "./sidebar/sidebar-left";
+import { initSidebarRight } from "./sidebar/sidebar-right";
+import { initAccordion } from "./accordion/accordion";
+import { initBackToTop } from "./backtotop/backtotop";
 
 window.initTheme = initTheme;
 window.initDemoNavbar = initDemoNavbar;
