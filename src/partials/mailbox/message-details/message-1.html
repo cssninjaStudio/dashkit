@@ -1,160 +1,190 @@
 <!-- Message details -->
-<div x-show="activeMessage === 'message-1'" id="message-1" class="inbox-message-details" :class="{
+<div
+  x-show="activeMessage === 'message-1'"
+  id="message-1"
+  class="inbox-message-details"
+  :class="{
         'mobile-active tablet-active': isMobileMessageActive,
         '': !isMobileMessageActive
-    }">
-    <div class="header-area">
-        <img class="sender-pic" src="https://via.placeholder.com/150x150" data-demo-src="/img/avatars/alan.jpg"
-            alt="">
-        <div class="message-meta">
-            <span class="message-title">Important project review next thursday</span>
-            <span class="sender-email">&lt;alan@Dashkit.io&gt;</span>
+    }"
+>
+  <div class="header-area">
+    <img class="sender-pic" src="/img/avatars/alan.jpg" alt="" />
+    <div class="message-meta">
+      <span class="message-title">Important project review next thursday</span>
+      <span class="sender-email">&lt;alan@Dashkit.io&gt;</span>
+    </div>
+    <div class="attachments inbox-hidden-mobile">
+      <i class="sl icon-paper-clip"></i>
+      <span>2</span>
+    </div>
+    <div
+      x-ref="messagedrop1"
+      @click.away="$refs.messagedrop1.classList.remove('is-active')"
+      class="dropdown inbox-dropdown dropdown-trigger is-right"
+    >
+      <div>
+        <button
+          @click="$refs.messagedrop1.classList.add('is-active')"
+          class="button"
+        >
+          <span class="icon is-small">
+            <i class="sl icon-options"></i>
+          </span>
+        </button>
+      </div>
+      <div class="dropdown-menu">
+        <div class="dropdown-content">
+          <a class="dropdown-item">
+            <i class="sl icon-star"></i>
+            <span>Bookmark message</span>
+          </a>
+          <hr class="dropdown-divider" />
+          <a class="dropdown-item">
+            <i class="sl icon-share"></i>
+            <span>Share message</span>
+          </a>
+          <hr class="dropdown-divider" />
+          <a class="dropdown-item">
+            <i class="sl icon-shield"></i>
+            <span>Mark as spam</span>
+          </a>
         </div>
-        <div class="attachments inbox-hidden-mobile">
-            <i class="sl icon-paper-clip"></i>
-            <span>2</span>
+      </div>
+    </div>
+    <a
+      @click="closeMobileMessage()"
+      class="inbox-action inbox-close-details-mobile"
+    >
+      <i class="material-icons">close</i>
+    </a>
+  </div>
+  <!--Message-->
+  <div class="message-wrapper has-slimscroll">
+    <div class="message-inner">
+      <div class="message-head">
+        <div class="info">
+          <span>Sent on</span>
+          <span>Mar 01 2020, at 02:33pm</span>
         </div>
-        <div x-ref="messagedrop1" @click.away="$refs.messagedrop1.classList.remove('is-active')" class="dropdown inbox-dropdown dropdown-trigger is-right">
+        <div class="message-actions">
+          <a class="inbox-action">
+            <i class="sl icon-action-undo"></i>
+          </a>
+          <a class="inbox-action">
+            <i class="sl icon-docs"></i>
+          </a>
+          <a class="inbox-action">
+            <i class="sl icon-tag"></i>
+          </a>
+          <a class="inbox-action">
+            <i class="sl icon-bubble"></i>
+          </a>
+          <a class="inbox-action">
+            <i class="sl icon-lock"></i>
+          </a>
+        </div>
+      </div>
+      <!--Mail Content-->
+      <div class="mail-content content">
+        <p>Hey Helen,</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Haec igitur
+          Epicuri non probo, inquam. Nihil sane. <b>Efficiens dici potest.</b>
+          <i>Urgent tamen et nihil remittunt.</i> Ea possunt paria non esse. Duo
+          Reges: constructio interrete.
+        </p>
+        <ul>
+          <li>
+            Ab his oratores, ab his imperatores ac rerum publicarum principes
+            extiterunt.
+          </li>
+          <li>Eiuro, inquit adridens, iniquum, hac quidem de re;</li>
+        </ul>
+        <p>
+          Tum Triarius: Posthac quidem, inquit, audacius. Quodsi ipsam
+          honestatem undique pertectam atque absolutam. Comprehensum, quod
+          cognitum non habet?
+        </p>
+        <p>
+          <i>Nonne igitur tibi videntur, inquit, mala?</i> Poterat autem inpune;
+          Nunc omni virtuti vitium contrario nomine opponitur.
+        </p>
+        <p>Sincerely,</p>
+        <p>Alan Maynard - Cofounder</p>
+      </div>
+
+      <!-- Attachments -->
+      <div class="attachments-list">
+        <div class="attachment">
+          <span>budget_draft.xlsx</span>
+          <div class="download-icon">
+            <i class="material-icons">arrow_downward</i>
+          </div>
+        </div>
+        <div class="attachment">
+          <span>project-notes.docx</span>
+          <div class="download-icon">
+            <i class="material-icons">arrow_downward</i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Reply-->
+    <div class="reply-box-wrap">
+      <div class="reply-bubble">
+        <div class="reply-as">
+          <img src="/img/avatars/helen.jpg" alt="" />
+          <div class="reply-details">
+            <span>Reply as</span>
+            <span>helenmiller@Dashkit.io</span>
+          </div>
+          <div
+            x-ref="composedrop1"
+            @click.away="$refs.composedrop1.classList.remove('is-active')"
+            class="dropdown inbox-dropdown dropdown-trigger is-right"
+          >
             <div>
-                <button @click="$refs.messagedrop1.classList.add('is-active')" class="button">
-                    <span class="icon is-small">
-                        <i class="sl icon-options"></i>
-                    </span>
-                </button>
+              <button
+                @click="$refs.composedrop1.classList.add('is-active')"
+                class="button"
+              >
+                <span class="icon is-small">
+                  <i class="sl icon-options"></i>
+                </span>
+              </button>
             </div>
             <div class="dropdown-menu">
-                <div class="dropdown-content">
-                    <a class="dropdown-item">
-                        <i class="sl icon-star"></i>
-                        <span>Bookmark message</span>
-                    </a>
-                    <hr class="dropdown-divider">
-                    <a class="dropdown-item">
-                        <i class="sl icon-share"></i>
-                        <span>Share message</span>
-                    </a>
-                    <hr class="dropdown-divider">
-                    <a class="dropdown-item">
-                        <i class="sl icon-shield"></i>
-                        <span>Mark as spam</span>
-                    </a>
-                </div>
+              <div class="dropdown-content">
+                <a class="dropdown-item">
+                  <i class="sl icon-refresh"></i>
+                  <span>Reset</span>
+                </a>
+                <hr class="dropdown-divider" />
+                <a class="dropdown-item">
+                  <i class="sl icon-book-open"></i>
+                  <span>Spelling</span>
+                </a>
+                <hr class="dropdown-divider" />
+                <a class="dropdown-item">
+                  <i class="sl icon-mustache"></i>
+                  <span>Mention</span>
+                </a>
+              </div>
             </div>
+          </div>
         </div>
-        <a @click="closeMobileMessage()" class="inbox-action inbox-close-details-mobile">
-            <i class="material-icons">close</i>
-        </a>
+        <!--textarea-->
+        <div class="control">
+          <textarea
+            class="textarea"
+            rows="6"
+            placeholder="Type your message..."
+          ></textarea>
+          <button type="button" class="button">Send Message</button>
+        </div>
+      </div>
     </div>
-    <!--Message-->
-    <div class="message-wrapper has-slimscroll">
-        <div class="message-inner">
-            <div class="message-head">
-                <div class="info">
-                    <span>Sent on</span>
-                    <span>Mar 01 2020, at 02:33pm</span>
-                </div>
-                <div class="message-actions">
-                    <a class="inbox-action">
-                        <i class="sl icon-action-undo"></i>
-                    </a>
-                    <a class="inbox-action">
-                        <i class="sl icon-docs"></i>
-                    </a>
-                    <a class="inbox-action">
-                        <i class="sl icon-tag"></i>
-                    </a>
-                    <a class="inbox-action">
-                        <i class="sl icon-bubble"></i>
-                    </a>
-                    <a class="inbox-action">
-                        <i class="sl icon-lock"></i>
-                    </a>
-                </div>
-            </div>
-            <!--Mail Content-->
-            <div class="mail-content content">
-                <p>Hey Helen,</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Haec igitur Epicuri non probo, inquam. Nihil
-                    sane.
-                    <b>Efficiens dici potest.</b> <i>Urgent tamen et nihil remittunt.</i> Ea possunt paria non esse. Duo
-                    Reges:
-                    constructio interrete. </p>
-                <ul>
-                    <li>Ab his oratores, ab his imperatores ac rerum publicarum principes extiterunt.</li>
-                    <li>Eiuro, inquit adridens, iniquum, hac quidem de re;</li>
-                </ul>
-                <p>Tum Triarius: Posthac quidem, inquit, audacius. Quodsi ipsam honestatem undique pertectam atque
-                    absolutam.
-                    Comprehensum, quod cognitum non habet? </p>
-                <p><i>Nonne igitur tibi videntur, inquit, mala?</i> Poterat autem inpune; Nunc omni virtuti vitium
-                    contrario nomine
-                    opponitur. </p>
-                <p>Sincerely,</p>
-                <p>Alan Maynard - Cofounder</p>
-            </div>
-
-            <!-- Attachments -->
-            <div class="attachments-list">
-                <div class="attachment">
-                    <span>budget_draft.xlsx</span>
-                    <div class="download-icon">
-                        <i class="material-icons">arrow_downward</i>
-                    </div>
-                </div>
-                <div class="attachment">
-                    <span>project-notes.docx</span>
-                    <div class="download-icon">
-                        <i class="material-icons">arrow_downward</i>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!--Reply-->
-        <div class="reply-box-wrap">
-            <div class="reply-bubble">
-                <div class="reply-as">
-                    <img src="https://via.placeholder.com/150x150" data-demo-src="/img/avatars/helen.jpg"
-                        alt="">
-                    <div class="reply-details">
-                        <span>Reply as</span>
-                        <span>helenmiller@Dashkit.io</span>
-                    </div>
-                    <div x-ref="composedrop1" @click.away="$refs.composedrop1.classList.remove('is-active')" class="dropdown inbox-dropdown dropdown-trigger is-right">
-                        <div>
-                            <button @click="$refs.composedrop1.classList.add('is-active')" class="button">
-                                <span class="icon is-small">
-                                    <i class="sl icon-options"></i>
-                                </span>
-                            </button>
-                        </div>
-                        <div class="dropdown-menu">
-                            <div class="dropdown-content">
-                                <a class="dropdown-item">
-                                    <i class="sl icon-refresh"></i>
-                                    <span>Reset</span>
-                                </a>
-                                <hr class="dropdown-divider">
-                                <a class="dropdown-item">
-                                    <i class="sl icon-book-open"></i>
-                                    <span>Spelling</span>
-                                </a>
-                                <hr class="dropdown-divider">
-                                <a class="dropdown-item">
-                                    <i class="sl icon-mustache"></i>
-                                    <span>Mention</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--textarea-->
-                <div class="control">
-                    <textarea class="textarea" rows="6" placeholder="Type your message..."></textarea>
-                    <button type="button" class="button">Send Message</button>
-                </div>
-            </div>
-        </div>
-
-    </div>
+  </div>
 </div>

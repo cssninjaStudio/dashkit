@@ -1,108 +1,117 @@
 <div class="chat-wrapper" x-data="initChat()">
-    <div class="chat-inner">
+  <div class="chat-inner">
+    <!-- Chat top navigation -->
+    {{> chat-nav}}
 
-        <!-- Chat top navigation -->
-        {{> chat-nav}}
-
-        <!-- Chat sidebar -->
-        <div id="chat-sidebar" class="users-sidebar">
-            <!-- Header -->
-            <a href="/" class="header-item">
-                <img class="light-image-block" src="/img/logo/square-violet.svg" alt="">
-                <img class="dark-image-block" src="/img/logo/square-green.svg" alt="">
-            </a>
-            <!-- User list -->
-            <div class="conversations-list has-slimscroll-xs">
-                {{> conversations-list}}
-            </div>
-            <!-- Add Conversation -->
-            <div class="footer-item">
-                <div  @click="toggleConversationModal()" class="add-button"><i class="material-icons">add</i></div>
-            </div>
+    <!-- Chat sidebar -->
+    <div id="chat-sidebar" class="users-sidebar">
+      <!-- Header -->
+      <a href="/" class="header-item">
+        <img
+          class="light-image-block"
+          src="/img/logo/square-violet.svg"
+          alt=""
+        />
+        <img class="dark-image-block" src="/img/logo/square-green.svg" alt="" />
+      </a>
+      <!-- User list -->
+      <div class="conversations-list has-slimscroll-xs">
+        {{> conversations-list}}
+      </div>
+      <!-- Add Conversation -->
+      <div class="footer-item">
+        <div @click="toggleConversationModal()" class="add-button">
+          <i class="material-icons">add</i>
         </div>
-
-        <!-- Chat body -->
-        <div id="chat-body" class="chat-body" :class="{
-                'is-opened': chatBodyOpened,
-                '': !chatBodyOpened
-            }">
-            <!-- Conversation with Dan -->
-            {{> dan-conversation}}
-
-            <!-- Conversation with Elie -->
-            {{> elie-conversation}}
-
-            <!-- Conversation with Lakisha -->
-            {{> lakisha-conversation}}
-
-            <!-- Conversation with Anthony -->
-            {{> anthony-conversation}}
-
-            <!-- Conversation with Alex -->
-            {{> alex-conversation}}
-
-            <!-- Conversation with Ray -->
-            {{> ray-conversation}}
-
-            <!-- Conversation with Nick -->
-            {{> nick-conversation}}
-
-            <!-- Conversation with Sally -->
-            {{> sally-conversation}}
-
-            <!-- Compose message area -->
-            <div class="chat-action">
-                <div class="chat-action-inner">
-                    <div class="control">
-                        <textarea class="textarea comment-textarea" rows="1"></textarea>
-                        {{> compose-add-dropdown}}
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div id="chat-panel" class="chat-panel" :class="{
-                'is-opened': chatBodyOpened,
-                '': !chatBodyOpened
-            }">
-            <div class="panel-inner">
-                <div class="panel-header">
-                    <h3>Details</h3>
-                    <div @click="closeChatPanel()" class="panel-close">
-                        <i class="material-icons">close</i>
-                    </div>
-                </div>
-
-                <!-- Dan details -->
-                {{> dan-details}}
-
-                <!-- Lakisha details -->
-                {{> lakisha-details}}
-
-                <!-- Elie details -->
-                {{> elie-details}}
-
-                <!-- Anthony details -->
-                {{> anthony-details}}
-
-                <!-- Alex details -->
-                {{> alex-details}}
-
-                <!-- Ray details -->
-                {{> ray-details}}
-
-                <!-- Nick details -->
-                {{> nick-details}}
-
-                <!-- Sally details -->
-                {{> sally-details}}
-
-            </div>
-        </div>
+      </div>
     </div>
 
-    {{> add-conversation-modal}}
+    <!-- Chat body -->
+    <div
+      id="chat-body"
+      class="chat-body"
+      :class="{
+                'is-opened': chatBodyOpened,
+                '': !chatBodyOpened
+            }"
+    >
+      <!-- Conversation with Dan -->
+      {{> dan-conversation}}
 
+      <!-- Conversation with Elie -->
+      {{> elie-conversation}}
+
+      <!-- Conversation with Lakisha -->
+      {{> lakisha-conversation}}
+
+      <!-- Conversation with Anthony -->
+      {{> anthony-conversation}}
+
+      <!-- Conversation with Alex -->
+      {{> alex-conversation}}
+
+      <!-- Conversation with Ray -->
+      {{> ray-conversation}}
+
+      <!-- Conversation with Nick -->
+      {{> nick-conversation}}
+
+      <!-- Conversation with Sally -->
+      {{> sally-conversation}}
+
+      <!-- Compose message area -->
+      <div class="chat-action">
+        <div class="chat-action-inner">
+          <div class="control">
+            <textarea class="textarea comment-textarea" rows="1"></textarea>
+            {{> compose-add-dropdown}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="chat-panel"
+      class="chat-panel"
+      :class="{
+                'is-opened': chatBodyOpened,
+                '': !chatBodyOpened
+            }"
+    >
+      <div class="panel-inner">
+        <div class="panel-header">
+          <h3>Details</h3>
+          <div @click="closeChatPanel()" class="panel-close">
+            <i class="material-icons">close</i>
+          </div>
+        </div>
+
+        <!-- Dan details -->
+        {{> dan-details}}
+
+        <!-- Lakisha details -->
+        {{> lakisha-details}}
+
+        <!-- Elie details -->
+        {{> elie-details}}
+
+        <!-- Anthony details -->
+        {{> anthony-details}}
+
+        <!-- Alex details -->
+        {{> alex-details}}
+
+        <!-- Ray details -->
+        {{> ray-details}}
+
+        <!-- Nick details -->
+        {{> nick-details}}
+
+        <!-- Sally details -->
+        {{> sally-details}}
+      </div>
+    </div>
+  </div>
+
+  {{> add-conversation-modal}}
 </div>
-

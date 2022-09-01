@@ -1,182 +1,203 @@
 <!-- Create Project Modal -->
-<div class="modal create-project-modal" :class="{
+<div
+  class="modal create-project-modal"
+  :class="{
         'is-active': newProjectModalOpened,
         '': !newProjectModalOpened
-    }">
-    <div @click="toggleNewProjectModal()" class="modal-background"></div>
-    <div class="modal-content">
-        <div class="flex-card p-5">
-            <div class="modal-title">
-                <h2>New Project</h2>
-            </div>
-            <div class="navigation-tabs layout-tabs animated-tabs">
-                <div class="tabs is-toggle is-fullwidth no-margin-bottom">
-                    <ul>
-                        <li class="tab-link" @click="toggleModalTabs('overview-modal-tab')" :class="{
+    }"
+>
+  <div @click="toggleNewProjectModal()" class="modal-background"></div>
+  <div class="modal-content">
+    <div class="flex-card p-5">
+      <div class="modal-title">
+        <h2>New Project</h2>
+      </div>
+      <div class="navigation-tabs layout-tabs animated-tabs">
+        <div class="tabs is-toggle is-fullwidth no-margin-bottom">
+          <ul>
+            <li
+              class="tab-link"
+              @click="toggleModalTabs('overview-modal-tab')"
+              :class="{
                             'is-active': activeModalTab === 'overview-modal-tab',
                             '': activeModalTab !== 'overview-modal-tab',
-                        }"><a>Details</a></li>
-                        <li class="tab-link" @click="toggleModalTabs('members-modal-tab')" :class="{
+                        }"
+            >
+              <a>Details</a>
+            </li>
+            <li
+              class="tab-link"
+              @click="toggleModalTabs('members-modal-tab')"
+              :class="{
                             'is-active': activeModalTab === 'members-modal-tab',
                             '': activeModalTab !== 'members-modal-tab',
-                        }"><a>Members</a></li>
-                    </ul>
-                </div>
-
-                <div x-show="activeModalTab === 'overview-modal-tab'" class="navtab-content is-active">
-                    <div class="card-body">
-                        <div class="content">
-                            <form>
-
-                                <div class="field mb-5">
-                                    <label class="label dark-text">Project Dates</label>
-                                    <div class="columns is-vcentered is-fieldset">
-                                        <div class="column is-3">
-                                            <div class="field-label">Start date*</div>
-                                        </div>
-                                        <div class="column is-9">
-                                            <div class="control has-icon">
-                                                <input type="text" class="input event-datepicker-start"
-                                                    placeholder="Start Date">
-                                                <span class="form-icon">
-                                                    <i class="im icon-Calendar-4"></i>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="field mb-5">
-                                    <label class="label dark-text">Project Meta</label>
-                                    <div class="columns is-vcentered is-fieldset">
-                                        <div class="column is-3">
-                                            <div class="field-label">Project Name*</div>
-                                        </div>
-                                        <div class="column is-9">
-                                            <input type="text" class="input">
-                                        </div>
-                                    </div>
-                                    <div class="columns is-fieldset">
-                                        <div class="column is-3">
-                                            <div class="field-label">Description*</div>
-                                        </div>
-                                        <div class="column is-9">
-                                            <textarea class="textarea" rows="4"></textarea>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-footer">
-                                    <button @click="toggleNewProjectModal()" type="button" class="button">Cancel</button>
-                                    <button type="submit" class="button is-secondary">Create Project</button>
-                                </div>
-
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div x-show="activeModalTab === 'members-modal-tab'" id="project-members" class="navtab-content">
-
-                    <div class="project-members">
-                        <div class="face">
-                            <img src="https://via.placeholder.com/250x250" alt=""
-                            data-demo-src="/img/avatars/ray.jpg">
-                        </div>
-                        <div class="face">
-                            <img src="https://via.placeholder.com/250x250" alt=""
-                            data-demo-src="/img/avatars/helen.jpg">
-                        </div>
-                        <div class="face">
-                            <img src="https://via.placeholder.com/250x250" alt=""
-                            data-demo-src="/img/avatars/elie.jpg">
-                        </div>
-                        <div class="face">
-                            <img src="https://via.placeholder.com/250x250" alt=""
-                            data-demo-src="/img/avatars/ben.jpg">
-                        </div>
-                    </div>
-
-                    <div class="modal-filter">
-                        <div class="control has-icon">
-                            <input class="input is-medium is-rounded" type="text" placeholder="Filter Members">
-                            <div class="form-icon is-medium">
-                                <span class="material-icons">filter_list</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card-body">
-                        <div class="members-select">
-                            <div class="member-row">
-                                <img src="https://via.placeholder.com/250x250" alt=""
-                                data-demo-src="/img/avatars/eric.png">
-                                <span>Eric Daniels</span>
-                                <div class="b-checkbox is-secondary">
-                                    <input id="user1" class="styled" type="checkbox" checked>
-                                    <label for="user1"></label>
-                                </div>
-                            </div>
-                            <div class="member-row">
-                                <img src="https://via.placeholder.com/250x250" alt=""
-                                data-demo-src="/img/avatars/anthony.jpg">
-                                <span>Anthony Briggs</span>
-                                <div class="b-checkbox is-secondary">
-                                    <input id="user2" class="styled" type="checkbox" checked>
-                                    <label for="user2"></label>
-                                </div>
-                            </div>
-                            <div class="member-row">
-                                <img src="https://via.placeholder.com/250x250" alt=""
-                                data-demo-src="/img/avatars/janet.jpg">
-                                <span>Jenna De Camp</span>
-                                <div class="b-checkbox is-secondary">
-                                    <input id="user3" class="styled" type="checkbox" checked>
-                                    <label for="user3"></label>
-                                </div>
-                            </div>
-                            <div class="member-row">
-                                <img src="https://via.placeholder.com/250x250" alt=""
-                                data-demo-src="/img/avatars/aaron.jpg">
-                                <span>Rolf Van Buren</span>
-                                <div class="b-checkbox is-secondary">
-                                    <input id="user4" class="styled" type="checkbox">
-                                    <label for="user4"></label>
-                                </div>
-                            </div>
-                            <div class="member-row">
-                                <img src="https://via.placeholder.com/250x250" alt=""
-                                data-demo-src="/img/avatars/marge.jpg">
-                                <span>Magda Hilden</span>
-                                <div class="b-checkbox is-secondary">
-                                    <input id="user5" class="styled" type="checkbox">
-                                    <label for="user5"></label>
-                                </div>
-                            </div>
-                            <div class="member-row">
-                                <img src="https://via.placeholder.com/250x250" alt=""
-                                data-demo-src="/img/avatars/alex.jpg">
-                                <span>Alex Sheller</span>
-                                <div class="b-checkbox is-secondary">
-                                    <input id="user6" class="styled" type="checkbox">
-                                    <label for="user6"></label>
-                                </div>
-                            </div>
-                            <div class="member-row">
-                                <img src="https://via.placeholder.com/250x250" alt=""
-                                data-demo-src="/img/avatars/jane.jpg">
-                                <span>Katarina Vosniak</span>
-                                <div class="b-checkbox is-secondary">
-                                    <input id="user7" class="styled" type="checkbox">
-                                    <label for="user7"></label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+                        }"
+            >
+              <a>Members</a>
+            </li>
+          </ul>
         </div>
+
+        <div
+          x-show="activeModalTab === 'overview-modal-tab'"
+          class="navtab-content is-active"
+        >
+          <div class="card-body">
+            <div class="content">
+              <form>
+                <div class="field mb-5">
+                  <label class="label dark-text">Project Dates</label>
+                  <div class="columns is-vcentered is-fieldset">
+                    <div class="column is-3">
+                      <div class="field-label">Start date*</div>
+                    </div>
+                    <div class="column is-9">
+                      <div class="control has-icon">
+                        <input
+                          type="text"
+                          class="input event-datepicker-start"
+                          placeholder="Start Date"
+                        />
+                        <span class="form-icon">
+                          <i class="im icon-Calendar-4"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="field mb-5">
+                  <label class="label dark-text">Project Meta</label>
+                  <div class="columns is-vcentered is-fieldset">
+                    <div class="column is-3">
+                      <div class="field-label">Project Name*</div>
+                    </div>
+                    <div class="column is-9">
+                      <input type="text" class="input" />
+                    </div>
+                  </div>
+                  <div class="columns is-fieldset">
+                    <div class="column is-3">
+                      <div class="field-label">Description*</div>
+                    </div>
+                    <div class="column is-9">
+                      <textarea class="textarea" rows="4"></textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-footer">
+                  <button
+                    @click="toggleNewProjectModal()"
+                    type="button"
+                    class="button"
+                  >
+                    Cancel
+                  </button>
+                  <button type="submit" class="button is-secondary">
+                    Create Project
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div
+          x-show="activeModalTab === 'members-modal-tab'"
+          id="project-members"
+          class="navtab-content"
+        >
+          <div class="project-members">
+            <div class="face">
+              <img src="/img/avatars/ray.jpg" alt="" />
+            </div>
+            <div class="face">
+              <img src="/img/avatars/helen.jpg" alt="" />
+            </div>
+            <div class="face">
+              <img src="/img/avatars/elie.jpg" alt="" />
+            </div>
+            <div class="face">
+              <img src="/img/avatars/ben.jpg" alt="" />
+            </div>
+          </div>
+
+          <div class="modal-filter">
+            <div class="control has-icon">
+              <input
+                class="input is-medium is-rounded"
+                type="text"
+                placeholder="Filter Members"
+              />
+              <div class="form-icon is-medium">
+                <span class="material-icons">filter_list</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="members-select">
+              <div class="member-row">
+                <img src="/img/avatars/eric.png" alt="" />
+                <span>Eric Daniels</span>
+                <div class="b-checkbox is-secondary">
+                  <input id="user1" class="styled" type="checkbox" checked />
+                  <label for="user1"></label>
+                </div>
+              </div>
+              <div class="member-row">
+                <img src="/img/avatars/anthony.jpg" alt="" />
+                <span>Anthony Briggs</span>
+                <div class="b-checkbox is-secondary">
+                  <input id="user2" class="styled" type="checkbox" checked />
+                  <label for="user2"></label>
+                </div>
+              </div>
+              <div class="member-row">
+                <img src="/img/avatars/janet.jpg" alt="" />
+                <span>Jenna De Camp</span>
+                <div class="b-checkbox is-secondary">
+                  <input id="user3" class="styled" type="checkbox" checked />
+                  <label for="user3"></label>
+                </div>
+              </div>
+              <div class="member-row">
+                <img src="/img/avatars/aaron.jpg" alt="" />
+                <span>Rolf Van Buren</span>
+                <div class="b-checkbox is-secondary">
+                  <input id="user4" class="styled" type="checkbox" />
+                  <label for="user4"></label>
+                </div>
+              </div>
+              <div class="member-row">
+                <img src="/img/avatars/marge.jpg" alt="" />
+                <span>Magda Hilden</span>
+                <div class="b-checkbox is-secondary">
+                  <input id="user5" class="styled" type="checkbox" />
+                  <label for="user5"></label>
+                </div>
+              </div>
+              <div class="member-row">
+                <img src="/img/avatars/alex.jpg" alt="" />
+                <span>Alex Sheller</span>
+                <div class="b-checkbox is-secondary">
+                  <input id="user6" class="styled" type="checkbox" />
+                  <label for="user6"></label>
+                </div>
+              </div>
+              <div class="member-row">
+                <img src="/img/avatars/jane.jpg" alt="" />
+                <span>Katarina Vosniak</span>
+                <div class="b-checkbox is-secondary">
+                  <input id="user7" class="styled" type="checkbox" />
+                  <label for="user7"></label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>

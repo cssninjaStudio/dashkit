@@ -4,587 +4,620 @@ title: Contact Details
 ---
 
 <!-- Main dashboard container -->
-<div id="dashboard-wrapper" class="dashboard-outer" x-data="initContactDetails()" :class="{
+<div
+  id="dashboard-wrapper"
+  class="dashboard-outer"
+  x-data="initContactDetails()"
+  :class="{
         'is-pushed': $store.app.sidebarOpenedState,
         '': !$store.app.sidebarOpenedState
-    }">
-    <div class="dashboard-inner">
-
-        <!-- Dashboard Wrapper -->
-        <div class="dashboard-wrapper">
-
-            <div id="main-dashboard" class="section-wrapper">
-                <!-- Dashboard content -->
-                <div class="dashboard-columns">
-
-                    <div class="contact-profile-wrap">
-
-                        <!-- Page title -->
-                        <div class="contacts-title-wrapper">
-                            <h3 class="contacts-title">Nick Fraiser</h3>
-                            <!-- Dropdown -->
-                            <div class="list-filter">
-                                <div x-ref="contactdrop1" @click.away="$refs.contactdrop1.classList.remove('is-active')"
-                                    class="dropdown is-right dropdown-trigger contact-events-dropdown">
-                                    <button @click="$refs.contactdrop1.classList.add('is-active')" class="button">
-                                        <i class="material-icons">more_vert</i>
-                                    </button>
-                                    <!-- Dropdown menu -->
-                                    <div class="dropdown-menu is-text-bigger" role="menu">
-                                        <div class="dropdown-content">
-                                            <a href="#" class="dropdown-item">
-                                                <i class="sl icon-paper-plane"></i>
-                                                <span>
-                                                    <span>Send</span>
-                                                    <span>Send contact details</span>
-                                                </span>
-                                            </a>
-                                            <div class="dropdown-divider"></div>
-                                            <a href="#" class="dropdown-item">
-                                                <i class="sl icon-rocket"></i>
-                                                <span>
-                                                    <span>New Deal</span>
-                                                    <span>Start new deal involving this contact</span>
-                                                </span>
-                                            </a>
-                                            <a href="#" class="dropdown-item">
-                                                <i class="sl icon-bell"></i>
-                                                <span>
-                                                    <span>Subscribe me</span>
-                                                    <span>Subscribe me to contact updates</span>
-                                                </span>
-                                            </a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item">
-                                                <i class="sl icon-shield"></i>
-                                                <span>
-                                                    <span>Disable</span>
-                                                    <span>Disables this contact</span>
-                                                </span>
-                                            </a>
-                                            <a class="dropdown-item">
-                                                <i class="sl icon-trash"></i>
-                                                <span>
-                                                    <span>Delete</span>
-                                                    <span>Delete this event</span>
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Edit button -->
-                                <a class="button is-secondary is-raised has-icon">
-                                    <i class="material-icons">short_text</i>
-                                    Edit Contact
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="columns contact-profile">
-                            <!-- Avatar Card -->
-                            <div class="column is-4">
-                                <div class="flex-card is-avatar light-bordered card-overflow">
-                                    <div class="inner">
-                                        <div class="contact-block">
-                                            <!-- Avatar -->
-                                            <div class="avatar-wrapper">
-                                                <img src="https://via.placeholder.com/150x150" alt=""
-                                                    data-demo-src="/img/avatars/nick.jpg">
-                                            </div>
-                                            <!-- Meta -->
-                                            <div class="contact-name">Nick Fraiser</div>
-                                            <div class="contact-company">Multicorp Inc.</div>
-                                            <!-- Stats -->
-                                            <div class="stats-block">
-                                                <div class="stat">
-                                                    <span>Deals</span>
-                                                    <span>24</span>
-                                                </div>
-                                                <div class="stat">
-                                                    <span>Won</span>
-                                                    <span>17</span>
-                                                </div>
-                                                <div class="stat">
-                                                    <span>Lost</span>
-                                                    <span>7</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="column is-8">
-                                <!-- Contact informations -->
-                                <div class="flex-card is-contact-info light-bordered card-overflow">
-                                    <!-- Tabs -->
-                                    <div class="navigation-tabs single-contact-tabs animated-tabs simple-tabs">
-                                        <div class="tabs">
-                                            <ul>
-                                                <li @click="toggleTabs('overview-tab')" :class="{
-                                                    'is-active': activeTab === 'overview-tab',
-                                                    '': activeTab !== 'overview-tab',
-                                                }"><a>General</a></li>
-                                                <li @click="toggleTabs('events-tab')" :class="{
-                                                    'is-active': activeTab === 'events-tab',
-                                                    '': activeTab !== 'events-tab',
-                                                }"><a>Events</a></li>
-                                                <li @click="toggleTabs('calls-tab')" :class="{
-                                                    'is-active': activeTab === 'calls-tab',
-                                                    '': activeTab !== 'calls-tab',
-                                                }"><a>Calls</a></li>
-                                            </ul>
-                                        </div>
-
-                                        <!-- General informations -->
-                                        <div x-show.transition="activeTab === 'overview-tab'"
-                                            class="navtab-content is-active">
-                                            <div class="columns">
-                                                <div class="column is-6">
-                                                    <!-- Info block -->
-                                                    <div class="info-block">
-                                                        <div class="info-label">
-                                                            Email
-                                                        </div>
-                                                        <div class="info-content is-email">
-                                                            jbarker@multicorp.co
-                                                        </div>
-                                                    </div>
-                                                    <!-- Info block -->
-                                                    <div class="info-block">
-                                                        <div class="info-label">
-                                                            Phone (1)
-                                                        </div>
-                                                        <div class="info-content">
-                                                            +1 555 28 354
-                                                        </div>
-                                                    </div>
-                                                    <!-- Info block -->
-                                                    <div class="info-block">
-                                                        <div class="info-label">
-                                                            Company
-                                                        </div>
-                                                        <div class="info-content">
-                                                            Multicorp Inc.
-                                                        </div>
-                                                    </div>
-                                                    <!-- Info block -->
-                                                    <div class="info-block">
-                                                        <div class="info-label">
-                                                            Position
-                                                        </div>
-                                                        <div class="info-content">
-                                                            HR Manager
-                                                        </div>
-                                                    </div>
-                                                    <!-- Info block -->
-                                                    <div class="info-block">
-                                                        <div class="info-label">
-                                                            Location
-                                                        </div>
-                                                        <div class="info-content">
-                                                            New York, USA
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="column is-6">
-                                                    <!-- Contact summary -->
-                                                    <div class="info-block">
-                                                        <div class="info-label">
-                                                            Quick Summary
-                                                        </div>
-                                                        <div class="info-content is-notes">
-                                                            Lorem ipsum dolor sit amet, ad blandit intellegam cum, nulla
-                                                            legere possit id vim,
-                                                            clita nullam graecis duo ne.
-                                                        </div>
-                                                        <!-- Switch -->
-                                                        <div class="field is-prospect">
-                                                            <label class="f-switch is-secondary scale-7">
-                                                                <input id="prospectSwitch" type="checkbox"
-                                                                    class="is-secondary">
-                                                                <i></i>
-                                                            </label>
-                                                            <label for="prospectSwitch"><span>This contact is a
-                                                                    prospect</span></label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <hr>
-
-                                            <!-- Lifetime earnings -->
-                                            <div class="lifetime-wrapper">
-                                                <div class="lifetime-won">
-                                                    <div class="lifetime-label">Lifetime Earnings</div>
-                                                    <span>20,453.76</span>
-                                                </div>
-
-                                                <!-- Send email action -->
-                                                <a class="button is-secondary is-raised is-medium">
-                                                    <span class="icon is-small">
-                                                        <i class="fas fa-envelope"></i>
-                                                    </span>
-                                                    <span>Message</span>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <!-- Events -->
-                                        <div x-show.transition="activeTab === 'events-tab'" class="navtab-content">
-                                            <div class="columns">
-                                                <div class="column">
-                                                    <!-- Event block -->
-                                                    <div class="event-block">
-                                                        <div class="date-block">
-                                                            <span>18</span>
-                                                            <span>Oct</span>
-                                                        </div>
-                                                        <!-- Event meta -->
-                                                        <div class="event-meta">
-                                                            <span class="event-name">
-                                                                Presentation of our latest release.
-                                                            </span>
-                                                            <span class="meta">
-                                                                <span class="meta-element">
-                                                                    <i class="sl icon-location"></i>
-                                                                    <span>Customer's Office</span>
-                                                                </span>
-                                                                <span class="meta-element">
-                                                                    <i class="sl icon-clock"></i>
-                                                                    <span>10:30am</span>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <!-- Dropdown -->
-                                                        <div x-ref="eventdrop1"
-                                                            @click.away="$refs.eventdrop1.classList.remove('is-active')"
-                                                            class="dropdown is-right dropdown-trigger contact-events-dropdown">
-                                                            <button @click="$refs.eventdrop1.classList.add('is-active')"
-                                                                class="button">
-                                                                <i class="material-icons">more_vert</i>
-                                                            </button>
-
-                                                            <div class="dropdown-menu is-text-bigger" role="menu">
-                                                                <div class="dropdown-content">
-                                                                    <a href="#" class="dropdown-item">
-                                                                        <i class="sl icon-pencil"></i>
-                                                                        <span>
-                                                                            <span>Edit</span>
-                                                                            <span>Edit event details</span>
-                                                                        </span>
-                                                                    </a>
-                                                                    <div class="dropdown-divider"></div>
-                                                                    <a href="#" class="dropdown-item">
-                                                                        <i class="sl icon-share"></i>
-                                                                        <span>
-                                                                            <span>Share</span>
-                                                                            <span>Share with teamates</span>
-                                                                        </span>
-                                                                    </a>
-                                                                    <a href="#" class="dropdown-item">
-                                                                        <i class="sl icon-bell"></i>
-                                                                        <span>
-                                                                            <span>Notify me</span>
-                                                                            <span>Remind me before this event</span>
-                                                                        </span>
-                                                                    </a>
-                                                                    <div class="dropdown-divider"></div>
-                                                                    <a class="dropdown-item">
-                                                                        <i class="sl icon-trash"></i>
-                                                                        <span>
-                                                                            <span>Delete</span>
-                                                                            <span>Delete this event</span>
-                                                                        </span>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <!-- Event block -->
-                                                    <div class="event-block is-disabled">
-                                                        <div class="date-block">
-                                                            <span>03</span>
-                                                            <span>Oct</span>
-                                                        </div>
-                                                        <!-- Event meta -->
-                                                        <div class="event-meta">
-                                                            <span class="event-name">
-                                                                Conference call with company board.
-                                                            </span>
-                                                            <span class="meta">
-                                                                <span class="meta-element">
-                                                                    <i class="sl icon-location"></i>
-                                                                    <span>Here</span>
-                                                                </span>
-                                                                <span class="meta-element">
-                                                                    <i class="sl icon-clock"></i>
-                                                                    <span>15:00pm</span>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <!-- Dropdown -->
-                                                        <div x-ref="eventdrop2"
-                                                            @click.away="$refs.eventdrop2.classList.remove('is-active')"
-                                                            class="dropdown is-right dropdown-trigger contact-events-dropdown">
-                                                            <button @click="$refs.eventdrop2.classList.add('is-active')"
-                                                                class="button">
-                                                                <i class="material-icons">more_vert</i>
-                                                            </button>
-
-                                                            <div class="dropdown-menu is-text-bigger" role="menu">
-                                                                <div class="dropdown-content">
-                                                                    <a href="#" class="dropdown-item">
-                                                                        <i class="sl icon-pencil"></i>
-                                                                        <span>
-                                                                            <span>Edit</span>
-                                                                            <span>Edit event details</span>
-                                                                        </span>
-                                                                    </a>
-                                                                    <div class="dropdown-divider"></div>
-                                                                    <a href="#" class="dropdown-item">
-                                                                        <i class="sl icon-share"></i>
-                                                                        <span>
-                                                                            <span>Share</span>
-                                                                            <span>Share with teamates</span>
-                                                                        </span>
-                                                                    </a>
-                                                                    <a href="#" class="dropdown-item">
-                                                                        <i class="sl icon-bell"></i>
-                                                                        <span>
-                                                                            <span>Notify me</span>
-                                                                            <span>Remind me before this event</span>
-                                                                        </span>
-                                                                    </a>
-                                                                    <div class="dropdown-divider"></div>
-                                                                    <a class="dropdown-item">
-                                                                        <i class="sl icon-trash"></i>
-                                                                        <span>
-                                                                            <span>Delete</span>
-                                                                            <span>Delete this event</span>
-                                                                        </span>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <!-- Event block -->
-                                                    <div class="event-block is-disabled">
-                                                        <div class="date-block">
-                                                            <span>19</span>
-                                                            <span>Sep</span>
-                                                        </div>
-                                                        <!-- Event meta -->
-                                                        <div class="event-meta">
-                                                            <span class="event-name">
-                                                                First meeting with prospect.
-                                                            </span>
-                                                            <span class="meta">
-                                                                <span class="meta-element">
-                                                                    <i class="sl icon-location"></i>
-                                                                    <span>Customer's Office</span>
-                                                                </span>
-                                                                <span class="meta-element">
-                                                                    <i class="sl icon-clock"></i>
-                                                                    <span>09:00am</span>
-                                                                </span>
-                                                            </span>
-                                                        </div>
-                                                        <!-- Dropdown -->
-                                                        <div x-ref="eventdrop3"
-                                                            @click.away="$refs.eventdrop3.classList.remove('is-active')"
-                                                            class="dropdown is-right dropdown-trigger contact-events-dropdown">
-                                                            <button @click="$refs.eventdrop3.classList.add('is-active')"
-                                                                class="button">
-                                                                <i class="material-icons">more_vert</i>
-                                                            </button>
-
-                                                            <div class="dropdown-menu is-text-bigger" role="menu">
-                                                                <div class="dropdown-content">
-                                                                    <a href="#" class="dropdown-item">
-                                                                        <i class="sl icon-pencil"></i>
-                                                                        <span>
-                                                                            <span>Edit</span>
-                                                                            <span>Edit event details</span>
-                                                                        </span>
-                                                                    </a>
-                                                                    <div class="dropdown-divider"></div>
-                                                                    <a href="#" class="dropdown-item">
-                                                                        <i class="sl icon-share"></i>
-                                                                        <span>
-                                                                            <span>Share</span>
-                                                                            <span>Share with teamates</span>
-                                                                        </span>
-                                                                    </a>
-                                                                    <a href="#" class="dropdown-item">
-                                                                        <i class="sl icon-bell"></i>
-                                                                        <span>
-                                                                            <span>Notify me</span>
-                                                                            <span>Remind me before this event</span>
-                                                                        </span>
-                                                                    </a>
-                                                                    <div class="dropdown-divider"></div>
-                                                                    <a class="dropdown-item">
-                                                                        <i class="sl icon-trash"></i>
-                                                                        <span>
-                                                                            <span>Delete</span>
-                                                                            <span>Delete this event</span>
-                                                                        </span>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Calls -->
-                                        <div x-show.transition="activeTab === 'calls-tab'" class="navtab-content">
-                                            <!-- Logged call -->
-                                            <div class="is-phone-block">
-                                                <div class="block-wrap">
-                                                    <span class="block-head">
-                                                        <a href="#">
-                                                            <i class="fas fa-phone"></i>
-                                                            <small>Oct 18, 2020</small>
-                                                        </a>
-                                                        <div class="people">
-                                                            <a href="#">
-                                                                <img src="https://via.placeholder.com/250x250" alt=""
-                                                                    data-demo-src="/img/avatars/nick.jpg">
-                                                            </a>
-                                                            <a href="#">
-                                                                <img src="https://via.placeholder.com/250x250" alt=""
-                                                                    data-demo-src="/img/avatars/elie.jpg">
-                                                            </a>
-                                                            <a href="#">
-                                                                <img src="https://via.placeholder.com/250x250" alt=""
-                                                                    data-demo-src="/img/avatars/stella.jpg">
-                                                            </a>
-                                                            <span class="is-font is-weight-600 rem-100 ml-2">+ 2</span>
-                                                        </div>
-                                                    </span>
-                                                    <!-- Content -->
-                                                    <div class="block-container">
-                                                        <div class="meta-group">
-                                                            <div class="meta-block">
-                                                                <div class="call-label">Called at</div>
-                                                                <div class="call-info">10:23 am</div>
-                                                            </div>
-                                                            <div class="meta-block">
-                                                                <div class="call-label">Call Type</div>
-                                                                <div class="call-info">Outgoing call</div>
-                                                            </div>
-                                                            <div class="meta-block">
-                                                                <div class="call-label">Call Duration</div>
-                                                                <div class="call-info">15 minutes</div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="meta-block">
-                                                            <div class="call-label">Conversation abstract</div>
-                                                            <div class="call-info is-conversation">Lorem ipsum dolor sit
-                                                                amet, cu ius oratio
-                                                                appareat partiendo. Solet civibus nam te. Eu vel veri
-                                                                putent. Et suas reprimique
-                                                                adversarium duo, ex vel ridens graecis. Mel ipsum oratio
-                                                                voluptatum et.</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="block-footer">
-                                                        <div class="buttons">
-                                                            <a class="button is-rounded-md">Edit Log</a>
-                                                            <a class="button is-rounded-md">Remove</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Logged call -->
-                                            <div class="is-phone-block">
-                                                <div class="block-wrap">
-                                                    <span class="block-head">
-                                                        <a href="#">
-                                                            <i class="fas fa-phone"></i>
-                                                            <small>Oct 12, 2020</small>
-                                                        </a>
-                                                        <div class="people">
-                                                            <a href="#">
-                                                                <img src="https://via.placeholder.com/250x250" alt=""
-                                                                    data-demo-src="/img/avatars/terry.jpg">
-                                                            </a>
-                                                            <a href="#">
-                                                                <img src="https://via.placeholder.com/250x250" alt=""
-                                                                    data-demo-src="/img/avatars/alex.jpg">
-                                                            </a>
-                                                        </div>
-                                                    </span>
-                                                    <!-- Content -->
-                                                    <div class="block-container">
-                                                        <div class="meta-group">
-                                                            <div class="meta-block">
-                                                                <div class="call-label">Called at</div>
-                                                                <div class="call-info">9:12 am</div>
-                                                            </div>
-                                                            <div class="meta-block">
-                                                                <div class="call-label">Call Type</div>
-                                                                <div class="call-info">Outgoing call</div>
-                                                            </div>
-                                                            <div class="meta-block">
-                                                                <div class="call-label">Call Duration</div>
-                                                                <div class="call-info">7 minutes</div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="meta-block">
-                                                            <div class="call-label">Conversation abstract</div>
-                                                            <div class="call-info is-conversation">Lorem ipsum dolor sit
-                                                                amet, cu ius oratio
-                                                                appareat partiendo. Solet civibus nam te. Eu vel veri
-                                                                putent. Et suas reprimique
-                                                                adversarium duo, ex vel ridens graecis. Mel ipsum oratio
-                                                                voluptatum et.</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="block-footer">
-                                                        <div class="buttons">
-                                                            <a class="button is-rounded-md">Edit Log</a>
-                                                            <a class="button is-rounded-md">Remove</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Log call action -->
-                                            <div class="action-wrapper">
-                                                <a class="button is-secondary is-medium is-raised">
-                                                    <span class="icon is-small">
-                                                        <i class="fas fa-plus"></i>
-                                                    </span>
-                                                    <span>Log a Call</span>
-                                                </a>
-                                            </div>
-
-                                        </div>
-                                        <!-- /Calls -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+    }"
+>
+  <div class="dashboard-inner">
+    <!-- Dashboard Wrapper -->
+    <div class="dashboard-wrapper">
+      <div id="main-dashboard" class="section-wrapper">
+        <!-- Dashboard content -->
+        <div class="dashboard-columns">
+          <div class="contact-profile-wrap">
+            <!-- Page title -->
+            <div class="contacts-title-wrapper">
+              <h3 class="contacts-title">Nick Fraiser</h3>
+              <!-- Dropdown -->
+              <div class="list-filter">
+                <div
+                  x-ref="contactdrop1"
+                  @click.away="$refs.contactdrop1.classList.remove('is-active')"
+                  class="dropdown is-right dropdown-trigger contact-events-dropdown"
+                >
+                  <button
+                    @click="$refs.contactdrop1.classList.add('is-active')"
+                    class="button"
+                  >
+                    <i class="material-icons">more_vert</i>
+                  </button>
+                  <!-- Dropdown menu -->
+                  <div class="dropdown-menu is-text-bigger" role="menu">
+                    <div class="dropdown-content">
+                      <a href="#" class="dropdown-item">
+                        <i class="sl icon-paper-plane"></i>
+                        <span>
+                          <span>Send</span>
+                          <span>Send contact details</span>
+                        </span>
+                      </a>
+                      <div class="dropdown-divider"></div>
+                      <a href="#" class="dropdown-item">
+                        <i class="sl icon-rocket"></i>
+                        <span>
+                          <span>New Deal</span>
+                          <span>Start new deal involving this contact</span>
+                        </span>
+                      </a>
+                      <a href="#" class="dropdown-item">
+                        <i class="sl icon-bell"></i>
+                        <span>
+                          <span>Subscribe me</span>
+                          <span>Subscribe me to contact updates</span>
+                        </span>
+                      </a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item">
+                        <i class="sl icon-shield"></i>
+                        <span>
+                          <span>Disable</span>
+                          <span>Disables this contact</span>
+                        </span>
+                      </a>
+                      <a class="dropdown-item">
+                        <i class="sl icon-trash"></i>
+                        <span>
+                          <span>Delete</span>
+                          <span>Delete this event</span>
+                        </span>
+                      </a>
                     </div>
-
+                  </div>
                 </div>
-
+                <!-- Edit button -->
+                <a class="button is-secondary is-raised has-icon">
+                  <i class="material-icons">short_text</i>
+                  Edit Contact
+                </a>
+              </div>
             </div>
 
+            <div class="columns contact-profile">
+              <!-- Avatar Card -->
+              <div class="column is-4">
+                <div class="flex-card is-avatar light-bordered card-overflow">
+                  <div class="inner">
+                    <div class="contact-block">
+                      <!-- Avatar -->
+                      <div class="avatar-wrapper">
+                        <img src="/img/avatars/nick.jpg" alt="" />
+                      </div>
+                      <!-- Meta -->
+                      <div class="contact-name">Nick Fraiser</div>
+                      <div class="contact-company">Multicorp Inc.</div>
+                      <!-- Stats -->
+                      <div class="stats-block">
+                        <div class="stat">
+                          <span>Deals</span>
+                          <span>24</span>
+                        </div>
+                        <div class="stat">
+                          <span>Won</span>
+                          <span>17</span>
+                        </div>
+                        <div class="stat">
+                          <span>Lost</span>
+                          <span>7</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="column is-8">
+                <!-- Contact informations -->
+                <div
+                  class="flex-card is-contact-info light-bordered card-overflow"
+                >
+                  <!-- Tabs -->
+                  <div
+                    class="navigation-tabs single-contact-tabs animated-tabs simple-tabs"
+                  >
+                    <div class="tabs">
+                      <ul>
+                        <li
+                          @click="toggleTabs('overview-tab')"
+                          :class="{
+                                                    'is-active': activeTab === 'overview-tab',
+                                                    '': activeTab !== 'overview-tab',
+                                                }"
+                        >
+                          <a>General</a>
+                        </li>
+                        <li
+                          @click="toggleTabs('events-tab')"
+                          :class="{
+                                                    'is-active': activeTab === 'events-tab',
+                                                    '': activeTab !== 'events-tab',
+                                                }"
+                        >
+                          <a>Events</a>
+                        </li>
+                        <li
+                          @click="toggleTabs('calls-tab')"
+                          :class="{
+                                                    'is-active': activeTab === 'calls-tab',
+                                                    '': activeTab !== 'calls-tab',
+                                                }"
+                        >
+                          <a>Calls</a>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <!-- General informations -->
+                    <div
+                      x-show.transition="activeTab === 'overview-tab'"
+                      class="navtab-content is-active"
+                    >
+                      <div class="columns">
+                        <div class="column is-6">
+                          <!-- Info block -->
+                          <div class="info-block">
+                            <div class="info-label">Email</div>
+                            <div class="info-content is-email">
+                              jbarker@multicorp.co
+                            </div>
+                          </div>
+                          <!-- Info block -->
+                          <div class="info-block">
+                            <div class="info-label">Phone (1)</div>
+                            <div class="info-content">+1 555 28 354</div>
+                          </div>
+                          <!-- Info block -->
+                          <div class="info-block">
+                            <div class="info-label">Company</div>
+                            <div class="info-content">Multicorp Inc.</div>
+                          </div>
+                          <!-- Info block -->
+                          <div class="info-block">
+                            <div class="info-label">Position</div>
+                            <div class="info-content">HR Manager</div>
+                          </div>
+                          <!-- Info block -->
+                          <div class="info-block">
+                            <div class="info-label">Location</div>
+                            <div class="info-content">New York, USA</div>
+                          </div>
+                        </div>
+                        <div class="column is-6">
+                          <!-- Contact summary -->
+                          <div class="info-block">
+                            <div class="info-label">Quick Summary</div>
+                            <div class="info-content is-notes">
+                              Lorem ipsum dolor sit amet, ad blandit intellegam
+                              cum, nulla legere possit id vim, clita nullam
+                              graecis duo ne.
+                            </div>
+                            <!-- Switch -->
+                            <div class="field is-prospect">
+                              <label class="f-switch is-secondary scale-7">
+                                <input
+                                  id="prospectSwitch"
+                                  type="checkbox"
+                                  class="is-secondary"
+                                />
+                                <i></i>
+                              </label>
+                              <label for="prospectSwitch"
+                                ><span>This contact is a prospect</span></label
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <hr />
+
+                      <!-- Lifetime earnings -->
+                      <div class="lifetime-wrapper">
+                        <div class="lifetime-won">
+                          <div class="lifetime-label">Lifetime Earnings</div>
+                          <span>20,453.76</span>
+                        </div>
+
+                        <!-- Send email action -->
+                        <a class="button is-secondary is-raised is-medium">
+                          <span class="icon is-small">
+                            <i class="fas fa-envelope"></i>
+                          </span>
+                          <span>Message</span>
+                        </a>
+                      </div>
+                    </div>
+
+                    <!-- Events -->
+                    <div
+                      x-show.transition="activeTab === 'events-tab'"
+                      class="navtab-content"
+                    >
+                      <div class="columns">
+                        <div class="column">
+                          <!-- Event block -->
+                          <div class="event-block">
+                            <div class="date-block">
+                              <span>18</span>
+                              <span>Oct</span>
+                            </div>
+                            <!-- Event meta -->
+                            <div class="event-meta">
+                              <span class="event-name">
+                                Presentation of our latest release.
+                              </span>
+                              <span class="meta">
+                                <span class="meta-element">
+                                  <i class="sl icon-location"></i>
+                                  <span>Customer's Office</span>
+                                </span>
+                                <span class="meta-element">
+                                  <i class="sl icon-clock"></i>
+                                  <span>10:30am</span>
+                                </span>
+                              </span>
+                            </div>
+                            <!-- Dropdown -->
+                            <div
+                              x-ref="eventdrop1"
+                              @click.away="$refs.eventdrop1.classList.remove('is-active')"
+                              class="dropdown is-right dropdown-trigger contact-events-dropdown"
+                            >
+                              <button
+                                @click="$refs.eventdrop1.classList.add('is-active')"
+                                class="button"
+                              >
+                                <i class="material-icons">more_vert</i>
+                              </button>
+
+                              <div
+                                class="dropdown-menu is-text-bigger"
+                                role="menu"
+                              >
+                                <div class="dropdown-content">
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-pencil"></i>
+                                    <span>
+                                      <span>Edit</span>
+                                      <span>Edit event details</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-share"></i>
+                                    <span>
+                                      <span>Share</span>
+                                      <span>Share with teamates</span>
+                                    </span>
+                                  </a>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-bell"></i>
+                                    <span>
+                                      <span>Notify me</span>
+                                      <span>Remind me before this event</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-trash"></i>
+                                    <span>
+                                      <span>Delete</span>
+                                      <span>Delete this event</span>
+                                    </span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- Event block -->
+                          <div class="event-block is-disabled">
+                            <div class="date-block">
+                              <span>03</span>
+                              <span>Oct</span>
+                            </div>
+                            <!-- Event meta -->
+                            <div class="event-meta">
+                              <span class="event-name">
+                                Conference call with company board.
+                              </span>
+                              <span class="meta">
+                                <span class="meta-element">
+                                  <i class="sl icon-location"></i>
+                                  <span>Here</span>
+                                </span>
+                                <span class="meta-element">
+                                  <i class="sl icon-clock"></i>
+                                  <span>15:00pm</span>
+                                </span>
+                              </span>
+                            </div>
+                            <!-- Dropdown -->
+                            <div
+                              x-ref="eventdrop2"
+                              @click.away="$refs.eventdrop2.classList.remove('is-active')"
+                              class="dropdown is-right dropdown-trigger contact-events-dropdown"
+                            >
+                              <button
+                                @click="$refs.eventdrop2.classList.add('is-active')"
+                                class="button"
+                              >
+                                <i class="material-icons">more_vert</i>
+                              </button>
+
+                              <div
+                                class="dropdown-menu is-text-bigger"
+                                role="menu"
+                              >
+                                <div class="dropdown-content">
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-pencil"></i>
+                                    <span>
+                                      <span>Edit</span>
+                                      <span>Edit event details</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-share"></i>
+                                    <span>
+                                      <span>Share</span>
+                                      <span>Share with teamates</span>
+                                    </span>
+                                  </a>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-bell"></i>
+                                    <span>
+                                      <span>Notify me</span>
+                                      <span>Remind me before this event</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-trash"></i>
+                                    <span>
+                                      <span>Delete</span>
+                                      <span>Delete this event</span>
+                                    </span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- Event block -->
+                          <div class="event-block is-disabled">
+                            <div class="date-block">
+                              <span>19</span>
+                              <span>Sep</span>
+                            </div>
+                            <!-- Event meta -->
+                            <div class="event-meta">
+                              <span class="event-name">
+                                First meeting with prospect.
+                              </span>
+                              <span class="meta">
+                                <span class="meta-element">
+                                  <i class="sl icon-location"></i>
+                                  <span>Customer's Office</span>
+                                </span>
+                                <span class="meta-element">
+                                  <i class="sl icon-clock"></i>
+                                  <span>09:00am</span>
+                                </span>
+                              </span>
+                            </div>
+                            <!-- Dropdown -->
+                            <div
+                              x-ref="eventdrop3"
+                              @click.away="$refs.eventdrop3.classList.remove('is-active')"
+                              class="dropdown is-right dropdown-trigger contact-events-dropdown"
+                            >
+                              <button
+                                @click="$refs.eventdrop3.classList.add('is-active')"
+                                class="button"
+                              >
+                                <i class="material-icons">more_vert</i>
+                              </button>
+
+                              <div
+                                class="dropdown-menu is-text-bigger"
+                                role="menu"
+                              >
+                                <div class="dropdown-content">
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-pencil"></i>
+                                    <span>
+                                      <span>Edit</span>
+                                      <span>Edit event details</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-share"></i>
+                                    <span>
+                                      <span>Share</span>
+                                      <span>Share with teamates</span>
+                                    </span>
+                                  </a>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-bell"></i>
+                                    <span>
+                                      <span>Notify me</span>
+                                      <span>Remind me before this event</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-trash"></i>
+                                    <span>
+                                      <span>Delete</span>
+                                      <span>Delete this event</span>
+                                    </span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Calls -->
+                    <div
+                      x-show.transition="activeTab === 'calls-tab'"
+                      class="navtab-content"
+                    >
+                      <!-- Logged call -->
+                      <div class="is-phone-block">
+                        <div class="block-wrap">
+                          <span class="block-head">
+                            <a href="#">
+                              <i class="fas fa-phone"></i>
+                              <small>Oct 18, 2020</small>
+                            </a>
+                            <div class="people">
+                              <a href="#">
+                                <img src="/img/avatars/nick.jpg" alt="" />
+                              </a>
+                              <a href="#">
+                                <img src="/img/avatars/elie.jpg" alt="" />
+                              </a>
+                              <a href="#">
+                                <img src="/img/avatars/stella.jpg" alt="" />
+                              </a>
+                              <span class="is-font is-weight-600 rem-100 ml-2"
+                                >+ 2</span
+                              >
+                            </div>
+                          </span>
+                          <!-- Content -->
+                          <div class="block-container">
+                            <div class="meta-group">
+                              <div class="meta-block">
+                                <div class="call-label">Called at</div>
+                                <div class="call-info">10:23 am</div>
+                              </div>
+                              <div class="meta-block">
+                                <div class="call-label">Call Type</div>
+                                <div class="call-info">Outgoing call</div>
+                              </div>
+                              <div class="meta-block">
+                                <div class="call-label">Call Duration</div>
+                                <div class="call-info">15 minutes</div>
+                              </div>
+                            </div>
+
+                            <div class="meta-block">
+                              <div class="call-label">
+                                Conversation abstract
+                              </div>
+                              <div class="call-info is-conversation">
+                                Lorem ipsum dolor sit amet, cu ius oratio
+                                appareat partiendo. Solet civibus nam te. Eu vel
+                                veri putent. Et suas reprimique adversarium duo,
+                                ex vel ridens graecis. Mel ipsum oratio
+                                voluptatum et.
+                              </div>
+                            </div>
+                          </div>
+                          <div class="block-footer">
+                            <div class="buttons">
+                              <a class="button is-rounded-md">Edit Log</a>
+                              <a class="button is-rounded-md">Remove</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Logged call -->
+                      <div class="is-phone-block">
+                        <div class="block-wrap">
+                          <span class="block-head">
+                            <a href="#">
+                              <i class="fas fa-phone"></i>
+                              <small>Oct 12, 2020</small>
+                            </a>
+                            <div class="people">
+                              <a href="#">
+                                <img src="/img/avatars/terry.jpg" alt="" />
+                              </a>
+                              <a href="#">
+                                <img src="/img/avatars/alex.jpg" alt="" />
+                              </a>
+                            </div>
+                          </span>
+                          <!-- Content -->
+                          <div class="block-container">
+                            <div class="meta-group">
+                              <div class="meta-block">
+                                <div class="call-label">Called at</div>
+                                <div class="call-info">9:12 am</div>
+                              </div>
+                              <div class="meta-block">
+                                <div class="call-label">Call Type</div>
+                                <div class="call-info">Outgoing call</div>
+                              </div>
+                              <div class="meta-block">
+                                <div class="call-label">Call Duration</div>
+                                <div class="call-info">7 minutes</div>
+                              </div>
+                            </div>
+
+                            <div class="meta-block">
+                              <div class="call-label">
+                                Conversation abstract
+                              </div>
+                              <div class="call-info is-conversation">
+                                Lorem ipsum dolor sit amet, cu ius oratio
+                                appareat partiendo. Solet civibus nam te. Eu vel
+                                veri putent. Et suas reprimique adversarium duo,
+                                ex vel ridens graecis. Mel ipsum oratio
+                                voluptatum et.
+                              </div>
+                            </div>
+                          </div>
+                          <div class="block-footer">
+                            <div class="buttons">
+                              <a class="button is-rounded-md">Edit Log</a>
+                              <a class="button is-rounded-md">Remove</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Log call action -->
+                      <div class="action-wrapper">
+                        <a class="button is-secondary is-medium is-raised">
+                          <span class="icon is-small">
+                            <i class="fas fa-plus"></i>
+                          </span>
+                          <span>Log a Call</span>
+                        </a>
+                      </div>
+                    </div>
+                    <!-- /Calls -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
+      </div>
     </div>
-
+  </div>
 </div>

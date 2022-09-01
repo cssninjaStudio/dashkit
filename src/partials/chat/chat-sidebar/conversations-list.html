@@ -1,80 +1,144 @@
 <!-- User -->
-<div @click="switchConversation($event)" class="user-item" data-chat-user="dan" data-full-name="Dan Walker" data-status="Online" data-picture="/img/avatars/dan.jpg" :class="{
+<div
+  @click="switchConversation($event)"
+  class="user-item"
+  data-chat-user="dan"
+  data-full-name="Dan Walker"
+  data-status="Online"
+  data-picture="/img/avatars/dan.jpg"
+  :class="{
         'is-active': activeConversation === 'dan',
         '':  activeConversation != 'dan'
-    }">
-    <div class="avatar-container">
-        <img class="user-avatar" src="https://via.placeholder.com/150x150" data-demo-src="/img/avatars/dan.jpg" alt="">
-        <div class="user-status is-online"></div>
-    </div>
+    }"
+>
+  <div class="avatar-container">
+    <img class="user-avatar" src="/img/avatars/dan.jpg" alt="" />
+    <div class="user-status is-online"></div>
+  </div>
 </div>
 <!-- User -->
-<div @click="switchConversation($event)" class="user-item" data-chat-user="elie" data-full-name="Elie Daniels" data-status="Busy" data-picture="/img/avatars/elie.jpg" :class="{
+<div
+  @click="switchConversation($event)"
+  class="user-item"
+  data-chat-user="elie"
+  data-full-name="Elie Daniels"
+  data-status="Busy"
+  data-picture="/img/avatars/elie.jpg"
+  :class="{
         'is-active': activeConversation === 'elie',
         '':  activeConversation != 'elie'
-    }">
-    <div class="avatar-container">
-        <img class="user-avatar" src="https://via.placeholder.com/150x150" data-demo-src="/img/avatars/elie.jpg" alt="">
-        <div class="user-status is-busy"></div>
-    </div>
+    }"
+>
+  <div class="avatar-container">
+    <img class="user-avatar" src="/img/avatars/elie.jpg" alt="" />
+    <div class="user-status is-busy"></div>
+  </div>
 </div>
 <!-- User -->
-<div @click="switchConversation($event)" class="user-item" data-chat-user="lakisha" data-full-name="Lakisha Williams" data-status="Away" data-picture="/img/avatars/lakisha.jpg" :class="{
+<div
+  @click="switchConversation($event)"
+  class="user-item"
+  data-chat-user="lakisha"
+  data-full-name="Lakisha Williams"
+  data-status="Away"
+  data-picture="/img/avatars/lakisha.jpg"
+  :class="{
         'is-active': activeConversation === 'lakisha',
         '':  activeConversation != 'lakisha'
-    }">
-    <div class="avatar-container">
-        <img class="user-avatar" src="https://via.placeholder.com/150x150" data-demo-src="/img/avatars/lakisha.jpg" alt="">
-        <div class="user-status is-away"></div>
-    </div>
+    }"
+>
+  <div class="avatar-container">
+    <img class="user-avatar" src="/img/avatars/lakisha.jpg" alt="" />
+    <div class="user-status is-away"></div>
+  </div>
 </div>
 <!-- User -->
-<div @click="switchConversation($event)" class="user-item" data-chat-user="alex" data-full-name="Alex Walsh" data-status="Busy" data-picture="/img/avatars/alex.jpg" :class="{
+<div
+  @click="switchConversation($event)"
+  class="user-item"
+  data-chat-user="alex"
+  data-full-name="Alex Walsh"
+  data-status="Busy"
+  data-picture="/img/avatars/alex.jpg"
+  :class="{
         'is-active': activeConversation === 'alex',
         '':  activeConversation != 'alex'
-    }">
-    <div class="avatar-container">
-        <img class="user-avatar" src="https://via.placeholder.com/150x150" data-demo-src="/img/avatars/alex.jpg" alt="">
-        <div class="user-status is-busy"></div>
-    </div>
+    }"
+>
+  <div class="avatar-container">
+    <img class="user-avatar" src="/img/avatars/alex.jpg" alt="" />
+    <div class="user-status is-busy"></div>
+  </div>
 </div>
 <!-- User -->
-<div @click="switchConversation($event)" class="user-item" data-chat-user="anthony" data-full-name="Anthony Briggs" data-status="Online" data-picture="/img/avatars/anthony.jpg" :class="{
+<div
+  @click="switchConversation($event)"
+  class="user-item"
+  data-chat-user="anthony"
+  data-full-name="Anthony Briggs"
+  data-status="Online"
+  data-picture="/img/avatars/anthony.jpg"
+  :class="{
         'is-active': activeConversation === 'anthony',
         '':  activeConversation != 'anthony'
-    }">
-    <div class="avatar-container">
-        <img class="user-avatar" src="https://via.placeholder.com/150x150" data-demo-src="/img/avatars/anthony.jpg" alt="">
-        <div class="user-status is-online"></div>
-    </div>
+    }"
+>
+  <div class="avatar-container">
+    <img class="user-avatar" src="/img/avatars/anthony.jpg" alt="" />
+    <div class="user-status is-online"></div>
+  </div>
 </div>
 <!-- User -->
-<div @click="switchConversation($event)" class="user-item" data-chat-user="ray" data-full-name="Ray Stockton" data-status="Away" data-picture="/img/avatars/ray.jpg" :class="{
+<div
+  @click="switchConversation($event)"
+  class="user-item"
+  data-chat-user="ray"
+  data-full-name="Ray Stockton"
+  data-status="Away"
+  data-picture="/img/avatars/ray.jpg"
+  :class="{
         'is-active': activeConversation === 'ray',
         '':  activeConversation != 'ray'
-    }">
-    <div class="avatar-container">
-        <img class="user-avatar" src="https://via.placeholder.com/150x150" data-demo-src="/img/avatars/ray.jpg" alt="">
-        <div class="user-status is-away"></div>
-    </div>
+    }"
+>
+  <div class="avatar-container">
+    <img class="user-avatar" src="/img/avatars/ray.jpg" alt="" />
+    <div class="user-status is-away"></div>
+  </div>
 </div>
 <!-- User -->
-<div @click="switchConversation($event)" class="user-item" data-chat-user="sally" data-full-name="Sally Mitchells" data-status="Busy" data-picture="/img/avatars/sally.jpg" :class="{
+<div
+  @click="switchConversation($event)"
+  class="user-item"
+  data-chat-user="sally"
+  data-full-name="Sally Mitchells"
+  data-status="Busy"
+  data-picture="/img/avatars/sally.jpg"
+  :class="{
         'is-active': activeConversation === 'sally',
         '':  activeConversation != 'sally'
-    }">
-    <div class="avatar-container">
-        <img class="user-avatar" src="https://via.placeholder.com/150x150" data-demo-src="/img/avatars/sally.jpg" alt="">
-        <div class="user-status is-busy"></div>
-    </div>
+    }"
+>
+  <div class="avatar-container">
+    <img class="user-avatar" src="/img/avatars/sally.jpg" alt="" />
+    <div class="user-status is-busy"></div>
+  </div>
 </div>
 <!-- User -->
-<div @click="switchConversation($event)" class="user-item" data-chat-user="nick" data-full-name="Nick Frost" data-status="Busy" data-picture="/img/avatars/nick.jpg" :class="{
+<div
+  @click="switchConversation($event)"
+  class="user-item"
+  data-chat-user="nick"
+  data-full-name="Nick Frost"
+  data-status="Busy"
+  data-picture="/img/avatars/nick.jpg"
+  :class="{
         'is-active': activeConversation === 'nick',
         '':  activeConversation != 'nick'
-    }">
-    <div class="avatar-container">
-        <img class="user-avatar" src="https://via.placeholder.com/150x150" data-demo-src="/img/avatars/nick.jpg" alt="">
-        <div class="user-status is-busy"></div>
-    </div>
+    }"
+>
+  <div class="avatar-container">
+    <img class="user-avatar" src="/img/avatars/nick.jpg" alt="" />
+    <div class="user-status is-busy"></div>
+  </div>
 </div>

@@ -34,7 +34,7 @@ export function initDatatableAdvanced() {
         data: [
           {
             picture:
-              '<img class="datatable-avatar" src="https://via.placeholder.com/250x250" data-demo-src="/img/avatars/nick.jpg">',
+              '<img class="datatable-avatar" src="/img/avatars/nick.jpg">',
             firstname: "Nick",
             lastname: "Schwartz",
             position: "Manager",
@@ -45,7 +45,7 @@ export function initDatatableAdvanced() {
           },
           {
             picture:
-              '<img class="datatable-avatar" src="https://via.placeholder.com/250x250" data-demo-src="/img/avatars/elie.jpg">',
+              '<img class="datatable-avatar" src="/img/avatars/elie.jpg">',
             firstname: "Elie",
             lastname: "Daniels",
             position: "Head of Sales",
@@ -57,7 +57,7 @@ export function initDatatableAdvanced() {
           },
           {
             picture:
-              '<img class="datatable-avatar" src="https://via.placeholder.com/250x250"  data-demo-src="/img/avatars/lakisha.jpg">',
+              '<img class="datatable-avatar" src="/img/avatars/lakisha.jpg">',
             firstname: "Lakisha",
             lastname: "Jackson",
             position: "HR Director",
@@ -69,7 +69,7 @@ export function initDatatableAdvanced() {
           },
           {
             picture:
-              '<img class="datatable-avatar" src="https://via.placeholder.com/250x250" data-demo-src="/img/avatars/helen.jpg">',
+              '<img class="datatable-avatar" src="/img/avatars/helen.jpg">',
             firstname: "Helen",
             lastname: "Miller",
             position: "Sales Manager",
@@ -81,7 +81,7 @@ export function initDatatableAdvanced() {
           },
           {
             picture:
-              '<img class="datatable-avatar" src="https://via.placeholder.com/250x250" data-demo-src="/img/avatars/terry.jpg">',
+              '<img class="datatable-avatar" src="/img/avatars/terry.jpg">',
             firstname: "Terry",
             lastname: "Daniels",
             position: "Scientist",
@@ -93,7 +93,7 @@ export function initDatatableAdvanced() {
           },
           {
             picture:
-              '<img class="datatable-avatar" src="https://via.placeholder.com/250x250" data-demo-src="/img/avatars/alan.jpg">',
+              '<img class="datatable-avatar" src="/img/avatars/alan.jpg">',
             firstname: "Alan",
             lastname: "Maynard",
             position: "BP Manager",
@@ -105,7 +105,7 @@ export function initDatatableAdvanced() {
           },
           {
             picture:
-              '<img class="datatable-avatar" src="https://via.placeholder.com/250x250" data-demo-src="/img/avatars/christina.jpg">',
+              '<img class="datatable-avatar" src="/img/avatars/christina.jpg">',
             firstname: "Christina",
             lastname: "Chu",
             position: "Designer",

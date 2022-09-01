@@ -35,7 +35,7 @@ export function initChat() {
     selectedUserPosition: '',
     selectUser(e) {
       const username = e.target.getAttribute("data-username");
-      const userPhoto = e.target.getAttribute("data-demo-src");
+      const userPhoto = e.target.getAttribute("src");
       const position = e.target.getAttribute("data-position");
 
       this.selectedUserPhoto = userPhoto;

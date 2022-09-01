@@ -98,7 +98,6 @@ function concatCssPlugins() {
     nodepath + 'plyr/dist/plyr.css',
     nodepath + 'plyr/dist/plyr.css',
     nodepath + 'dragula/dist/dragula.min.css',
-    nodepath + 'codemirror/lib/codemirror.css',
     nodepath + 'notyf/notyf.min.css',
     'src/vendor/css/*',
   ])

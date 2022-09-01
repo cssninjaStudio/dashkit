@@ -1,103 +1,112 @@
 <!-- Right sidebar quickview -->
-<div id="support-activity-quickview" class="quickview is-right support-activity-quickview" :class="{
+<div
+  id="support-activity-quickview"
+  class="quickview is-right support-activity-quickview"
+  :class="{
         'is-active': activitySidebarOpen,
         '': !activitySidebarOpen
-    }">
-    <!-- Quickview header -->
-    <header class="quickview-header">
-        <h3>Activity Feed</h3>
-        <div class="quickview-close" @click="toggleActivitySidebar()">
-            <span class="material-icons">close</span>
-        </div>
-    </header>
-
-    <!-- Quickview body -->
-    <div class="quickview-body">
-        <div class="body-inner has-slimscroll">
-            <!-- Activity -->
-            <div class="activity-block">
-                <img class="avatar" src="https://via.placeholder.com/150x150" alt=""
-                data-demo-src="/img/avatars/marge.jpg">
-                <div class="block-content">
-                    <p>Marge Cartwright updated ticket <b>Problem with signup</b></p>
-                    <span>30 minutes ago</span>
-                </div>
-            </div>
-            <!-- Activity -->
-            <div class="activity-block">
-                <img class="avatar" src="https://via.placeholder.com/150x150" alt="" data-demo-src="/img/avatars/ray.jpg">
-                <div class="block-content">
-                    <p>Ray Donovan updated ticket <b>ORDER-80456</b></p>
-                    <span>2 hours ago</span>
-                </div>
-            </div>
-            <!-- Activity -->
-            <div class="activity-block">
-                <img class="avatar" src="https://via.placeholder.com/150x150" alt="" data-demo-src="/img/avatars/helen.jpg">
-                <div class="block-content">
-                    <p>Helen Miller created ticket <b>Cannot open the invoice related to ORDER-563265</b></p>
-                    <span>3 hours ago</span>
-                </div>
-            </div>
-            <!-- Activity -->
-            <div class="activity-block">
-                <img class="avatar" src="https://via.placeholder.com/150x150" alt="" data-demo-src="/img/avatars/anthony.jpg">
-                <div class="block-content">
-                    <p>Anthony Briggs closed ticket <b>My order was not delivered</b></p>
-                    <span>3 hours ago</span>
-                </div>
-            </div>
-            <!-- Activity -->
-            <div class="activity-block">
-                <img class="avatar" src="https://via.placeholder.com/150x150" alt="" data-demo-src="/img/avatars/helen.jpg">
-                <div class="block-content">
-                    <p>Helen Miller created ticket <b>The product that was delivered doesn't work</b></p>
-                    <span>3 hours ago</span>
-                </div>
-            </div>
-            <!-- Activity -->
-            <div class="activity-block">
-                <img class="avatar" src="https://via.placeholder.com/150x150" alt="" data-demo-src="/img/avatars/ray.jpg">
-                <div class="block-content">
-                    <p>Ray Donovan updated ticket <b>ORDER-80456</b></p>
-                    <span>3 hours ago</span>
-                </div>
-            </div>
-            <!-- Activity -->
-            <div class="activity-block">
-                <img class="avatar" src="https://via.placeholder.com/150x150" alt="" data-demo-src="/img/avatars/marge.jpg">
-                <div class="block-content">
-                    <p>Marge Cartwright updated ticket <b>Problem with signup</b></p>
-                    <span>5 hours ago</span>
-                </div>
-            </div>
-            <!-- Activity -->
-            <div class="activity-block">
-                <img class="avatar" src="https://via.placeholder.com/150x150" alt="" data-demo-src="/img/avatars/alan.jpg">
-                <div class="block-content">
-                    <p>Alan Maynard created ticket <b>ORDER-81569</b></p>
-                    <span>Yesterday</span>
-                </div>
-            </div>
-            <!-- Activity -->
-            <div class="activity-block">
-                <img class="avatar" src="https://via.placeholder.com/150x150" alt="" data-demo-src="/img/avatars/marge.jpg">
-                <div class="block-content">
-                    <p>Marge Cartwright created ticket <b>Problem with signup</b></p>
-                    <span>Yesterday</span>
-                </div>
-            </div>
-            <!-- Activity -->
-            <div class="activity-block">
-                <img class="avatar" src="https://via.placeholder.com/150x150" alt="" data-demo-src="/img/avatars/anthony.jpg">
-                <div class="block-content">
-                    <p>Anthony Briggs created ticket <b>My order was not delivered</b></p>
-                    <span>Yesterday</span>
-                </div>
-            </div>
-        </div>
+    }"
+>
+  <!-- Quickview header -->
+  <header class="quickview-header">
+    <h3>Activity Feed</h3>
+    <div class="quickview-close" @click="toggleActivitySidebar()">
+      <span class="material-icons">close</span>
     </div>
+  </header>
 
-    <!-- Quickview footer -->
-    <footer class="quickview-footer"></footer>
+  <!-- Quickview body -->
+  <div class="quickview-body">
+    <div class="body-inner has-slimscroll">
+      <!-- Activity -->
+      <div class="activity-block">
+        <img class="avatar" src="/img/avatars/marge.jpg" alt="" />
+        <div class="block-content">
+          <p>Marge Cartwright updated ticket <b>Problem with signup</b></p>
+          <span>30 minutes ago</span>
+        </div>
+      </div>
+      <!-- Activity -->
+      <div class="activity-block">
+        <img class="avatar" src="/img/avatars/ray.jpg" alt="" />
+        <div class="block-content">
+          <p>Ray Donovan updated ticket <b>ORDER-80456</b></p>
+          <span>2 hours ago</span>
+        </div>
+      </div>
+      <!-- Activity -->
+      <div class="activity-block">
+        <img class="avatar" src="/img/avatars/helen.jpg" alt="" />
+        <div class="block-content">
+          <p>
+            Helen Miller created ticket
+            <b>Cannot open the invoice related to ORDER-563265</b>
+          </p>
+          <span>3 hours ago</span>
+        </div>
+      </div>
+      <!-- Activity -->
+      <div class="activity-block">
+        <img class="avatar" src="/img/avatars/anthony.jpg" alt="" />
+        <div class="block-content">
+          <p>Anthony Briggs closed ticket <b>My order was not delivered</b></p>
+          <span>3 hours ago</span>
+        </div>
+      </div>
+      <!-- Activity -->
+      <div class="activity-block">
+        <img class="avatar" src="/img/avatars/helen.jpg" alt="" />
+        <div class="block-content">
+          <p>
+            Helen Miller created ticket
+            <b>The product that was delivered doesn't work</b>
+          </p>
+          <span>3 hours ago</span>
+        </div>
+      </div>
+      <!-- Activity -->
+      <div class="activity-block">
+        <img class="avatar" src="/img/avatars/ray.jpg" alt="" />
+        <div class="block-content">
+          <p>Ray Donovan updated ticket <b>ORDER-80456</b></p>
+          <span>3 hours ago</span>
+        </div>
+      </div>
+      <!-- Activity -->
+      <div class="activity-block">
+        <img class="avatar" src="/img/avatars/marge.jpg" alt="" />
+        <div class="block-content">
+          <p>Marge Cartwright updated ticket <b>Problem with signup</b></p>
+          <span>5 hours ago</span>
+        </div>
+      </div>
+      <!-- Activity -->
+      <div class="activity-block">
+        <img class="avatar" src="/img/avatars/alan.jpg" alt="" />
+        <div class="block-content">
+          <p>Alan Maynard created ticket <b>ORDER-81569</b></p>
+          <span>Yesterday</span>
+        </div>
+      </div>
+      <!-- Activity -->
+      <div class="activity-block">
+        <img class="avatar" src="/img/avatars/marge.jpg" alt="" />
+        <div class="block-content">
+          <p>Marge Cartwright created ticket <b>Problem with signup</b></p>
+          <span>Yesterday</span>
+        </div>
+      </div>
+      <!-- Activity -->
+      <div class="activity-block">
+        <img class="avatar" src="/img/avatars/anthony.jpg" alt="" />
+        <div class="block-content">
+          <p>Anthony Briggs created ticket <b>My order was not delivered</b></p>
+          <span>Yesterday</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quickview footer -->
+  <footer class="quickview-footer"></footer>
 </div>

@@ -4,640 +4,670 @@ title: Forum Home
 ---
 
 <!-- Main dashboard container -->
-<div id="dashboard-wrapper" class="dashboard-outer" x-data="initForumHome()" :class="{
+<div
+  id="dashboard-wrapper"
+  class="dashboard-outer"
+  x-data="initForumHome()"
+  :class="{
         'is-pushed': $store.app.sidebarOpenedState,
         '': !$store.app.sidebarOpenedState
-    }">
-    <div class="dashboard-inner">
-
-        <!-- Dashboard Wrapper -->
-        <div class="dashboard-wrapper">
-
-            <div id="main-dashboard" class="section-wrapper">
-                <!-- Dashboard content -->
-                <div class="dashboard-columns">
-
-                    <!-- Page title -->
-                    <div class="forum-title-wrapper is-mobile py-5">
-                        <img class="forum-image" src="https://via.placeholder.com/150x150" alt=""
-                            data-demo-src="/img/logo/companies/airbnb.svg">
-                        <div class="inner-wrap">
-                            <h3 class="forum-title">Company Forum</h3>
-                            <div class="title-meta">
-                                <div class="meta">
-                                    <i class="material-icons">people_outline</i>
-                                    <span>367 users</span>
-                                </div>
-                                <div class="meta">
-                                    <i class="material-icons">short_text</i>
-                                    <span>1327 topics</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Filter input -->
-                        <div class="actions">
-                            <!-- Forum main dropdown -->
-                            <div x-ref="homedrop" @click.away="$refs.homedrop.classList.remove('is-active')" class="dropdown button-dropdown dropdown-trigger is-right">
-                                <div @click="$refs.homedrop.classList.add('is-active')" class="button is-secondary is-raised is-long-1 ripple" data-ripple-color="">
-                                    <span class="icon is-small">
-                                        <i class="fas fa-plus"></i>
-                                    </span>
-                                    <span>Manage</span>
-                                </div>
-                                <!-- Dropdown menu -->
-                                <div class="dropdown-menu is-text-bigger" role="menu">
-                                    <div class="dropdown-content">
-                                        <a href="#" class="dropdown-item">
-                                            <i class="material-icons">add</i>
-                                            <span>
-                                                <span>New Topic</span>
-                                                <span>create a new topic</span>
-                                            </span>
-                                        </a>
-                                        <div class="dropdown-divider"></div>
-                                        <a href="#" class="dropdown-item">
-                                            <i class="sl icon-pencil"></i>
-                                            <span>
-                                                <span>Categories</span>
-                                                <span>Manage forum categories</span>
-                                            </span>
-                                        </a>
-                                        <div class="dropdown-divider"></div>
-                                        <a href="dashboard-crm-boards.html" class="dropdown-item">
-                                            <i class="sl icon-people"></i>
-                                            <span>
-                                                <span>Invite People</span>
-                                                <span>Invite new users to the forum</span>
-                                            </span>
-                                        </a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item delete-board alert-box-trigger kill-drop" data-alert-box="delete-board-alert">
-                                            <i class="sl icon-equalizer"></i>
-                                            <span>
-                                                <span>Settings</span>
-                                                <span>Open forum settings</span>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="control forum-search">
-                        <input type="text" class="input is-rounded" placeholder="Search Forum...">
-                        <div class="search-icon">
-                            <i class="sl icon-magnifier"></i>
-                        </div>
-                    </div>
-
-                    <!-- Forum Category -->
-                    <div class="forum-wrap">
-                        <div class="forum-container">
-                            <!-- toggle button -->
-                            <div @click="toggleAnnoucements($event)" class="toggle-button">
-                                <i class="material-icons">keyboard_arrow_down</i>
-                            </div>
-                            <!-- Heading -->
-                            <div class="channel-heading">
-                                <h3>Annoucements</h3>
-                                <!-- Forum category dropdown -->
-                                <div x-ref="categorydrop1" @click.away="$refs.categorydrop1.classList.remove('is-active')" class="dropdown is-right dropdown-trigger styled-dropdown is-round">
-                                    <div @click="$refs.categorydrop1.classList.add('is-active')" class="button">
-                                        <i class="material-icons">more_vert</i>
-                                    </div>
-                                    <div class="dropdown-menu is-text-bigger" role="menu">
-                                        <div class="dropdown-content">
-                                            <a class="dropdown-item">
-                                                <i class="material-icons">add</i>
-                                                <span>
-                                                    <span>Add Channel</span>
-                                                    <span>Add a channel to this category</span>
-                                                </span>
-                                            </a>
-                                            <a href="#" class="dropdown-item">
-                                                <i class="sl icon-people"></i>
-                                                <span>
-                                                    <span>Moderators</span>
-                                                    <span>Manage channel moderators</span>
-                                                </span>
-                                            </a>
-                                            <div class="dropdown-divider"></div>
-                                            <a href="#" class="dropdown-item">
-                                                <i class="sl icon-bell"></i>
-                                                <span>
-                                                    <span>Subscribe</span>
-                                                    <span>Notify me of new posts</span>
-                                                </span>
-                                            </a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item">
-                                                <i class="sl icon-trash"></i>
-                                                <span>
-                                                    <span>Delete</span>
-                                                    <span>Delete this channel</span>
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Channel -->
-                            <a class="forum-channel">
-                                <div class="channel-icon">
-                                    <i class="im icon-Globe"></i>
-                                    <!-- New Topics -->
-                                    <div class="new-indicator">
-                                        <span>3</span>
-                                    </div>
-                                </div>
-                                <div class="channel-meta">
-                                    <span>Company Annoucements</span>
-                                    <span>Dedicated channel for company annoucements and heads up.</span>
-                                </div>
-                                <div class="channel-topics">
-                                    <span>Topics</span>
-                                    <span>49</span>
-                                </div>
-                                <div class="top-contributors">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/melany.jpg">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/ray.jpg">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/helen.jpg">
-                                </div>
-                            </a>
-                            <!-- Channel -->
-                            <a class="forum-channel">
-                                <div class="channel-icon">
-                                    <i class="im icon-MaleFemale"></i>
-                                </div>
-                                <div class="channel-meta">
-                                    <span>Team Annoucements</span>
-                                    <span>Dedicated channel for company annoucements and heads up.</span>
-                                </div>
-                                <div class="channel-topics">
-                                    <span>Topics</span>
-                                    <span>12</span>
-                                </div>
-                                <div class="top-contributors">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/terry.jpg">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/nina.jpg">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/elie.jpg">
-                                </div>
-                            </a>
-                            <!-- Channel -->
-                            <a class="forum-channel">
-                                <div class="channel-icon">
-                                    <i class="im icon-Talk-Man"></i>
-                                </div>
-                                <div class="channel-meta">
-                                    <span>Partners Annoucements</span>
-                                    <span>Dedicated channel for company annoucements and heads up.</span>
-                                </div>
-                                <div class="channel-topics">
-                                    <span>Topics</span>
-                                    <span>27</span>
-                                </div>
-                                <div class="top-contributors">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/alan.jpg">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/alex.jpg">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/lakisha.jpg">
-                                </div>
-                            </a>
-                        </div>
-                        <!-- Latest posts -->
-                        <div x-show.transition="annoucementStatsOpen" class="latest-posts-wrap">
-                            <div class="latest-posts">
-                                <div class="avatars">
-                                    <img class="avatar" src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/elie.jpg">
-                                    <img class="avatar" src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/helen.jpg">
-                                    <img class="avatar" src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/henry.jpg">
-                                    <div class="avatar">
-                                        <span>+3</span>
-                                    </div>
-                                </div>
-                                <div class="latest-meta">
-                                    <span><a>Elie</a>, <a>Helen</a> and <a>3 more</a></span>
-                                    <span>published posts in this category</span>
-                                </div>
-                                <div class="forum-stats">
-                                    <div class="stat">
-                                        <i class="sl icon-people"></i>
-                                        <span>548</span>
-                                    </div>
-                                    <div class="stat">
-                                        <i class="sl icon-speech"></i>
-                                        <span>10857</span>
-                                    </div>
-                                    <div class="stat">
-                                        <i class="sl icon-paper-clip"></i>
-                                        <span>432</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Forum wrap -->
-                    <div class="forum-wrap">
-                        <!-- Forum Category -->
-                        <div class="forum-container">
-                            <!-- toggle button -->
-                            <div @click="toggleHr($event)" class="toggle-button">
-                                <i class="material-icons">keyboard_arrow_down</i>
-                            </div>
-                            <!-- Heading -->
-                            <div class="channel-heading">
-                                <h3>Human Resources</h3>
-                                <!-- Forum category dropdown -->
-                                <div x-ref="categorydrop2" @click.away="$refs.categorydrop2.classList.remove('is-active')" class="dropdown is-right dropdown-trigger styled-dropdown is-round">
-                                    <div @click="$refs.categorydrop2.classList.add('is-active')" class="button">
-                                        <i class="material-icons">more_vert</i>
-                                    </div>
-                                    <div class="dropdown-menu is-text-bigger" role="menu">
-                                        <div class="dropdown-content">
-                                            <a class="dropdown-item">
-                                                <i class="material-icons">add</i>
-                                                <span>
-                                                    <span>Add Channel</span>
-                                                    <span>Add a channel to this category</span>
-                                                </span>
-                                            </a>
-                                            <a href="#" class="dropdown-item">
-                                                <i class="sl icon-people"></i>
-                                                <span>
-                                                    <span>Moderators</span>
-                                                    <span>Manage channel moderators</span>
-                                                </span>
-                                            </a>
-                                            <div class="dropdown-divider"></div>
-                                            <a href="#" class="dropdown-item">
-                                                <i class="sl icon-bell"></i>
-                                                <span>
-                                                    <span>Subscribe</span>
-                                                    <span>Notify me of new posts</span>
-                                                </span>
-                                            </a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item">
-                                                <i class="sl icon-trash"></i>
-                                                <span>
-                                                    <span>Delete</span>
-                                                    <span>Delete this channel</span>
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Channel -->
-                            <a class="forum-channel">
-                                <div class="channel-icon">
-                                    <i class="im icon-Clock-Forward"></i>
-                                    <!-- New Topics -->
-                                    <div class="new-indicator">
-                                        <span>22</span>
-                                    </div>
-                                </div>
-                                <div class="channel-meta">
-                                    <span>Timesheets</span>
-                                    <span>Any questions about timesheets? All answers are here.</span>
-                                </div>
-                                <div class="channel-topics">
-                                    <span>Topics</span>
-                                    <span>92</span>
-                                </div>
-                                <div class="top-contributors">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/barry.jpg">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/melany.jpg">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/christina.jpg">
-                                </div>
-                            </a>
-                            <!-- Channel -->
-                            <a class="forum-channel">
-                                <div class="channel-icon">
-                                    <i class="im icon-Air-Balloon"></i>
-                                </div>
-                                <div class="channel-meta">
-                                    <span>Vacations</span>
-                                    <span>Post your vacation requests in here. Only HR employees can see your
-                                        posts.</span>
-                                </div>
-                                <div class="channel-topics">
-                                    <span>Topics</span>
-                                    <span>294</span>
-                                </div>
-                                <div class="top-contributors">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/dan.jpg">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/alex.jpg">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/mila.jpg">
-                                </div>
-                            </a>
-                            <!-- Channel -->
-                            <a class="forum-channel">
-                                <div class="channel-icon">
-                                    <i class="im icon-Hipster-Men"></i>
-                                    <!-- New Topics -->
-                                    <div class="new-indicator">
-                                        <span>7</span>
-                                    </div>
-                                </div>
-                                <div class="channel-meta">
-                                    <span>Freelancers</span>
-                                    <span>Found an interesting profile? This is where you should post it.</span>
-                                </div>
-                                <div class="channel-topics">
-                                    <span>Topics</span>
-                                    <span>119</span>
-                                </div>
-                                <div class="top-contributors">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/ben.jpg">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/christina.jpg">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/helen.jpg">
-                                </div>
-                            </a>
-                            <!-- Channel -->
-                            <a class="forum-channel">
-                                <div class="channel-icon">
-                                    <i class="im icon-Student-Female"></i>
-                                </div>
-                                <div class="channel-meta">
-                                    <span>Recruitment</span>
-                                    <span>Discussion about the internal recruitment process.</span>
-                                </div>
-                                <div class="channel-topics">
-                                    <span>Topics</span>
-                                    <span>51</span>
-                                </div>
-                                <div class="top-contributors">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/alan.jpg">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/matt.jpg">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/john.jpg">
-                                </div>
-                            </a>
-                        </div>
-                        <!-- Latest posts -->
-                        <div x-show.transition="hrStatsOpen" class="latest-posts-wrap">
-                            <div class="latest-posts">
-                                <div class="avatars">
-                                    <img class="avatar" src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/alan.jpg">
-                                    <img class="avatar" src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/matt.jpg">
-                                    <img class="avatar" src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/christina.jpg">
-                                    <div class="avatar">
-                                        <span>+5</span>
-                                    </div>
-                                </div>
-                                <div class="latest-meta">
-                                    <span><a>Alan</a>, <a>Christina</a> and <a>5 more</a></span>
-                                    <span>published posts in this category</span>
-                                </div>
-                                <div class="forum-stats">
-                                    <div class="stat">
-                                        <i class="sl icon-people"></i>
-                                        <span>112</span>
-                                    </div>
-                                    <div class="stat">
-                                        <i class="sl icon-speech"></i>
-                                        <span>954</span>
-                                    </div>
-                                    <div class="stat">
-                                        <i class="sl icon-paper-clip"></i>
-                                        <span>328</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Forum wrap -->
-                    <div class="forum-wrap">
-                        <!-- Forum Category -->
-                        <div class="forum-container">
-                            <!-- toggle button -->
-                            <div @click="togglePayments($event)" class="toggle-button">
-                                <i class="material-icons">keyboard_arrow_down</i>
-                            </div>
-                            <!-- Heading -->
-                            <div class="channel-heading">
-                                <h3>Payments</h3>
-                                <!-- Forum category dropdown -->
-                                <div x-ref="categorydrop3" @click.away="$refs.categorydrop3.classList.remove('is-active')" class="dropdown is-right dropdown-trigger styled-dropdown is-round">
-                                    <div @click="$refs.categorydrop3.classList.add('is-active')" class="button">
-                                        <i class="material-icons">more_vert</i>
-                                    </div>
-                                    <div class="dropdown-menu is-text-bigger" role="menu">
-                                        <div class="dropdown-content">
-                                            <a class="dropdown-item">
-                                                <i class="material-icons">add</i>
-                                                <span>
-                                                    <span>Add Channel</span>
-                                                    <span>Add a channel to this category</span>
-                                                </span>
-                                            </a>
-                                            <a href="#" class="dropdown-item">
-                                                <i class="sl icon-people"></i>
-                                                <span>
-                                                    <span>Moderators</span>
-                                                    <span>Manage channel moderators</span>
-                                                </span>
-                                            </a>
-                                            <div class="dropdown-divider"></div>
-                                            <a href="#" class="dropdown-item">
-                                                <i class="sl icon-bell"></i>
-                                                <span>
-                                                    <span>Subscribe</span>
-                                                    <span>Notify me of new posts</span>
-                                                </span>
-                                            </a>
-                                            <div class="dropdown-divider"></div>
-                                            <a class="dropdown-item">
-                                                <i class="sl icon-trash"></i>
-                                                <span>
-                                                    <span>Delete</span>
-                                                    <span>Delete this channel</span>
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Channel -->
-                            <a class="forum-channel">
-                                <div class="channel-icon">
-                                    <i class="im icon-Billing"></i>
-                                </div>
-                                <div class="channel-meta">
-                                    <span>About Payments</span>
-                                    <span>Any questions about payments? find the answers in this section.</span>
-                                </div>
-                                <div class="channel-topics">
-                                    <span>Topics</span>
-                                    <span>134</span>
-                                </div>
-                                <div class="top-contributors">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/terry.jpg">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/matt.jpg">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/janet.jpg">
-                                </div>
-                            </a>
-                            <!-- Channel -->
-                            <a class="forum-channel">
-                                <div class="channel-icon">
-                                    <i class="im icon-Money-2"></i>
-                                </div>
-                                <div class="channel-meta">
-                                    <span>Cash Payments</span>
-                                    <span>Ask about what's to know for cash payments in this section.</span>
-                                </div>
-                                <div class="channel-topics">
-                                    <span>Topics</span>
-                                    <span>42</span>
-                                </div>
-                                <div class="top-contributors">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/marge.jpg">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/kareem.jpg">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/carolin.jpg">
-                                </div>
-                            </a>
-                            <!-- Channel -->
-                            <a class="forum-channel">
-                                <div class="channel-icon">
-                                    <i class="im icon-Credit-Card2"></i>
-                                </div>
-                                <div class="channel-meta">
-                                    <span>Credit Card Payments</span>
-                                    <span>Ask about what's to know for credit card payments in this section.</span>
-                                </div>
-                                <div class="channel-topics">
-                                    <span>Topics</span>
-                                    <span>72</span>
-                                </div>
-                                <div class="top-contributors">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/nicole.jpg">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/stacy.jpg">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/nick.jpg">
-                                </div>
-                            </a>
-                            <!-- Channel -->
-                            <a class="forum-channel">
-                                <div class="channel-icon">
-                                    <i class="im icon-Wallet-2"></i>
-                                </div>
-                                <div class="channel-meta">
-                                    <span>E-Wallet Payments</span>
-                                    <span>Ask about what's to know for E-Wallet payments in this section.</span>
-                                </div>
-                                <div class="channel-topics">
-                                    <span>Topics</span>
-                                    <span>29</span>
-                                </div>
-                                <div class="top-contributors">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/jeffrey.jpg">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/henry.jpg">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/jalil.jpg">
-                                </div>
-                            </a>
-                            <!-- Channel -->
-                            <a class="forum-channel">
-                                <div class="channel-icon">
-                                    <i class="im icon-Bitcoin"></i>
-                                </div>
-                                <div class="channel-meta">
-                                    <span>Cryptocurrency Payments</span>
-                                    <span>Ask about what's to know for Cryptocurrency payments in this section.</span>
-                                </div>
-                                <div class="channel-topics">
-                                    <span>Topics</span>
-                                    <span>143</span>
-                                </div>
-                                <div class="top-contributors">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/sally.jpg">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/henry.jpg">
-                                    <img src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/thomas.jpg">
-                                </div>
-                            </a>
-                        </div>
-                        <!-- Latest posts -->
-                        <div x-show.transition="paymentsStatsOpen" class="latest-posts-wrap">
-                            <div class="latest-posts">
-                                <div class="avatars">
-                                    <img class="avatar" src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/elie.jpg">
-                                    <img class="avatar" src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/helen.jpg">
-                                    <img class="avatar" src="https://via.placeholder.com/150x150" alt=""
-                                        data-demo-src="/img/avatars/henry.jpg">
-                                    <div class="avatar">
-                                        <span>+3</span>
-                                    </div>
-                                </div>
-                                <div class="latest-meta">
-                                    <span><a>Elie</a>, <a>Helen</a> and <a>3 more</a></span>
-                                    <span>published posts in this category</span>
-                                </div>
-                                <div class="forum-stats">
-                                    <div class="stat">
-                                        <i class="sl icon-people"></i>
-                                        <span>280</span>
-                                    </div>
-                                    <div class="stat">
-                                        <i class="sl icon-speech"></i>
-                                        <span>1857</span>
-                                    </div>
-                                    <div class="stat">
-                                        <i class="sl icon-paper-clip"></i>
-                                        <span>136</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+    }"
+>
+  <div class="dashboard-inner">
+    <!-- Dashboard Wrapper -->
+    <div class="dashboard-wrapper">
+      <div id="main-dashboard" class="section-wrapper">
+        <!-- Dashboard content -->
+        <div class="dashboard-columns">
+          <!-- Page title -->
+          <div class="forum-title-wrapper is-mobile py-5">
+            <img
+              class="forum-image"
+              src="/img/logo/companies/airbnb.svg"
+              alt=""
+            />
+            <div class="inner-wrap">
+              <h3 class="forum-title">Company Forum</h3>
+              <div class="title-meta">
+                <div class="meta">
+                  <i class="material-icons">people_outline</i>
+                  <span>367 users</span>
                 </div>
-
+                <div class="meta">
+                  <i class="material-icons">short_text</i>
+                  <span>1327 topics</span>
+                </div>
+              </div>
             </div>
+            <!-- Filter input -->
+            <div class="actions">
+              <!-- Forum main dropdown -->
+              <div
+                x-ref="homedrop"
+                @click.away="$refs.homedrop.classList.remove('is-active')"
+                class="dropdown button-dropdown dropdown-trigger is-right"
+              >
+                <div
+                  @click="$refs.homedrop.classList.add('is-active')"
+                  class="button is-secondary is-raised is-long-1 ripple"
+                  data-ripple-color=""
+                >
+                  <span class="icon is-small">
+                    <i class="fas fa-plus"></i>
+                  </span>
+                  <span>Manage</span>
+                </div>
+                <!-- Dropdown menu -->
+                <div class="dropdown-menu is-text-bigger" role="menu">
+                  <div class="dropdown-content">
+                    <a href="#" class="dropdown-item">
+                      <i class="material-icons">add</i>
+                      <span>
+                        <span>New Topic</span>
+                        <span>create a new topic</span>
+                      </span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                      <i class="sl icon-pencil"></i>
+                      <span>
+                        <span>Categories</span>
+                        <span>Manage forum categories</span>
+                      </span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="dashboard-crm-boards.html" class="dropdown-item">
+                      <i class="sl icon-people"></i>
+                      <span>
+                        <span>Invite People</span>
+                        <span>Invite new users to the forum</span>
+                      </span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a
+                      class="dropdown-item delete-board alert-box-trigger kill-drop"
+                      data-alert-box="delete-board-alert"
+                    >
+                      <i class="sl icon-equalizer"></i>
+                      <span>
+                        <span>Settings</span>
+                        <span>Open forum settings</span>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
+          <div class="control forum-search">
+            <input
+              type="text"
+              class="input is-rounded"
+              placeholder="Search Forum..."
+            />
+            <div class="search-icon">
+              <i class="sl icon-magnifier"></i>
+            </div>
+          </div>
+
+          <!-- Forum Category -->
+          <div class="forum-wrap">
+            <div class="forum-container">
+              <!-- toggle button -->
+              <div @click="toggleAnnoucements($event)" class="toggle-button">
+                <i class="material-icons">keyboard_arrow_down</i>
+              </div>
+              <!-- Heading -->
+              <div class="channel-heading">
+                <h3>Annoucements</h3>
+                <!-- Forum category dropdown -->
+                <div
+                  x-ref="categorydrop1"
+                  @click.away="$refs.categorydrop1.classList.remove('is-active')"
+                  class="dropdown is-right dropdown-trigger styled-dropdown is-round"
+                >
+                  <div
+                    @click="$refs.categorydrop1.classList.add('is-active')"
+                    class="button"
+                  >
+                    <i class="material-icons">more_vert</i>
+                  </div>
+                  <div class="dropdown-menu is-text-bigger" role="menu">
+                    <div class="dropdown-content">
+                      <a class="dropdown-item">
+                        <i class="material-icons">add</i>
+                        <span>
+                          <span>Add Channel</span>
+                          <span>Add a channel to this category</span>
+                        </span>
+                      </a>
+                      <a href="#" class="dropdown-item">
+                        <i class="sl icon-people"></i>
+                        <span>
+                          <span>Moderators</span>
+                          <span>Manage channel moderators</span>
+                        </span>
+                      </a>
+                      <div class="dropdown-divider"></div>
+                      <a href="#" class="dropdown-item">
+                        <i class="sl icon-bell"></i>
+                        <span>
+                          <span>Subscribe</span>
+                          <span>Notify me of new posts</span>
+                        </span>
+                      </a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item">
+                        <i class="sl icon-trash"></i>
+                        <span>
+                          <span>Delete</span>
+                          <span>Delete this channel</span>
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Channel -->
+              <a class="forum-channel">
+                <div class="channel-icon">
+                  <i class="im icon-Globe"></i>
+                  <!-- New Topics -->
+                  <div class="new-indicator">
+                    <span>3</span>
+                  </div>
+                </div>
+                <div class="channel-meta">
+                  <span>Company Annoucements</span>
+                  <span
+                    >Dedicated channel for company annoucements and heads
+                    up.</span
+                  >
+                </div>
+                <div class="channel-topics">
+                  <span>Topics</span>
+                  <span>49</span>
+                </div>
+                <div class="top-contributors">
+                  <img src="/img/avatars/melany.jpg" alt="" />
+                  <img src="/img/avatars/ray.jpg" alt="" />
+                  <img src="/img/avatars/helen.jpg" alt="" />
+                </div>
+              </a>
+              <!-- Channel -->
+              <a class="forum-channel">
+                <div class="channel-icon">
+                  <i class="im icon-MaleFemale"></i>
+                </div>
+                <div class="channel-meta">
+                  <span>Team Annoucements</span>
+                  <span
+                    >Dedicated channel for company annoucements and heads
+                    up.</span
+                  >
+                </div>
+                <div class="channel-topics">
+                  <span>Topics</span>
+                  <span>12</span>
+                </div>
+                <div class="top-contributors">
+                  <img src="/img/avatars/terry.jpg" alt="" />
+                  <img src="/img/avatars/nina.jpg" alt="" />
+                  <img src="/img/avatars/elie.jpg" alt="" />
+                </div>
+              </a>
+              <!-- Channel -->
+              <a class="forum-channel">
+                <div class="channel-icon">
+                  <i class="im icon-Talk-Man"></i>
+                </div>
+                <div class="channel-meta">
+                  <span>Partners Annoucements</span>
+                  <span
+                    >Dedicated channel for company annoucements and heads
+                    up.</span
+                  >
+                </div>
+                <div class="channel-topics">
+                  <span>Topics</span>
+                  <span>27</span>
+                </div>
+                <div class="top-contributors">
+                  <img src="/img/avatars/alan.jpg" alt="" />
+                  <img src="/img/avatars/alex.jpg" alt="" />
+                  <img src="/img/avatars/lakisha.jpg" alt="" />
+                </div>
+              </a>
+            </div>
+            <!-- Latest posts -->
+            <div
+              x-show.transition="annoucementStatsOpen"
+              class="latest-posts-wrap"
+            >
+              <div class="latest-posts">
+                <div class="avatars">
+                  <img class="avatar" src="/img/avatars/elie.jpg" alt="" />
+                  <img class="avatar" src="/img/avatars/helen.jpg" alt="" />
+                  <img class="avatar" src="/img/avatars/henry.jpg" alt="" />
+                  <div class="avatar">
+                    <span>+3</span>
+                  </div>
+                </div>
+                <div class="latest-meta">
+                  <span><a>Elie</a>, <a>Helen</a> and <a>3 more</a></span>
+                  <span>published posts in this category</span>
+                </div>
+                <div class="forum-stats">
+                  <div class="stat">
+                    <i class="sl icon-people"></i>
+                    <span>548</span>
+                  </div>
+                  <div class="stat">
+                    <i class="sl icon-speech"></i>
+                    <span>10857</span>
+                  </div>
+                  <div class="stat">
+                    <i class="sl icon-paper-clip"></i>
+                    <span>432</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Forum wrap -->
+          <div class="forum-wrap">
+            <!-- Forum Category -->
+            <div class="forum-container">
+              <!-- toggle button -->
+              <div @click="toggleHr($event)" class="toggle-button">
+                <i class="material-icons">keyboard_arrow_down</i>
+              </div>
+              <!-- Heading -->
+              <div class="channel-heading">
+                <h3>Human Resources</h3>
+                <!-- Forum category dropdown -->
+                <div
+                  x-ref="categorydrop2"
+                  @click.away="$refs.categorydrop2.classList.remove('is-active')"
+                  class="dropdown is-right dropdown-trigger styled-dropdown is-round"
+                >
+                  <div
+                    @click="$refs.categorydrop2.classList.add('is-active')"
+                    class="button"
+                  >
+                    <i class="material-icons">more_vert</i>
+                  </div>
+                  <div class="dropdown-menu is-text-bigger" role="menu">
+                    <div class="dropdown-content">
+                      <a class="dropdown-item">
+                        <i class="material-icons">add</i>
+                        <span>
+                          <span>Add Channel</span>
+                          <span>Add a channel to this category</span>
+                        </span>
+                      </a>
+                      <a href="#" class="dropdown-item">
+                        <i class="sl icon-people"></i>
+                        <span>
+                          <span>Moderators</span>
+                          <span>Manage channel moderators</span>
+                        </span>
+                      </a>
+                      <div class="dropdown-divider"></div>
+                      <a href="#" class="dropdown-item">
+                        <i class="sl icon-bell"></i>
+                        <span>
+                          <span>Subscribe</span>
+                          <span>Notify me of new posts</span>
+                        </span>
+                      </a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item">
+                        <i class="sl icon-trash"></i>
+                        <span>
+                          <span>Delete</span>
+                          <span>Delete this channel</span>
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Channel -->
+              <a class="forum-channel">
+                <div class="channel-icon">
+                  <i class="im icon-Clock-Forward"></i>
+                  <!-- New Topics -->
+                  <div class="new-indicator">
+                    <span>22</span>
+                  </div>
+                </div>
+                <div class="channel-meta">
+                  <span>Timesheets</span>
+                  <span
+                    >Any questions about timesheets? All answers are here.</span
+                  >
+                </div>
+                <div class="channel-topics">
+                  <span>Topics</span>
+                  <span>92</span>
+                </div>
+                <div class="top-contributors">
+                  <img src="/img/avatars/barry.jpg" alt="" />
+                  <img src="/img/avatars/melany.jpg" alt="" />
+                  <img src="/img/avatars/christina.jpg" alt="" />
+                </div>
+              </a>
+              <!-- Channel -->
+              <a class="forum-channel">
+                <div class="channel-icon">
+                  <i class="im icon-Air-Balloon"></i>
+                </div>
+                <div class="channel-meta">
+                  <span>Vacations</span>
+                  <span
+                    >Post your vacation requests in here. Only HR employees can
+                    see your posts.</span
+                  >
+                </div>
+                <div class="channel-topics">
+                  <span>Topics</span>
+                  <span>294</span>
+                </div>
+                <div class="top-contributors">
+                  <img src="/img/avatars/dan.jpg" alt="" />
+                  <img src="/img/avatars/alex.jpg" alt="" />
+                  <img src="/img/avatars/mila.jpg" alt="" />
+                </div>
+              </a>
+              <!-- Channel -->
+              <a class="forum-channel">
+                <div class="channel-icon">
+                  <i class="im icon-Hipster-Men"></i>
+                  <!-- New Topics -->
+                  <div class="new-indicator">
+                    <span>7</span>
+                  </div>
+                </div>
+                <div class="channel-meta">
+                  <span>Freelancers</span>
+                  <span
+                    >Found an interesting profile? This is where you should post
+                    it.</span
+                  >
+                </div>
+                <div class="channel-topics">
+                  <span>Topics</span>
+                  <span>119</span>
+                </div>
+                <div class="top-contributors">
+                  <img src="/img/avatars/ben.jpg" alt="" />
+                  <img src="/img/avatars/christina.jpg" alt="" />
+                  <img src="/img/avatars/helen.jpg" alt="" />
+                </div>
+              </a>
+              <!-- Channel -->
+              <a class="forum-channel">
+                <div class="channel-icon">
+                  <i class="im icon-Student-Female"></i>
+                </div>
+                <div class="channel-meta">
+                  <span>Recruitment</span>
+                  <span
+                    >Discussion about the internal recruitment process.</span
+                  >
+                </div>
+                <div class="channel-topics">
+                  <span>Topics</span>
+                  <span>51</span>
+                </div>
+                <div class="top-contributors">
+                  <img src="/img/avatars/alan.jpg" alt="" />
+                  <img src="/img/avatars/matt.jpg" alt="" />
+                  <img src="/img/avatars/john.jpg" alt="" />
+                </div>
+              </a>
+            </div>
+            <!-- Latest posts -->
+            <div x-show.transition="hrStatsOpen" class="latest-posts-wrap">
+              <div class="latest-posts">
+                <div class="avatars">
+                  <img class="avatar" src="/img/avatars/alan.jpg" alt="" />
+                  <img class="avatar" src="/img/avatars/matt.jpg" alt="" />
+                  <img class="avatar" src="/img/avatars/christina.jpg" alt="" />
+                  <div class="avatar">
+                    <span>+5</span>
+                  </div>
+                </div>
+                <div class="latest-meta">
+                  <span><a>Alan</a>, <a>Christina</a> and <a>5 more</a></span>
+                  <span>published posts in this category</span>
+                </div>
+                <div class="forum-stats">
+                  <div class="stat">
+                    <i class="sl icon-people"></i>
+                    <span>112</span>
+                  </div>
+                  <div class="stat">
+                    <i class="sl icon-speech"></i>
+                    <span>954</span>
+                  </div>
+                  <div class="stat">
+                    <i class="sl icon-paper-clip"></i>
+                    <span>328</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Forum wrap -->
+          <div class="forum-wrap">
+            <!-- Forum Category -->
+            <div class="forum-container">
+              <!-- toggle button -->
+              <div @click="togglePayments($event)" class="toggle-button">
+                <i class="material-icons">keyboard_arrow_down</i>
+              </div>
+              <!-- Heading -->
+              <div class="channel-heading">
+                <h3>Payments</h3>
+                <!-- Forum category dropdown -->
+                <div
+                  x-ref="categorydrop3"
+                  @click.away="$refs.categorydrop3.classList.remove('is-active')"
+                  class="dropdown is-right dropdown-trigger styled-dropdown is-round"
+                >
+                  <div
+                    @click="$refs.categorydrop3.classList.add('is-active')"
+                    class="button"
+                  >
+                    <i class="material-icons">more_vert</i>
+                  </div>
+                  <div class="dropdown-menu is-text-bigger" role="menu">
+                    <div class="dropdown-content">
+                      <a class="dropdown-item">
+                        <i class="material-icons">add</i>
+                        <span>
+                          <span>Add Channel</span>
+                          <span>Add a channel to this category</span>
+                        </span>
+                      </a>
+                      <a href="#" class="dropdown-item">
+                        <i class="sl icon-people"></i>
+                        <span>
+                          <span>Moderators</span>
+                          <span>Manage channel moderators</span>
+                        </span>
+                      </a>
+                      <div class="dropdown-divider"></div>
+                      <a href="#" class="dropdown-item">
+                        <i class="sl icon-bell"></i>
+                        <span>
+                          <span>Subscribe</span>
+                          <span>Notify me of new posts</span>
+                        </span>
+                      </a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item">
+                        <i class="sl icon-trash"></i>
+                        <span>
+                          <span>Delete</span>
+                          <span>Delete this channel</span>
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Channel -->
+              <a class="forum-channel">
+                <div class="channel-icon">
+                  <i class="im icon-Billing"></i>
+                </div>
+                <div class="channel-meta">
+                  <span>About Payments</span>
+                  <span
+                    >Any questions about payments? find the answers in this
+                    section.</span
+                  >
+                </div>
+                <div class="channel-topics">
+                  <span>Topics</span>
+                  <span>134</span>
+                </div>
+                <div class="top-contributors">
+                  <img src="/img/avatars/terry.jpg" alt="" />
+                  <img src="/img/avatars/matt.jpg" alt="" />
+                  <img src="/img/avatars/janet.jpg" alt="" />
+                </div>
+              </a>
+              <!-- Channel -->
+              <a class="forum-channel">
+                <div class="channel-icon">
+                  <i class="im icon-Money-2"></i>
+                </div>
+                <div class="channel-meta">
+                  <span>Cash Payments</span>
+                  <span
+                    >Ask about what's to know for cash payments in this
+                    section.</span
+                  >
+                </div>
+                <div class="channel-topics">
+                  <span>Topics</span>
+                  <span>42</span>
+                </div>
+                <div class="top-contributors">
+                  <img src="/img/avatars/marge.jpg" alt="" />
+                  <img src="/img/avatars/kareem.jpg" alt="" />
+                  <img src="/img/avatars/carolin.jpg" alt="" />
+                </div>
+              </a>
+              <!-- Channel -->
+              <a class="forum-channel">
+                <div class="channel-icon">
+                  <i class="im icon-Credit-Card2"></i>
+                </div>
+                <div class="channel-meta">
+                  <span>Credit Card Payments</span>
+                  <span
+                    >Ask about what's to know for credit card payments in this
+                    section.</span
+                  >
+                </div>
+                <div class="channel-topics">
+                  <span>Topics</span>
+                  <span>72</span>
+                </div>
+                <div class="top-contributors">
+                  <img src="/img/avatars/nicole.jpg" alt="" />
+                  <img src="/img/avatars/stacy.jpg" alt="" />
+                  <img src="/img/avatars/nick.jpg" alt="" />
+                </div>
+              </a>
+              <!-- Channel -->
+              <a class="forum-channel">
+                <div class="channel-icon">
+                  <i class="im icon-Wallet-2"></i>
+                </div>
+                <div class="channel-meta">
+                  <span>E-Wallet Payments</span>
+                  <span
+                    >Ask about what's to know for E-Wallet payments in this
+                    section.</span
+                  >
+                </div>
+                <div class="channel-topics">
+                  <span>Topics</span>
+                  <span>29</span>
+                </div>
+                <div class="top-contributors">
+                  <img src="/img/avatars/jeffrey.jpg" alt="" />
+                  <img src="/img/avatars/henry.jpg" alt="" />
+                  <img src="/img/avatars/jalil.jpg" alt="" />
+                </div>
+              </a>
+              <!-- Channel -->
+              <a class="forum-channel">
+                <div class="channel-icon">
+                  <i class="im icon-Bitcoin"></i>
+                </div>
+                <div class="channel-meta">
+                  <span>Cryptocurrency Payments</span>
+                  <span
+                    >Ask about what's to know for Cryptocurrency payments in
+                    this section.</span
+                  >
+                </div>
+                <div class="channel-topics">
+                  <span>Topics</span>
+                  <span>143</span>
+                </div>
+                <div class="top-contributors">
+                  <img src="/img/avatars/sally.jpg" alt="" />
+                  <img src="/img/avatars/henry.jpg" alt="" />
+                  <img src="/img/avatars/thomas.jpg" alt="" />
+                </div>
+              </a>
+            </div>
+            <!-- Latest posts -->
+            <div
+              x-show.transition="paymentsStatsOpen"
+              class="latest-posts-wrap"
+            >
+              <div class="latest-posts">
+                <div class="avatars">
+                  <img class="avatar" src="/img/avatars/elie.jpg" alt="" />
+                  <img class="avatar" src="/img/avatars/helen.jpg" alt="" />
+                  <img class="avatar" src="/img/avatars/henry.jpg" alt="" />
+                  <div class="avatar">
+                    <span>+3</span>
+                  </div>
+                </div>
+                <div class="latest-meta">
+                  <span><a>Elie</a>, <a>Helen</a> and <a>3 more</a></span>
+                  <span>published posts in this category</span>
+                </div>
+                <div class="forum-stats">
+                  <div class="stat">
+                    <i class="sl icon-people"></i>
+                    <span>280</span>
+                  </div>
+                  <div class="stat">
+                    <i class="sl icon-speech"></i>
+                    <span>1857</span>
+                  </div>
+                  <div class="stat">
+                    <i class="sl icon-paper-clip"></i>
+                    <span>136</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
+      </div>
     </div>
-
+  </div>
 </div>

@@ -4,191 +4,204 @@ title: Blank
 ---
 
 <!-- Main dashboard container -->
-<div id="dashboard-wrapper" class="dashboard-outer" x-data="initBlank()" :class="{
+<div
+  id="dashboard-wrapper"
+  class="dashboard-outer"
+  x-data="initBlank()"
+  :class="{
         'is-pushed': $store.app.sidebarOpenedState,
         '': !$store.app.sidebarOpenedState
-    }">
-    <div class="dashboard-inner">
+    }"
+>
+  <div class="dashboard-inner">
+    <!-- Dashboard Wrapper -->
+    <div class="dashboard-wrapper">
+      <div id="main-dashboard" class="section-wrapper">
+        <!-- Dashboard content -->
+        <div class="dashboard-columns">
+          <div class="invoice-wrapper">
+            <div class="flex-card is-invoice light-bordered card-overflow">
+              <!-- Invoice -->
 
-        <!-- Dashboard Wrapper -->
-        <div class="dashboard-wrapper">
-
-            <div id="main-dashboard" class="section-wrapper">
-                <!-- Dashboard content -->
-                <div class="dashboard-columns">
-
-                    <div class="invoice-wrapper">
-                        <div class="flex-card is-invoice light-bordered card-overflow">
-                            <!-- Invoice -->
-
-                            <div class="columns is-flex-mobile">
-                                <!-- Invoice Brand -->
-                                <div class="column is-7">
-                                    <img class="logo light-image" src="/img/logo/dashkit-violet.svg" class="logo" alt="">
-                                    <img class="logo dark-image" src="/img/logo/dashkit-violet-dark.svg" class="logo" alt="">
-                                </div>
-                                <!-- Invoice Meta -->
-                                <div class="column is-5">
-                                    <p class="invoice-meta has-text-right">
-                                        <span>Invoice N° <small>INV-832</small></span>
-                                        <br>
-                                        <span>Order N° <small>6-D820</small></span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="columns">
-                                <!-- Supplier Info -->
-                                <div class="column is-7">
-                                    <p class="seller">
-                                        <span>Dashkit Inc.</span><br>
-                                        23, Raccoon City<br>
-                                        45345 OR, USA
-                                    </p>
-                                    <br>
-                                    <!-- Invoice date -->
-                                    <p class="invoice-meta has-text-left">
-                                        <span>Issued on : <small class="date">mar 23 2018</small></span>
-                                    </p>
-                                </div>
-                                <!-- Customer Info -->
-                                <div class="column is-5">
-                                    <p class="buyer has-text-right">
-                                        <span>Helen Miller</span><br>
-                                        hmiller@gmail.com<br>
-                                        78, Lost Manor Road<br>
-                                        78659 CA, USA
-                                    </p>
-                                </div>
-                            </div>
-                            <br>
-                            <br>
-                            <!-- Row -->
-                            <div class="columns">
-                                <div class="column">
-                                    <!-- Purchased Products -->
-                                    <table class="table table-striped responsive-table">
-                                        <!-- Header -->
-                                        <thead>
-                                            <tr>
-                                                <th>Product</th>
-                                                <th class="has-text-centered">Quantity</th>
-                                                <th>Price</th>
-                                                <th>Total</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <!-- Product -->
-                                            <tr>
-                                                <td>
-                                                    <span class="product">Shipping</span>
-                                                    <br>
-                                                    <span class="sku">Drone Delivery</span>
-                                                </td>
-                                                <td class="has-text-centered">
-                                                    <span class="quantity">1</span>
-                                                </td>
-                                                <td class="text-right">
-                                                    <span class="unit-price">35,00</span>
-                                                </td>
-                                                <td class="text-right">
-                                                    <span class="total-price">35,00</span>
-                                                </td>
-                                            </tr>
-                                            <!-- Product -->
-                                            <tr>
-                                                <td>
-                                                    <span class="product">The Last Of Us 2</span>
-                                                    <br>
-                                                    <span class="sku">SKU-P456</span>
-                                                </td>
-                                                <td class="has-text-centered">
-                                                    <span class="quantity">1</span>
-                                                </td>
-                                                <td class="text-right">
-                                                    <span class="unit-price">80,00</span>
-                                                </td>
-                                                <td class="text-right">
-                                                    <span class="total-price">80,00</span>
-                                                </td>
-                                            </tr>
-                                            <!-- Product -->
-                                            <tr>
-                                                <td>
-                                                    <span class="product">Days Gone</span>
-                                                    <br>
-                                                    <span class="sku">SKU-P89265</span>
-                                                </td>
-                                                <td class="has-text-centered">
-                                                    <span class="quantity">1</span>
-                                                </td>
-                                                <td class="text-right">
-                                                    <span class="unit-price">72,00</span>
-                                                </td>
-                                                <td class="text-right">
-                                                    <span class="total-price">72,00</span>
-                                                </td>
-                                            </tr>
-                                            <!-- Product -->
-                                            <tr>
-                                                <td>
-                                                    <span class="product">Dragon Ball Fighter Z</span>
-                                                    <br>
-                                                    <span class="sku">SKU-P2648</span>
-                                                </td>
-                                                <td class="has-text-centered">
-                                                    <span class="quantity">1</span>
-                                                </td>
-                                                <td class="text-right">
-                                                    <span class="unit-price">80,00</span>
-                                                </td>
-                                                <td class="text-right">
-                                                    <span class="total-price">80,00</span>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="columns">
-                                <div class="column is-7">
-                                </div>
-                                <!-- Total subtable -->
-                                <div class="column is-5">
-                                    <table class="table table-sm sub-table text-right">
-                                        <tr>
-                                            <td><span class="subtotal">Subtotal</span></td>
-                                            <td class="text-right"><span class="subtotal-value">267,00</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><span class="vat">VAT (20%)</span></td>
-                                            <td class="text-right"><span class="vat-value">53,40</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><span class="total">Total</span></td>
-                                            <td class="text-right"><span class="total-value">320,40</span></td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </div>
-                            <br>
-                            <!-- Company Bank Account Info -->
-                            <p class="bottom-page has-text-right">
-                                <span class="company">Dashkit Inc.</span> <br>
-                                <span class="id">ID° ER-T-5564OR</span><br>
-                                <span class="url">cssninja.io/forum</span><br>
-                                <span class="code">IBAN DR74 4568 3498 2849</span><br>
-                                <span class="code">SWIFT CEMEACM</span>
-                            </p>
-
-                        </div>
-                    </div>
-
+              <div class="columns is-flex-mobile">
+                <!-- Invoice Brand -->
+                <div class="column is-7">
+                  <img
+                    class="logo light-image"
+                    src="/img/logo/dashkit-violet.svg"
+                    class="logo"
+                    alt=""
+                  />
+                  <img
+                    class="logo dark-image"
+                    src="/img/logo/dashkit-violet-dark.svg"
+                    class="logo"
+                    alt=""
+                  />
                 </div>
-
+                <!-- Invoice Meta -->
+                <div class="column is-5">
+                  <p class="invoice-meta has-text-right">
+                    <span>Invoice N° <small>INV-832</small></span>
+                    <br />
+                    <span>Order N° <small>6-D820</small></span>
+                  </p>
+                </div>
+              </div>
+              <div class="columns">
+                <!-- Supplier Info -->
+                <div class="column is-7">
+                  <p class="seller">
+                    <span>Dashkit Inc.</span><br />
+                    23, Raccoon City<br />
+                    45345 OR, USA
+                  </p>
+                  <br />
+                  <!-- Invoice date -->
+                  <p class="invoice-meta has-text-left">
+                    <span
+                      >Issued on : <small class="date">mar 23 2018</small></span
+                    >
+                  </p>
+                </div>
+                <!-- Customer Info -->
+                <div class="column is-5">
+                  <p class="buyer has-text-right">
+                    <span>Helen Miller</span><br />
+                    hmiller@gmail.com<br />
+                    78, Lost Manor Road<br />
+                    78659 CA, USA
+                  </p>
+                </div>
+              </div>
+              <br />
+              <br />
+              <!-- Row -->
+              <div class="columns">
+                <div class="column">
+                  <!-- Purchased Products -->
+                  <table class="table table-striped responsive-table">
+                    <!-- Header -->
+                    <thead>
+                      <tr>
+                        <th>Product</th>
+                        <th class="has-text-centered">Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Product -->
+                      <tr>
+                        <td>
+                          <span class="product">Shipping</span>
+                          <br />
+                          <span class="sku">Drone Delivery</span>
+                        </td>
+                        <td class="has-text-centered">
+                          <span class="quantity">1</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="unit-price">35,00</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="total-price">35,00</span>
+                        </td>
+                      </tr>
+                      <!-- Product -->
+                      <tr>
+                        <td>
+                          <span class="product">The Last Of Us 2</span>
+                          <br />
+                          <span class="sku">SKU-P456</span>
+                        </td>
+                        <td class="has-text-centered">
+                          <span class="quantity">1</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="unit-price">80,00</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="total-price">80,00</span>
+                        </td>
+                      </tr>
+                      <!-- Product -->
+                      <tr>
+                        <td>
+                          <span class="product">Days Gone</span>
+                          <br />
+                          <span class="sku">SKU-P89265</span>
+                        </td>
+                        <td class="has-text-centered">
+                          <span class="quantity">1</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="unit-price">72,00</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="total-price">72,00</span>
+                        </td>
+                      </tr>
+                      <!-- Product -->
+                      <tr>
+                        <td>
+                          <span class="product">Dragon Ball Fighter Z</span>
+                          <br />
+                          <span class="sku">SKU-P2648</span>
+                        </td>
+                        <td class="has-text-centered">
+                          <span class="quantity">1</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="unit-price">80,00</span>
+                        </td>
+                        <td class="text-right">
+                          <span class="total-price">80,00</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="columns">
+                <div class="column is-7"></div>
+                <!-- Total subtable -->
+                <div class="column is-5">
+                  <table class="table table-sm sub-table text-right">
+                    <tr>
+                      <td><span class="subtotal">Subtotal</span></td>
+                      <td class="text-right">
+                        <span class="subtotal-value">267,00</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><span class="vat">VAT (20%)</span></td>
+                      <td class="text-right">
+                        <span class="vat-value">53,40</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><span class="total">Total</span></td>
+                      <td class="text-right">
+                        <span class="total-value">320,40</span>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <br />
+              <!-- Company Bank Account Info -->
+              <p class="bottom-page has-text-right">
+                <span class="company">Dashkit Inc.</span> <br />
+                <span class="id">ID° ER-T-5564OR</span><br />
+                <span class="url">cssninja.io/forum</span><br />
+                <span class="code">IBAN DR74 4568 3498 2849</span><br />
+                <span class="code">SWIFT CEMEACM</span>
+              </p>
             </div>
-
+          </div>
         </div>
-
+      </div>
     </div>
-
+  </div>
 </div>

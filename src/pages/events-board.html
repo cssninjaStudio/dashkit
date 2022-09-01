@@ -4,260 +4,312 @@ title: Events Board
 ---
 
 <!-- Main dashboard container -->
-<div id="dashboard-wrapper" class="dashboard-outer" x-data="initEvents()" :class="{
+<div
+  id="dashboard-wrapper"
+  class="dashboard-outer"
+  x-data="initEvents()"
+  :class="{
         'is-pushed': $store.app.sidebarOpenedState,
         '': !$store.app.sidebarOpenedState
-    }">
-    <div class="dashboard-inner">
+    }"
+>
+  <div class="dashboard-inner">
+    <!-- Dashboard Wrapper -->
+    <div class="dashboard-wrapper">
+      <div id="main-dashboard" class="section-wrapper">
+        <!-- Dashboard content -->
+        <div class="dashboard-columns">
+          <!-- Page title -->
+          <div class="contacts-title-wrapper">
+            <h3 class="contacts-title">Events</h3>
 
-        <!-- Dashboard Wrapper -->
-        <div class="dashboard-wrapper">
-
-            <div id="main-dashboard" class="section-wrapper">
-                <!-- Dashboard content -->
-                <div class="dashboard-columns">
-
-                    <!-- Page title -->
-                    <div class="contacts-title-wrapper">
-                        <h3 class="contacts-title">Events</h3>
-
-                        <!-- Create event -->
-                        <div class="list-filter">
-                            <a @click="toggleEventModal()" class="button is-secondary is-raised is-long-1">
-                                <span class="icon is-small">
-                                    <i class="fas fa-plus"></i>
-                                </span>
-                                <span>New Event</span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="columns is-multiline is-event-tiles">
-                        <!-- Event pill -->
-                        <div class="column is-3">
-                            <div class="flex-card light-bordered event-tile">
-                                <div class="event-circle is-red"></div>
-                                <div class="event-category">
-                                    <span>Corporate Events</span>
-                                    <span>7 Events</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Event pill -->
-                        <div class="column is-3">
-                            <div class="flex-card light-bordered event-tile">
-                                <div class="event-circle is-secondary"></div>
-                                <div class="event-category">
-                                    <span>Tech Events</span>
-                                    <span>13 Events</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Event pill -->
-                        <div class="column is-3">
-                            <div class="flex-card light-bordered event-tile">
-                                <div class="event-circle is-green"></div>
-                                <div class="event-category">
-                                    <span>Business Events</span>
-                                    <span>3 Events</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Event pill -->
-                        <div class="column is-3">
-                            <div class="flex-card light-bordered event-tile">
-                                <div class="event-circle is-orange"></div>
-                                <div class="event-category">
-                                    <span>Team Events</span>
-                                    <span>21 Events</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="columns is-multiline is-subevent-cards">
-                        <!-- Subevent card -->
-                        <div class="column is-3">
-                            <div class="flex-card light-bordered subevent-card is-red">
-                                <!-- Front side -->
-                                <div class="front-face animated preFadeInUp fadeInUp">
-                                    <div class="event-date">
-                                        <div class="date-number">12</div>
-                                        <div class="date-meta">
-                                            <span>thursday</span>
-                                            <span>october 2018</span>
-                                        </div>
-                                    </div>
-                                    <!-- Title -->
-                                    <div class="event-title">
-                                        <span>Startup Meetup</span>
-                                        <span>Starts at 06:30PM</span>
-                                    </div>
-                                    <!-- Participants -->
-                                    <div class="event-participants">
-                                        <img class="participant" src="https://via.placeholder.com/150x150" alt=""
-                                            data-demo-src="/img/avatars/janet.jpg">
-                                        <img class="participant" src="https://via.placeholder.com/150x150" alt=""
-                                            data-demo-src="/img/avatars/ray.jpg">
-                                        <img class="participant" src="https://via.placeholder.com/150x150" alt=""
-                                            data-demo-src="/img/avatars/helen.jpg">
-                                        <img class="participant" src="https://via.placeholder.com/150x150" alt=""
-                                            data-demo-src="/img/avatars/melany.jpg">
-                                        <div class="participant is-more"><span>+12</span></div>
-                                    </div>
-                                </div>
-                                <!-- Back side -->
-                                <div class="back-face animated preFadeInUp fadeInUp">
-                                    <div class="back-inner">
-                                        <div class="event-summary">
-                                            <span>Event Summary</span>
-                                            <p>Lorem ipsum dolor sit amet, ad blandit intellegam cum, nulla legere
-                                                possit id vim, clita
-                                                nullam graecis duo ne.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Subevent card -->
-                        <div class="column is-3">
-                            <div class="flex-card light-bordered subevent-card is-secondary">
-                                <!-- Front side -->
-                                <div class="front-face animated preFadeInUp fadeInUp">
-                                    <div class="event-date">
-                                        <div class="date-number">18</div>
-                                        <div class="date-meta">
-                                            <span>monday</span>
-                                            <span>november 2018</span>
-                                        </div>
-                                    </div>
-                                    <!-- Title -->
-                                    <div class="event-title">
-                                        <span>Vuejs Conference</span>
-                                        <span>Starts at 09:30AM</span>
-                                    </div>
-                                    <!-- Participants -->
-                                    <div class="event-participants">
-                                        <img class="participant" src="https://via.placeholder.com/150x150" alt=""
-                                            data-demo-src="/img/avatars/alan.jpg">
-                                        <img class="participant" src="https://via.placeholder.com/150x150" alt=""
-                                            data-demo-src="/img/avatars/janet.jpg">
-                                        <img class="participant" src="https://via.placeholder.com/150x150" alt=""
-                                            data-demo-src="/img/avatars/terry.jpg">
-                                        <img class="participant" src="https://via.placeholder.com/150x150" alt=""
-                                            data-demo-src="/img/avatars/henry.jpg">
-                                        <div class="participant is-more"><span>+9</span></div>
-                                    </div>
-                                </div>
-                                <!-- Back side -->
-                                <div class="back-face animated preFadeInUp fadeInUp">
-                                    <div class="back-inner">
-                                        <div class="event-summary">
-                                            <span>Event Summary</span>
-                                            <p>Lorem ipsum dolor sit amet, ad blandit intellegam cum, nulla legere
-                                                possit id vim, clita
-                                                nullam graecis duo ne.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Subevent card -->
-                        <div class="column is-3">
-                            <div class="flex-card light-bordered subevent-card is-green">
-                                <!-- Front side -->
-                                <div class="front-face animated preFadeInUp fadeInUp">
-                                    <div class="event-date">
-                                        <div class="date-number">03</div>
-                                        <div class="date-meta">
-                                            <span>tuesday</span>
-                                            <span>november 2018</span>
-                                        </div>
-                                    </div>
-                                    <!-- Title -->
-                                    <div class="event-title">
-                                        <span>Board Meeting</span>
-                                        <span>Starts at 10:30AM</span>
-                                    </div>
-                                    <!-- Participants -->
-                                    <div class="event-participants">
-                                        <img class="participant" src="https://via.placeholder.com/150x150" alt=""
-                                            data-demo-src="/img/avatars/elie.jpg">
-                                        <img class="participant" src="https://via.placeholder.com/150x150" alt=""
-                                            data-demo-src="/img/avatars/helen.jpg">
-                                        <img class="participant" src="https://via.placeholder.com/150x150" alt=""
-                                            data-demo-src="/img/avatars/lakisha.jpg">
-                                        <img class="participant" src="https://via.placeholder.com/150x150" alt=""
-                                            data-demo-src="/img/avatars/christina.jpg">
-                                        <div class="participant is-more"><span>+5</span></div>
-                                    </div>
-                                </div>
-                                <!-- Back side -->
-                                <div class="back-face animated preFadeInUp fadeInUp">
-                                    <div class="back-inner">
-                                        <div class="event-summary">
-                                            <span>Event Summary</span>
-                                            <p>Lorem ipsum dolor sit amet, ad blandit intellegam cum, nulla legere
-                                                possit id vim, clita
-                                                nullam graecis duo ne.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Subevent card -->
-                        <div class="column is-3">
-                            <div class="flex-card light-bordered subevent-card is-orange">
-                                <!-- Front side -->
-                                <div class="front-face animated preFadeInUp fadeInUp">
-                                    <div class="event-date">
-                                        <div class="date-number">01</div>
-                                        <div class="date-meta">
-                                            <span>monday</span>
-                                            <span>october 2018</span>
-                                        </div>
-                                    </div>
-                                    <!-- Title -->
-                                    <div class="event-title">
-                                        <span>Project Review</span>
-                                        <span>Starts at 08:00AM</span>
-                                    </div>
-                                    <!-- Participants -->
-                                    <div class="event-participants">
-                                        <img class="participant" src="https://via.placeholder.com/150x150" alt=""
-                                            data-demo-src="/img/avatars/anthony.jpg">
-                                        <img class="participant" src="https://via.placeholder.com/150x150" alt=""
-                                            data-demo-src="/img/avatars/ben.jpg">
-                                        <img class="participant" src="https://via.placeholder.com/150x150" alt=""
-                                            data-demo-src="/img/avatars/christina.jpg">
-                                        <img class="participant" src="https://via.placeholder.com/150x150" alt=""
-                                            data-demo-src="/img/avatars/kareem.jpg">
-                                        <div class="participant is-more"><span>+2</span></div>
-                                    </div>
-                                </div>
-                                <!-- Back side -->
-                                <div class="back-face animated preFadeInUp fadeInUp">
-                                    <div class="back-inner">
-                                        <div class="event-summary">
-                                            <span>Event Summary</span>
-                                            <p>Lorem ipsum dolor sit amet, ad blandit intellegam cum, nulla legere
-                                                possit id vim, clita
-                                                nullam graecis duo ne.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
+            <!-- Create event -->
+            <div class="list-filter">
+              <a
+                @click="toggleEventModal()"
+                class="button is-secondary is-raised is-long-1"
+              >
+                <span class="icon is-small">
+                  <i class="fas fa-plus"></i>
+                </span>
+                <span>New Event</span>
+              </a>
             </div>
+          </div>
 
+          <div class="columns is-multiline is-event-tiles">
+            <!-- Event pill -->
+            <div class="column is-3">
+              <div class="flex-card light-bordered event-tile">
+                <div class="event-circle is-red"></div>
+                <div class="event-category">
+                  <span>Corporate Events</span>
+                  <span>7 Events</span>
+                </div>
+              </div>
+            </div>
+            <!-- Event pill -->
+            <div class="column is-3">
+              <div class="flex-card light-bordered event-tile">
+                <div class="event-circle is-secondary"></div>
+                <div class="event-category">
+                  <span>Tech Events</span>
+                  <span>13 Events</span>
+                </div>
+              </div>
+            </div>
+            <!-- Event pill -->
+            <div class="column is-3">
+              <div class="flex-card light-bordered event-tile">
+                <div class="event-circle is-green"></div>
+                <div class="event-category">
+                  <span>Business Events</span>
+                  <span>3 Events</span>
+                </div>
+              </div>
+            </div>
+            <!-- Event pill -->
+            <div class="column is-3">
+              <div class="flex-card light-bordered event-tile">
+                <div class="event-circle is-orange"></div>
+                <div class="event-category">
+                  <span>Team Events</span>
+                  <span>21 Events</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="columns is-multiline is-subevent-cards">
+            <!-- Subevent card -->
+            <div class="column is-3">
+              <div class="flex-card light-bordered subevent-card is-red">
+                <!-- Front side -->
+                <div class="front-face animated preFadeInUp fadeInUp">
+                  <div class="event-date">
+                    <div class="date-number">12</div>
+                    <div class="date-meta">
+                      <span>thursday</span>
+                      <span>october 2018</span>
+                    </div>
+                  </div>
+                  <!-- Title -->
+                  <div class="event-title">
+                    <span>Startup Meetup</span>
+                    <span>Starts at 06:30PM</span>
+                  </div>
+                  <!-- Participants -->
+                  <div class="event-participants">
+                    <img
+                      class="participant"
+                      src="/img/avatars/janet.jpg"
+                      alt=""
+                    />
+                    <img
+                      class="participant"
+                      src="/img/avatars/ray.jpg"
+                      alt=""
+                    />
+                    <img
+                      class="participant"
+                      src="/img/avatars/helen.jpg"
+                      alt=""
+                    />
+                    <img
+                      class="participant"
+                      src="/img/avatars/melany.jpg"
+                      alt=""
+                    />
+                    <div class="participant is-more"><span>+12</span></div>
+                  </div>
+                </div>
+                <!-- Back side -->
+                <div class="back-face animated preFadeInUp fadeInUp">
+                  <div class="back-inner">
+                    <div class="event-summary">
+                      <span>Event Summary</span>
+                      <p>
+                        Lorem ipsum dolor sit amet, ad blandit intellegam cum,
+                        nulla legere possit id vim, clita nullam graecis duo ne.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Subevent card -->
+            <div class="column is-3">
+              <div class="flex-card light-bordered subevent-card is-secondary">
+                <!-- Front side -->
+                <div class="front-face animated preFadeInUp fadeInUp">
+                  <div class="event-date">
+                    <div class="date-number">18</div>
+                    <div class="date-meta">
+                      <span>monday</span>
+                      <span>november 2018</span>
+                    </div>
+                  </div>
+                  <!-- Title -->
+                  <div class="event-title">
+                    <span>Vuejs Conference</span>
+                    <span>Starts at 09:30AM</span>
+                  </div>
+                  <!-- Participants -->
+                  <div class="event-participants">
+                    <img
+                      class="participant"
+                      src="/img/avatars/alan.jpg"
+                      alt=""
+                    />
+                    <img
+                      class="participant"
+                      src="/img/avatars/janet.jpg"
+                      alt=""
+                    />
+                    <img
+                      class="participant"
+                      src="/img/avatars/terry.jpg"
+                      alt=""
+                    />
+                    <img
+                      class="participant"
+                      src="/img/avatars/henry.jpg"
+                      alt=""
+                    />
+                    <div class="participant is-more"><span>+9</span></div>
+                  </div>
+                </div>
+                <!-- Back side -->
+                <div class="back-face animated preFadeInUp fadeInUp">
+                  <div class="back-inner">
+                    <div class="event-summary">
+                      <span>Event Summary</span>
+                      <p>
+                        Lorem ipsum dolor sit amet, ad blandit intellegam cum,
+                        nulla legere possit id vim, clita nullam graecis duo ne.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Subevent card -->
+            <div class="column is-3">
+              <div class="flex-card light-bordered subevent-card is-green">
+                <!-- Front side -->
+                <div class="front-face animated preFadeInUp fadeInUp">
+                  <div class="event-date">
+                    <div class="date-number">03</div>
+                    <div class="date-meta">
+                      <span>tuesday</span>
+                      <span>november 2018</span>
+                    </div>
+                  </div>
+                  <!-- Title -->
+                  <div class="event-title">
+                    <span>Board Meeting</span>
+                    <span>Starts at 10:30AM</span>
+                  </div>
+                  <!-- Participants -->
+                  <div class="event-participants">
+                    <img
+                      class="participant"
+                      src="/img/avatars/elie.jpg"
+                      alt=""
+                    />
+                    <img
+                      class="participant"
+                      src="/img/avatars/helen.jpg"
+                      alt=""
+                    />
+                    <img
+                      class="participant"
+                      src="/img/avatars/lakisha.jpg"
+                      alt=""
+                    />
+                    <img
+                      class="participant"
+                      src="/img/avatars/christina.jpg"
+                      alt=""
+                    />
+                    <div class="participant is-more"><span>+5</span></div>
+                  </div>
+                </div>
+                <!-- Back side -->
+                <div class="back-face animated preFadeInUp fadeInUp">
+                  <div class="back-inner">
+                    <div class="event-summary">
+                      <span>Event Summary</span>
+                      <p>
+                        Lorem ipsum dolor sit amet, ad blandit intellegam cum,
+                        nulla legere possit id vim, clita nullam graecis duo ne.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Subevent card -->
+            <div class="column is-3">
+              <div class="flex-card light-bordered subevent-card is-orange">
+                <!-- Front side -->
+                <div class="front-face animated preFadeInUp fadeInUp">
+                  <div class="event-date">
+                    <div class="date-number">01</div>
+                    <div class="date-meta">
+                      <span>monday</span>
+                      <span>october 2018</span>
+                    </div>
+                  </div>
+                  <!-- Title -->
+                  <div class="event-title">
+                    <span>Project Review</span>
+                    <span>Starts at 08:00AM</span>
+                  </div>
+                  <!-- Participants -->
+                  <div class="event-participants">
+                    <img
+                      class="participant"
+                      src="/img/avatars/anthony.jpg"
+                      alt=""
+                    />
+                    <img
+                      class="participant"
+                      src="/img/avatars/ben.jpg"
+                      alt=""
+                    />
+                    <img
+                      class="participant"
+                      src="/img/avatars/christina.jpg"
+                      alt=""
+                    />
+                    <img
+                      class="participant"
+                      src="/img/avatars/kareem.jpg"
+                      alt=""
+                    />
+                    <div class="participant is-more"><span>+2</span></div>
+                  </div>
+                </div>
+                <!-- Back side -->
+                <div class="back-face animated preFadeInUp fadeInUp">
+                  <div class="back-inner">
+                    <div class="event-summary">
+                      <span>Event Summary</span>
+                      <p>
+                        Lorem ipsum dolor sit amet, ad blandit intellegam cum,
+                        nulla legere possit id vim, clita nullam graecis duo ne.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
+      </div>
     </div>
+  </div>
 
-    {{> new-event-modal}}
-
+  {{> new-event-modal}}
 </div>

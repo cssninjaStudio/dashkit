@@ -1,53 +1,60 @@
-<div x-ref="composedrop" @click.away="$refs.composedrop.classList.remove('is-active')" class="dropdown compose-dropdown is-spaced is-up dropdown-trigger">
-    <div>
-        <div @click="$refs.composedrop.classList.add('is-active')" class="add-button">
-            <div class="button-inner">
-                <i class="material-icons">add</i>
-            </div>
-        </div>
+<div
+  x-ref="composedrop"
+  @click.away="$refs.composedrop.classList.remove('is-active')"
+  class="dropdown compose-dropdown is-spaced is-up dropdown-trigger"
+>
+  <div>
+    <div
+      @click="$refs.composedrop.classList.add('is-active')"
+      class="add-button"
+    >
+      <div class="button-inner">
+        <i class="material-icons">add</i>
+      </div>
     </div>
-    <div class="dropdown-menu" role="menu">
-        <div class="dropdown-content">
-            <div class="dropdown-item is-header">
-                <h5>Add a new</h5>
-            </div>
-            <a href="#" class="dropdown-item">
-                <div class="media">
-                    <i class="material-icons">code</i>
-                    <div class="media-content">
-                        <h3>Code snippet</h3>
-                        <small>Add and paste a code snippet.</small>
-                    </div>
-                </div>
-            </a>
-            <a class="dropdown-item">
-                <div class="media">
-                    <i class="sl icon-doc"></i>
-                    <div class="media-content">
-                        <h3>Note</h3>
-                        <small>Add and paste a note.</small>
-                    </div>
-                </div>
-            </a>
-            <hr class="dropdown-divider">
-            <a class="dropdown-item">
-                <div class="media">
-                    <i class="sl icon-globe"></i>
-                    <div class="media-content">
-                        <h3>Remote file</h3>
-                        <small>Add a file from a remote drive.</small>
-                    </div>
-                </div>
-            </a>
-            <a class="dropdown-item">
-                <div class="media">
-                    <i class="sl icon-screen-desktop"></i>
-                    <div class="media-content">
-                        <h3>Local file</h3>
-                        <small>Add a file from your computer.</small>
-                    </div>
-                </div>
-            </a>
+  </div>
+  <div class="dropdown-menu" role="menu">
+    <div class="dropdown-content">
+      <div class="dropdown-item is-header">
+        <h5>Add a new</h5>
+      </div>
+      <a href="#" class="dropdown-item">
+        <div class="media">
+          <i class="material-icons">code</i>
+          <div class="media-content">
+            <h3>Code snippet</h3>
+            <small>Add and paste a code snippet.</small>
+          </div>
         </div>
+      </a>
+      <a class="dropdown-item">
+        <div class="media">
+          <i class="sl icon-doc"></i>
+          <div class="media-content">
+            <h3>Note</h3>
+            <small>Add and paste a note.</small>
+          </div>
+        </div>
+      </a>
+      <hr class="dropdown-divider" />
+      <a class="dropdown-item">
+        <div class="media">
+          <i class="sl icon-globe"></i>
+          <div class="media-content">
+            <h3>Remote file</h3>
+            <small>Add a file from a remote drive.</small>
+          </div>
+        </div>
+      </a>
+      <a class="dropdown-item">
+        <div class="media">
+          <i class="sl icon-screen-desktop"></i>
+          <div class="media-content">
+            <h3>Local file</h3>
+            <small>Add a file from your computer.</small>
+          </div>
+        </div>
+      </a>
     </div>
+  </div>
 </div>

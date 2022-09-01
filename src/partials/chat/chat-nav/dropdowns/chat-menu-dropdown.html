@@ -1,61 +1,68 @@
-<div x-ref="menudrop" @click.away="$refs.menudrop.classList.remove('is-active')" class="dropdown is-spaced is-right dropdown-trigger">
-    <div>
-        <a @click="$refs.menudrop.classList.add('is-active')" class="chat-nav-item is-icon">
-            <i class="material-icons">more_vert</i>
-        </a>
-    </div>
-    <div class="dropdown-menu" role="menu">
-        <div class="dropdown-content">
-            <div class="dropdown-item is-header">
-                <h5>Menu</h5>
-            </div>
-            <a href="#" class="dropdown-item">
-                <div class="media">
-                    <i class="sl icon-docs"></i>
-                    <div class="media-content">
-                        <h3>Files</h3>
-                        <small>View all your files.</small>
-                    </div>
-                </div>
-            </a>
-            <a class="dropdown-item">
-                <div class="media">
-                    <i class="sl icon-people"></i>
-                    <div class="media-content">
-                        <h3>Users</h3>
-                        <small>View all users you're talking to.</small>
-                    </div>
-                </div>
-            </a>
-            <hr class="dropdown-divider">
-            <a class="dropdown-item">
-                <div class="media">
-                    <i class="sl icon-present"></i>
-                    <div class="media-content">
-                        <h3>Daily bonus</h3>
-                        <small>Get your daily bonus.</small>
-                    </div>
-                </div>
-            </a>
-            <a class="dropdown-item">
-                <div class="media">
-                    <i class="sl icon-cloud-download"></i>
-                    <div class="media-content">
-                        <h3>Downloads</h3>
-                        <small>See all your downloads.</small>
-                    </div>
-                </div>
-            </a>
-            <hr class="dropdown-divider">
-            <a class="dropdown-item">
-                <div class="media">
-                    <i class="sl icon-support"></i>
-                    <div class="media-content">
-                        <h3>Support</h3>
-                        <small>Reach our support team.</small>
-                    </div>
-                </div>
-            </a>
+<div
+  x-ref="menudrop"
+  @click.away="$refs.menudrop.classList.remove('is-active')"
+  class="dropdown is-spaced is-right dropdown-trigger"
+>
+  <div>
+    <a
+      @click="$refs.menudrop.classList.add('is-active')"
+      class="chat-nav-item is-icon"
+    >
+      <i class="material-icons">more_vert</i>
+    </a>
+  </div>
+  <div class="dropdown-menu" role="menu">
+    <div class="dropdown-content">
+      <div class="dropdown-item is-header">
+        <h5>Menu</h5>
+      </div>
+      <a href="#" class="dropdown-item">
+        <div class="media">
+          <i class="sl icon-docs"></i>
+          <div class="media-content">
+            <h3>Files</h3>
+            <small>View all your files.</small>
+          </div>
         </div>
+      </a>
+      <a class="dropdown-item">
+        <div class="media">
+          <i class="sl icon-people"></i>
+          <div class="media-content">
+            <h3>Users</h3>
+            <small>View all users you're talking to.</small>
+          </div>
+        </div>
+      </a>
+      <hr class="dropdown-divider" />
+      <a class="dropdown-item">
+        <div class="media">
+          <i class="sl icon-present"></i>
+          <div class="media-content">
+            <h3>Daily bonus</h3>
+            <small>Get your daily bonus.</small>
+          </div>
+        </div>
+      </a>
+      <a class="dropdown-item">
+        <div class="media">
+          <i class="sl icon-cloud-download"></i>
+          <div class="media-content">
+            <h3>Downloads</h3>
+            <small>See all your downloads.</small>
+          </div>
+        </div>
+      </a>
+      <hr class="dropdown-divider" />
+      <a class="dropdown-item">
+        <div class="media">
+          <i class="sl icon-support"></i>
+          <div class="media-content">
+            <h3>Support</h3>
+            <small>Reach our support team.</small>
+          </div>
+        </div>
+      </a>
     </div>
+  </div>
 </div>

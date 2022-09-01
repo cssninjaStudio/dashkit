@@ -3,7 +3,7 @@
 //Alpine JS and plugins import
 import Alpine from "alpinejs";
 import intersect from "@alpinejs/intersect";
-import collapse from '@alpinejs/collapse';
+import collapse from "@alpinejs/collapse";
 import Fern from "@ryangjchandler/fern";
 
 window.Alpine = Alpine;
@@ -29,15 +29,10 @@ Alpine.start();
 const feather = require("feather-icons");
 
 //Components
-import { env } from "./libs/utils/constants";
 import { initVideoPlayers } from "./libs/components/player/player";
 import { initMapBox } from "./libs/components/map/map";
-import {
-  switchDemoImages,
-  insertBgImages,
-  initRipple,
-} from "./libs/utils/utils";
-import { initLazyLoading } from './libs/utils/lazyload';
+import { insertBgImages, initRipple } from "./libs/utils/utils";
+import { initLazyLoading } from "./libs/utils/lazyload";
 import "./libs/demo";
 import "./libs/components";
 import "./libs/pages";
@@ -45,7 +40,7 @@ import "./libs/pages";
 document.onreadystatechange = function () {
   if (document.readyState == "complete") {
     //Switch demo images
-    const changeImages = switchDemoImages(env);
+    // const changeImages = switchDemoImages(env);
 
     //Switch backgrounds
     const changeBackgrounds = insertBgImages();
@@ -60,7 +55,7 @@ document.onreadystatechange = function () {
     const ripples = initRipple();
 
     //Video Players
-    const players = initVideoPlayers(env);
+    const players = initVideoPlayers();
 
     //Maps
     const maps = initMapBox();

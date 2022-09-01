@@ -1,71 +1,78 @@
-<div x-ref="accountdrop" @click.away="$refs.accountdrop.classList.remove('is-active')" class="dropdown is-spaced is-right dropdown-trigger">
-    <div>
-        <a @click="$refs.accountdrop.classList.add('is-active')" class="chat-nav-item is-account">
-            <img class="user-avatar" src="https://via.placeholder.com/150x150" data-demo-src="/img/avatars/helen.jpg" alt="">
-        </a>
-    </div>
-    <div class="dropdown-menu" role="menu">
-        <div class="dropdown-content">
-            <div class="dropdown-item is-header">
-                <h5 class="is-narrow">Helen Miller</h5>
-                <h6>helenmiller@dashkit.io</h6>
-            </div>
-            <a href="#" class="dropdown-item">
-                <div class="media">
-                    <i class="sl icon-grid"></i>
-                    <div class="media-content">
-                        <h3>Dashboard</h3>
-                        <small>Back to Dashboard.</small>
-                    </div>
-                </div>
-            </a>
-            <a class="dropdown-item">
-                <div class="media">
-                    <i class="sl icon-user"></i>
-                    <div class="media-content">
-                        <h3>Profile</h3>
-                        <small>View your user profile.</small>
-                    </div>
-                </div>
-            </a>
-            <a class="dropdown-item">
-                <div class="media">
-                    <i class="sl icon-envelope-open"></i>
-                    <div class="media-content">
-                        <h3>Inbox</h3>
-                        <small>Open your messages inbox.</small>
-                    </div>
-                </div>
-            </a>
-            <hr class="dropdown-divider">
-            <a class="dropdown-item">
-                <div class="media">
-                    <i class="sl icon-check"></i>
-                    <div class="media-content">
-                        <h3>Tasks</h3>
-                        <small>View your pending tasks.</small>
-                    </div>
-                </div>
-            </a>
-            <a class="dropdown-item">
-                <div class="media">
-                    <i class="sl icon-rocket"></i>
-                    <div class="media-content">
-                        <h3>My Projects</h3>
-                        <small>View your projects board.</small>
-                    </div>
-                </div>
-            </a>
-            <hr class="dropdown-divider">
-            <a class="dropdown-item">
-                <div class="media">
-                    <i class="sl icon-logout"></i>
-                    <div class="media-content">
-                        <h3>Logout</h3>
-                        <small>Logout from your account</small>
-                    </div>
-                </div>
-            </a>
+<div
+  x-ref="accountdrop"
+  @click.away="$refs.accountdrop.classList.remove('is-active')"
+  class="dropdown is-spaced is-right dropdown-trigger"
+>
+  <div>
+    <a
+      @click="$refs.accountdrop.classList.add('is-active')"
+      class="chat-nav-item is-account"
+    >
+      <img class="user-avatar" src="/img/avatars/helen.jpg" alt="" />
+    </a>
+  </div>
+  <div class="dropdown-menu" role="menu">
+    <div class="dropdown-content">
+      <div class="dropdown-item is-header">
+        <h5 class="is-narrow">Helen Miller</h5>
+        <h6>helenmiller@dashkit.io</h6>
+      </div>
+      <a href="#" class="dropdown-item">
+        <div class="media">
+          <i class="sl icon-grid"></i>
+          <div class="media-content">
+            <h3>Dashboard</h3>
+            <small>Back to Dashboard.</small>
+          </div>
         </div>
+      </a>
+      <a class="dropdown-item">
+        <div class="media">
+          <i class="sl icon-user"></i>
+          <div class="media-content">
+            <h3>Profile</h3>
+            <small>View your user profile.</small>
+          </div>
+        </div>
+      </a>
+      <a class="dropdown-item">
+        <div class="media">
+          <i class="sl icon-envelope-open"></i>
+          <div class="media-content">
+            <h3>Inbox</h3>
+            <small>Open your messages inbox.</small>
+          </div>
+        </div>
+      </a>
+      <hr class="dropdown-divider" />
+      <a class="dropdown-item">
+        <div class="media">
+          <i class="sl icon-check"></i>
+          <div class="media-content">
+            <h3>Tasks</h3>
+            <small>View your pending tasks.</small>
+          </div>
+        </div>
+      </a>
+      <a class="dropdown-item">
+        <div class="media">
+          <i class="sl icon-rocket"></i>
+          <div class="media-content">
+            <h3>My Projects</h3>
+            <small>View your projects board.</small>
+          </div>
+        </div>
+      </a>
+      <hr class="dropdown-divider" />
+      <a class="dropdown-item">
+        <div class="media">
+          <i class="sl icon-logout"></i>
+          <div class="media-content">
+            <h3>Logout</h3>
+            <small>Logout from your account</small>
+          </div>
+        </div>
+      </a>
     </div>
+  </div>
 </div>

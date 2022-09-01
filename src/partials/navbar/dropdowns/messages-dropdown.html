@@ -1,63 +1,71 @@
 <!-- Messages dropdown (hidden on mobile) -->
 <div x-cloak class="drop-pop">
-    <div class="icon-button" @click="openNavbarDropdowns('messages-nav-drop')"  @click.away="closeNavbarDropdowns('messages-nav-drop')">
-        <i data-feather="mail"></i>
-        <span class="indicator"></span>
-    </div>
-    <div class="drop-wrapper emails-drop" :class="{
+  <div
+    class="icon-button"
+    @click="openNavbarDropdowns('messages-nav-drop')"
+    @click.away="closeNavbarDropdowns('messages-nav-drop')"
+  >
+    <i data-feather="mail"></i>
+    <span class="indicator"></span>
+  </div>
+  <div
+    class="drop-wrapper emails-drop"
+    :class="{
             'is-active': messagesDropOpened,
             '': !messagesDropOpened
-        }">
-        <div class="drop-inner has-arrow">
-            <div class="emails-header">
-                <h3>Messages</h3>
-            </div>
-            <div class="emails-body">
-                <ul class="emails-list">
-                    <li>
-                        <img src="https://via.placeholder.com/250x250" alt=""
-                            data-demo-src="/img/avatars/ray.jpg">
-                        <div class="email-content">
-
-                            <div class="email-text">
-                                <div class="text">
-                                    Hello, after our last meetings, it seems that some goals were...
-                                </div>
-                                <!--div class="timestamp">
+        }"
+  >
+    <div class="drop-inner has-arrow">
+      <div class="emails-header">
+        <h3>Messages</h3>
+      </div>
+      <div class="emails-body">
+        <ul class="emails-list">
+          <li>
+            <img src="/img/avatars/ray.jpg" alt="" />
+            <div class="email-content">
+              <div class="email-text">
+                <div class="text">
+                  Hello, after our last meetings, it seems that some goals
+                  were...
+                </div>
+                <!--div class="timestamp">
                                     Nov 09, 14:18
                                 </div-->
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="fake-avatar is-secondary">B</span>
-                        <div class="email-content">
-                            <div class="email-text">
-                                <div class="text is-read">
-                                    We did not receive the order yet, can you please check if it has...
-                                </div>
-                                <!--div class="timestamp">
+              </div>
+            </div>
+          </li>
+          <li>
+            <span class="fake-avatar is-secondary">B</span>
+            <div class="email-content">
+              <div class="email-text">
+                <div class="text is-read">
+                  We did not receive the order yet, can you please check if it
+                  has...
+                </div>
+                <!--div class="timestamp">
                                     Nov 05, 13:31
                                 </div-->
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="fake-avatar is-primary">J</span>
-                        <div class="email-content">
-                            <div class="email-text">
-                                <div class="text is-read">
-                                    My boss was very grateful that you found a solution during the week as...
-                                </div>
-                                <!--div class="timestamp">
+              </div>
+            </div>
+          </li>
+          <li>
+            <span class="fake-avatar is-primary">J</span>
+            <div class="email-content">
+              <div class="email-text">
+                <div class="text is-read">
+                  My boss was very grateful that you found a solution during the
+                  week as...
+                </div>
+                <!--div class="timestamp">
                                     Nov 05, 09:47
                                 </div-->
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+              </div>
             </div>
-        </div>
+          </li>
+        </ul>
+      </div>
     </div>
+  </div>
 </div>
 <!-- Messages dropdown -->

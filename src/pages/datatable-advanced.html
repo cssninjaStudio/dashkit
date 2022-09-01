@@ -4,44 +4,44 @@ title: Advanced Datatable
 ---
 
 <!-- Main dashboard container -->
-<div id="dashboard-wrapper" class="dashboard-outer" x-data="initDatatableAdvanced()" :class="{
+<div
+  id="dashboard-wrapper"
+  class="dashboard-outer"
+  x-data="initDatatableAdvanced()"
+  :class="{
         'is-pushed': $store.app.sidebarOpenedState,
         '': !$store.app.sidebarOpenedState
-    }">
-    <div class="dashboard-inner">
-
-        <!-- Dashboard Wrapper -->
-        <div class="dashboard-wrapper">
-
-            <div id="main-dashboard" class="section-wrapper">
-                <!-- Dashboard content -->
-                <div class="dashboard-columns">
-
-                    <h2 class="demo-title is-font-alt">Advanced Datatable</h2>
-                    <!-- Advanced Datatable -->
-                    <div class="table-wrapper">
-                        <table id="advanced-datatable" class="table is-datatable is-hoverable table-is-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Picture</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Position</th>
-                                    <th>Status</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                        <div id="paging-first-datatable" class="pagination"></div>
-                    </div>
-
-                </div>
-
-            </div>
-
+    }"
+>
+  <div class="dashboard-inner">
+    <!-- Dashboard Wrapper -->
+    <div class="dashboard-wrapper">
+      <div id="main-dashboard" class="section-wrapper">
+        <!-- Dashboard content -->
+        <div class="dashboard-columns">
+          <h2 class="demo-title is-font-alt">Advanced Datatable</h2>
+          <!-- Advanced Datatable -->
+          <div class="table-wrapper">
+            <table
+              id="advanced-datatable"
+              class="table is-datatable is-hoverable table-is-bordered"
+            >
+              <thead>
+                <tr>
+                  <th>Picture</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Position</th>
+                  <th>Status</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+            <div id="paging-first-datatable" class="pagination"></div>
+          </div>
         </div>
-
+      </div>
     </div>
-
+  </div>
 </div>

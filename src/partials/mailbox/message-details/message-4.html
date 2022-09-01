@@ -1,139 +1,171 @@
 <!-- Message details -->
-<div x-show="activeMessage === 'message-4'" id="message-4" class="inbox-message-details" :class="{
+<div
+  x-show="activeMessage === 'message-4'"
+  id="message-4"
+  class="inbox-message-details"
+  :class="{
         'mobile-active tablet-active': isMobileMessageActive,
         '': !isMobileMessageActive
-    }">
-    <div class="header-area">
-        <img class="sender-pic" src="https://via.placeholder.com/150x150"
-            data-demo-src="/img/avatars/anthony.jpg" alt="">
-        <div class="message-meta">
-            <span class="message-title">Meeting with the new customer on Monday</span>
-            <span class="sender-email">&lt;anthony@Dashkit.io&gt;</span>
+    }"
+>
+  <div class="header-area">
+    <img class="sender-pic" src="/img/avatars/anthony.jpg" alt="" />
+    <div class="message-meta">
+      <span class="message-title">Meeting with the new customer on Monday</span>
+      <span class="sender-email">&lt;anthony@Dashkit.io&gt;</span>
+    </div>
+    <div class="attachments is-vhidden inbox-hidden-mobile">
+      <i class="sl icon-paper-clip"></i>
+      <span>0</span>
+    </div>
+    <div
+      x-ref="messagedrop4"
+      @click.away="$refs.messagedrop4.classList.remove('is-active')"
+      class="dropdown inbox-dropdown dropdown-trigger is-right"
+    >
+      <div>
+        <button
+          @click="$refs.messagedrop4.classList.add('is-active')"
+          class="button"
+        >
+          <span class="icon is-small">
+            <i class="sl icon-options"></i>
+          </span>
+        </button>
+      </div>
+      <div class="dropdown-menu">
+        <div class="dropdown-content">
+          <a class="dropdown-item">
+            <i class="sl icon-star"></i>
+            <span>Bookmark message</span>
+          </a>
+          <hr class="dropdown-divider" />
+          <a class="dropdown-item">
+            <i class="sl icon-share"></i>
+            <span>Share message</span>
+          </a>
+          <hr class="dropdown-divider" />
+          <a class="dropdown-item">
+            <i class="sl icon-shield"></i>
+            <span>Mark as spam</span>
+          </a>
         </div>
-        <div class="attachments is-vhidden inbox-hidden-mobile">
-            <i class="sl icon-paper-clip"></i>
-            <span>0</span>
+      </div>
+    </div>
+    <a
+      @click="closeMobileMessage()"
+      class="inbox-action inbox-close-details-mobile"
+    >
+      <i class="material-icons">close</i>
+    </a>
+  </div>
+  <!--Message-->
+  <div class="message-wrapper has-slimscroll">
+    <div class="message-inner">
+      <div class="message-head">
+        <div class="info">
+          <span>Sent on</span>
+          <span>Feb 24 2020, at 04:27pm</span>
         </div>
-        <div x-ref="messagedrop4" @click.away="$refs.messagedrop4.classList.remove('is-active')" class="dropdown inbox-dropdown dropdown-trigger is-right">
+        <div class="message-actions">
+          <a class="inbox-action">
+            <i class="sl icon-action-undo"></i>
+          </a>
+          <a class="inbox-action">
+            <i class="sl icon-docs"></i>
+          </a>
+          <a class="inbox-action">
+            <i class="sl icon-tag"></i>
+          </a>
+          <a class="inbox-action">
+            <i class="sl icon-bubble"></i>
+          </a>
+          <a class="inbox-action">
+            <i class="sl icon-lock"></i>
+          </a>
+        </div>
+      </div>
+      <!--Mail Content-->
+      <div class="mail-content content">
+        <p>Hi Mrs. Miller,</p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nos commodius
+          agimus. Si longus, levis;
+          <a href="#" target="_blank"
+            >Summum ením bonum exposuit vacuitatem doloris;</a
+          >
+          Eadem fortitudinis ratio reperietur. Duo Reges: constructio interrete.
+          Facile est hoc cernere in primis puerorum aetatulis.
+        </p>
+        <ul>
+          <li>Sed residamus, inquit, si placet.</li>
+          <li>
+            Parvi enim primo ortu sic iacent, tamquam omnino sine animo sint.
+          </li>
+          <li>Beatus autem esse in maximarum rerum timore nemo potest.</li>
+          <li>
+            Illa argumenta propria videamus, cur omnia sint paria peccata.
+          </li>
+        </ul>
+
+        <p>Anthony</p>
+      </div>
+    </div>
+
+    <!--Reply-->
+    <div class="reply-box-wrap">
+      <div class="reply-bubble">
+        <div class="reply-as">
+          <img src="/img/avatars/helen.jpg" alt="" />
+          <div class="reply-details">
+            <span>Reply as</span>
+            <span>helenmiller@Dashkit.io</span>
+          </div>
+          <div
+            x-ref="composedrop4"
+            @click.away="$refs.composedrop4.classList.remove('is-active')"
+            class="dropdown inbox-dropdown dropdown-trigger is-right"
+          >
             <div>
-                <button @click="$refs.messagedrop4.classList.add('is-active')" class="button">
-                    <span class="icon is-small">
-                        <i class="sl icon-options"></i>
-                    </span>
-                </button>
+              <button
+                @click="$refs.composedrop4.classList.add('is-active')"
+                class="button"
+              >
+                <span class="icon is-small">
+                  <i class="sl icon-options"></i>
+                </span>
+              </button>
             </div>
             <div class="dropdown-menu">
-                <div class="dropdown-content">
-                    <a class="dropdown-item">
-                        <i class="sl icon-star"></i>
-                        <span>Bookmark message</span>
-                    </a>
-                    <hr class="dropdown-divider">
-                    <a class="dropdown-item">
-                        <i class="sl icon-share"></i>
-                        <span>Share message</span>
-                    </a>
-                    <hr class="dropdown-divider">
-                    <a class="dropdown-item">
-                        <i class="sl icon-shield"></i>
-                        <span>Mark as spam</span>
-                    </a>
-                </div>
+              <div class="dropdown-content">
+                <a class="dropdown-item">
+                  <i class="sl icon-refresh"></i>
+                  <span>Reset</span>
+                </a>
+                <hr class="dropdown-divider" />
+                <a class="dropdown-item">
+                  <i class="sl icon-book-open"></i>
+                  <span>Spelling</span>
+                </a>
+                <hr class="dropdown-divider" />
+                <a class="dropdown-item">
+                  <i class="sl icon-mustache"></i>
+                  <span>Mention</span>
+                </a>
+              </div>
             </div>
+          </div>
         </div>
-        <a @click="closeMobileMessage()" class="inbox-action inbox-close-details-mobile">
-            <i class="material-icons">close</i>
-        </a>
+        <!--textarea-->
+        <div class="control">
+          <textarea
+            class="textarea"
+            rows="6"
+            placeholder="Type your message..."
+          ></textarea>
+          <button type="button" class="button">Send Message</button>
+        </div>
+      </div>
     </div>
-    <!--Message-->
-    <div class="message-wrapper has-slimscroll">
-        <div class="message-inner">
-            <div class="message-head">
-                <div class="info">
-                    <span>Sent on</span>
-                    <span>Feb 24 2020, at 04:27pm</span>
-                </div>
-                <div class="message-actions">
-                    <a class="inbox-action">
-                        <i class="sl icon-action-undo"></i>
-                    </a>
-                    <a class="inbox-action">
-                        <i class="sl icon-docs"></i>
-                    </a>
-                    <a class="inbox-action">
-                        <i class="sl icon-tag"></i>
-                    </a>
-                    <a class="inbox-action">
-                        <i class="sl icon-bubble"></i>
-                    </a>
-                    <a class="inbox-action">
-                        <i class="sl icon-lock"></i>
-                    </a>
-                </div>
-            </div>
-            <!--Mail Content-->
-            <div class="mail-content content">
-                <p>Hi Mrs. Miller,</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nos commodius agimus. Si longus, levis; <a
-                        href="#" target="_blank">Summum ením bonum exposuit vacuitatem doloris;</a> Eadem
-                    fortitudinis ratio reperietur. Duo Reges: constructio interrete. Facile est hoc cernere in primis puerorum
-                    aetatulis. </p>
-                <ul>
-                    <li>Sed residamus, inquit, si placet.</li>
-                    <li>Parvi enim primo ortu sic iacent, tamquam omnino sine animo sint.</li>
-                    <li>Beatus autem esse in maximarum rerum timore nemo potest.</li>
-                    <li>Illa argumenta propria videamus, cur omnia sint paria peccata.</li>
-                </ul>
-
-                <p>Anthony</p>
-            </div>
-        </div>
-
-        <!--Reply-->
-        <div class="reply-box-wrap">
-            <div class="reply-bubble">
-                <div class="reply-as">
-                    <img src="https://via.placeholder.com/150x150" data-demo-src="/img/avatars/helen.jpg"
-                        alt="">
-                    <div class="reply-details">
-                        <span>Reply as</span>
-                        <span>helenmiller@Dashkit.io</span>
-                    </div>
-                    <div x-ref="composedrop4" @click.away="$refs.composedrop4.classList.remove('is-active')" class="dropdown inbox-dropdown dropdown-trigger is-right">
-                        <div>
-                            <button @click="$refs.composedrop4.classList.add('is-active')" class="button">
-                                <span class="icon is-small">
-                                    <i class="sl icon-options"></i>
-                                </span>
-                            </button>
-                        </div>
-                        <div class="dropdown-menu">
-                            <div class="dropdown-content">
-                                <a class="dropdown-item">
-                                    <i class="sl icon-refresh"></i>
-                                    <span>Reset</span>
-                                </a>
-                                <hr class="dropdown-divider">
-                                <a class="dropdown-item">
-                                    <i class="sl icon-book-open"></i>
-                                    <span>Spelling</span>
-                                </a>
-                                <hr class="dropdown-divider">
-                                <a class="dropdown-item">
-                                    <i class="sl icon-mustache"></i>
-                                    <span>Mention</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--textarea-->
-                <div class="control">
-                    <textarea class="textarea" rows="6" placeholder="Type your message..."></textarea>
-                    <button type="button" class="button">Send Message</button>
-                </div>
-            </div>
-        </div>
-
-    </div>
+  </div>
 </div>
