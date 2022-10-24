@@ -19,25 +19,19 @@ Dashkit is built with [Bulma](https://bulma.io) and [Alpine JS](https://github.c
 
 ## 👌 Usage
 
-1. Install Dev Depedencies
-
-```sh
-yarn install
-```
-
-2. Install Depedencies
+1. Install Depedencies
 
 ```sh
 pnpm i
 ```
 
-3. Run in dev mode
+2. Run in dev mode
 
 ```sh
 pnpm dev
 ```
 
-4. Or build source
+3. Or build source
 
 ```sh
 pnpm build
