@@ -1,15 +1,18 @@
-FROM bitnami/node:16 AS build
+FROM bitnami/node:18 AS build
 WORKDIR /app
 
+RUN corepack enable
+
 COPY package.json ./
-COPY yarn.lock ./
-RUN CYPRESS_INSTALL_BINARY=0 yarn --frozen-lockfile
+COPY pnpm-lock.yaml ./
+COPY .npmrc ./
+RUN pnpm install --frozen-lockfile
 
 COPY . .
-RUN yarn run build
+RUN pnpm build
 
 
-FROM bitnami/nginx:1.21 AS prod
+FROM bitnami/nginx:1.22 AS prod
 WORKDIR /app
 
 COPY --from=build /app/dist .

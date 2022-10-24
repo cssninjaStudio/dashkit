@@ -5,13 +5,11 @@ const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass')(require('sass'));
 const bourbon = require('node-bourbon').includePaths;
 const concat = require('gulp-concat');
-const uglify = require('gulp-uglify');
-const imagemin = require('gulp-imagemin');
-const cleanCSS = require('gulp-clean-css');
-const purgecss = require('gulp-purgecss');
+const replace = require('gulp-replace');
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
 const panini = require('panini');
+const packageJson = require('./package.json')
 
 const browserify = require("browserify");
 const babelify = require("babelify");
@@ -63,6 +61,7 @@ function compileHTML() {
   console.log("\n\t" + logSymbols.info, "Compiling HTML..\n");
   panini.refresh();
   return src('src/pages/**/*.html')
+    .pipe(replace('{{PACKAGE_VERSION}}', packageJson.version))
     .pipe(panini({
       root: 'src/pages/',
       layouts: 'src/layouts/',
@@ -122,8 +121,8 @@ function previewReload(done) {
   done();
 }
 
-//Optimize images
-function devImages() {
+//Copy images
+function copyImages() {
   return src(`${options.paths.src.img}/**/*`).pipe(dest(options.paths.dist.img));
 }
 
@@ -159,7 +158,7 @@ function watchFiles() {
   watch(`${options.paths.src.base}/**/*.html`, series(compileHTML, previewReload));
   watch(['src/scss/**/*', 'src/scss/*'], compileSCSS);
   watch(`${options.paths.src.js}/**/*.js`, series(javascriptBuild, previewReload));
-  watch(`${options.paths.src.img}/**/*`, series(devImages, previewReload));
+  watch(`${options.paths.src.img}/**/*`, series(copyImages, previewReload));
   console.log("\n\t" + logSymbols.info, "Watching for Changes..\n");
 }
 
@@ -177,7 +176,7 @@ const buildTasks = [
     copyFonts,  
     compileSCSS, 
     javascriptBuild, 
-    devImages, 
+    copyImages, 
     compileHTML
   ),
 ]

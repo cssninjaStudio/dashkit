@@ -12,10 +12,10 @@ Dashkit is built with [Bulma](https://bulma.io) and [Alpine JS](https://github.c
 
 ## 👍 Features
 
-* Gulp 4 and nodejs 12.13.0 (minimum)
-* Bulma 0.9.3
+* Gulp 4 and nodejs 16.x (minimum)
+* Bulma 0.9.x
 * ES6 support
-* Alpine v3
+* Alpine v3.x
 
 ## 👌 Usage
 
@@ -25,39 +25,22 @@ Dashkit is built with [Bulma](https://bulma.io) and [Alpine JS](https://github.c
 yarn install
 ```
 
-2. To start development server
+2. Install Depedencies
 
 ```sh
-yarn dev
+pnpm i
 ```
 
-## 🍬 Update template colors
+3. Run in dev mode
 
-Dashkit is built with Sass but relies on native CSS variables with HSL for colors. To change the template theme colors:
-
-* Open bulma-css-vars.config.js and change the HSL value of the primary color:
-
-```
-primary: hsl(337, 78, 57),
+```sh
+pnpm dev
 ```
 
-* Then, edit the value of the primary, secondary and accent colors inside `src/scss/css-variables/colors.scss`:
+4. Or build source
 
-```
-// primary HSL (#e73c7d) // hsl(337, 78%, 57%)
-@include colorHsl("primary", 337, 78%, 57%);
-
-// secondary HSL (#7938f4) // hsl(261, 90%, 59%)
-@include colorHsl("secondary", 261, 90%, 59%);
-
-// accent HSL (#3bf486) // hsl(144, 89%, 59%)
-@include colorHsl("accent", 144, 89%, 59%);
-```
-
-* Once you're done, run the following command in your terminal:
-
-```
-yarn build:update-bulma-colors
+```sh
+pnpm build
 ```
 
 ## 🍔 Issues
@@ -72,9 +55,11 @@ If you've found an issue or a bug, you can report it in the issues section of th
 
 ## 🎉 More
 
+Get access to the [documentation](https://docs.cssninja.io/dashkit).
+
 You liked Dashkit? Check also our Envato portfolio [Css Ninja on Themeforest](https://themeforest.net/user/cssninjastudio/portfolio).
 
-Find more premium bulma templates on [Css Ninja](https://cssninja.io/).
+Find more premium app and website templates on [Css Ninja](https://cssninja.io/).
 
 ## 🚀 About Us
 

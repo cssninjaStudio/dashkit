@@ -2,11 +2,10 @@ version: '3.7'
 
 services:
   dashkit-demo:
-    build:
-      context: .
+    image: digisquad/cssninja.dashkit-demo:latest
     networks:
       - cssninja-services
-    restart: '${MOEBIUS_DEMO_RESTART:-no}'
+    restart: 'unless-stopped'
     labels:
       traefik.enable: true
       traefik.docker.network: 'cssninja-services'

@@ -1,15 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="-70 64 257.2 273" style="enable-background:new -70 64 257.2 273;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#FFFFFF;enable-background:new    ;}
-	.st1{fill:#00D1B2;}
-</style>
-<g id="XMLID_10_">
-	<rect id="XMLID_22_" x="63.7" y="64" class="st0" width="123.5" height="129.1"/>
-	<rect id="XMLID_1_" x="63.7" y="206.6" class="st1" width="123.5" height="129.1"/>
-	<rect id="XMLID_17_" x="-70" y="64" class="st0" width="123.5" height="129.1"/>
-	<rect id="XMLID_16_" x="-70" y="205.3" class="st0" width="123.5" height="131.7"/>
-</g>
-</svg>
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="-70 64 257.2 273" style="enable-background:new -70 64 257.2 273" xml:space="preserve"><style>.st0{fill:#fff;enable-background:new}</style><g id="XMLID_10_"><path id="XMLID_22_" class="st0" d="M63.7 64h123.5v129.1H63.7z"/><path id="XMLID_1_" style="fill:#00d1b2" d="M63.7 206.6h123.5v129.1H63.7z"/><path id="XMLID_17_" class="st0" d="M-70 64H53.5v129.1H-70z"/><path id="XMLID_16_" class="st0" d="M-70 205.3H53.5V337H-70z"/></g></svg>
