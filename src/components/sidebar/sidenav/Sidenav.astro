@@ -1,0 +1,57 @@
+---
+import SidenavMenuOne from './SidenavMenuOne.astro'
+import SidenavMenuTwo from './SidenavMenuTwo.astro'
+import SidenavMenuThree from './SidenavMenuThree.astro'
+import SidenavMenuFour from './SidenavMenuFour.astro'
+---
+
+<!-- Child push sidebar menu -->
+<nav
+  class="child-menu"
+  x-data="initSidebarLeft()"
+  x-init="$store.app.sidebarOpenedState = false"
+  :class="{
+      'is-sidebar-translated': $store.app.sidebarOpenedState,
+      '': !$store.app.sidebarOpenedState
+  }"
+>
+  <div class="child-menu-inner">
+    <!-- Child menu header -->
+    <ul>
+      <li class="child-header">
+        <div class="sidebar-title">Navigation</div>
+        <a
+          href="javascript:void(0);"
+          class="menu-wrapper"
+          @click="closeSidebar()"
+        >
+          <span
+            class="icon-box-toggle active"
+            :class="{
+                'active': $store.app.sidebarOpenedState,
+                '': !$store.app.sidebarOpenedState
+            }"
+          >
+            <span class="rotate">
+              <i class="icon-line-top"></i>
+              <i class="icon-line-center"></i>
+              <i class="icon-line-bottom"></i>
+            </span>
+          </span>
+        </a>
+      </li>
+    </ul>
+
+    <!--Sidenav Menu Panel-->
+    <SidenavMenuOne />
+
+    <!--Sidenav Menu Panel-->
+    <SidenavMenuTwo />
+
+    <!--Sidenav Menu Panel-->
+    <SidenavMenuThree />
+
+    <!--Sidenav Menu Panel-->
+    <SidenavMenuFour />
+  </div>
+</nav>

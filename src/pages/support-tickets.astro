@@ -1,0 +1,1404 @@
+---
+import Layout from "../layouts/Default.astro";
+import SupportActivitySidebar from "../components/pages/SupportActivitySidebar.astro";
+const title = 'Ticket List'
+---
+
+<Layout title={title}>
+  <!-- Main dashboard container -->
+  <div
+    id="dashboard-wrapper"
+    class="dashboard-outer"
+    x-data="initSupportTickets()"
+    :class="{
+        'is-pushed': $store.app.sidebarOpenedState,
+        '': !$store.app.sidebarOpenedState
+    }"
+  >
+    <div class="dashboard-inner">
+      <!-- Dashboard Wrapper -->
+      <div class="dashboard-wrapper">
+        <div id="main-dashboard" class="section-wrapper">
+          <!-- Dashboard content -->
+          <div class="dashboard-columns">
+            <!-- Page title -->
+            <div class="support-title-wrapper is-mobile py-5">
+              <img class="support-image" src="/img/avatars/helen.jpg" alt="" />
+              <div class="inner-wrap">
+                <h3 class="support-title">Helen Miller</h3>
+                <div class="title-meta">
+                  <div class="meta">
+                    <i class="sl icon-tag"></i>
+                    <span>45 open</span>
+                  </div>
+                  <div class="meta">
+                    <i class="sl icon-shield"></i>
+                    <span>3 escalated</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Actions -->
+              <div class="actions">
+                <div @click="toggleActivitySidebar()" class="activity-button">
+                  <i class="sl icon-energy"></i>
+                </div>
+                <!-- Dropdown -->
+                <div
+                  x-ref="supportdrop1"
+                  @click.away="$refs.supportdrop1.classList.remove('is-active')"
+                  class="dropdown button-dropdown dropdown-trigger is-right"
+                >
+                  <div
+                    @click="$refs.supportdrop1.classList.add('is-active')"
+                    class="button is-secondary is-raised ripple"
+                    data-ripple-color=""
+                  >
+                    <span class="icon is-small">
+                      <i class="material-icons">more_vert</i>
+                    </span>
+                    <span>Actions</span>
+                  </div>
+                  <!-- Dropdown menu -->
+                  <div class="dropdown-menu is-text-bigger" role="menu">
+                    <div class="dropdown-content">
+                      <a href="#" class="dropdown-item">
+                        <i class="sl icon-tag"></i>
+                        <span>
+                          <span>New Ticket</span>
+                          <span>Create a new ticket</span>
+                        </span>
+                      </a>
+                      <a href="#" class="dropdown-item">
+                        <i class="sl icon-support"></i>
+                        <span>
+                          <span>Tickets</span>
+                          <span>Open ticket list</span>
+                        </span>
+                      </a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item">
+                        <i class="sl icon-bell"></i>
+                        <span>
+                          <span>Notifications</span>
+                          <span>Manage desk notifications</span>
+                        </span>
+                      </a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item">
+                        <i class="sl icon-equalizer"></i>
+                        <span>
+                          <span>Settings</span>
+                          <span>Open global settings</span>
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Support tickets -->
+            <div class="support-tickets">
+              <div class="flex-card is-ticket-list light-bordered">
+                <!-- Contacts table -->
+                <table class="table tickets-table">
+                  <!-- Table header -->
+                  <thead>
+                    <tr>
+                      <th>
+                        <div class="b-checkbox is-muted is-secondary">
+                          <input
+                            x-on:change="toggleAllCheckboxes()"
+                            id="checkbox-docs-all"
+                            class="styled"
+                            type="checkbox"
+                          />
+                          <label for="checkbox-docs-all"></label>
+                        </div>
+                      </th>
+                      <th>
+                        <!-- Filter dropdown -->
+                        <div
+                          x-ref="filterdrop1"
+                          @click.away="$refs.filterdrop1.classList.remove('is-active')"
+                          class="dropdown filter-dropdown dropdown-trigger"
+                        >
+                          <div
+                            @click="$refs.filterdrop1.classList.add('is-active')"
+                            class="button"
+                          >
+                            <span>ID</span>
+                            <i class="material-icons">keyboard_arrow_down</i>
+                          </div>
+                          <div class="dropdown-menu" role="menu">
+                            <div class="dropdown-content">
+                              <div class="dropdown-item filter-title">
+                                Order
+                              </div>
+                              <a href="#" class="dropdown-item">
+                                <span
+                                  >Ascending</span
+                                >
+                              </a>
+                              <a class="dropdown-item">
+                                <span
+                                  >Descending</span
+                                >
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </th>
+                      <th class="w-35">
+                        <!-- Filter dropdown -->
+                        <div
+                          x-ref="filterdrop2"
+                          @click.away="$refs.filterdrop2.classList.remove('is-active')"
+                          class="dropdown filter-dropdown dropdown-trigger"
+                        >
+                          <div
+                            @click="$refs.filterdrop2.classList.add('is-active')"
+                            class="button"
+                          >
+                            <span>Name</span>
+                            <i class="material-icons">keyboard_arrow_down</i>
+                          </div>
+                          <div class="dropdown-menu" role="menu">
+                            <div class="dropdown-content">
+                              <div class="dropdown-item filter-title">
+                                Order
+                              </div>
+                              <a href="#" class="dropdown-item">
+                                <span
+                                  >Ascending</span
+                                >
+                              </a>
+                              <a class="dropdown-item">
+                                <span
+                                  >Descending</span
+                                >
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </th>
+                      <th>
+                        <!-- Filter dropdown -->
+                        <div
+                          x-ref="filterdrop3"
+                          @click.away="$refs.filterdrop3.classList.remove('is-active')"
+                          class="dropdown filter-dropdown dropdown-trigger"
+                        >
+                          <div
+                            @click="$refs.filterdrop3.classList.add('is-active')"
+                            class="button"
+                          >
+                            <span>Priority</span>
+                            <i class="material-icons">keyboard_arrow_down</i>
+                          </div>
+                          <div class="dropdown-menu" role="menu">
+                            <div class="dropdown-content">
+                              <div class="dropdown-item filter-title">
+                                Labels
+                              </div>
+                              <a class="dropdown-item">
+                                <span><i class="fa fa-check"></i> All</span>
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                <span><i class="fa fa-check"></i> High</span>
+                              </a>
+                              <a class="dropdown-item">
+                                <span><i class="fa fa-check"></i> Medium</span>
+                              </a>
+                              <a class="dropdown-item">
+                                <span><i class="fa fa-check"></i> Low</span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </th>
+                      <th>
+                        <!-- Filter dropdown -->
+                        <div
+                          x-ref="filterdrop4"
+                          @click.away="$refs.filterdrop4.classList.remove('is-active')"
+                          class="dropdown filter-dropdown dropdown-trigger"
+                        >
+                          <div
+                            @click="$refs.filterdrop4.classList.add('is-active')"
+                            class="button"
+                          >
+                            <span>Assignee</span>
+                            <i class="material-icons">keyboard_arrow_down</i>
+                          </div>
+                          <div class="dropdown-menu" role="menu">
+                            <div class="dropdown-content">
+                              <div class="dropdown-item filter-title">
+                                Order
+                              </div>
+                              <a href="#" class="dropdown-item">
+                                <span
+                                  ><i class="fa fa-check"></i> Ascending</span
+                                >
+                              </a>
+                              <a class="dropdown-item">
+                                <span
+                                  ><i class="fa fa-check"></i> Descending</span
+                                >
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </th>
+                      <th>
+                        <!-- Filter dropdown -->
+                        <div
+                          x-ref="filterdrop5"
+                          @click.away="$refs.filterdrop5.classList.remove('is-active')"
+                          class="dropdown filter-dropdown dropdown-trigger"
+                        >
+                          <div
+                            @click="$refs.filterdrop5.classList.add('is-active')"
+                            class="button"
+                          >
+                            <span>Modification</span>
+                            <i class="material-icons">keyboard_arrow_down</i>
+                          </div>
+                          <div class="dropdown-menu" role="menu">
+                            <div class="dropdown-content">
+                              <div class="dropdown-item filter-title">
+                                Order
+                              </div>
+                              <a
+                                href="javascript:void(0);"
+                                class="dropdown-item"
+                              >
+                                <span
+                                  ><i class="fa fa-check"></i> Ascending</span
+                                >
+                              </a>
+                              <a
+                                href="javascript:void(0);"
+                                class="dropdown-item"
+                              >
+                                <span
+                                  ><i class="fa fa-check"></i> Descending</span
+                                >
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <div class="dropdown-item filter-title">
+                                Display
+                              </div>
+                              <a
+                                href="javascript:void(0);"
+                                class="dropdown-item is-active"
+                              >
+                                <span
+                                  ><i class="fa fa-check"></i> Modification</span
+                                >
+                              </a>
+                              <a
+                                href="javascript:void(0);"
+                                class="dropdown-item is-disabled"
+                              >
+                                <span><i class="fa fa-check"></i> Status</span>
+                              </a>
+                              <a
+                                href="javascript:void(0);"
+                                class="dropdown-item"
+                              >
+                                <span
+                                  ><i class="fa fa-check"></i> Attachments</span
+                                >
+                              </a>
+                              <a
+                                href="javascript:void(0);"
+                                class="dropdown-item"
+                              >
+                                <span><i class="fa fa-check"></i> Severity</span
+                                >
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </th>
+                      <th>
+                        <!-- Filter dropdown -->
+                        <div
+                          x-ref="filterdrop6"
+                          @click.away="$refs.filterdrop6.classList.remove('is-active')"
+                          class="dropdown filter-dropdown dropdown-trigger"
+                        >
+                          <div
+                            @click="$refs.filterdrop6.classList.add('is-active')"
+                            class="button"
+                          >
+                            <span>Age</span>
+                            <i class="material-icons">keyboard_arrow_down</i>
+                          </div>
+                          <div class="dropdown-menu" role="menu">
+                            <div class="dropdown-content">
+                              <div class="dropdown-item filter-title">
+                                Order
+                              </div>
+                              <a href="#" class="dropdown-item">
+                                <span
+                                  ><i class="fa fa-check"></i> Ascending</span
+                                >
+                              </a>
+                              <a class="dropdown-item">
+                                <span
+                                  ><i class="fa fa-check"></i> Descending</span
+                                >
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </th>
+                      <th>
+                        <!-- Filter dropdown -->
+                        <div
+                          x-ref="filterdrop7"
+                          @click.away="$refs.filterdrop7.classList.remove('is-active')"
+                          class="dropdown filter-dropdown dropdown-trigger"
+                        >
+                          <div
+                            @click="$refs.filterdrop7.classList.add('is-active')"
+                            class="button"
+                          >
+                            <span>Status</span>
+                            <i class="material-icons">keyboard_arrow_down</i>
+                          </div>
+                          <div class="dropdown-menu" role="menu">
+                            <div class="dropdown-content">
+                              <div class="dropdown-item filter-title">
+                                Order
+                              </div>
+                              <a
+                                href="javascript:void(0);"
+                                class="dropdown-item"
+                              >
+                                <span
+                                  ><i class="fa fa-check"></i> Ascending</span
+                                >
+                              </a>
+                              <a
+                                href="javascript:void(0);"
+                                class="dropdown-item"
+                              >
+                                <span
+                                  ><i class="fa fa-check"></i> Descending</span
+                                >
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <div class="dropdown-item filter-title">
+                                Display
+                              </div>
+                              <a
+                                href="javascript:void(0);"
+                                class="dropdown-item is-disabled"
+                              >
+                                <span
+                                  ><i class="fa fa-check"></i> Modification</span
+                                >
+                              </a>
+                              <a
+                                href="javascript:void(0);"
+                                class="dropdown-item is-active"
+                              >
+                                <span><i class="fa fa-check"></i> Status</span>
+                              </a>
+                              <a
+                                href="javascript:void(0);"
+                                class="dropdown-item"
+                              >
+                                <span
+                                  ><i class="fa fa-check"></i> Attachments</span
+                                >
+                              </a>
+                              <a
+                                href="javascript:void(0);"
+                                class="dropdown-item"
+                              >
+                                <span><i class="fa fa-check"></i> Severity</span
+                                >
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </th>
+                      <th class="w-5">
+                        <!-- Filter dropdown -->
+                        <div
+                          x-ref="filterdrop8"
+                          @click.away="$refs.filterdrop8.classList.remove('is-active')"
+                          class="dropdown filter-dropdown is-right dropdown-trigger"
+                        >
+                          <div
+                            @click="$refs.filterdrop8.classList.add('is-active')"
+                            class="button"
+                          >
+                            <span class="material-icons">subject</span>
+                            <i class="material-icons">keyboard_arrow_down</i>
+                          </div>
+                          <div class="dropdown-menu" role="menu">
+                            <div class="dropdown-content">
+                              <div class="dropdown-item filter-title">
+                                View type
+                              </div>
+                              <a
+                                href="#"
+                                class="dropdown-item is-spaced is-active"
+                              >
+                                <span
+                                  ><i class="fa fa-check"></i> List view</span
+                                >
+                                <i class="material-icons">view_list</i>
+                              </a>
+                              <a class="dropdown-item is-spaced">
+                                <span
+                                  ><i class="fa fa-check"></i> Grid view</span
+                                >
+                                <i class="material-icons">view_module</i>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <!-- Table body -->
+                  <tbody>
+                    <!-- Table row -->
+                    <tr>
+                      <td>
+                        <div class="b-checkbox is-muted is-secondary">
+                          <input
+                            id="checkbox-tickets-0"
+                            class="styled"
+                            type="checkbox"
+                          />
+                          <label for="checkbox-tickets-0"></label>
+                        </div>
+                      </td>
+                      <td class="ticket-id">TCK-0874</td>
+                      <td class="ticket-name">
+                        <span
+                          >Item forgotten after checking delivery content</span
+                        >
+                      </td>
+                      <td class="priority-type is-low">
+                        <div class="dot"></div>
+                      </td>
+                      <td class="assignee">
+                        <span class="inner">
+                          <img src="/img/avatars/helen.jpg" alt="" />
+                        </span>
+                      </td>
+                      <td class="modifications">
+                        <span
+                          ><span class="date">--</span>
+                          <span class="time"></span>
+                        </span>
+                        <span><small></small></span>
+                      </td>
+                      <td class="ticket-age">--</td>
+                      <td class="status is-new">
+                        <span class="inner">
+                          <span class="tag">New</span>
+                          <button type="button" class="button">Update</button>
+                        </span>
+                      </td>
+                      <td class="actions">
+                        <!--Dropdown-->
+                        <div
+                          x-ref="ticketdrop1"
+                          @click.away="$refs.ticketdrop1.classList.remove('is-active')"
+                          class="dropdown is-right dropdown-trigger ticket-list-dropdown styled-dropdown"
+                        >
+                          <div
+                            @click="$refs.ticketdrop1.classList.add('is-active')"
+                            class="button"
+                          >
+                            <i class="material-icons">more_horiz</i>
+                          </div>
+
+                          <div class="dropdown-menu is-text-bigger" role="menu">
+                            <div class="dropdown-content">
+                              <a class="dropdown-item">
+                                <i class="sl icon-tag"></i>
+                                <span>
+                                  <span>View</span>
+                                  <span>View ticket details</span>
+                                </span>
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-people"></i>
+                                <span>
+                                  <span>Reassign</span>
+                                  <span>Reassign to other agent</span>
+                                </span>
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-graph"></i>
+                                <span>
+                                  <span>Escalate</span>
+                                  <span>Escalate this ticket</span>
+                                </span>
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-lock"></i>
+                                <span>
+                                  <span>Close</span>
+                                  <span>Close this ticket</span>
+                                </span>
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item">
+                                <i class="sl icon-trash"></i>
+                                <span>
+                                  <span>Delete</span>
+                                  <span>Delete this ticket</span>
+                                </span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <a href="#" class="button is-hidden"
+                          ><i class="material-icons">remove_red_eye</i>
+                        </a>
+                      </td>
+                    </tr>
+                    <!-- Table row -->
+                    <tr>
+                      <td>
+                        <div class="b-checkbox is-muted is-secondary">
+                          <input
+                            id="checkbox-tickets-1"
+                            class="styled"
+                            type="checkbox"
+                          />
+                          <label for="checkbox-tickets-1"></label>
+                        </div>
+                      </td>
+                      <td class="ticket-id">TCK-0873</td>
+                      <td class="ticket-name">
+                        <span>Problem with signup</span>
+                      </td>
+                      <td class="priority-type is-high">
+                        <div class="dot"></div>
+                      </td>
+                      <td class="assignee">
+                        <span class="inner">
+                          <img src="/img/avatars/melany.jpg" alt="" />
+                        </span>
+                      </td>
+                      <td class="modifications">
+                        <span
+                          ><span class="date">--</span>
+                          <span class="time"></span>
+                        </span>
+                        <span><small></small></span>
+                      </td>
+                      <td class="ticket-age">3 days</td>
+                      <td class="status is-escalated">
+                        <span class="inner">
+                          <span class="tag">Escalated</span>
+                          <button type="button" class="button">Update</button>
+                        </span>
+                      </td>
+                      <td class="actions">
+                        <!--Dropdown-->
+                        <div
+                          x-ref="ticketdrop2"
+                          @click.away="$refs.ticketdrop2.classList.remove('is-active')"
+                          class="dropdown is-right dropdown-trigger ticket-list-dropdown styled-dropdown"
+                        >
+                          <div
+                            @click="$refs.ticketdrop2.classList.add('is-active')"
+                            class="button"
+                          >
+                            <i class="material-icons">more_horiz</i>
+                          </div>
+
+                          <div class="dropdown-menu is-text-bigger" role="menu">
+                            <div class="dropdown-content">
+                              <a class="dropdown-item">
+                                <i class="sl icon-tag"></i>
+                                <span>
+                                  <span>View</span>
+                                  <span>View ticket details</span>
+                                </span>
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-people"></i>
+                                <span>
+                                  <span>Reassign</span>
+                                  <span>Reassign to other agent</span>
+                                </span>
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-graph"></i>
+                                <span>
+                                  <span>Escalate</span>
+                                  <span>Escalate this ticket</span>
+                                </span>
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-lock"></i>
+                                <span>
+                                  <span>Close</span>
+                                  <span>Close this ticket</span>
+                                </span>
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item">
+                                <i class="sl icon-trash"></i>
+                                <span>
+                                  <span>Delete</span>
+                                  <span>Delete this ticket</span>
+                                </span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <a href="#" class="button is-hidden"
+                          ><i class="material-icons">remove_red_eye</i>
+                        </a>
+                      </td>
+                    </tr>
+                    <!-- Table row -->
+                    <tr>
+                      <td>
+                        <div class="b-checkbox is-muted is-secondary">
+                          <input
+                            id="checkbox-tickets-2"
+                            class="styled"
+                            type="checkbox"
+                          />
+                          <label for="checkbox-tickets-2"></label>
+                        </div>
+                      </td>
+                      <td class="ticket-id">TCK-0872</td>
+                      <td class="ticket-name">
+                        <span>Misdelivery of items not specified in order</span>
+                      </td>
+                      <td class="priority-type is-medium">
+                        <div class="dot"></div>
+                      </td>
+                      <td class="assignee">
+                        <span class="inner">
+                          <img src="/img/avatars/ray.jpg" alt="" />
+                        </span>
+                      </td>
+                      <td class="modifications">
+                        <span
+                          ><span class="date">Dec 09</span>,
+                          <span class="time">02:55pm</span>
+                        </span>
+                        <span><small>by Ray Donovan</small></span>
+                      </td>
+                      <td class="ticket-age">3 days</td>
+                      <td class="status is-open">
+                        <span class="inner">
+                          <span class="tag">Open</span>
+                          <button type="button" class="button">Update</button>
+                        </span>
+                      </td>
+                      <td class="actions">
+                        <!--Dropdown-->
+                        <div
+                          x-ref="ticketdrop3"
+                          @click.away="$refs.ticketdrop3.classList.remove('is-active')"
+                          class="dropdown is-right dropdown-trigger ticket-list-dropdown styled-dropdown"
+                        >
+                          <div
+                            @click="$refs.ticketdrop3.classList.add('is-active')"
+                            class="button"
+                          >
+                            <i class="material-icons">more_horiz</i>
+                          </div>
+
+                          <div class="dropdown-menu is-text-bigger" role="menu">
+                            <div class="dropdown-content">
+                              <a class="dropdown-item">
+                                <i class="sl icon-tag"></i>
+                                <span>
+                                  <span>View</span>
+                                  <span>View ticket details</span>
+                                </span>
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-people"></i>
+                                <span>
+                                  <span>Reassign</span>
+                                  <span>Reassign to other agent</span>
+                                </span>
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-graph"></i>
+                                <span>
+                                  <span>Escalate</span>
+                                  <span>Escalate this ticket</span>
+                                </span>
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-lock"></i>
+                                <span>
+                                  <span>Close</span>
+                                  <span>Close this ticket</span>
+                                </span>
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item">
+                                <i class="sl icon-trash"></i>
+                                <span>
+                                  <span>Delete</span>
+                                  <span>Delete this ticket</span>
+                                </span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <a href="#" class="button is-hidden"
+                          ><i class="material-icons">remove_red_eye</i>
+                        </a>
+                      </td>
+                    </tr>
+                    <!-- Table row -->
+                    <tr>
+                      <td>
+                        <div class="b-checkbox is-muted is-secondary">
+                          <input
+                            id="checkbox-tickets-3"
+                            class="styled"
+                            type="checkbox"
+                          />
+                          <label for="checkbox-tickets-3"></label>
+                        </div>
+                      </td>
+                      <td class="ticket-id">TCK-0871</td>
+                      <td class="ticket-name">
+                        <span>Problem with order ORDER-855687</span>
+                      </td>
+                      <td class="priority-type is-low">
+                        <div class="dot"></div>
+                      </td>
+                      <td class="assignee">
+                        <span class="inner">
+                          <img src="/img/avatars/ray.jpg" alt="" />
+                        </span>
+                      </td>
+                      <td class="modifications">
+                        <span
+                          ><span class="date">Dec 07</span>,
+                          <span class="time">09:12am</span>
+                        </span>
+                        <span><small>by Ray Donovan</small></span>
+                      </td>
+                      <td class="ticket-age">5 days</td>
+                      <td class="status is-in-progress">
+                        <span class="inner">
+                          <span class="tag">in Progress</span>
+                          <button type="button" class="button">Update</button>
+                        </span>
+                      </td>
+                      <td class="actions">
+                        <!--Dropdown-->
+                        <div
+                          x-ref="ticketdrop4"
+                          @click.away="$refs.ticketdrop4.classList.remove('is-active')"
+                          class="dropdown is-right dropdown-trigger ticket-list-dropdown styled-dropdown"
+                        >
+                          <div
+                            @click="$refs.ticketdrop4.classList.add('is-active')"
+                            class="button"
+                          >
+                            <i class="material-icons">more_horiz</i>
+                          </div>
+
+                          <div class="dropdown-menu is-text-bigger" role="menu">
+                            <div class="dropdown-content">
+                              <a class="dropdown-item">
+                                <i class="sl icon-tag"></i>
+                                <span>
+                                  <span>View</span>
+                                  <span>View ticket details</span>
+                                </span>
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-people"></i>
+                                <span>
+                                  <span>Reassign</span>
+                                  <span>Reassign to other agent</span>
+                                </span>
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-graph"></i>
+                                <span>
+                                  <span>Escalate</span>
+                                  <span>Escalate this ticket</span>
+                                </span>
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-lock"></i>
+                                <span>
+                                  <span>Close</span>
+                                  <span>Close this ticket</span>
+                                </span>
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item">
+                                <i class="sl icon-trash"></i>
+                                <span>
+                                  <span>Delete</span>
+                                  <span>Delete this ticket</span>
+                                </span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <a href="#" class="button is-hidden"
+                          ><i class="material-icons">remove_red_eye</i>
+                        </a>
+                      </td>
+                    </tr>
+                    <!-- Table row -->
+                    <tr>
+                      <td>
+                        <div class="b-checkbox is-muted is-secondary">
+                          <input
+                            id="checkbox-tickets-4"
+                            class="styled"
+                            type="checkbox"
+                          />
+                          <label for="checkbox-tickets-4"></label>
+                        </div>
+                      </td>
+                      <td class="ticket-id">TCK-0870</td>
+                      <td class="ticket-name">
+                        <span>I have been billed twice for the same order</span>
+                      </td>
+                      <td class="priority-type is-medium">
+                        <div class="dot"></div>
+                      </td>
+                      <td class="assignee">
+                        <span class="inner">
+                          <img src="/img/avatars/lakisha.jpg" alt="" />
+                        </span>
+                      </td>
+                      <td class="modifications">
+                        <span
+                          ><span class="date">Dec 04</span>,
+                          <span class="time">11:03am</span>
+                        </span>
+                        <span><small>by Lakisha Williams</small></span>
+                      </td>
+                      <td class="ticket-age">8 days</td>
+                      <td class="status is-in-progress">
+                        <span class="inner">
+                          <span class="tag">in Progress</span>
+                          <button type="button" class="button">Update</button>
+                        </span>
+                      </td>
+                      <td class="actions">
+                        <!--Dropdown-->
+                        <div
+                          x-ref="ticketdrop5"
+                          @click.away="$refs.ticketdrop5.classList.remove('is-active')"
+                          class="dropdown is-right dropdown-trigger ticket-list-dropdown styled-dropdown"
+                        >
+                          <div
+                            @click="$refs.ticketdrop5.classList.add('is-active')"
+                            class="button"
+                          >
+                            <i class="material-icons">more_horiz</i>
+                          </div>
+
+                          <div class="dropdown-menu is-text-bigger" role="menu">
+                            <div class="dropdown-content">
+                              <a class="dropdown-item">
+                                <i class="sl icon-tag"></i>
+                                <span>
+                                  <span>View</span>
+                                  <span>View ticket details</span>
+                                </span>
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-people"></i>
+                                <span>
+                                  <span>Reassign</span>
+                                  <span>Reassign to other agent</span>
+                                </span>
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-graph"></i>
+                                <span>
+                                  <span>Escalate</span>
+                                  <span>Escalate this ticket</span>
+                                </span>
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-lock"></i>
+                                <span>
+                                  <span>Close</span>
+                                  <span>Close this ticket</span>
+                                </span>
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item">
+                                <i class="sl icon-trash"></i>
+                                <span>
+                                  <span>Delete</span>
+                                  <span>Delete this ticket</span>
+                                </span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <a href="#" class="button is-hidden"
+                          ><i class="material-icons">remove_red_eye</i>
+                        </a>
+                      </td>
+                    </tr>
+                    <!-- Table row -->
+                    <tr class="is-closed">
+                      <td>
+                        <div class="b-checkbox is-muted is-secondary">
+                          <input
+                            id="checkbox-tickets-5"
+                            class="styled"
+                            type="checkbox"
+                          />
+                          <label for="checkbox-tickets-5"></label>
+                        </div>
+                      </td>
+                      <td class="ticket-id">TCK-0869</td>
+                      <td class="ticket-name">
+                        <span>Problem with order ORDER-562659</span>
+                      </td>
+                      <td class="priority-type">
+                        <div class="dot"></div>
+                      </td>
+                      <td class="assignee">
+                        <span class="inner">
+                          <img src="/img/avatars/alan.jpg" alt="" />
+                        </span>
+                      </td>
+                      <td class="modifications">
+                        <span
+                          ><span class="date">Dec 03</span>,
+                          <span class="time">10:32am</span>
+                        </span>
+                        <span><small>by Alan Maynard</small></span>
+                      </td>
+                      <td class="ticket-age">--</td>
+                      <td class="status">
+                        <span class="inner">
+                          <span class="tag">Closed</span>
+                          <button type="button" class="button">Update</button>
+                        </span>
+                      </td>
+                      <td class="actions">
+                        <!--Dropdown-->
+                        <div
+                          x-ref="ticketdrop6"
+                          @click.away="$refs.ticketdrop6.classList.remove('is-active')"
+                          class="dropdown is-right dropdown-trigger ticket-list-dropdown styled-dropdown"
+                        >
+                          <div
+                            @click="$refs.ticketdrop6.classList.add('is-active')"
+                            class="button"
+                          >
+                            <i class="material-icons">more_horiz</i>
+                          </div>
+
+                          <div class="dropdown-menu is-text-bigger" role="menu">
+                            <div class="dropdown-content">
+                              <a class="dropdown-item">
+                                <i class="sl icon-tag"></i>
+                                <span>
+                                  <span>View</span>
+                                  <span>View ticket details</span>
+                                </span>
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-people"></i>
+                                <span>
+                                  <span>Reassign</span>
+                                  <span>Reassign to other agent</span>
+                                </span>
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-graph"></i>
+                                <span>
+                                  <span>Escalate</span>
+                                  <span>Escalate this ticket</span>
+                                </span>
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-lock"></i>
+                                <span>
+                                  <span>Close</span>
+                                  <span>Close this ticket</span>
+                                </span>
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item">
+                                <i class="sl icon-trash"></i>
+                                <span>
+                                  <span>Delete</span>
+                                  <span>Delete this ticket</span>
+                                </span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <a href="#" class="button is-hidden"
+                          ><i class="material-icons">remove_red_eye</i>
+                        </a>
+                      </td>
+                    </tr>
+                    <!-- Table row -->
+                    <tr class="is-closed">
+                      <td>
+                        <div class="b-checkbox is-muted is-secondary">
+                          <input
+                            id="checkbox-tickets-6"
+                            class="styled"
+                            type="checkbox"
+                          />
+                          <label for="checkbox-tickets-6"></label>
+                        </div>
+                      </td>
+                      <td class="ticket-id">TCK-0868</td>
+                      <td class="ticket-name">
+                        <span>I received an incorrect invoice</span>
+                      </td>
+                      <td class="priority-type">
+                        <div class="dot"></div>
+                      </td>
+                      <td class="assignee">
+                        <span class="inner">
+                          <img src="/img/avatars/sally.jpg" alt="" />
+                        </span>
+                      </td>
+                      <td class="modifications">
+                        <span
+                          ><span class="date">Nov 26</span>,
+                          <span class="time">01:25pm</span>
+                        </span>
+                        <span><small>by Sally Jenkins</small></span>
+                      </td>
+                      <td class="ticket-age">--</td>
+                      <td class="status">
+                        <span class="inner">
+                          <span class="tag">Closed</span>
+                          <button type="button" class="button">Update</button>
+                        </span>
+                      </td>
+                      <td class="actions">
+                        <!--Dropdown-->
+                        <div
+                          x-ref="ticketdrop7"
+                          @click.away="$refs.ticketdrop7.classList.remove('is-active')"
+                          class="dropdown is-right dropdown-trigger ticket-list-dropdown styled-dropdown"
+                        >
+                          <div
+                            @click="$refs.ticketdrop7.classList.add('is-active')"
+                            class="button"
+                          >
+                            <i class="material-icons">more_horiz</i>
+                          </div>
+
+                          <div class="dropdown-menu is-text-bigger" role="menu">
+                            <div class="dropdown-content">
+                              <a class="dropdown-item">
+                                <i class="sl icon-tag"></i>
+                                <span>
+                                  <span>View</span>
+                                  <span>View ticket details</span>
+                                </span>
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-people"></i>
+                                <span>
+                                  <span>Reassign</span>
+                                  <span>Reassign to other agent</span>
+                                </span>
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-graph"></i>
+                                <span>
+                                  <span>Escalate</span>
+                                  <span>Escalate this ticket</span>
+                                </span>
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-lock"></i>
+                                <span>
+                                  <span>Close</span>
+                                  <span>Close this ticket</span>
+                                </span>
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item">
+                                <i class="sl icon-trash"></i>
+                                <span>
+                                  <span>Delete</span>
+                                  <span>Delete this ticket</span>
+                                </span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <a href="#" class="button is-hidden"
+                          ><i class="material-icons">remove_red_eye</i>
+                        </a>
+                      </td>
+                    </tr>
+                    <!-- Table row -->
+                    <tr class="is-closed">
+                      <td>
+                        <div class="b-checkbox is-muted is-secondary">
+                          <input
+                            id="checkbox-tickets-7"
+                            class="styled"
+                            type="checkbox"
+                          />
+                          <label for="checkbox-tickets-7"></label>
+                        </div>
+                      </td>
+                      <td class="ticket-id">TCK-0867</td>
+                      <td class="ticket-name">
+                        <span
+                          >Iam unable to login to my account. Password recovery
+                          won't work either.</span
+                        >
+                      </td>
+                      <td class="priority-type">
+                        <div class="dot"></div>
+                      </td>
+                      <td class="assignee">
+                        <span class="inner">
+                          <img src="/img/avatars/ray.jpg" alt="" />
+                        </span>
+                      </td>
+                      <td class="modifications">
+                        <span
+                          ><span class="date">Nov 25</span>,
+                          <span class="time">06:41pm</span>
+                        </span>
+                        <span><small>by Ray Donovan</small></span>
+                      </td>
+                      <td class="ticket-age">--</td>
+                      <td class="status">
+                        <span class="inner">
+                          <span class="tag">Closed</span>
+                          <button type="button" class="button">Update</button>
+                        </span>
+                      </td>
+                      <td class="actions">
+                        <!--Dropdown-->
+                        <div
+                          x-ref="ticketdrop8"
+                          @click.away="$refs.ticketdrop8.classList.remove('is-active')"
+                          class="dropdown is-right dropdown-trigger ticket-list-dropdown styled-dropdown"
+                        >
+                          <div
+                            @click="$refs.ticketdrop8.classList.add('is-active')"
+                            class="button"
+                          >
+                            <i class="material-icons">more_horiz</i>
+                          </div>
+
+                          <div class="dropdown-menu is-text-bigger" role="menu">
+                            <div class="dropdown-content">
+                              <a class="dropdown-item">
+                                <i class="sl icon-tag"></i>
+                                <span>
+                                  <span>View</span>
+                                  <span>View ticket details</span>
+                                </span>
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-people"></i>
+                                <span>
+                                  <span>Reassign</span>
+                                  <span>Reassign to other agent</span>
+                                </span>
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-graph"></i>
+                                <span>
+                                  <span>Escalate</span>
+                                  <span>Escalate this ticket</span>
+                                </span>
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-lock"></i>
+                                <span>
+                                  <span>Close</span>
+                                  <span>Close this ticket</span>
+                                </span>
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item">
+                                <i class="sl icon-trash"></i>
+                                <span>
+                                  <span>Delete</span>
+                                  <span>Delete this ticket</span>
+                                </span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <a href="#" class="button is-hidden"
+                          ><i class="material-icons">remove_red_eye</i>
+                        </a>
+                      </td>
+                    </tr>
+                    <!-- Table row -->
+                    <tr class="is-closed">
+                      <td>
+                        <div class="b-checkbox is-muted is-secondary">
+                          <input
+                            id="checkbox-tickets-8"
+                            class="styled"
+                            type="checkbox"
+                          />
+                          <label for="checkbox-tickets-8"></label>
+                        </div>
+                      </td>
+                      <td class="ticket-id">TCK-0866</td>
+                      <td class="ticket-name">
+                        <span>My account has been locked. Why?</span>
+                      </td>
+                      <td class="priority-type">
+                        <div class="dot"></div>
+                      </td>
+                      <td class="assignee">
+                        <span class="inner">
+                          <img src="/img/avatars/helen.jpg" alt="" />
+                        </span>
+                      </td>
+                      <td class="modifications">
+                        <span
+                          ><span class="date">Nov 25</span>,
+                          <span class="time">10:02am</span>
+                        </span>
+                        <span><small>by Helen Miller</small></span>
+                      </td>
+                      <td class="ticket-age">--</td>
+                      <td class="status">
+                        <span class="inner">
+                          <span class="tag">Closed</span>
+                          <button type="button" class="button">Update</button>
+                        </span>
+                      </td>
+                      <td class="actions">
+                        <!--Dropdown-->
+                        <div
+                          x-ref="ticketdrop9"
+                          @click.away="$refs.ticketdrop9.classList.remove('is-active')"
+                          class="dropdown is-up is-right dropdown-trigger ticket-list-dropdown styled-dropdown"
+                        >
+                          <div
+                            @click="$refs.ticketdrop9.classList.add('is-active')"
+                            class="button"
+                          >
+                            <i class="material-icons">more_horiz</i>
+                          </div>
+
+                          <div class="dropdown-menu is-text-bigger" role="menu">
+                            <div class="dropdown-content">
+                              <a class="dropdown-item">
+                                <i class="sl icon-tag"></i>
+                                <span>
+                                  <span>View</span>
+                                  <span>View ticket details</span>
+                                </span>
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-people"></i>
+                                <span>
+                                  <span>Reassign</span>
+                                  <span>Reassign to other agent</span>
+                                </span>
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-graph"></i>
+                                <span>
+                                  <span>Escalate</span>
+                                  <span>Escalate this ticket</span>
+                                </span>
+                              </a>
+                              <a href="#" class="dropdown-item">
+                                <i class="sl icon-lock"></i>
+                                <span>
+                                  <span>Close</span>
+                                  <span>Close this ticket</span>
+                                </span>
+                              </a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item">
+                                <i class="sl icon-trash"></i>
+                                <span>
+                                  <span>Delete</span>
+                                  <span>Delete this ticket</span>
+                                </span>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                        <a href="#" class="button is-hidden"
+                          ><i class="material-icons">remove_red_eye</i>
+                        </a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="support-pagination">
+                <a class="pagination-item">
+                  <i class="material-icons">more_horiz</i>
+                </a>
+                <a class="pagination-item">
+                  <i class="material-icons">keyboard_arrow_left</i>
+                </a>
+                <a class="pagination-item is-active">
+                  <span>1</span>
+                </a>
+                <a class="pagination-item">
+                  <span>2</span>
+                </a>
+                <a class="pagination-item">
+                  <span>3</span>
+                </a>
+                <a class="pagination-item">
+                  <i class="material-icons">keyboard_arrow_right</i>
+                </a>
+                <a class="pagination-item">
+                  <i class="material-icons">more_horiz</i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Sidebar-->
+    <SupportActivitySidebar />
+  </div>
+</Layout>

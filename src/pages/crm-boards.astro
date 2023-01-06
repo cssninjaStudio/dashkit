@@ -1,0 +1,616 @@
+---
+import Layout from "../layouts/Default.astro";
+const title = 'Business Boards'
+---
+
+<Layout title={title}>
+  <!-- Main dashboard container -->
+  <div
+    id="dashboard-wrapper"
+    class="dashboard-outer"
+    x-data="initBlank()"
+    :class="{
+        'is-pushed': $store.app.sidebarOpenedState,
+        '': !$store.app.sidebarOpenedState
+    }"
+  >
+    <div class="dashboard-inner">
+      <!-- Dashboard Wrapper -->
+      <div class="dashboard-wrapper">
+        <div id="main-dashboard" class="section-wrapper">
+          <!-- Dashboard content -->
+          <div class="dashboard-columns">
+            <!-- Page title -->
+            <div class="boards-title">
+              <!-- Boards dropdown button -->
+              <div
+                x-ref="maindrop1"
+                @click.away="$refs.maindrop1.classList.remove('is-active')"
+                class="dropdown button-dropdown dropdown-trigger"
+              >
+                <div
+                  @click="$refs.maindrop1.classList.add('is-active')"
+                  class="button is-secondary is-raised ripple ripple-light"
+                  data-ripple-color=""
+                >
+                  <span class="icon is-small">
+                    <i class="fas fa-plus"></i>
+                  </span>
+                  <span>Create</span>
+                </div>
+                <!-- Dropdown menu -->
+                <div class="dropdown-menu is-text-bigger" role="menu">
+                  <div class="dropdown-content">
+                    <a href="#" class="dropdown-item">
+                      <i class="sl icon-rocket"></i>
+                      <span>
+                        <span>New Board</span>
+                        <span>Create a new Board</span>
+                      </span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                      <i class="sl icon-bag"></i>
+                      <span>
+                        <span>New Deal</span>
+                        <span>Add a Deal to this board</span>
+                      </span>
+                    </a>
+                    <a href="dashboard-crm-boards" class="dropdown-item">
+                      <i class="sl icon-user-follow"></i>
+                      <span>
+                        <span>New Contact</span>
+                        <span>Create a new contact</span>
+                      </span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a
+                      class="dropdown-item delete-board alert-box-trigger kill-drop"
+                      data-alert-box="delete-board-alert"
+                    >
+                      <i class="sl icon-doc"></i>
+                      <span>
+                        <span>New Invoice</span>
+                        <span>Create a new invoice</span>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Boards Grid -->
+            <div class="boards-grid">
+              <div class="columns is-multiline b-columns-half-tablet-p">
+                <!-- Board item -->
+                <div
+                  class="column is-one-quarter-fullhd is-one-third-widescreen is-one-third-desktop"
+                >
+                  <div class="flex-card ripple">
+                    <div class="card-inner">
+                      <h3 class="board-title">Industry</h3>
+                      <div class="board-icon">
+                        <img src="/img/logo/companies/tesla.svg" alt="" />
+                      </div>
+                      <h4 class="board-summary">45 deals, in 6 companies</h4>
+                      <div class="board-meta">
+                        <label class="mood-toggle">
+                          <input type="checkbox" />
+                          <span class="toggler">
+                            <span class="happy">
+                              <i class="material-icons">lock</i>
+                            </span>
+                            <span class="sad">
+                              <i class="material-icons">done</i>
+                            </span>
+                          </span>
+                        </label>
+                        <div class="board-assignees">
+                          <img
+                            class="assignee"
+                            src="/img/avatars/ray.jpg"
+                            alt=""
+                          />
+                          <img
+                            class="assignee"
+                            src="/img/avatars/barry.jpg"
+                            alt=""
+                          />
+                          <img
+                            class="assignee"
+                            src="/img/avatars/janet.jpg"
+                            alt=""
+                          />
+                          <div class="assignee is-more">+3</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-foot">
+                      <div class="footer-block">
+                        <div>
+                          <span>3.4k</span>
+                          <span>won deals</span>
+                        </div>
+                      </div>
+                      <div class="footer-block">
+                        <div>
+                          <span>1.2k</span>
+                          <span>lost deals</span>
+                        </div>
+                      </div>
+                    </div>
+                    <!--Dropdown-->
+                    <div
+                      x-ref="boarddrop1"
+                      @click.away="$refs.boarddrop1.classList.remove('is-active')"
+                      class="dropdown is-right dropdown-trigger contacts-grid-dropdown"
+                    >
+                      <button
+                        @click="$refs.boarddrop1.classList.add('is-active')"
+                        class="button"
+                      >
+                        <i class="material-icons">more_vert</i>
+                      </button>
+                      <div class="dropdown-menu is-text-bigger" role="menu">
+                        <div class="dropdown-content">
+                          <a class="dropdown-item">
+                            <i class="sl icon-grid"></i>
+                            <span>
+                              <span>Open Board</span>
+                              <span>Open this kanban board</span>
+                            </span>
+                          </a>
+                          <a href="#" class="dropdown-item">
+                            <i class="sl icon-pencil"></i>
+                            <span>
+                              <span>Edit Board</span>
+                              <span>Edit board details</span>
+                            </span>
+                          </a>
+                          <div class="dropdown-divider"></div>
+                          <a href="#" class="dropdown-item">
+                            <i class="sl icon-bell"></i>
+                            <span>
+                              <span>Notifications</span>
+                              <span>Manage board notifications</span>
+                            </span>
+                          </a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item">
+                            <i class="sl icon-trash"></i>
+                            <span>
+                              <span>Delete</span>
+                              <span>Delete this board</span>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Board item -->
+                <div
+                  class="column is-one-quarter-fullhd is-one-third-widescreen is-one-third-desktop"
+                >
+                  <div class="flex-card ripple">
+                    <div class="card-inner">
+                      <h3 class="board-title">Commerce</h3>
+                      <div class="board-icon">
+                        <img src="/img/logo/companies/amazon.svg" alt="" />
+                      </div>
+                      <h4 class="board-summary">78 deals, in 17 companies</h4>
+                      <div class="board-meta">
+                        <label class="mood-toggle">
+                          <input type="checkbox" />
+                          <span class="toggler">
+                            <span class="happy">
+                              <i class="material-icons">lock</i>
+                            </span>
+                            <span class="sad">
+                              <i class="material-icons">done</i>
+                            </span>
+                          </span>
+                        </label>
+                        <div class="board-assignees">
+                          <img
+                            class="assignee"
+                            src="/img/avatars/marge.jpg"
+                            alt=""
+                          />
+                          <img
+                            class="assignee"
+                            src="/img/avatars/jhonny.jpg"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-foot">
+                      <div class="footer-block">
+                        <div>
+                          <span>9.4k</span>
+                          <span>won deals</span>
+                        </div>
+                      </div>
+                      <div class="footer-block">
+                        <div>
+                          <span>2.7k</span>
+                          <span>lost deals</span>
+                        </div>
+                      </div>
+                    </div>
+                    <!--Dropdown-->
+                    <div
+                      x-ref="boarddrop2"
+                      @click.away="$refs.boarddrop2.classList.remove('is-active')"
+                      class="dropdown is-right dropdown-trigger contacts-grid-dropdown"
+                    >
+                      <button
+                        @click="$refs.boarddrop2.classList.add('is-active')"
+                        class="button"
+                      >
+                        <i class="material-icons">more_vert</i>
+                      </button>
+                      <div class="dropdown-menu is-text-bigger" role="menu">
+                        <div class="dropdown-content">
+                          <a class="dropdown-item">
+                            <i class="sl icon-grid"></i>
+                            <span>
+                              <span>Open Board</span>
+                              <span>Open this kanban board</span>
+                            </span>
+                          </a>
+                          <a href="#" class="dropdown-item">
+                            <i class="sl icon-pencil"></i>
+                            <span>
+                              <span>Edit Board</span>
+                              <span>Edit board details</span>
+                            </span>
+                          </a>
+                          <div class="dropdown-divider"></div>
+                          <a href="#" class="dropdown-item">
+                            <i class="sl icon-bell"></i>
+                            <span>
+                              <span>Notifications</span>
+                              <span>Manage board notifications</span>
+                            </span>
+                          </a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item">
+                            <i class="sl icon-trash"></i>
+                            <span>
+                              <span>Delete</span>
+                              <span>Delete this board</span>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Board item -->
+                <div
+                  class="column is-one-quarter-fullhd is-one-third-widescreen is-one-third-desktop"
+                >
+                  <div class="flex-card ripple">
+                    <div class="card-inner">
+                      <h3 class="board-title">Technology</h3>
+                      <div class="board-icon">
+                        <img src="/img/logo/companies/alfresco.svg" alt="" />
+                      </div>
+                      <h4 class="board-summary">117 deals, in 43 companies</h4>
+                      <div class="board-meta">
+                        <label class="mood-toggle">
+                          <input type="checkbox" />
+                          <span class="toggler">
+                            <span class="happy">
+                              <i class="material-icons">lock</i>
+                            </span>
+                            <span class="sad">
+                              <i class="material-icons">done</i>
+                            </span>
+                          </span>
+                        </label>
+                        <div class="board-assignees">
+                          <img
+                            class="assignee"
+                            src="/img/avatars/christina.jpg"
+                            alt=""
+                          />
+                          <img
+                            class="assignee"
+                            src="/img/avatars/ray.jpg"
+                            alt=""
+                          />
+                          <img
+                            class="assignee"
+                            src="/img/avatars/barry.jpg"
+                            alt=""
+                          />
+                          <div class="assignee is-more">+12</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-foot">
+                      <div class="footer-block">
+                        <div>
+                          <span>23.9k</span>
+                          <span>won deals</span>
+                        </div>
+                      </div>
+                      <div class="footer-block">
+                        <div>
+                          <span>5.7k</span>
+                          <span>lost deals</span>
+                        </div>
+                      </div>
+                    </div>
+                    <!--Dropdown-->
+                    <div
+                      x-ref="boarddrop3"
+                      @click.away="$refs.boarddrop3.classList.remove('is-active')"
+                      class="dropdown is-right dropdown-trigger contacts-grid-dropdown"
+                    >
+                      <button
+                        @click="$refs.boarddrop3.classList.add('is-active')"
+                        class="button"
+                      >
+                        <i class="material-icons">more_vert</i>
+                      </button>
+                      <div class="dropdown-menu is-text-bigger" role="menu">
+                        <div class="dropdown-content">
+                          <a class="dropdown-item">
+                            <i class="sl icon-grid"></i>
+                            <span>
+                              <span>Open Board</span>
+                              <span>Open this kanban board</span>
+                            </span>
+                          </a>
+                          <a href="#" class="dropdown-item">
+                            <i class="sl icon-pencil"></i>
+                            <span>
+                              <span>Edit Board</span>
+                              <span>Edit board details</span>
+                            </span>
+                          </a>
+                          <div class="dropdown-divider"></div>
+                          <a href="#" class="dropdown-item">
+                            <i class="sl icon-bell"></i>
+                            <span>
+                              <span>Notifications</span>
+                              <span>Manage board notifications</span>
+                            </span>
+                          </a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item">
+                            <i class="sl icon-trash"></i>
+                            <span>
+                              <span>Delete</span>
+                              <span>Delete this board</span>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Board item -->
+                <div
+                  class="column is-one-quarter-fullhd is-one-third-widescreen is-one-third-desktop"
+                >
+                  <div class="flex-card ripple">
+                    <div class="card-inner">
+                      <h3 class="board-title">Clothing</h3>
+                      <div class="board-icon">
+                        <img src="/img/logo/companies/hm.svg" alt="" />
+                      </div>
+                      <h4 class="board-summary">62 deals, in 12 companies</h4>
+                      <div class="board-meta">
+                        <label class="mood-toggle">
+                          <input type="checkbox" />
+                          <span class="toggler">
+                            <span class="happy">
+                              <i class="material-icons">lock</i>
+                            </span>
+                            <span class="sad">
+                              <i class="material-icons">done</i>
+                            </span>
+                          </span>
+                        </label>
+                        <div class="board-assignees">
+                          <img
+                            class="assignee"
+                            src="/img/avatars/helen.jpg"
+                            alt=""
+                          />
+                          <img
+                            class="assignee"
+                            src="/img/avatars/christina.jpg"
+                            alt=""
+                          />
+                          <img
+                            class="assignee"
+                            src="/img/avatars/marge.jpg"
+                            alt=""
+                          />
+                          <div class="assignee is-more">+12</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-foot">
+                      <div class="footer-block">
+                        <div>
+                          <span>5.2k</span>
+                          <span>won deals</span>
+                        </div>
+                      </div>
+                      <div class="footer-block">
+                        <div>
+                          <span>1k</span>
+                          <span>lost deals</span>
+                        </div>
+                      </div>
+                    </div>
+                    <!--Dropdown-->
+                    <div
+                      x-ref="boarddrop4"
+                      @click.away="$refs.boarddrop4.classList.remove('is-active')"
+                      class="dropdown is-right dropdown-trigger contacts-grid-dropdown"
+                    >
+                      <button
+                        @click="$refs.boarddrop4.classList.add('is-active')"
+                        class="button"
+                      >
+                        <i class="material-icons">more_vert</i>
+                      </button>
+                      <div class="dropdown-menu is-text-bigger" role="menu">
+                        <div class="dropdown-content">
+                          <a class="dropdown-item">
+                            <i class="sl icon-grid"></i>
+                            <span>
+                              <span>Open Board</span>
+                              <span>Open this kanban board</span>
+                            </span>
+                          </a>
+                          <a href="#" class="dropdown-item">
+                            <i class="sl icon-pencil"></i>
+                            <span>
+                              <span>Edit Board</span>
+                              <span>Edit board details</span>
+                            </span>
+                          </a>
+                          <div class="dropdown-divider"></div>
+                          <a href="#" class="dropdown-item">
+                            <i class="sl icon-bell"></i>
+                            <span>
+                              <span>Notifications</span>
+                              <span>Manage board notifications</span>
+                            </span>
+                          </a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item">
+                            <i class="sl icon-trash"></i>
+                            <span>
+                              <span>Delete</span>
+                              <span>Delete this board</span>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Board item -->
+                <div
+                  class="column is-one-quarter-fullhd is-one-third-widescreen is-one-third-desktop"
+                >
+                  <div class="flex-card ripple">
+                    <div class="card-inner">
+                      <h3 class="board-title">Trips & Travel</h3>
+                      <div class="board-icon">
+                        <img src="/img/logo/companies/airbnb.svg" alt="" />
+                      </div>
+                      <h4 class="board-summary">12 deals, in 3 companies</h4>
+                      <div class="board-meta">
+                        <label class="mood-toggle">
+                          <input type="checkbox" />
+                          <span class="toggler">
+                            <span class="happy">
+                              <i class="material-icons">lock</i>
+                            </span>
+                            <span class="sad">
+                              <i class="material-icons">done</i>
+                            </span>
+                          </span>
+                        </label>
+                        <div class="board-assignees">
+                          <img
+                            class="assignee"
+                            src="/img/avatars/terry.jpg"
+                            alt=""
+                          />
+                          <img
+                            class="assignee"
+                            src="/img/avatars/thomas.jpg"
+                            alt=""
+                          />
+                          <img
+                            class="assignee"
+                            src="/img/avatars/ray.jpg"
+                            alt=""
+                          />
+                          <div class="assignee is-more">+12</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card-foot">
+                      <div class="footer-block">
+                        <div>
+                          <span>2.6k</span>
+                          <span>won deals</span>
+                        </div>
+                      </div>
+                      <div class="footer-block">
+                        <div>
+                          <span>800</span>
+                          <span>lost deals</span>
+                        </div>
+                      </div>
+                    </div>
+                    <!--Dropdown-->
+                    <div
+                      x-ref="boarddrop5"
+                      @click.away="$refs.boarddrop5.classList.remove('is-active')"
+                      class="dropdown is-right dropdown-trigger contacts-grid-dropdown"
+                    >
+                      <button
+                        @click="$refs.boarddrop5.classList.add('is-active')"
+                        class="button"
+                      >
+                        <i class="material-icons">more_vert</i>
+                      </button>
+                      <div class="dropdown-menu is-text-bigger" role="menu">
+                        <div class="dropdown-content">
+                          <a class="dropdown-item">
+                            <i class="sl icon-grid"></i>
+                            <span>
+                              <span>Open Board</span>
+                              <span>Open this kanban board</span>
+                            </span>
+                          </a>
+                          <a href="#" class="dropdown-item">
+                            <i class="sl icon-pencil"></i>
+                            <span>
+                              <span>Edit Board</span>
+                              <span>Edit board details</span>
+                            </span>
+                          </a>
+                          <div class="dropdown-divider"></div>
+                          <a href="#" class="dropdown-item">
+                            <i class="sl icon-bell"></i>
+                            <span>
+                              <span>Notifications</span>
+                              <span>Manage board notifications</span>
+                            </span>
+                          </a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item">
+                            <i class="sl icon-trash"></i>
+                            <span>
+                              <span>Delete</span>
+                              <span>Delete this board</span>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

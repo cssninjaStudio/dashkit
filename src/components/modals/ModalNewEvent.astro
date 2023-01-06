@@ -1,0 +1,90 @@
+<!-- New Event Modal -->
+<div
+  id="new-event-modal"
+  class="modal modal-md create-event-modal"
+  :class="{
+  'is-active': eventModalOpened,
+  '': !eventModalOpened
+}"
+>
+  <div @click="toggleEventModal()" class="modal-background"></div>
+  <div class="modal-content">
+    <div class="flex-card">
+      <h2 class="title is-5">New Event</h2>
+      <div class="card-body">
+        <div class="has-text-centered">
+          <div class="image">
+            <img
+              class="light-image-block"
+              src="/img/logo/square-violet.svg"
+              alt=""
+            />
+            <img
+              class="dark-image-block"
+              src="/img/logo/square-green.svg"
+              alt=""
+            />
+          </div>
+          <div class="help-text has-text-centered">
+            Add an event to your event board
+          </div>
+
+          <div class="field">
+            <div class="control has-icons-left">
+              <input
+                id="call-picker"
+                class="input is-medium"
+                type="text"
+                placeholder="When is it?"
+              />
+              <span class="icon is-left">
+                <i class="fas fa-calendar"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="control has-icons-left">
+              <input
+                id="event-timepicker"
+                class="input is-medium"
+                type="text"
+                placeholder="Name your event"
+              />
+              <span class="icon is-left">
+                <i class="fas fa-star"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="control">
+              <textarea class="textarea" rows="6" placeholder="Event Summary"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="send-copy">
+            <div class="field">
+              <label class="f-switch is-secondary scale-7">
+                <input type="checkbox" class="is-secondary" />
+                <i></i>
+              </label>
+              <label for="subscribedSwitch"
+                ><span>Allow people to join this event?</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          @click="toggleEventModal()"
+          type="button"
+          class="button modal-dismiss">Cancel</button
+        >
+        <button type="submit" class="button is-modal">Create Event</button>
+      </div>
+    </div>
+  </div>
+</div>

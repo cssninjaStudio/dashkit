@@ -1,0 +1,60 @@
+<!-- Notifications dropdown (hidden on mobile) -->
+<div
+  x-cloak
+  class="drop-pop"
+  @click="openNavbarDropdowns('notifications-nav-drop')"
+  @click.away="closeNavbarDropdowns('notifications-nav-drop')"
+>
+  <div class="icon-button">
+    <i class="iconify" data-icon="lucide:bell"></i>
+    <span class="indicator"></span>
+  </div>
+  <div
+    class="drop-wrapper notifications-drop"
+    :class="{
+        'is-active': notificationsDropOpened,
+        '': !notificationsDropOpened
+    }"
+  >
+    <div class="drop-inner has-arrow">
+      <div class="notifications-header has-text-left">
+        <h3>Notifications</h3>
+      </div>
+      <div class="notifications-body">
+        <ul class="notifications-list">
+          <li>
+            <i class="sl icon-heart red"></i>
+            <div class="notification-content">
+              <img src="/img/avatars/henry.jpg" alt="" />
+              <div class="notification-text">
+                <div class="text"><b>Henry</b> liked your <b>comment</b>.</div>
+                <div class="timestamp">23 minutes ago</div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <i class="sl icon-check"></i>
+            <div class="notification-content">
+              <img src="/img/avatars/carolin.jpg" alt="" />
+              <div class="notification-text">
+                <div class="text"><b>Marjory</b> followed you.</div>
+                <div class="timestamp">1 hour ago</div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <i class="sl icon-heart"></i>
+            <div class="notification-content">
+              <img src="/img/avatars/marc.jpg" alt="" />
+              <div class="notification-text">
+                <div class="text"><b>Marc</b> left a <b>comment</b>.</div>
+                <div class="timestamp">Yesterday</div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Notifications dropdown -->

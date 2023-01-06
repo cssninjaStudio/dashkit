@@ -1,0 +1,15 @@
+---
+import SidebarIconMenu from './SidebarIconMenu.astro'
+import SidebarProfileMenu from './SidebarProfileMenu.astro'
+---
+
+<!-- Main sidebar menu -->
+<nav class="main-menu" x-data="initSidebar()">
+  <div class="main-menu-inner">
+    <!--Icon menu-->
+    <SidebarIconMenu />
+    
+    <!--Profile-->
+    <SidebarProfileMenu />
+  </div>
+</nav>

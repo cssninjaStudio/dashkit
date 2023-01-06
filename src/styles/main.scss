@@ -1,0 +1,35 @@
+/* Dashkit | 2022-2023 | CSS Ninja */
+
+/* ==========================================================================
+SCSS Imports
+========================================================================== */
+
+@import "icons/fontawesome";
+@import "icons/material-icons";
+@import "icons/simple-line-icons";
+@import "icons/iconsmind";
+
+//CSS vars setup
+@import './bulma-generated/generated-vars.sass';
+@import './css-variables/all';
+
+//Additional variables
+@import './abstracts/variables';
+
+//Bulma
+@import '../../node_modules/@cssninja/bulma-css-vars/bulma-cv-lib';
+
+//Utilities
+@import "utilities/all";
+
+//Components
+@import "components/all";
+
+//Forms
+@import "forms/all";
+
+//Layout
+@import "layout/all";
+
+//Pages
+@import "pages/all";

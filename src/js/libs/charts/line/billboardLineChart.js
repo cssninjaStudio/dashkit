@@ -1,4 +1,4 @@
-import { bb } from "billboard.js";
+import { bb, line } from "billboard.js";
 import { themeColors } from "../../utils/constants";
 
 export function initBillboardLineChart() {
@@ -7,6 +7,7 @@ export function initBillboardLineChart() {
   if (typeof billboardLineChart != "undefined" && billboardLineChart != null) {
     const billboardLineChartInstance = bb.generate({
       data: {
+        type: line(),
         columns: [
           ["data1", 30, 200, 100, 400, 150, 250],
           ["data2", 50, 20, 10, 40, 15, 25],

@@ -1,0 +1,150 @@
+---
+import Layout from "../layouts/Auth.astro";
+const title = 'Signup'
+---
+
+<Layout title={title}>
+  <!-- Wrapper -->
+  <div class="auth-wrapper columns is-gapless">
+    <!-- Form section -->
+    <div class="column is-5">
+      <div class="hero is-fullheight form-login-hero">
+        <div class="hero-heading">
+          <div class="auth-logo mobile:text-centered">
+            <a href="/">
+              <img
+                class="light-image-block top-logo"
+                src="/img/logo/dashkit-violet.svg"
+                alt=""
+              />
+              <img
+                class="dark-image-block top-logo"
+                src="/img/logo/dashkit-violet-dark.svg"
+                alt=""
+              />
+            </a>
+          </div>
+        </div>
+        <div class="hero-body">
+          <div class="container">
+            <div class="columns">
+              <div class="column is-12">
+                <div class="auth-content">
+                  <h2>Join Us Now.</h2>
+                  <p>Start by creating your account</p>
+                  <a href="/login">I already have an account</a>
+                </div>
+                <div class="auth-form-wrapper">
+                  <!-- Login Form -->
+                  <form>
+                    <div id="signin-form" class="login-form">
+                      <!-- Input -->
+                      <div class="field">
+                        <div class="control has-icon">
+                          <input
+                            class="input"
+                            type="text"
+                            placeholder="Username"
+                          />
+                          <span class="form-icon">
+                            <i data-feather="user"></i>
+                          </span>
+                        </div>
+                      </div>
+                      <!-- Input -->
+                      <div class="field">
+                        <div class="control has-icon">
+                          <input
+                            class="input"
+                            type="text"
+                            placeholder="Email Address"
+                          />
+                          <span class="form-icon">
+                            <i data-feather="mail"></i>
+                          </span>
+                        </div>
+                      </div>
+                      <!-- Input -->
+                      <div class="field">
+                        <div class="control has-icon">
+                          <input
+                            class="input"
+                            type="password"
+                            placeholder="Password"
+                          />
+                          <span class="form-icon">
+                            <i data-feather="lock"></i>
+                          </span>
+                        </div>
+                      </div>
+                      <!-- Input -->
+                      <div class="field">
+                        <div class="control has-icon">
+                          <input
+                            class="input"
+                            type="password"
+                            placeholder="Repeat Password"
+                          />
+                          <span class="form-icon">
+                            <i data-feather="lock"></i>
+                          </span>
+                        </div>
+                      </div>
+
+                      <div class="setting-item is-flex is-align-items-center">
+                        <label class="f-switch is-primary">
+                          <input
+                            type="checkbox"
+                            class="is-switch"
+                            id="busy-mode-toggle"
+                          />
+                          <i></i>
+                        </label>
+                        <div class="setting-meta">
+                          <span class="is-font text-light"
+                            >Receive promotional offers</span
+                          >
+                        </div>
+                      </div>
+
+                      <!-- Submit -->
+                      <div class="control login">
+                        <button
+                          class="button is-secondary is-medium is-raised is-fullwidth"
+                        >
+                          Sign Up
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image section (hidden on mobile) -->
+    <div
+      class="column login-column is-7 is-hidden-mobile hero-banner has-image"
+    >
+      <div class="hero login-hero is-fullheight">
+        <div class="hero-body">
+          <div class="columns">
+            <div class="column is-10 is-offset-1">
+              <img
+                class="signup-image"
+                src="/img/illustrations/apps-slant.png"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+        <div class="hero-footer">
+          <p class="has-text-centered"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

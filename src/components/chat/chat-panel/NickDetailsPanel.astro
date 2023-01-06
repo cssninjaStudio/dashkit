@@ -1,0 +1,69 @@
+---
+import UserDropdown from '../chat-dropdowns/UserDropdown.astro'
+---
+
+<div
+  x-show="activeConversation === 'nick'"
+  id="nick-details"
+  class="panel-body is-user-details"
+>
+  <div class="panel-body-inner">
+    <div class="subheader">
+      <div class="action-icon">
+        <i class="material-icons">videocam</i>
+      </div>
+      <div class="action-icon">
+        <i class="material-icons">photo_camera</i>
+      </div>
+      <div class="action-icon">
+        <i class="material-icons">mic</i>
+      </div>
+      <UserDropdown />
+    </div>
+
+    <div class="details-avatar">
+      <img src="/img/avatars/nick.jpg" alt="" />
+      <div class="call-me">
+        <i class="material-icons">phone</i>
+      </div>
+    </div>
+
+    <div class="user-meta has-text-centered">
+      <h3>Nick Frost</h3>
+      <h4>Head of Sales</h4>
+    </div>
+
+    <div class="user-actions">
+      <a class="user-action">
+        <i class="material-icons">add</i>
+      </a>
+      <a class="user-action">
+        <i class="material-icons">phone</i>
+      </a>
+      <a class="user-action">
+        <i class="material-icons">mail</i>
+      </a>
+      <a class="user-action">
+        <i class="material-icons">notifications</i>
+      </a>
+    </div>
+
+    <div class="user-about">
+      <label>About Me</label>
+      <div class="about-block">
+        <i class="material-icons">domain</i>
+        <div class="about-text">
+          <span>Works at</span>
+          <span><a class="is-inverted" href="#">Carrefour</a></span>
+        </div>
+      </div>
+      <div class="about-block">
+        <i class="material-icons">place</i>
+        <div class="about-text">
+          <span>From</span>
+          <span><a class="is-inverted" href="#">Melbourne</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

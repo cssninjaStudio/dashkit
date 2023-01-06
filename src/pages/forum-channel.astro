@@ -1,0 +1,1232 @@
+---
+import Layout from "../layouts/Default.astro";
+const title = 'Forum Channel'
+---
+
+<Layout title={title}>
+  <!-- Main dashboard container -->
+  <div
+    id="dashboard-wrapper"
+    class="dashboard-outer"
+    x-data="initBlank()"
+    :class="{
+        'is-pushed': $store.app.sidebarOpenedState,
+        '': !$store.app.sidebarOpenedState
+    }"
+  >
+    <div class="dashboard-inner">
+      <!-- Dashboard Wrapper -->
+      <div class="dashboard-wrapper">
+        <div id="main-dashboard" class="section-wrapper">
+          <!-- Dashboard content -->
+          <div class="dashboard-columns">
+            <!-- Page title -->
+            <div class="forum-title-wrapper is-mobile py-5">
+              <img
+                class="forum-image"
+                src="/img/logo/companies/airbnb.svg"
+                alt=""
+              />
+              <div class="inner-wrap">
+                <h3 class="forum-title">Company annoucements</h3>
+                <div class="title-meta">
+                  <div class="meta">
+                    <a>Home</a>
+                    <i class="material-icons is-breadcrumb"
+                      >keyboard_arrow_right</i
+                    >
+                  </div>
+                  <div class="meta">
+                    <span>Company Annoucements</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Filter input -->
+              <div class="actions">
+                <div class="forum-back">
+                  <i class="material-icons">home</i>
+                  <i class="material-icons">arrow_back</i>
+                </div>
+                <!-- Forum main action -->
+                <a class="button is-secondary is-raised" data-ripple-color="">
+                  <span class="icon is-small">
+                    <i class="fas fa-plus"></i>
+                  </span>
+                  <span>New Topic</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="control forum-search">
+              <input
+                type="text"
+                class="input is-rounded"
+                placeholder="Search Channel..."
+              />
+              <div class="search-icon">
+                <i class="iconify" data-icon="lucide:search"></i>
+              </div>
+            </div>
+
+            <!-- Forum Category -->
+            <div class="forum-wrap">
+              <div class="forum-container">
+                <!-- Heading -->
+                <div class="channel-heading">
+                  <h3>49 Topics</h3>
+                  <!-- Forum channel dropdown -->
+                  <div
+                    x-ref="channeldrop"
+                    @click.away="$refs.channeldrop.classList.remove('is-active')"
+                    class="dropdown is-right dropdown-trigger styled-dropdown is-round"
+                  >
+                    <div
+                      @click="$refs.channeldrop.classList.add('is-active')"
+                      class="button"
+                    >
+                      <i class="material-icons">more_vert</i>
+                    </div>
+                    <div class="dropdown-menu is-text-bigger" role="menu">
+                      <div class="dropdown-content">
+                        <a class="dropdown-item">
+                          <i class="material-icons">add</i>
+                          <span>
+                            <span>New Topic</span>
+                            <span>Add a new topic</span>
+                          </span>
+                        </a>
+                        <a href="#" class="dropdown-item">
+                          <i class="sl icon-people"></i>
+                          <span>
+                            <span>Moderators</span>
+                            <span>Manage channel moderators</span>
+                          </span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                          <i class="sl icon-bell"></i>
+                          <span>
+                            <span>Subscribe</span>
+                            <span>Subscribe to channel</span>
+                          </span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item">
+                          <i class="sl icon-trash"></i>
+                          <span>
+                            <span>Delete</span>
+                            <span>Delete this channel</span>
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Forum Moderators -->
+                <div class="channel-moderators">
+                  <div class="avatars">
+                    <img class="avatar" src="/img/avatars/elie.jpg" alt="" />
+                    <img class="avatar" src="/img/avatars/helen.jpg" alt="" />
+                    <img class="avatar" src="/img/avatars/henry.jpg" alt="" />
+                  </div>
+                  <div class="moderators-meta">
+                    <span><a>Elie</a>, <a>Helen</a> and <a>Henry</a></span>
+                    <span>are moderating this channel</span>
+                  </div>
+                </div>
+                <!-- Topic list -->
+                <div class="topic-list">
+                  <!-- Topic -->
+                  <div class="topic-card is-sticky">
+                    <div class="topic-owner">
+                      <img class="avatar" src="/img/avatars/elie.jpg" alt="" />
+                      <div class="badge">
+                        <i class="material-icons">flash_on</i>
+                      </div>
+                    </div>
+                    <div class="topic-meta">
+                      <a class="topic-title"
+                        >Sticky: Important note about future partnerships</a
+                      >
+                      <div class="flex-block">
+                        <span>2 hours ago, by <a>Elie Schwartz</a></span>
+                        <div class="tags">
+                          <span class="tag">Partnerships</span>
+                          <span class="tag">Business</span>
+                          <span class="tag">Joint Venture</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic-actions">
+                      <i class="im im-icon-Letter-Open"></i>
+                      <div class="topic-replies">
+                        <span>Replies</span>
+                        <span>9</span>
+                      </div>
+                      <div class="last-reply">
+                        <img src="/img/avatars/helen.jpg" alt="" />
+                        <div class="last-reply-meta">
+                          <span>Last reply</span>
+                          <span>2 minutes ago</span>
+                        </div>
+                      </div>
+                      <!-- Dropdown -->
+                      <div
+                        x-ref="topicdrop1"
+                        @click.away="$refs.topicdrop1.classList.remove('is-active')"
+                        class="dropdown is-right dropdown-trigger styled-dropdown topic-card-dropdown is-round"
+                      >
+                        <div
+                          @click="$refs.topicdrop1.classList.add('is-active')"
+                          class="button"
+                        >
+                          <i class="material-icons">more_vert</i>
+                        </div>
+                        <div class="dropdown-menu is-text-bigger" role="menu">
+                          <div class="dropdown-content">
+                            <a class="dropdown-item">
+                              <i class="sl icon-eye"></i>
+                              <span>
+                                <span>View</span>
+                                <span>Open this topic</span>
+                              </span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-pencil"></i>
+                              <span>
+                                <span>Edit</span>
+                                <span>Edit this topic</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-lock"></i>
+                              <span>
+                                <span>Lock</span>
+                                <span>Lock this topic</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">
+                              <i class="sl icon-trash"></i>
+                              <span>
+                                <span>Delete</span>
+                                <span>Delete this topic</span>
+                              </span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Topic -->
+                  <div class="topic-card is-sticky">
+                    <div class="topic-owner">
+                      <img class="avatar" src="/img/avatars/helen.jpg" alt="" />
+                      <div class="badge">
+                        <i class="material-icons">flash_on</i>
+                      </div>
+                    </div>
+                    <div class="topic-meta">
+                      <a class="topic-title"
+                        >Sticky: Don't post team updates here anymore</a
+                      >
+                      <div class="flex-block">
+                        <span>2 hours ago, by <a>Helen Miller</a></span>
+                        <div class="tags">
+                          <span class="tag">Company</span>
+                          <span class="tag">Internal</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic-actions">
+                      <i class="im im-icon-Letter-Open"></i>
+                      <div class="topic-replies">
+                        <span>Replies</span>
+                        <span>9</span>
+                      </div>
+                      <div class="last-reply">
+                        <img src="/img/avatars/helen.jpg" alt="" />
+                        <div class="last-reply-meta">
+                          <span>Last reply</span>
+                          <span>2 minutes ago</span>
+                        </div>
+                      </div>
+                      <!-- Dropdown -->
+                      <div
+                        x-ref="topicdrop2"
+                        @click.away="$refs.topicdrop2.classList.remove('is-active')"
+                        class="dropdown is-right dropdown-trigger styled-dropdown topic-card-dropdown is-round"
+                      >
+                        <div
+                          @click="$refs.topicdrop2.classList.add('is-active')"
+                          class="button"
+                        >
+                          <i class="material-icons">more_vert</i>
+                        </div>
+                        <div class="dropdown-menu is-text-bigger" role="menu">
+                          <div class="dropdown-content">
+                            <a class="dropdown-item">
+                              <i class="sl icon-eye"></i>
+                              <span>
+                                <span>View</span>
+                                <span>Open this topic</span>
+                              </span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-pencil"></i>
+                              <span>
+                                <span>Edit</span>
+                                <span>Edit this topic</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-lock"></i>
+                              <span>
+                                <span>Lock</span>
+                                <span>Lock this topic</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">
+                              <i class="sl icon-trash"></i>
+                              <span>
+                                <span>Delete</span>
+                                <span>Delete this topic</span>
+                              </span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Topic -->
+                  <div class="topic-card is-sticky">
+                    <div class="topic-owner">
+                      <img class="avatar" src="/img/avatars/henry.jpg" alt="" />
+                      <div class="badge">
+                        <i class="material-icons">flash_on</i>
+                      </div>
+                    </div>
+                    <div class="topic-meta">
+                      <a class="topic-title"
+                        >Sticky: Congratulations to Noah Milgram</a
+                      >
+                      <div class="flex-block">
+                        <span>Yesterday, by <a>Henry Stagg</a></span>
+                        <div class="tags">
+                          <span class="tag">Company</span>
+                          <span class="tag">Family</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic-actions">
+                      <i class="im im-icon-Lock"></i>
+                      <div class="topic-replies">
+                        <span>Replies</span>
+                        <span>27</span>
+                      </div>
+                      <div class="last-reply">
+                        <img src="/img/avatars/anthony.jpg" alt="" />
+                        <div class="last-reply-meta">
+                          <span>Last reply</span>
+                          <span>45 minutes ago</span>
+                        </div>
+                      </div>
+                      <!-- Dropdown -->
+                      <div
+                        x-ref="topicdrop3"
+                        @click.away="$refs.topicdrop3.classList.remove('is-active')"
+                        class="dropdown is-right dropdown-trigger styled-dropdown topic-card-dropdown is-round"
+                      >
+                        <div
+                          @click="$refs.topicdrop3.classList.add('is-active')"
+                          class="button"
+                        >
+                          <i class="material-icons">more_vert</i>
+                        </div>
+                        <div class="dropdown-menu is-text-bigger" role="menu">
+                          <div class="dropdown-content">
+                            <a class="dropdown-item">
+                              <i class="sl icon-eye"></i>
+                              <span>
+                                <span>View</span>
+                                <span>Open this topic</span>
+                              </span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-pencil"></i>
+                              <span>
+                                <span>Edit</span>
+                                <span>Edit this topic</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-lock"></i>
+                              <span>
+                                <span>Lock</span>
+                                <span>Lock this topic</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">
+                              <i class="sl icon-trash"></i>
+                              <span>
+                                <span>Delete</span>
+                                <span>Delete this topic</span>
+                              </span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Divider -->
+                  <div class="divider-wrap">
+                    <div class="divider">Unread</div>
+                  </div>
+
+                  <!-- Topic -->
+                  <div class="topic-card">
+                    <div class="topic-owner">
+                      <img class="avatar" src="/img/avatars/marge.jpg" alt="" />
+                    </div>
+                    <div class="topic-meta">
+                      <a class="topic-title"
+                        >New Partnership with Plinko Systems</a
+                      >
+                      <div class="flex-block">
+                        <span>Oct 23, by <a>Marge Cartwright</a></span>
+                        <div class="tags">
+                          <span class="tag">Company</span>
+                          <span class="tag">Partnerships</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic-actions">
+                      <div class="topic-replies">
+                        <span>Replies</span>
+                        <span>5</span>
+                      </div>
+                      <div class="last-reply">
+                        <img src="/img/avatars/terry.jpg" alt="" />
+                        <div class="last-reply-meta">
+                          <span>Last reply</span>
+                          <span>7 hours ago</span>
+                        </div>
+                      </div>
+                      <!-- Dropdown -->
+                      <div
+                        x-ref="topicdrop4"
+                        @click.away="$refs.topicdrop4.classList.remove('is-active')"
+                        class="dropdown is-right dropdown-trigger styled-dropdown topic-card-dropdown is-round"
+                      >
+                        <div
+                          @click="$refs.topicdrop4.classList.add('is-active')"
+                          class="button"
+                        >
+                          <i class="material-icons">more_vert</i>
+                        </div>
+                        <div class="dropdown-menu is-text-bigger" role="menu">
+                          <div class="dropdown-content">
+                            <a class="dropdown-item">
+                              <i class="sl icon-eye"></i>
+                              <span>
+                                <span>View</span>
+                                <span>Open this topic</span>
+                              </span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-pencil"></i>
+                              <span>
+                                <span>Edit</span>
+                                <span>Edit this topic</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-lock"></i>
+                              <span>
+                                <span>Lock</span>
+                                <span>Lock this topic</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">
+                              <i class="sl icon-trash"></i>
+                              <span>
+                                <span>Delete</span>
+                                <span>Delete this topic</span>
+                              </span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Topic -->
+                  <div class="topic-card">
+                    <div class="topic-owner">
+                      <img class="avatar" src="/img/avatars/alex.jpg" alt="" />
+                    </div>
+                    <div class="topic-meta">
+                      <a class="topic-title"
+                        >Technology bill to be approved by the Congress</a
+                      >
+                      <div class="flex-block">
+                        <span>Oct 23, by <a>Alex Walsh</a></span>
+                        <div class="tags">
+                          <span class="tag">Company</span>
+                          <span class="tag">Legal</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic-actions">
+                      <div class="topic-replies">
+                        <span>Replies</span>
+                        <span>11</span>
+                      </div>
+                      <div class="last-reply">
+                        <img src="/img/avatars/alan.jpg" alt="" />
+                        <div class="last-reply-meta">
+                          <span>Last reply</span>
+                          <span>2 hours ago</span>
+                        </div>
+                      </div>
+                      <!-- Dropdown -->
+                      <div
+                        x-ref="topicdrop5"
+                        @click.away="$refs.topicdrop5.classList.remove('is-active')"
+                        class="dropdown is-right dropdown-trigger styled-dropdown topic-card-dropdown is-round"
+                      >
+                        <div
+                          @click="$refs.topicdrop5.classList.add('is-active')"
+                          class="button"
+                        >
+                          <i class="material-icons">more_vert</i>
+                        </div>
+                        <div class="dropdown-menu is-text-bigger" role="menu">
+                          <div class="dropdown-content">
+                            <a class="dropdown-item">
+                              <i class="sl icon-eye"></i>
+                              <span>
+                                <span>View</span>
+                                <span>Open this topic</span>
+                              </span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-pencil"></i>
+                              <span>
+                                <span>Edit</span>
+                                <span>Edit this topic</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-lock"></i>
+                              <span>
+                                <span>Lock</span>
+                                <span>Lock this topic</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">
+                              <i class="sl icon-trash"></i>
+                              <span>
+                                <span>Delete</span>
+                                <span>Delete this topic</span>
+                              </span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Divider -->
+                  <div class="divider-wrap">
+                    <div class="divider">New (3)</div>
+                  </div>
+
+                  <!-- Topic -->
+                  <div class="topic-card">
+                    <div class="topic-owner">
+                      <img
+                        class="avatar"
+                        src="/img/avatars/lakisha.jpg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="topic-meta">
+                      <a class="topic-title"
+                        >Additional payment methods available</a
+                      >
+                      <div class="flex-block">
+                        <span>Today, by <a>Lakisha Williams</a></span>
+                        <span class="tags">
+                          <span class="tag">Company</span>
+                          <span class="tag">Payment</span>
+                          <span class="tag">Finance</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="topic-actions">
+                      <span class="tag is-secondary is-rounded">New</span>
+                      <div class="topic-replies">
+                        <span>Replies</span>
+                        <span>3</span>
+                      </div>
+                      <div class="last-reply">
+                        <img src="/img/avatars/alan.jpg" alt="" />
+                        <div class="last-reply-meta">
+                          <span>Last reply</span>
+                          <span>30 minutes ago</span>
+                        </div>
+                      </div>
+                      <!-- Dropdown -->
+                      <div
+                        x-ref="topicdrop6"
+                        @click.away="$refs.topicdrop6.classList.remove('is-active')"
+                        class="dropdown is-right dropdown-trigger styled-dropdown topic-card-dropdown is-round"
+                      >
+                        <div
+                          @click="$refs.topicdrop6.classList.add('is-active')"
+                          class="button"
+                        >
+                          <i class="material-icons">more_vert</i>
+                        </div>
+                        <div class="dropdown-menu is-text-bigger" role="menu">
+                          <div class="dropdown-content">
+                            <a class="dropdown-item">
+                              <i class="sl icon-eye"></i>
+                              <span>
+                                <span>View</span>
+                                <span>Open this topic</span>
+                              </span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-pencil"></i>
+                              <span>
+                                <span>Edit</span>
+                                <span>Edit this topic</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-lock"></i>
+                              <span>
+                                <span>Lock</span>
+                                <span>Lock this topic</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">
+                              <i class="sl icon-trash"></i>
+                              <span>
+                                <span>Delete</span>
+                                <span>Delete this topic</span>
+                              </span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Topic -->
+                  <div class="topic-card">
+                    <div class="topic-owner">
+                      <img
+                        class="avatar"
+                        src="/img/avatars/christina.jpg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="topic-meta">
+                      <a class="topic-title"
+                        >Payment now supports cryptocurrencies</a
+                      >
+                      <div class="flex-block">
+                        <span>Today, by <a>Christina Chu</a></span>
+                        <span class="tags">
+                          <span class="tag">Company</span>
+                          <span class="tag">Payment</span>
+                          <span class="tag">Finance</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="topic-actions">
+                      <span class="tag is-secondary is-rounded">New</span>
+                      <div class="topic-replies">
+                        <span>Replies</span>
+                        <span>17</span>
+                      </div>
+                      <div class="last-reply">
+                        <img src="/img/avatars/christina.jpg" alt="" />
+                        <div class="last-reply-meta">
+                          <span>Last reply</span>
+                          <span>12 minutes ago</span>
+                        </div>
+                      </div>
+                      <!-- Dropdown -->
+                      <div
+                        x-ref="topicdrop7"
+                        @click.away="$refs.topicdrop7.classList.remove('is-active')"
+                        class="dropdown is-right dropdown-trigger styled-dropdown topic-card-dropdown is-round"
+                      >
+                        <div
+                          @click="$refs.topicdrop7.classList.add('is-active')"
+                          class="button"
+                        >
+                          <i class="material-icons">more_vert</i>
+                        </div>
+                        <div class="dropdown-menu is-text-bigger" role="menu">
+                          <div class="dropdown-content">
+                            <a class="dropdown-item">
+                              <i class="sl icon-eye"></i>
+                              <span>
+                                <span>View</span>
+                                <span>Open this topic</span>
+                              </span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-pencil"></i>
+                              <span>
+                                <span>Edit</span>
+                                <span>Edit this topic</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-lock"></i>
+                              <span>
+                                <span>Lock</span>
+                                <span>Lock this topic</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">
+                              <i class="sl icon-trash"></i>
+                              <span>
+                                <span>Delete</span>
+                                <span>Delete this topic</span>
+                              </span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Topic -->
+                  <div class="topic-card">
+                    <div class="topic-owner">
+                      <img
+                        class="avatar"
+                        src="/img/avatars/kareem.jpg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="topic-meta">
+                      <a class="topic-title">Internal Policies update</a>
+                      <div class="flex-block">
+                        <span>Today, by <a>Kareem Jabbar</a></span>
+                        <span class="tags">
+                          <span class="tag">Company</span>
+                          <span class="tag">Policies</span>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="topic-actions">
+                      <span class="tag is-secondary is-rounded">New</span>
+                      <div class="topic-replies">
+                        <span>Replies</span>
+                        <span>2</span>
+                      </div>
+                      <div class="last-reply">
+                        <img src="/img/avatars/nicole.jpg" alt="" />
+                        <div class="last-reply-meta">
+                          <span>Last reply</span>
+                          <span>1 hour ago</span>
+                        </div>
+                      </div>
+                      <!-- Dropdown -->
+                      <div
+                        x-ref="topicdrop8"
+                        @click.away="$refs.topicdrop8.classList.remove('is-active')"
+                        class="dropdown is-right dropdown-trigger styled-dropdown topic-card-dropdown is-round"
+                      >
+                        <div
+                          @click="$refs.topicdrop8.classList.add('is-active')"
+                          class="button"
+                        >
+                          <i class="material-icons">more_vert</i>
+                        </div>
+                        <div class="dropdown-menu is-text-bigger" role="menu">
+                          <div class="dropdown-content">
+                            <a class="dropdown-item">
+                              <i class="sl icon-eye"></i>
+                              <span>
+                                <span>View</span>
+                                <span>Open this topic</span>
+                              </span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-pencil"></i>
+                              <span>
+                                <span>Edit</span>
+                                <span>Edit this topic</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-lock"></i>
+                              <span>
+                                <span>Lock</span>
+                                <span>Lock this topic</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">
+                              <i class="sl icon-trash"></i>
+                              <span>
+                                <span>Delete</span>
+                                <span>Delete this topic</span>
+                              </span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Divider -->
+                  <div class="divider-wrap">
+                    <div class="divider">Viewed</div>
+                  </div>
+
+                  <!-- Topic -->
+                  <div class="topic-card">
+                    <div class="topic-owner">
+                      <img class="avatar" src="/img/avatars/alex.jpg" alt="" />
+                    </div>
+                    <div class="topic-meta">
+                      <a class="topic-title"
+                        >Read these important GPDR updates</a
+                      >
+                      <div class="flex-block">
+                        <span>Oct 15, by <a>Alex Walsh</a></span>
+                        <div class="tags">
+                          <span class="tag">GPDR</span>
+                          <span class="tag">Legal</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic-actions">
+                      <div class="topic-replies">
+                        <span>Replies</span>
+                        <span>18</span>
+                      </div>
+                      <div class="last-reply">
+                        <img src="/img/avatars/alan.jpg" alt="" />
+                        <div class="last-reply-meta">
+                          <span>Last reply</span>
+                          <span>6 days ago</span>
+                        </div>
+                      </div>
+                      <!-- Dropdown -->
+                      <div
+                        x-ref="topicdrop9"
+                        @click.away="$refs.topicdrop9.classList.remove('is-active')"
+                        class="dropdown is-right dropdown-trigger styled-dropdown topic-card-dropdown is-round"
+                      >
+                        <div
+                          @click="$refs.topicdrop9.classList.add('is-active')"
+                          class="button"
+                        >
+                          <i class="material-icons">more_vert</i>
+                        </div>
+                        <div class="dropdown-menu is-text-bigger" role="menu">
+                          <div class="dropdown-content">
+                            <a class="dropdown-item">
+                              <i class="sl icon-eye"></i>
+                              <span>
+                                <span>View</span>
+                                <span>Open this topic</span>
+                              </span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-pencil"></i>
+                              <span>
+                                <span>Edit</span>
+                                <span>Edit this topic</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-lock"></i>
+                              <span>
+                                <span>Lock</span>
+                                <span>Lock this topic</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">
+                              <i class="sl icon-trash"></i>
+                              <span>
+                                <span>Delete</span>
+                                <span>Delete this topic</span>
+                              </span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Topic -->
+                  <div class="topic-card">
+                    <div class="topic-owner">
+                      <img class="avatar" src="/img/avatars/barry.jpg" alt="" />
+                    </div>
+                    <div class="topic-meta">
+                      <a class="topic-title"
+                        >Next Town Hall meeting will be on January</a
+                      >
+                      <div class="flex-block">
+                        <span>Oct 12, by <a>Barry Hayden</a></span>
+                        <div class="tags">
+                          <span class="tag">Company</span>
+                          <span class="tag">HR</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic-actions">
+                      <div class="topic-replies">
+                        <span>Replies</span>
+                        <span>6</span>
+                      </div>
+                      <div class="last-reply">
+                        <img src="/img/avatars/melany.jpg" alt="" />
+                        <div class="last-reply-meta">
+                          <span>Last reply</span>
+                          <span>5 days ago</span>
+                        </div>
+                      </div>
+                      <!-- Dropdown -->
+                      <div
+                        x-ref="topicdrop10"
+                        @click.away="$refs.topicdrop10.classList.remove('is-active')"
+                        class="dropdown is-right dropdown-trigger styled-dropdown topic-card-dropdown is-round"
+                      >
+                        <div
+                          @click="$refs.topicdrop10.classList.add('is-active')"
+                          class="button"
+                        >
+                          <i class="material-icons">more_vert</i>
+                        </div>
+                        <div class="dropdown-menu is-text-bigger" role="menu">
+                          <div class="dropdown-content">
+                            <a class="dropdown-item">
+                              <i class="sl icon-eye"></i>
+                              <span>
+                                <span>View</span>
+                                <span>Open this topic</span>
+                              </span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-pencil"></i>
+                              <span>
+                                <span>Edit</span>
+                                <span>Edit this topic</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-lock"></i>
+                              <span>
+                                <span>Lock</span>
+                                <span>Lock this topic</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">
+                              <i class="sl icon-trash"></i>
+                              <span>
+                                <span>Delete</span>
+                                <span>Delete this topic</span>
+                              </span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Topic -->
+                  <div class="topic-card">
+                    <div class="topic-owner">
+                      <img
+                        class="avatar"
+                        src="/img/avatars/christina.jpg"
+                        alt=""
+                      />
+                    </div>
+                    <div class="topic-meta">
+                      <a class="topic-title"
+                        >Company will entirely switch to Vuejs</a
+                      >
+                      <div class="flex-block">
+                        <span>Oct 09, by <a>Christina Chu</a></span>
+                        <div class="tags">
+                          <span class="tag">Devops</span>
+                          <span class="tag">Technology</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic-actions">
+                      <i class="im im-icon-Lock"></i>
+                      <div class="topic-replies">
+                        <span>Replies</span>
+                        <span>58</span>
+                      </div>
+                      <div class="last-reply">
+                        <img src="/img/avatars/jalil.jpg" alt="" />
+                        <div class="last-reply-meta">
+                          <span>Last reply</span>
+                          <span>8 days ago</span>
+                        </div>
+                      </div>
+                      <!-- Dropdown -->
+                      <div
+                        x-ref="topicdrop11"
+                        @click.away="$refs.topicdrop11.classList.remove('is-active')"
+                        class="dropdown is-right dropdown-trigger styled-dropdown topic-card-dropdown is-round"
+                      >
+                        <div
+                          @click="$refs.topicdrop11.classList.add('is-active')"
+                          class="button"
+                        >
+                          <i class="material-icons">more_vert</i>
+                        </div>
+                        <div class="dropdown-menu is-text-bigger" role="menu">
+                          <div class="dropdown-content">
+                            <a class="dropdown-item">
+                              <i class="sl icon-eye"></i>
+                              <span>
+                                <span>View</span>
+                                <span>Open this topic</span>
+                              </span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-pencil"></i>
+                              <span>
+                                <span>Edit</span>
+                                <span>Edit this topic</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-lock"></i>
+                              <span>
+                                <span>Lock</span>
+                                <span>Lock this topic</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">
+                              <i class="sl icon-trash"></i>
+                              <span>
+                                <span>Delete</span>
+                                <span>Delete this topic</span>
+                              </span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Topic -->
+                  <div class="topic-card">
+                    <div class="topic-owner">
+                      <img class="avatar" src="/img/avatars/barry.jpg" alt="" />
+                    </div>
+                    <div class="topic-meta">
+                      <a class="topic-title"
+                        >Say Hello to dan Baxter, our new CFO</a
+                      >
+                      <div class="flex-block">
+                        <span>Oct 09, by <a>Barry Hayden</a></span>
+                        <div class="tags">
+                          <span class="tag">Company</span>
+                          <span class="tag">HR</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic-actions">
+                      <div class="topic-replies">
+                        <span>Replies</span>
+                        <span>129</span>
+                      </div>
+                      <div class="last-reply">
+                        <img src="/img/avatars/jeffrey.jpg" alt="" />
+                        <div class="last-reply-meta">
+                          <span>Last reply</span>
+                          <span>3 days ago</span>
+                        </div>
+                      </div>
+                      <!-- Dropdown -->
+                      <div
+                        x-ref="topicdrop12"
+                        @click.away="$refs.topicdrop12.classList.remove('is-active')"
+                        class="dropdown is-right dropdown-trigger styled-dropdown topic-card-dropdown is-round"
+                      >
+                        <div
+                          @click="$refs.topicdrop12.classList.add('is-active')"
+                          class="button"
+                        >
+                          <i class="material-icons">more_vert</i>
+                        </div>
+                        <div class="dropdown-menu is-text-bigger" role="menu">
+                          <div class="dropdown-content">
+                            <a class="dropdown-item">
+                              <i class="sl icon-eye"></i>
+                              <span>
+                                <span>View</span>
+                                <span>Open this topic</span>
+                              </span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-pencil"></i>
+                              <span>
+                                <span>Edit</span>
+                                <span>Edit this topic</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-lock"></i>
+                              <span>
+                                <span>Lock</span>
+                                <span>Lock this topic</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">
+                              <i class="sl icon-trash"></i>
+                              <span>
+                                <span>Delete</span>
+                                <span>Delete this topic</span>
+                              </span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Topic -->
+                  <div class="topic-card">
+                    <div class="topic-owner">
+                      <img class="avatar" src="/img/avatars/sally.jpg" alt="" />
+                    </div>
+                    <div class="topic-meta">
+                      <a class="topic-title"
+                        >Please fill your individual interview form</a
+                      >
+                      <div class="flex-block">
+                        <span>Oct 08, by <a>Sally Mitchells</a></span>
+                        <div class="tags">
+                          <span class="tag">Company</span>
+                          <span class="tag">HR</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="topic-actions">
+                      <div class="topic-replies">
+                        <span>Replies</span>
+                        <span>15</span>
+                      </div>
+                      <div class="last-reply">
+                        <img src="/img/avatars/helen.jpg" alt="" />
+                        <div class="last-reply-meta">
+                          <span>Last reply</span>
+                          <span>1 day ago</span>
+                        </div>
+                      </div>
+                      <!-- Dropdown -->
+                      <div
+                        x-ref="topicdrop13"
+                        @click.away="$refs.topicdrop13.classList.remove('is-active')"
+                        class="dropdown is-right dropdown-trigger styled-dropdown topic-card-dropdown is-round"
+                      >
+                        <div
+                          @click="$refs.topicdrop13.classList.add('is-active')"
+                          class="button"
+                        >
+                          <i class="material-icons">more_vert</i>
+                        </div>
+                        <div class="dropdown-menu is-text-bigger" role="menu">
+                          <div class="dropdown-content">
+                            <a class="dropdown-item">
+                              <i class="sl icon-eye"></i>
+                              <span>
+                                <span>View</span>
+                                <span>Open this topic</span>
+                              </span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-pencil"></i>
+                              <span>
+                                <span>Edit</span>
+                                <span>Edit this topic</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-lock"></i>
+                              <span>
+                                <span>Lock</span>
+                                <span>Lock this topic</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">
+                              <i class="sl icon-trash"></i>
+                              <span>
+                                <span>Delete</span>
+                                <span>Delete this topic</span>
+                              </span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Forum Pagination -->
+                <ul class="pagination">
+                  <li>
+                    <i class="material-icons">keyboard_arrow_left</i>
+                  </li>
+                  <li class="is-active">
+                    <span>1</span>
+                  </li>
+                  <li>
+                    <span>2</span>
+                  </li>
+                  <li>
+                    <span>...</span>
+                  </li>
+                  <li>
+                    <i class="material-icons">keyboard_arrow_right</i>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

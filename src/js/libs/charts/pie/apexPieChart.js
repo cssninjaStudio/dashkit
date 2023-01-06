@@ -8,37 +8,30 @@ export function initApexPieChart() {
     const apexPieChartOptions = {
       series: [44, 55, 13, 43, 22],
       chart: {
-        width: 425,
+        width: 380,
         type: "pie",
       },
+      labels: ["Team A", "Team B", "Team C", "Team D", "Team E"],
       colors: [
         themeColors.accent,
         themeColors.secondary,
         themeColors.orange,
-        themeColors.info,
         themeColors.primary,
+        themeColors.info,
       ],
-      labels: ["Team A", "Team B", "Team C", "Team D", "Team E"],
       responsive: [
         {
           breakpoint: 480,
           options: {
             chart: {
-              width: 315,
-              toolbar: {
-                show: false,
-              },
+              width: 200,
             },
             legend: {
-              position: "top",
+              position: "bottom",
             },
           },
-        },s
+        },
       ],
-      legend: {
-        position: "right",
-        horizontalAlign: "center",
-      },
     };
 
     const apexPieChartInstance = new ApexCharts(

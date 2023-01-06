@@ -1,0 +1,81 @@
+---
+import PanelContentUsers from './PanelContentUsers.astro'
+import PanelContentReminders from './PanelContentReminders.astro'
+import PanelContentSettings from './PanelContentSettings.astro'
+---
+
+<!-- Right sidebar quickview -->
+<div
+  id="main-quickview"
+  class="quickview is-right is-main"
+  x-data="initSidebarRight()"
+  :class="{
+        'is-active': $store.app.isSidebarRightOpened,
+        '': !$store.app.isSidebarRightOpened
+    }"
+>
+  <!-- Quickview header -->
+  <header class="quickview-header">
+    <h3>Messaging</h3>
+    <div class="quickview-close" @click="closeRightSidebar()">
+      <span class="material-icons">close</span>
+    </div>
+  </header>
+
+  <!-- Quickview body -->
+  <div class="quickview-body">
+    <div class="quickview-block">
+      <!-- Quickview tabs -->
+      <div class="navigation-tabs animated-tabs simple-tabs">
+        <div class="tabs is-fullwidth">
+          <ul>
+            <li
+              class="tab-item"
+              @click="switchSidebarTabs('people-tab')"
+              :class="{
+                    'is-active': activeTab === 'people-tab',
+                    '': !activeTab === 'people-tab'
+                }"
+            >
+              <a><i class="iconify" data-icon="lucide:message-square"></i></a>
+            </li>
+            <li
+              class="tab-item"
+              @click="switchSidebarTabs('reminders-tab')"
+              :class="{
+                    'is-active': activeTab === 'reminders-tab',
+                    '': !activeTab === 'reminders-tab'
+                }"
+            >
+              <a><i class="iconify" data-icon="lucide:clock"></i></a>
+            </li>
+            <li
+              class="tab-item"
+              @click="switchSidebarTabs('settings-tab')"
+              :class="{
+                    'is-active': activeTab === 'settings-tab',
+                    '': !activeTab === 'settings-tab'
+                }"
+            >
+              <a><i class="iconify" data-icon="lucide:settings"></i></a>
+            </li>
+            <li class="naver"></li>
+          </ul>
+        </div>
+
+        <!--Users tab-->
+        <PanelContentUsers />
+        
+        <!--Reminders tab-->
+        <PanelContentReminders />
+        
+        <!--Settings tab-->
+        <PanelContentSettings />
+      </div>
+      <!-- /Quickview tabs -->
+    </div>
+  </div>
+
+  <!-- Quickview footer -->
+  <footer class="quickview-footer"></footer>
+</div>

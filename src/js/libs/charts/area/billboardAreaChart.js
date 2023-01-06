@@ -1,4 +1,4 @@
-import { bb } from "billboard.js";
+import { area, bb } from "billboard.js";
 import { themeColors } from "../../utils/constants";
 
 export function initBillboardAreaChart() {
@@ -11,6 +11,7 @@ export function initBillboardAreaChart() {
           ["data1", 300, 350, 300, 0, 0, 0],
           ["data2", 130, 100, 140, 200, 150, 50],
         ],
+        type: area(),
         colors: {
           data1: themeColors.primary,
           data2: themeColors.purple,

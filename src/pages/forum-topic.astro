@@ -1,0 +1,874 @@
+---
+import Layout from "../layouts/Default.astro";
+const title = 'Forum topic'
+---
+
+<Layout title={title}>
+  <!-- Main dashboard container -->
+  <div
+    id="dashboard-wrapper"
+    class="dashboard-outer"
+    x-data="initForumTopic()"
+    x-init="initReplyBox()"
+    :class="{
+        'is-pushed': $store.app.sidebarOpenedState,
+        '': !$store.app.sidebarOpenedState
+    }"
+  >
+    <div class="dashboard-inner">
+      <!-- Dashboard Wrapper -->
+      <div class="dashboard-wrapper">
+        <div id="main-dashboard" class="section-wrapper">
+          <!-- Dashboard content -->
+          <div class="dashboard-columns">
+            <div class="topic-wrapper">
+              <!-- Page title -->
+              <div class="forum-title-wrapper is-mobile py-5">
+                <img
+                  class="forum-image"
+                  src="/img/avatars/christina.jpg"
+                  alt=""
+                />
+                <div class="inner-wrap">
+                  <h3 class="forum-title is-topic-title">
+                    Payment now supports cryptocurrencies
+                  </h3>
+                  <div class="title-meta">
+                    <div class="meta">
+                      <a>Home</a>
+                      <i class="material-icons is-breadcrumb"
+                        >keyboard_arrow_right</i
+                      >
+                    </div>
+                    <div class="meta">
+                      <a>Company Annoucements</a>
+                      <i class="material-icons is-breadcrumb"
+                        >keyboard_arrow_right</i
+                      >
+                    </div>
+                    <div class="meta">
+                      <span>Topic</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Filter input -->
+                <div class="actions">
+                  <div class="forum-back">
+                    <i class="material-icons">home</i>
+                    <i class="material-icons">arrow_back</i>
+                  </div>
+                  <!-- Forum main dropdown -->
+                  <a
+                    @click="toggleReplyBox()"
+                    class="button is-secondary is-raised"
+                    data-ripple-color=""
+                  >
+                    Reply
+                  </a>
+                </div>
+              </div>
+
+              <!-- Forum Category -->
+              <div class="forum-wrap">
+                <div class="forum-container">
+                  <!-- Heading -->
+                  <div class="channel-heading">
+                    <h3>Payment now supports cryptocurrencies</h3>
+                    <!-- Forum channel dropdown -->
+                    <div
+                      x-ref="channeldrop"
+                      @click.away="$refs.channeldrop.classList.remove('is-active')"
+                      class="dropdown is-right dropdown-trigger styled-dropdown is-round"
+                    >
+                      <div
+                        @click="$refs.channeldrop.classList.add('is-active')"
+                        class="button"
+                      >
+                        <i class="material-icons">more_vert</i>
+                      </div>
+                      <div class="dropdown-menu is-text-bigger" role="menu">
+                        <div class="dropdown-content">
+                          <a class="dropdown-item">
+                            <i class="material-icons">add</i>
+                            <span>
+                              <span>New Topic</span>
+                              <span>Add a new topic</span>
+                            </span>
+                          </a>
+                          <a href="#" class="dropdown-item">
+                            <i class="sl icon-people"></i>
+                            <span>
+                              <span>Moderators</span>
+                              <span>Manage channel moderators</span>
+                            </span>
+                          </a>
+                          <div class="dropdown-divider"></div>
+                          <a href="#" class="dropdown-item">
+                            <i class="sl icon-bell"></i>
+                            <span>
+                              <span>Subscribe</span>
+                              <span>Subscribe to channel</span>
+                            </span>
+                          </a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item">
+                            <i class="sl icon-trash"></i>
+                            <span>
+                              <span>Delete</span>
+                              <span>Delete this channel</span>
+                            </span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Topic stats -->
+                  <div class="topic-stats">
+                    <!-- stat -->
+                    <div class="stat-block">
+                      <img
+                        class="avatar"
+                        src="/img/avatars/christina.jpg"
+                        alt=""
+                      />
+                      <div class="stat-meta">
+                        <span>Created</span>
+                        <span>19 days</span>
+                      </div>
+                    </div>
+                    <!-- stat -->
+                    <div class="stat-block">
+                      <img class="avatar" src="/img/avatars/barry.jpg" alt="" />
+                      <div class="stat-meta">
+                        <span>Last reply</span>
+                        <span>1 day</span>
+                      </div>
+                    </div>
+                    <!-- stat -->
+                    <div class="stat-block">
+                      <div class="avatar">
+                        <i class="sl icon-bubbles"></i>
+                      </div>
+                      <div class="stat-meta">
+                        <span>Replies</span>
+                        <span>17</span>
+                      </div>
+                    </div>
+                    <!-- stat -->
+                    <div class="stat-block">
+                      <div class="avatar">
+                        <i class="sl icon-eye"></i>
+                      </div>
+                      <div class="stat-meta">
+                        <span>Views</span>
+                        <span>473</span>
+                      </div>
+                    </div>
+                    <!-- stat -->
+                    <div class="stat-block">
+                      <div class="avatar">
+                        <i class="sl icon-heart"></i>
+                      </div>
+                      <div class="stat-meta">
+                        <span>Likes</span>
+                        <span>52</span>
+                      </div>
+                    </div>
+                    <!-- stat -->
+                    <div class="stat-block">
+                      <div class="avatar">
+                        <i class="sl icon-picture"></i>
+                      </div>
+                      <div class="stat-meta">
+                        <span>Media</span>
+                        <span>8</span>
+                      </div>
+                    </div>
+                    <div class="participants">
+                      <img
+                        class="participant"
+                        src="/img/avatars/elie.jpg"
+                        alt=""
+                      />
+                      <img
+                        class="participant"
+                        src="/img/avatars/helen.jpg"
+                        alt=""
+                      />
+                      <img
+                        class="participant"
+                        src="/img/avatars/henry.jpg"
+                        alt=""
+                      />
+                      <div class="participant">
+                        <span>+3</span>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Topic body -->
+                  <div class="full-topic">
+                    <!-- Post -->
+                    <div class="post">
+                      <div class="post-meta">
+                        <div class="post-owner">
+                          <img
+                            class="avatar"
+                            src="/img/avatars/christina.jpg"
+                            alt=""
+                          />
+                          <div class="badge">
+                            <i class="material-icons">flash_on</i>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="post-content">
+                        <div class="top-wrap">
+                          <div class="name-wrap">
+                            <a class="name">@Christina Chu</a>
+                            <span>Dec 19, at 09:18am</span>
+                          </div>
+                          <div class="top-actions">
+                            <span>28</span>
+                            <a class="top-action is-like is-active">
+                              <i class="sl icon-heart"></i>
+                            </a>
+                            <a class="top-action is-secondary">
+                              <i class="sl icon-speech"></i>
+                            </a>
+                            <a class="top-action is-secondary">
+                              <i class="sl icon-share"></i>
+                            </a>
+                            <!-- Dropdown -->
+                            <div
+                              x-ref="postdrop1"
+                              @click.away="$refs.postdrop1.classList.remove('is-active')"
+                              class="dropdown is-right dropdown-trigger styled-dropdown is-round"
+                            >
+                              <div
+                                @click="$refs.postdrop1.classList.add('is-active')"
+                                class="button"
+                              >
+                                <i class="material-icons">more_vert</i>
+                              </div>
+                              <div
+                                class="dropdown-menu is-text-bigger"
+                                role="menu"
+                              >
+                                <div class="dropdown-content">
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-star"></i>
+                                    <span>
+                                      <span>Bookmark</span>
+                                      <span>Add to forum bookmarks</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-pencil"></i>
+                                    <span>
+                                      <span>Edit</span>
+                                      <span>Edit this post</span>
+                                    </span>
+                                  </a>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-flag"></i>
+                                    <span>
+                                      <span>Flag</span>
+                                      <span>Flag inappropriate content</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-trash"></i>
+                                    <span>
+                                      <span>Delete</span>
+                                      <span>Delete this post</span>
+                                    </span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="post-body content">
+                          <p>Hello everyone !</p>
+                          <p>
+                            I have great news for you all, given you've been
+                            waiting so long for it!
+                          </p>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. At multis se probavit. Is es profecto tu.
+                            Venit ad extremum; Praeclare hoc quidem.
+                            <a href="http://loripsum.net/" target="_blank"
+                              >Collatio igitur ista te nihil iuvat.</a
+                            >
+                            Duo Reges: constructio interrete.
+                            <a href="http://loripsum.net/" target="_blank"
+                              >Id enim natura desiderat.</a
+                            >
+                            Aliter enim nosmet ipsos nosse non possumus. Zenonis
+                            est, inquam, hoc Stoici.
+                          </p>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Si quae forte-possumus. Ac tamen hic mallet
+                            non dolere. Quid ergo hoc loco intellegit honestum?
+                            Hic nihil fuit, quod quaereremus.
+                          </p>
+                          <ul>
+                            <li>Duo Reges: constructio interrete.</li>
+                            <li>
+                              Ego quoque, inquit, didicerim libentius si quid
+                              attuleris, quam te reprehenderim.
+                            </li>
+                            <li>
+                              Qui ita affectus, beatum esse numquam probabis;
+                            </li>
+                            <li>
+                              Semper enim ita adsumit aliquid, ut ea, quae prima
+                              dederit, non deserat.
+                            </li>
+                          </ul>
+                          <p>Hope you will all enjoy it ! 🎉🎉🎉</p>
+                        </div>
+
+                        <div class="edited-text">Edited 1 day ago</div>
+                      </div>
+                    </div>
+                    <!-- Post -->
+                    <div class="post">
+                      <div class="post-meta">
+                        <div class="post-owner">
+                          <img
+                            class="avatar"
+                            src="/img/avatars/marc.jpg"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                      <div class="post-content">
+                        <div class="top-wrap">
+                          <div class="name-wrap">
+                            <a class="name">@Marc Walters</a>
+                            <span>Dec 19, at 10:22am</span>
+                          </div>
+                          <div class="top-actions">
+                            <span>1</span>
+                            <a class="top-action is-like">
+                              <i class="sl icon-heart"></i>
+                            </a>
+                            <a class="top-action is-secondary">
+                              <i class="sl icon-speech"></i>
+                            </a>
+                            <!-- Dropdown -->
+                            <div
+                              x-ref="postdrop2"
+                              @click.away="$refs.postdrop2.classList.remove('is-active')"
+                              class="dropdown is-right dropdown-trigger styled-dropdown is-round"
+                            >
+                              <div
+                                @click="$refs.postdrop2.classList.add('is-active')"
+                                class="button"
+                              >
+                                <i class="material-icons">more_vert</i>
+                              </div>
+                              <div
+                                class="dropdown-menu is-text-bigger"
+                                role="menu"
+                              >
+                                <div class="dropdown-content">
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-star"></i>
+                                    <span>
+                                      <span>Bookmark</span>
+                                      <span>Add to forum bookmarks</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-pencil"></i>
+                                    <span>
+                                      <span>Edit</span>
+                                      <span>Edit this post</span>
+                                    </span>
+                                  </a>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-flag"></i>
+                                    <span>
+                                      <span>Flag</span>
+                                      <span>Flag inappropriate content</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-trash"></i>
+                                    <span>
+                                      <span>Delete</span>
+                                      <span>Delete this post</span>
+                                    </span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="post-body content">
+                          <p>That's great to hear !</p>
+                          <p>
+                            I have been waiting for so long to be implemented, i
+                            can now start wiring things up.
+                          </p>
+                          <p>Thanks for the awesome job ! 👏👏👏</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Post -->
+                    <div class="post">
+                      <div class="post-meta">
+                        <div class="post-owner">
+                          <img
+                            class="avatar"
+                            src="/img/avatars/dan.jpg"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                      <div class="post-content">
+                        <div class="top-wrap">
+                          <div class="name-wrap">
+                            <a class="name">@Dan Baxter</a>
+                            <span>Dec 19, at 10:41am</span>
+                          </div>
+                          <div class="top-actions">
+                            <span>1</span>
+                            <a class="top-action is-like">
+                              <i class="sl icon-heart"></i>
+                            </a>
+                            <a class="top-action is-secondary">
+                              <i class="sl icon-speech"></i>
+                            </a>
+                            <!-- Dropdown -->
+                            <div
+                              x-ref="postdrop3"
+                              @click.away="$refs.postdrop3.classList.remove('is-active')"
+                              class="dropdown is-right dropdown-trigger styled-dropdown is-round"
+                            >
+                              <div
+                                @click="$refs.postdrop3.classList.add('is-active')"
+                                class="button"
+                              >
+                                <i class="material-icons">more_vert</i>
+                              </div>
+                              <div
+                                class="dropdown-menu is-text-bigger"
+                                role="menu"
+                              >
+                                <div class="dropdown-content">
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-star"></i>
+                                    <span>
+                                      <span>Bookmark</span>
+                                      <span>Add to forum bookmarks</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-pencil"></i>
+                                    <span>
+                                      <span>Edit</span>
+                                      <span>Edit this post</span>
+                                    </span>
+                                  </a>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-flag"></i>
+                                    <span>
+                                      <span>Flag</span>
+                                      <span>Flag inappropriate content</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-trash"></i>
+                                    <span>
+                                      <span>Delete</span>
+                                      <span>Delete this post</span>
+                                    </span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="post-body content">
+                          <p>That's a real boost for our company. 👌</p>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Paria sunt igitur. Nos cum te, M. Rationis
+                            enim perfectio est virtus; Philosophi autem in suis
+                            lectulis plerumque moriuntur.
+                            <a href="http://loripsum.net/" target="_blank"
+                              >Sed videbimus.</a
+                            >
+                          </p>
+                          <p>
+                            Duo Reges: constructio interrete. Res enim
+                            concurrent contrariae.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Post -->
+                    <div class="post">
+                      <div class="post-meta">
+                        <div class="post-owner">
+                          <img
+                            class="avatar"
+                            src="/img/avatars/elie.jpg"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                      <div class="post-content">
+                        <div class="top-wrap">
+                          <div class="name-wrap">
+                            <a class="name">@Elie Schwartz</a>
+                            <span>Dec 19, at 10:59am</span>
+                          </div>
+                          <div class="top-actions">
+                            <span>1</span>
+                            <a class="top-action is-like">
+                              <i class="sl icon-heart"></i>
+                            </a>
+                            <a class="top-action is-secondary">
+                              <i class="sl icon-speech"></i>
+                            </a>
+                            <!-- Dropdown -->
+                            <div
+                              x-ref="postdrop4"
+                              @click.away="$refs.postdrop4.classList.remove('is-active')"
+                              class="dropdown is-right dropdown-trigger styled-dropdown is-round"
+                            >
+                              <div
+                                @click="$refs.postdrop4.classList.add('is-active')"
+                                class="button"
+                              >
+                                <i class="material-icons">more_vert</i>
+                              </div>
+                              <div
+                                class="dropdown-menu is-text-bigger"
+                                role="menu"
+                              >
+                                <div class="dropdown-content">
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-star"></i>
+                                    <span>
+                                      <span>Bookmark</span>
+                                      <span>Add to forum bookmarks</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-pencil"></i>
+                                    <span>
+                                      <span>Edit</span>
+                                      <span>Edit this post</span>
+                                    </span>
+                                  </a>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-flag"></i>
+                                    <span>
+                                      <span>Flag</span>
+                                      <span>Flag inappropriate content</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-trash"></i>
+                                    <span>
+                                      <span>Delete</span>
+                                      <span>Delete this post</span>
+                                    </span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="post-body content">
+                          <p>Finally you did it! 🎉🎉🎉🎉🎉🎉</p>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Quid enim possumus hoc agere divinius? Reguli
+                            reiciendam; Qualem igitur hominem natura inchoavit?
+                            Ratio quidem vestra sic cogit.
+                          </p>
+                          <p>Thanks Christina!</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Post -->
+                    <div class="post">
+                      <div class="post-meta">
+                        <div class="post-owner">
+                          <img
+                            class="avatar"
+                            src="/img/avatars/henry.jpg"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                      <div class="post-content">
+                        <div class="top-wrap">
+                          <div class="name-wrap">
+                            <a class="name">@Henry Stagg</a>
+                            <span>Dec 19, at 11:32am</span>
+                          </div>
+                          <div class="top-actions">
+                            <span>3</span>
+                            <a class="top-action is-like is-active">
+                              <i class="sl icon-heart"></i>
+                            </a>
+                            <a class="top-action is-secondary">
+                              <i class="sl icon-speech"></i>
+                            </a>
+                            <!-- Dropdown -->
+                            <div
+                              x-ref="postdrop5"
+                              @click.away="$refs.postdrop5.classList.remove('is-active')"
+                              class="dropdown is-right dropdown-trigger styled-dropdown is-round"
+                            >
+                              <div
+                                @click="$refs.postdrop5.classList.add('is-active')"
+                                class="button"
+                              >
+                                <i class="material-icons">more_vert</i>
+                              </div>
+                              <div
+                                class="dropdown-menu is-text-bigger"
+                                role="menu"
+                              >
+                                <div class="dropdown-content">
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-star"></i>
+                                    <span>
+                                      <span>Bookmark</span>
+                                      <span>Add to forum bookmarks</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-pencil"></i>
+                                    <span>
+                                      <span>Edit</span>
+                                      <span>Edit this post</span>
+                                    </span>
+                                  </a>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-flag"></i>
+                                    <span>
+                                      <span>Flag</span>
+                                      <span>Flag inappropriate content</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-trash"></i>
+                                    <span>
+                                      <span>Delete</span>
+                                      <span>Delete this post</span>
+                                    </span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="post-body content">
+                          <p>Awesome! 🎉</p>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Quid enim possumus hoc agere divinius? Reguli
+                            reiciendam; Qualem igitur hominem natura inchoavit?
+                            Ratio quidem vestra sic cogit.
+                          </p>
+                          <p>Don't forget to post some tutorials!</p>
+                          <p>Thanks Christina!</p>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Post -->
+                    <div class="post">
+                      <div class="post-meta">
+                        <div class="post-owner">
+                          <img
+                            class="avatar"
+                            src="/img/avatars/anthony.jpg"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                      <div class="post-content">
+                        <div class="top-wrap">
+                          <div class="name-wrap">
+                            <a class="name">@Anthony Briggs</a>
+                            <span>Dec 19, at 11:45am</span>
+                          </div>
+                          <div class="top-actions">
+                            <span>5</span>
+                            <a class="top-action is-like is-active">
+                              <i class="sl icon-heart"></i>
+                            </a>
+                            <a class="top-action is-secondary">
+                              <i class="sl icon-speech"></i>
+                            </a>
+                            <!-- Dropdown -->
+                            <div
+                              x-ref="postdrop6"
+                              @click.away="$refs.postdrop6.classList.remove('is-active')"
+                              class="dropdown is-right dropdown-trigger styled-dropdown is-round"
+                            >
+                              <div
+                                @click="$refs.postdrop6.classList.add('is-active')"
+                                class="button"
+                              >
+                                <i class="material-icons">more_vert</i>
+                              </div>
+                              <div
+                                class="dropdown-menu is-text-bigger"
+                                role="menu"
+                              >
+                                <div class="dropdown-content">
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-star"></i>
+                                    <span>
+                                      <span>Bookmark</span>
+                                      <span>Add to forum bookmarks</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-pencil"></i>
+                                    <span>
+                                      <span>Edit</span>
+                                      <span>Edit this post</span>
+                                    </span>
+                                  </a>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-flag"></i>
+                                    <span>
+                                      <span>Flag</span>
+                                      <span>Flag inappropriate content</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-trash"></i>
+                                    <span>
+                                      <span>Delete</span>
+                                      <span>Delete this post</span>
+                                    </span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="post-body content">
+                          <p>Absolutely fantastic!</p>
+                          <p>although, i have a few questions :</p>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit. Nos vero, inquit ille; Ut optime, secundum
+                            naturam affectum esse possit. Duo Reges: constructio
+                            interrete. Quid de Pythagora?
+                          </p>
+
+                          <blockquote>
+                            <span class="quote-title">
+                              <img src="/img/avatars/christina.jpg" alt="" />
+                              Christina Chu said :
+                            </span>
+                            Sensibus enim ornavit ad res percipiendas idoneis, ut
+                            nihil aut non multum adiumento ullo ad suam confirmationem
+                            indigerent;
+                          </blockquote>
+
+                          <p>
+                            Iam contemni non poteris. Quis non odit sordidos,
+                            vanos, leves, futtiles? Stoici scilicet. Nam ista
+                            vestra: Si gravis, brevis; Tecum optime, deinde
+                            etiam cum mediocri amico. Nihil ad rem! Ne sit sane;
+                          </p>
+                          <p>You Rock! 🎉🎉🎉</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Forum Pagination -->
+                  <ul class="pagination">
+                    <li>
+                      <i class="material-icons">keyboard_arrow_left</i>
+                    </li>
+                    <li class="is-active">
+                      <span>1</span>
+                    </li>
+                    <li>
+                      <span>2</span>
+                    </li>
+                    <li>
+                      <span>...</span>
+                    </li>
+                    <li>
+                      <i class="material-icons">keyboard_arrow_right</i>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post reply form -->
+      <div
+        class="reply-box"
+        :class="{
+            'is-active': isReplyActive,
+            '': !isReplyActive
+        }"
+      >
+        <div class="box-inner">
+          <div class="columns">
+            <div class="column is-8 is-offset-2">
+              <form class="reply-form">
+                <textarea
+                  id="editor"
+                  class="textarea"
+                  name="reply_content"
+                  :placeholder="replyPlaceholder"></textarea>
+                <div class="button-wrap">
+                  <a
+                    @click="toggleReplyBox()"
+                    class="button is-secondary is-raised is-rounded ripple ripple-light"
+                    data-ripple-color=""
+                  >
+                    Reply
+                  </a>
+                  <a
+                    @click="toggleReplyBox()"
+                    class="button is-rounded ripple"
+                    data-ripple-color=""
+                  >
+                    Cancel
+                  </a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,259 @@
+---
+import Layout from "../layouts/Default.astro";
+import SupportActivitySidebar from "../components/pages/SupportActivitySidebar.astro";
+const title = 'Help Desk'
+---
+
+<Layout title={title}>
+  <!-- Main dashboard container -->
+  <div
+    id="dashboard-wrapper"
+    class="dashboard-outer"
+    x-data="initSupportDashboard()"
+    x-init="initAssignedTickets()"
+    :class="{
+        'is-pushed': $store.app.sidebarOpenedState,
+        '': !$store.app.sidebarOpenedState
+    }"
+  >
+    <div class="dashboard-inner">
+      <!-- Dashboard Wrapper -->
+      <div class="dashboard-wrapper">
+        <div id="main-dashboard" class="section-wrapper">
+          <!-- Dashboard content -->
+          <div class="dashboard-columns">
+            <!-- Page title -->
+            <div class="support-title-wrapper is-mobile py-5">
+              <img class="support-image" src="/img/avatars/helen.jpg" alt="" />
+              <div class="inner-wrap">
+                <h3 class="support-title">Helen Miller</h3>
+                <div class="title-meta">
+                  <div class="meta">
+                    <i class="sl icon-tag"></i>
+                    <span>45 open</span>
+                  </div>
+                  <div class="meta">
+                    <i class="sl icon-shield"></i>
+                    <span>3 escalated</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Actions -->
+              <div class="actions">
+                <div @click="toggleActivitySidebar()" class="activity-button">
+                  <i class="sl icon-energy"></i>
+                </div>
+                <!-- Dropdown -->
+                <div
+                  x-ref="supportdrop1"
+                  @click.away="$refs.supportdrop1.classList.remove('is-active')"
+                  class="dropdown button-dropdown dropdown-trigger is-right"
+                >
+                  <div
+                    @click="$refs.supportdrop1.classList.add('is-active')"
+                    class="button is-secondary is-raised ripple"
+                    data-ripple-color=""
+                  >
+                    <span class="icon is-small">
+                      <i class="material-icons">more_vert</i>
+                    </span>
+                    <span>Actions</span>
+                  </div>
+                  <!-- Dropdown menu -->
+                  <div class="dropdown-menu is-text-bigger" role="menu">
+                    <div class="dropdown-content">
+                      <a href="#" class="dropdown-item">
+                        <i class="sl icon-tag"></i>
+                        <span>
+                          <span>New Ticket</span>
+                          <span>Create a new ticket</span>
+                        </span>
+                      </a>
+                      <a href="#" class="dropdown-item">
+                        <i class="sl icon-support"></i>
+                        <span>
+                          <span>Tickets</span>
+                          <span>Open ticket list</span>
+                        </span>
+                      </a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item">
+                        <i class="sl icon-bell"></i>
+                        <span>
+                          <span>Notifications</span>
+                          <span>Manage desk notifications</span>
+                        </span>
+                      </a>
+                      <div class="dropdown-divider"></div>
+                      <a class="dropdown-item">
+                        <i class="sl icon-equalizer"></i>
+                        <span>
+                          <span>Settings</span>
+                          <span>Open global settings</span>
+                        </span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Support dashboard -->
+            <div class="support-dashboard">
+              <div class="columns is-multiline">
+                <div class="column is-4">
+                  <div class="flex-card support-box light-bordered">
+                    <h3 class="box-title has-text-centered">Waiting Time</h3>
+                    <div class="chrono">
+                      <div class="count">
+                        <span>12</span>
+                      </div>
+                      <span id="supportPie" class="support-pie"></span>
+                      <div id="mainCircle">
+                        <div id="buttonOneBasis">
+                          <div id="buttonOne"></div>
+                        </div>
+                        <div id="buttonTwoBasis">
+                          <div id="buttonTwo"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="box-meta">
+                      <p>My waiting time: 12 minutes</p>
+                      <p>Average: 19 minutes</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="column is-4">
+                  <div class="flex-card support-box light-bordered">
+                    <h3 class="box-title has-text-centered">Escalation</h3>
+                    <img
+                      class="box-image"
+                      src="/img/icons/support/chat-happy.svg"
+                      alt=""
+                    />
+                    <div class="box-meta">
+                      <p>0 of my tickets are escalated</p>
+                      <p>Total: 0</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="column is-4">
+                  <div class="flex-card support-box light-bordered">
+                    <h3 class="box-title has-text-centered">Channels</h3>
+                    <div class="channels">
+                      <div class="channel-icon">
+                        <i class="fas fa-envelope"></i>
+                      </div>
+                      <div class="channel-icon">
+                        <i class="fas fa-phone"></i>
+                      </div>
+                      <div class="channel-icon">
+                        <i class="fab fa-twitter"></i>
+                      </div>
+                      <div class="channel-icon">
+                        <i class="fab fa-facebook-f"></i>
+                      </div>
+                    </div>
+                    <div id="supportBar"></div>
+                  </div>
+                </div>
+                <div class="column is-4">
+                  <div class="flex-card support-box light-bordered">
+                    <h3 class="box-title has-text-centered">Assigned</h3>
+                    <div class="stacks">
+                      <div class="left">
+                        <div class="shape-left" data-step="0"></div>
+                        <div class="shape-left" data-step="1"></div>
+                        <div class="shape-left" data-step="2"></div>
+                        <div class="shape-left" data-step="3"></div>
+                        <div class="shape-left" data-step="4"></div>
+                      </div>
+                      <div class="right">
+                        <div class="shape-right" data-step="0"></div>
+                        <div class="shape-right" data-step="1"></div>
+                        <div class="shape-right" data-step="2"></div>
+                        <div class="shape-right" data-step="3"></div>
+                        <div class="shape-right" data-step="4"></div>
+                        <div class="shape-right" data-step="5"></div>
+                        <div class="shape-right" data-step="6"></div>
+                        <div class="shape-right" data-step="7"></div>
+                        <div class="shape-right" data-step="8"></div>
+                        <div class="shape-right" data-step="9"></div>
+                        <div class="shape-right" data-step="10"></div>
+                        <div class="shape-right" data-step="11"></div>
+                        <div class="shape-right" data-step="12"></div>
+                        <div class="shape-right" data-step="13"></div>
+                        <div class="shape-right" data-step="14"></div>
+                        <div class="shape-right" data-step="15"></div>
+                        <div class="shape-right" data-step="16"></div>
+                        <div class="shape-right" data-step="17"></div>
+                        <div class="shape-right" data-step="18"></div>
+                        <div class="shape-right" data-step="19"></div>
+                        <div class="shape-right" data-step="20"></div>
+                        <div class="shape-right" data-step="21"></div>
+                        <div class="shape-right" data-step="22"></div>
+                        <div class="shape-right" data-step="23"></div>
+                        <div class="shape-right" data-step="24"></div>
+                        <div class="shape-right" data-step="25"></div>
+                        <div class="shape-right" data-step="26"></div>
+                        <div class="shape-right" data-step="27"></div>
+                        <div class="shape-right" data-step="28"></div>
+                        <div class="shape-right" data-step="29"></div>
+                        <div class="shape-right" data-step="30"></div>
+                        <div class="shape-right" data-step="31"></div>
+                        <div class="shape-right" data-step="32"></div>
+                        <div class="shape-right" data-step="33"></div>
+                        <div class="shape-right" data-step="34"></div>
+                        <div class="shape-right" data-step="35"></div>
+                        <div class="shape-right" data-step="36"></div>
+                        <div class="shape-right" data-step="37"></div>
+                        <div class="shape-right" data-step="38"></div>
+                        <div class="shape-right" data-step="39"></div>
+                        <div class="shape-right" data-step="40"></div>
+                      </div>
+                    </div>
+                    <div class="box-meta">
+                      <p>32 of 254 tickets assigned to me</p>
+                      <p>Average: 12 of 118</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="column is-4">
+                  <div class="flex-card support-box light-bordered">
+                    <h3 class="box-title has-text-centered">Ticket Progress</h3>
+                    <img
+                      class="box-image"
+                      src="/img/icons/support/chat-alt.svg"
+                      alt=""
+                    />
+                    <div class="box-meta">
+                      <p>82% are currently in progress</p>
+                      <p>Average: 74%</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="column is-4">
+                  <div class="flex-card support-box light-bordered">
+                    <h3 class="box-title has-text-centered">Reopening Rate</h3>
+                    <img
+                      class="box-image"
+                      src="/img/icons/support/reopen.svg"
+                      alt=""
+                    />
+                    <div class="box-meta">
+                      <p>0% tickets have been reopened</p>
+                      <p>Average: 0%</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <SupportActivitySidebar />
+  </div>
+</Layout>

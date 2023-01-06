@@ -1,0 +1,1626 @@
+---
+import Layout from '../layouts/Default.astro';
+import ModalNewTask from "../components/modals/ModalNewTask.astro";
+import ModalNewProject from "../components/modals/ModalNewProject.astro";
+import ModalNewTeam from "../components/modals/ModalNewTeam.astro";
+const title = 'My Tasks'
+---
+
+<Layout title={title}>
+<!-- Main dashboard container -->
+<div
+  id="dashboard-wrapper"
+  class="dashboard-outer"
+  x-data="initProjectMyTasks()"
+  :class="{
+        'is-pushed': $store.app.sidebarOpenedState,
+        '': !$store.app.sidebarOpenedState
+    }"
+>
+  <div class="dashboard-inner">
+    <!-- Dashboard Wrapper -->
+    <div class="dashboard-wrapper">
+      <div id="main-dashboard" class="section-wrapper">
+        <!-- Dashboard content -->
+        <div class="dashboard-columns">
+          <div class="projects-wrapper">
+            <div class="profile-heading">
+              <img src="/img/avatars/helen.jpg" alt="" />
+              <div>
+                <h2 class="project-title">My Tasks</h2>
+                <h4 class="project-tagline mb-0">
+                  My teams, projects, and tasks assigned to me.
+                </h4>
+              </div>
+            </div>
+
+            <div
+              class="navigation-tabs layout-tabs overflow-tabs animated-tabs mt-20 mb-20"
+            >
+              <div class="tabs is-toggle is-fullwidth">
+                <ul>
+                  <li
+                    class="tab-link"
+                    @click="toggleTabs('teams-tab')"
+                    :class="{
+                                        'is-active': activeTab === 'teams-tab',
+                                        '': activeTab !== 'teams-tab',
+                                    }"
+                  >
+                    <a>Teams</a>
+                  </li>
+                  <li
+                    class="tab-link"
+                    @click="toggleTabs('projects-tab')"
+                    :class="{
+                                        'is-active': activeTab === 'projects-tab',
+                                        '': activeTab !== 'projects-tab',
+                                    }"
+                  >
+                    <a>Projects</a>
+                  </li>
+                  <li
+                    class="tab-link"
+                    @click="toggleTabs('tasks-tab')"
+                    :class="{
+                                        'is-active': activeTab === 'tasks-tab',
+                                        '': activeTab !== 'tasks-tab',
+                                    }"
+                  >
+                    <a>Tasks</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div
+                x-show.transition="activeTab === 'teams-tab'"
+                class="navtab-content is-active"
+              >
+                <!-- Projects Group -->
+                <div class="projects-list-wrapper">
+                  <div class="list-header">
+                    <div class="list-title">
+                      <span>Teams</span>
+                      <div @click="toggleNewTeamModal()" class="add-button">
+                        <i class="material-icons">add</i>
+                      </div>
+                    </div>
+                    <div class="list-filter">
+                      <div class="control has-icon">
+                        <input
+                          class="input"
+                          type="text"
+                          placeholder="Filter Projects"
+                        />
+                        <div class="form-icon">
+                          <i class="iconify" data-icon="lucide:filter"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="list-body">
+                    <div class="columns is-multiline">
+                      <!-- Team card -->
+                      <div class="column is-4">
+                        <div
+                          class="flex-card light-bordered light-shadow team-card card-overflow"
+                        >
+                          <div class="header">
+                            <h4 class="no-margin-bottom">Frontend Team</h4>
+                            <!-- Team card dropdown -->
+                            <div
+                              x-ref="teamdrop1"
+                              @click.away="$refs.teamdrop1.classList.remove('is-active')"
+                              class="dropdown is-right dropdown-trigger styled-dropdown is-round"
+                            >
+                              <button
+                                @click="$refs.teamdrop1.classList.add('is-active')"
+                                class="button"
+                              >
+                                <i class="material-icons">more_vert</i>
+                              </button>
+                              <div
+                                class="dropdown-menu is-text-bigger has-text-left"
+                                role="menu"
+                              >
+                                <div class="dropdown-content">
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-people"></i>
+                                    <span>
+                                      <span>Manage</span>
+                                      <span>Manage team</span>
+                                    </span>
+                                  </a>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-speech"></i>
+                                    <span>
+                                      <span>Messages</span>
+                                      <span>View team messages</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-equalizer"></i>
+                                    <span>
+                                      <span>Settings</span>
+                                      <span>Edit team settings</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-logout"></i>
+                                    <span>
+                                      <span>Leave</span>
+                                      <span>Leave this team</span>
+                                    </span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="team-info">4 Projects, 2 Members</div>
+                          <div class="project-members">
+                            <div class="face">
+                              <img src="/img/avatars/helen.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/christina.jpg" alt="" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Team card -->
+                      <div class="column is-4">
+                        <div
+                          class="flex-card light-bordered light-shadow team-card card-overflow"
+                        >
+                          <div class="header">
+                            <h4 class="no-margin-bottom">Marketing Team</h4>
+                            <!-- Team card dropdown -->
+                            <div
+                              x-ref="teamdrop2"
+                              @click.away="$refs.teamdrop2.classList.remove('is-active')"
+                              class="dropdown is-right dropdown-trigger styled-dropdown is-round"
+                            >
+                              <button
+                                @click="$refs.teamdrop2.classList.add('is-active')"
+                                class="button"
+                              >
+                                <i class="material-icons">more_vert</i>
+                              </button>
+                              <div
+                                class="dropdown-menu is-text-bigger has-text-left"
+                                role="menu"
+                              >
+                                <div class="dropdown-content">
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-people"></i>
+                                    <span>
+                                      <span>Manage</span>
+                                      <span>Manage team</span>
+                                    </span>
+                                  </a>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-speech"></i>
+                                    <span>
+                                      <span>Messages</span>
+                                      <span>View team messages</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-equalizer"></i>
+                                    <span>
+                                      <span>Settings</span>
+                                      <span>Edit team settings</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-logout"></i>
+                                    <span>
+                                      <span>Leave</span>
+                                      <span>Leave this team</span>
+                                    </span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="team-info">3 Projects, 7 Members</div>
+                          <div class="project-members">
+                            <div class="face">
+                              <img src="/img/avatars/alan.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/terry.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/melany.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/barry.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/nina.jpg" alt="" />
+                            </div>
+                            <div class="face is-fake">+2</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Team card -->
+                      <div class="column is-4">
+                        <div
+                          class="flex-card light-bordered light-shadow team-card card-overflow"
+                        >
+                          <div class="header">
+                            <h4 class="no-margin-bottom">Design Team</h4>
+                            <!-- Team card dropdown -->
+                            <div
+                              x-ref="teamdrop3"
+                              @click.away="$refs.teamdrop3.classList.remove('is-active')"
+                              class="dropdown is-right dropdown-trigger styled-dropdown is-round"
+                            >
+                              <button
+                                @click="$refs.teamdrop3.classList.add('is-active')"
+                                class="button"
+                              >
+                                <i class="material-icons">more_vert</i>
+                              </button>
+                              <div
+                                class="dropdown-menu is-text-bigger has-text-left"
+                                role="menu"
+                              >
+                                <div class="dropdown-content">
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-people"></i>
+                                    <span>
+                                      <span>Manage</span>
+                                      <span>Manage team</span>
+                                    </span>
+                                  </a>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-speech"></i>
+                                    <span>
+                                      <span>Messages</span>
+                                      <span>View team messages</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-equalizer"></i>
+                                    <span>
+                                      <span>Settings</span>
+                                      <span>Edit team settings</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-logout"></i>
+                                    <span>
+                                      <span>Leave</span>
+                                      <span>Leave this team</span>
+                                    </span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="team-info">8 Projects, 4 Members</div>
+                          <div class="project-members">
+                            <div class="face">
+                              <img src="/img/avatars/elie.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/helen.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/lakisha.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/ray.jpg" alt="" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Team card -->
+                      <div class="column is-4">
+                        <div
+                          class="flex-card light-bordered light-shadow team-card card-overflow"
+                        >
+                          <div class="header">
+                            <h4 class="no-margin-bottom">Logo Design</h4>
+                            <!-- Team card dropdown -->
+                            <div
+                              x-ref="teamdrop4"
+                              @click.away="$refs.teamdrop4.classList.remove('is-active')"
+                              class="dropdown is-right dropdown-trigger styled-dropdown is-round"
+                            >
+                              <button
+                                @click="$refs.teamdrop4.classList.add('is-active')"
+                                class="button"
+                              >
+                                <i class="material-icons">more_vert</i>
+                              </button>
+                              <div
+                                class="dropdown-menu is-text-bigger has-text-left"
+                                role="menu"
+                              >
+                                <div class="dropdown-content">
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-people"></i>
+                                    <span>
+                                      <span>Manage</span>
+                                      <span>Manage team</span>
+                                    </span>
+                                  </a>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-speech"></i>
+                                    <span>
+                                      <span>Messages</span>
+                                      <span>View team messages</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-equalizer"></i>
+                                    <span>
+                                      <span>Settings</span>
+                                      <span>Edit team settings</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-logout"></i>
+                                    <span>
+                                      <span>Leave</span>
+                                      <span>Leave this team</span>
+                                    </span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="team-info">12 Projects, 2 Members</div>
+                          <div class="project-members">
+                            <div class="face">
+                              <img src="/img/avatars/ray.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/lakisha.jpg" alt="" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Team card -->
+                      <div class="column is-4">
+                        <div
+                          class="flex-card light-bordered light-shadow team-card card-overflow"
+                        >
+                          <div class="header">
+                            <h4 class="no-margin-bottom">Android Team</h4>
+                            <!-- Team card dropdown -->
+                            <div
+                              x-ref="teamdrop5"
+                              @click.away="$refs.teamdrop5.classList.remove('is-active')"
+                              class="dropdown is-right dropdown-trigger styled-dropdown is-round"
+                            >
+                              <button
+                                @click="$refs.teamdrop5.classList.add('is-active')"
+                                class="button"
+                              >
+                                <i class="material-icons">more_vert</i>
+                              </button>
+                              <div
+                                class="dropdown-menu is-text-bigger has-text-left"
+                                role="menu"
+                              >
+                                <div class="dropdown-content">
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-people"></i>
+                                    <span>
+                                      <span>Manage</span>
+                                      <span>Manage team</span>
+                                    </span>
+                                  </a>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-speech"></i>
+                                    <span>
+                                      <span>Messages</span>
+                                      <span>View team messages</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-equalizer"></i>
+                                    <span>
+                                      <span>Settings</span>
+                                      <span>Edit team settings</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-logout"></i>
+                                    <span>
+                                      <span>Leave</span>
+                                      <span>Leave this team</span>
+                                    </span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="team-info">2 Projects, 5 Members</div>
+                          <div class="project-members">
+                            <div class="face">
+                              <img src="/img/avatars/eric.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/janet.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/sally.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/mila.jpg" alt="" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Team card -->
+                      <div class="column is-4">
+                        <div
+                          class="flex-card light-bordered light-shadow team-card card-overflow"
+                        >
+                          <div class="header">
+                            <h4 class="no-margin-bottom">Backend Team</h4>
+                            <!-- Team card dropdown -->
+                            <div
+                              x-ref="teamdrop6"
+                              @click.away="$refs.teamdrop6.classList.remove('is-active')"
+                              class="dropdown is-right dropdown-trigger styled-dropdown is-round"
+                            >
+                              <button
+                                @click="$refs.teamdrop6.classList.add('is-active')"
+                                class="button"
+                              >
+                                <i class="material-icons">more_vert</i>
+                              </button>
+                              <div
+                                class="dropdown-menu is-text-bigger has-text-left"
+                                role="menu"
+                              >
+                                <div class="dropdown-content">
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-people"></i>
+                                    <span>
+                                      <span>Manage</span>
+                                      <span>Manage team</span>
+                                    </span>
+                                  </a>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-speech"></i>
+                                    <span>
+                                      <span>Messages</span>
+                                      <span>View team messages</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-equalizer"></i>
+                                    <span>
+                                      <span>Settings</span>
+                                      <span>Edit team settings</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-logout"></i>
+                                    <span>
+                                      <span>Leave</span>
+                                      <span>Leave this team</span>
+                                    </span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="team-info">19 Projects, 12 Members</div>
+                          <div class="project-members">
+                            <div class="face">
+                              <img src="/img/avatars/lakisha.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/marge.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/matt.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/helen.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/melany.jpg" alt="" />
+                            </div>
+                            <div class="face is-fake">+7</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Team card -->
+                      <div class="column is-4">
+                        <div
+                          class="flex-card light-bordered light-shadow team-card card-overflow"
+                        >
+                          <div class="header">
+                            <h4 class="no-margin-bottom">IOS Team</h4>
+                            <!-- Team card dropdown -->
+                            <div
+                              x-ref="teamdrop7"
+                              @click.away="$refs.teamdrop7.classList.remove('is-active')"
+                              class="dropdown is-right dropdown-trigger styled-dropdown is-round"
+                            >
+                              <button
+                                @click="$refs.teamdrop7.classList.add('is-active')"
+                                class="button"
+                              >
+                                <i class="material-icons">more_vert</i>
+                              </button>
+                              <div
+                                class="dropdown-menu is-text-bigger has-text-left"
+                                role="menu"
+                              >
+                                <div class="dropdown-content">
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-people"></i>
+                                    <span>
+                                      <span>Manage</span>
+                                      <span>Manage team</span>
+                                    </span>
+                                  </a>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-speech"></i>
+                                    <span>
+                                      <span>Messages</span>
+                                      <span>View team messages</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-equalizer"></i>
+                                    <span>
+                                      <span>Settings</span>
+                                      <span>Edit team settings</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-logout"></i>
+                                    <span>
+                                      <span>Leave</span>
+                                      <span>Leave this team</span>
+                                    </span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="team-info">7 Projects, 2 Members</div>
+                          <div class="project-members">
+                            <div class="face">
+                              <img src="/img/avatars/ray.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/elie.jpg" alt="" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                x-show.transition="activeTab === 'projects-tab'"
+                class="navtab-content"
+              >
+                <!-- Projects Group -->
+                <div class="projects-list-wrapper">
+                  <div class="list-header">
+                    <div class="list-title">
+                      <span>Projects</span>
+                      <div @click="toggleNewProjectModal()" class="add-button">
+                        <i class="material-icons">add</i>
+                      </div>
+                    </div>
+                    <div class="list-filter">
+                      <div class="control has-icon">
+                        <input
+                          class="input"
+                          type="text"
+                          placeholder="Filter Projects"
+                        />
+                        <div class="form-icon">
+                          <i class="iconify" data-icon="lucide:filter"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="list-body">
+                    <div class="columns is-multiline">
+                      <!-- Project card -->
+                      <div class="column is-4">
+                        <div
+                          class="flex-card light-bordered light-shadow project-card card-overflow"
+                        >
+                          <div class="header">
+                            <h4 class="no-margin-bottom">
+                              ICO Website Project
+                            </h4>
+                            <!-- Project card dropdown -->
+                            <div
+                              x-ref="dropmenu1"
+                              @click.away="$refs.dropmenu1.classList.remove('is-active')"
+                              class="dropdown is-right dropdown-trigger styled-dropdown is-round"
+                            >
+                              <button
+                                @click="$refs.dropmenu1.classList.add('is-active'), console.log('clicked!')"
+                                class="button"
+                              >
+                                <i class="material-icons">more_vert</i>
+                              </button>
+                              <div
+                                class="dropdown-menu is-text-bigger has-text-left"
+                                role="menu"
+                              >
+                                <div class="dropdown-content">
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-pencil"></i>
+                                    <span>
+                                      <span>Edit</span>
+                                      <span>Edit this project</span>
+                                    </span>
+                                  </a>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-notebook"></i>
+                                    <span>
+                                      <span>Details</span>
+                                      <span>View project details</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-bell"></i>
+                                    <span>
+                                      <span>Notifications</span>
+                                      <span>Manage notifications</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-trash"></i>
+                                    <span>
+                                      <span>Delete</span>
+                                      <span>Delete this project</span>
+                                    </span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="project-members">
+                            <div class="face">
+                              <img src="/img/avatars/helen.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/christina.jpg" alt="" />
+                            </div>
+                          </div>
+                          <div class="progress-block">
+                            <progress
+                              class="progress is-xs is-orange"
+                              value="30"
+                              max="100"
+                            >
+                              30%
+                            </progress>
+                            <div class="task-count">
+                              <span class="sl icon-check"></span>
+                              <span>2/8</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Project card -->
+                      <div class="column is-4">
+                        <div
+                          class="flex-card light-bordered light-shadow project-card card-overflow"
+                        >
+                          <div class="header">
+                            <h4 class="no-margin-bottom">Social Mobile App</h4>
+                            <!-- Project card dropdown -->
+                            <div
+                              x-ref="dropmenu2"
+                              @click.away="$refs.dropmenu2.classList.remove('is-active')"
+                              class="dropdown is-right dropdown-trigger styled-dropdown is-round"
+                            >
+                              <button
+                                @click="$refs.dropmenu2.classList.add('is-active'), console.log('clicked!')"
+                                class="button"
+                              >
+                                <i class="material-icons">more_vert</i>
+                              </button>
+                              <div
+                                class="dropdown-menu is-text-bigger has-text-left"
+                                role="menu"
+                              >
+                                <div class="dropdown-content">
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-pencil"></i>
+                                    <span>
+                                      <span>Edit</span>
+                                      <span>Edit this project</span>
+                                    </span>
+                                  </a>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-notebook"></i>
+                                    <span>
+                                      <span>Details</span>
+                                      <span>View project details</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-bell"></i>
+                                    <span>
+                                      <span>Notifications</span>
+                                      <span>Manage notifications</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-trash"></i>
+                                    <span>
+                                      <span>Delete</span>
+                                      <span>Delete this project</span>
+                                    </span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="project-members">
+                            <div class="face">
+                              <img src="/img/avatars/terry.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/melany.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/kareem.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/nina.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/janet.jpg" alt="" />
+                            </div>
+                            <div class="face is-fake">+2</div>
+                          </div>
+                          <div class="progress-block">
+                            <progress
+                              class="progress is-xs is-green"
+                              value="70"
+                              max="100"
+                            >
+                              70%
+                            </progress>
+                            <div class="task-count">
+                              <span class="sl icon-check"></span>
+                              <span>9/14</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Project card -->
+                      <div class="column is-4">
+                        <div
+                          class="flex-card light-bordered light-shadow project-card card-overflow"
+                        >
+                          <div class="header">
+                            <h4 class="no-margin-bottom">
+                              WordPress Development
+                            </h4>
+                            <!-- Project card dropdown -->
+                            <div
+                              x-ref="dropmenu3"
+                              @click.away="$refs.dropmenu3.classList.remove('is-active')"
+                              class="dropdown is-right dropdown-trigger styled-dropdown is-round"
+                            >
+                              <button
+                                @click="$refs.dropmenu3.classList.add('is-active'), console.log('clicked!')"
+                                class="button"
+                              >
+                                <i class="material-icons">more_vert</i>
+                              </button>
+                              <div
+                                class="dropdown-menu is-text-bigger has-text-left"
+                                role="menu"
+                              >
+                                <div class="dropdown-content">
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-pencil"></i>
+                                    <span>
+                                      <span>Edit</span>
+                                      <span>Edit this project</span>
+                                    </span>
+                                  </a>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-notebook"></i>
+                                    <span>
+                                      <span>Details</span>
+                                      <span>View project details</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-bell"></i>
+                                    <span>
+                                      <span>Notifications</span>
+                                      <span>Manage notifications</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-trash"></i>
+                                    <span>
+                                      <span>Delete</span>
+                                      <span>Delete this project</span>
+                                    </span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="project-members">
+                            <div class="face">
+                              <img src="/img/avatars/christina.jpg" alt="" />
+                            </div>
+                          </div>
+                          <div class="progress-block">
+                            <progress
+                              class="progress is-xs is-red"
+                              value="10"
+                              max="100"
+                            >
+                              10%
+                            </progress>
+                            <div class="task-count">
+                              <span class="sl icon-check"></span>
+                              <span>2/15</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Project card -->
+                      <div class="column is-4">
+                        <div
+                          class="flex-card light-bordered light-shadow project-card card-overflow"
+                        >
+                          <div class="header">
+                            <h4 class="no-margin-bottom">Website Review</h4>
+                            <!-- Project card dropdown -->
+                            <div
+                              x-ref="dropmenu4"
+                              @click.away="$refs.dropmenu4.classList.remove('is-active')"
+                              class="dropdown is-right dropdown-trigger styled-dropdown is-round"
+                            >
+                              <button
+                                @click="$refs.dropmenu4.classList.add('is-active'), console.log('clicked!')"
+                                class="button"
+                              >
+                                <i class="material-icons">more_vert</i>
+                              </button>
+                              <div
+                                class="dropdown-menu is-text-bigger has-text-left"
+                                role="menu"
+                              >
+                                <div class="dropdown-content">
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-pencil"></i>
+                                    <span>
+                                      <span>Edit</span>
+                                      <span>Edit this project</span>
+                                    </span>
+                                  </a>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-notebook"></i>
+                                    <span>
+                                      <span>Details</span>
+                                      <span>View project details</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-bell"></i>
+                                    <span>
+                                      <span>Notifications</span>
+                                      <span>Manage notifications</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-trash"></i>
+                                    <span>
+                                      <span>Delete</span>
+                                      <span>Delete this project</span>
+                                    </span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="project-members">
+                            <div class="face">
+                              <img src="/img/avatars/carolin.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/anthony.jpg" alt="" />
+                            </div>
+                          </div>
+                          <div class="progress-block">
+                            <progress
+                              class="progress is-xs is-green"
+                              value="80"
+                              max="100"
+                            >
+                              80%
+                            </progress>
+                            <div class="task-count">
+                              <span class="sl icon-check"></span>
+                              <span>6/7</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Project card -->
+                      <div class="column is-4">
+                        <div
+                          class="flex-card light-bordered light-shadow project-card card-overflow"
+                        >
+                          <div class="header">
+                            <h4 class="no-margin-bottom">Brand Rework</h4>
+                            <!-- Project card dropdown -->
+                            <div
+                              x-ref="dropmenu5"
+                              @click.away="$refs.dropmenu5.classList.remove('is-active')"
+                              class="dropdown is-right dropdown-trigger styled-dropdown is-round"
+                            >
+                              <button
+                                @click="$refs.dropmenu5.classList.add('is-active'), console.log('clicked!')"
+                                class="button"
+                              >
+                                <i class="material-icons">more_vert</i>
+                              </button>
+                              <div
+                                class="dropdown-menu is-text-bigger has-text-left"
+                                role="menu"
+                              >
+                                <div class="dropdown-content">
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-pencil"></i>
+                                    <span>
+                                      <span>Edit</span>
+                                      <span>Edit this project</span>
+                                    </span>
+                                  </a>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-notebook"></i>
+                                    <span>
+                                      <span>Details</span>
+                                      <span>View project details</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-bell"></i>
+                                    <span>
+                                      <span>Notifications</span>
+                                      <span>Manage notifications</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-trash"></i>
+                                    <span>
+                                      <span>Delete</span>
+                                      <span>Delete this project</span>
+                                    </span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="project-members">
+                            <div class="face">
+                              <img src="/img/avatars/barry.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/christina.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/elie.jpg" alt="" />
+                            </div>
+                          </div>
+                          <div class="progress-block">
+                            <progress
+                              class="progress is-xs is-orange"
+                              value="45"
+                              max="100"
+                            >
+                              45%
+                            </progress>
+                            <div class="task-count">
+                              <span class="sl icon-check"></span>
+                              <span>14/27</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Project card -->
+                      <div class="column is-4">
+                        <div
+                          class="flex-card light-bordered light-shadow project-card card-overflow"
+                        >
+                          <div class="header">
+                            <h4 class="no-margin-bottom">2.0 Release</h4>
+                            <!-- Project card dropdown -->
+                            <div
+                              x-ref="dropmenu6"
+                              @click.away="$refs.dropmenu6.classList.remove('is-active')"
+                              class="dropdown is-right dropdown-trigger styled-dropdown is-round"
+                            >
+                              <button
+                                @click="$refs.dropmenu6.classList.add('is-active'), console.log('clicked!')"
+                                class="button"
+                              >
+                                <i class="material-icons">more_vert</i>
+                              </button>
+                              <div
+                                class="dropdown-menu is-text-bigger has-text-left"
+                                role="menu"
+                              >
+                                <div class="dropdown-content">
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-pencil"></i>
+                                    <span>
+                                      <span>Edit</span>
+                                      <span>Edit this project</span>
+                                    </span>
+                                  </a>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-notebook"></i>
+                                    <span>
+                                      <span>Details</span>
+                                      <span>View project details</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-bell"></i>
+                                    <span>
+                                      <span>Notifications</span>
+                                      <span>Manage notifications</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-trash"></i>
+                                    <span>
+                                      <span>Delete</span>
+                                      <span>Delete this project</span>
+                                    </span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="project-members">
+                            <div class="face">
+                              <img src="/img/avatars/melany.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/ray.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/kareem.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/alan.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/alex.jpg" alt="" />
+                            </div>
+                            <div class="face is-fake">+7</div>
+                          </div>
+                          <div class="progress-block">
+                            <progress
+                              class="progress is-xs is-secondary"
+                              value="100"
+                              max="100"
+                            >
+                              100%
+                            </progress>
+                            <div class="task-count">
+                              <span class="sl icon-check"></span>
+                              <span>59/59</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Project card -->
+                      <div class="column is-4">
+                        <div
+                          class="flex-card light-bordered light-shadow project-card card-overflow"
+                        >
+                          <div class="header">
+                            <h4 class="no-margin-bottom">All Plugins Update</h4>
+                            <!-- Project card dropdown -->
+                            <div
+                              x-ref="dropmenu7"
+                              @click.away="$refs.dropmenu7.classList.remove('is-active')"
+                              class="dropdown is-right dropdown-trigger styled-dropdown is-round"
+                            >
+                              <button
+                                @click="$refs.dropmenu7.classList.add('is-active'), console.log('clicked!')"
+                                class="button"
+                              >
+                                <i class="material-icons">more_vert</i>
+                              </button>
+                              <div
+                                class="dropdown-menu is-text-bigger has-text-left"
+                                role="menu"
+                              >
+                                <div class="dropdown-content">
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-pencil"></i>
+                                    <span>
+                                      <span>Edit</span>
+                                      <span>Edit this project</span>
+                                    </span>
+                                  </a>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-notebook"></i>
+                                    <span>
+                                      <span>Details</span>
+                                      <span>View project details</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-bell"></i>
+                                    <span>
+                                      <span>Notifications</span>
+                                      <span>Manage notifications</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-trash"></i>
+                                    <span>
+                                      <span>Delete</span>
+                                      <span>Delete this project</span>
+                                    </span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="project-members">
+                            <div class="face">
+                              <img src="/img/avatars/elie.jpg" alt="" />
+                            </div>
+                            <div class="face">
+                              <img src="/img/avatars/christina.jpg" alt="" />
+                            </div>
+                          </div>
+                          <div class="progress-block">
+                            <progress
+                              class="progress is-xs is-red"
+                              value="20"
+                              max="100"
+                            >
+                              20%
+                            </progress>
+                            <div class="task-count">
+                              <span class="sl icon-check"></span>
+                              <span>4/20</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                x-show.transition="activeTab === 'tasks-tab'"
+                class="navtab-content"
+              >
+                <!-- Acticity List -->
+                <div class="projects-list-wrapper">
+                  <div class="list-header">
+                    <div class="list-title">
+                      <span>Tasks</span>
+                      <div @click="toggleNewTaskModal()" class="add-button">
+                        <i class="material-icons">add</i>
+                      </div>
+                    </div>
+                    <div class="list-filter">
+                      <div class="control has-icon">
+                        <input
+                          class="input"
+                          type="text"
+                          placeholder="Filter Projects"
+                        />
+                        <div class="form-icon">
+                          <i class="iconify" data-icon="lucide:filter"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="list-body">
+                    <div class="columns is-multiline">
+                      <div class="column">
+                        <!-- Task group -->
+                        <div class="tasks-wrapper">
+                          <div class="header">
+                            <h4 class="no-margin-bottom">
+                              Assigned Tasks <small>(3)</small>
+                            </h4>
+
+                            <!-- Task wrapper dropdown -->
+                            <div
+                              x-ref="groupdrop1"
+                              @click.away="$refs.groupdrop1.classList.remove('is-active')"
+                              class="dropdown styled-dropdown is-right dropdown-trigger"
+                            >
+                              <button
+                                @click="$refs.groupdrop1.classList.add('is-active')"
+                                class="button is-circle"
+                                aria-haspopup="true"
+                                aria-controls="dropdown-menu"
+                              >
+                                <span class="material-icons">more_vert</span>
+                              </button>
+
+                              <div
+                                class="dropdown-menu"
+                                id="dropdown-menu"
+                                role="menu"
+                              >
+                                <div class="dropdown-content">
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-pencil"></i>
+                                    <span>
+                                      <span>Rename</span>
+                                      <span>Rename this group</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a href="#" class="dropdown-item">
+                                    <i class="sl icon-layers"></i>
+                                    <span>
+                                      <span>Archive</span>
+                                      <span>Archive this group</span>
+                                    </span>
+                                  </a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item">
+                                    <i class="sl icon-plus"></i>
+                                    <span>
+                                      <span>Add Task</span>
+                                      <span>Add a new task</span>
+                                    </span>
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- Task Card -->
+                          <div class="task-card">
+                            <div class="card-progress" data-progress="83"></div>
+                            <div class="card-inner">
+                              <div class="task-meta">
+                                <span class="task-title">
+                                  Project documents review
+                                </span>
+                                <span class="task-due-date">
+                                  5 days remaining
+                                </span>
+                              </div>
+                              <div class="task-info">
+                                <div class="task-members">
+                                  <div class="face">
+                                    <img
+                                      src="/img/avatars/christina.jpg"
+                                      alt=""
+                                    />
+                                  </div>
+                                  <div class="face">
+                                    <img src="/img/avatars/helen.jpg" alt="" />
+                                  </div>
+                                  <div class="face">
+                                    <img src="/img/avatars/alan.jpg" alt="" />
+                                  </div>
+                                  <div class="face">
+                                    <img
+                                      src="/img/avatars/lakisha.jpg"
+                                      alt=""
+                                    />
+                                  </div>
+                                  <div class="face">
+                                    <img src="/img/avatars/ray.jpg" alt="" />
+                                  </div>
+                                </div>
+                                <div class="subtasks-count">
+                                  <i class="sl icon-check"></i>
+                                  <span>7/9</span>
+                                </div>
+                                <div class="more-drop">
+                                  <!-- Task dropdown -->
+                                  <div
+                                    x-ref="taskdrop1"
+                                    @click.away="$refs.taskdrop1.classList.remove('is-active')"
+                                    class="dropdown styled-dropdown is-right dropdown-trigger"
+                                  >
+                                    <button
+                                      @click="$refs.taskdrop1.classList.add('is-active')"
+                                      class="button is-circle"
+                                      aria-haspopup="true"
+                                      aria-controls="dropdown-menu"
+                                    >
+                                      <span class="material-icons"
+                                        >more_vert</span
+                                      >
+                                    </button>
+
+                                    <div
+                                      class="dropdown-menu"
+                                      id="dropdown-menu"
+                                      role="menu"
+                                    >
+                                      <div class="dropdown-content">
+                                        <a href="#" class="dropdown-item">
+                                          <i class="sl icon-pencil"></i>
+                                          <span>
+                                            <span>Edit</span>
+                                            <span>Edit this task</span>
+                                          </span>
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a href="#" class="dropdown-item">
+                                          <i class="sl icon-settings"></i>
+                                          <span>
+                                            <span>Settings</span>
+                                            <span>Edit task settings</span>
+                                          </span>
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item">
+                                          <i class="sl icon-plus"></i>
+                                          <span>
+                                            <span>Invite</span>
+                                            <span>Invite team members</span>
+                                          </span>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- Task Card -->
+                          <div class="task-card">
+                            <div class="card-progress" data-progress="20"></div>
+                            <div class="card-inner">
+                              <div class="task-meta">
+                                <span class="task-title"> Code Review </span>
+                                <span class="task-due-date">
+                                  2 weeks remaining
+                                </span>
+                              </div>
+                              <div class="task-info">
+                                <div class="task-members">
+                                  <div class="face">
+                                    <img src="/img/avatars/helen.jpg" alt="" />
+                                  </div>
+                                  <div class="face">
+                                    <img
+                                      src="/img/avatars/christina.jpg"
+                                      alt=""
+                                    />
+                                  </div>
+                                </div>
+                                <div class="subtasks-count">
+                                  <i class="sl icon-check"></i>
+                                  <span>2/10</span>
+                                </div>
+                                <div class="more-drop">
+                                  <!-- Task dropdown -->
+                                  <div
+                                    x-ref="taskdrop2"
+                                    @click.away="$refs.taskdrop2.classList.remove('is-active')"
+                                    class="dropdown styled-dropdown is-right dropdown-trigger"
+                                  >
+                                    <button
+                                      @click="$refs.taskdrop2.classList.add('is-active')"
+                                      class="button is-circle"
+                                      aria-haspopup="true"
+                                      aria-controls="dropdown-menu"
+                                    >
+                                      <span class="material-icons"
+                                        >more_vert</span
+                                      >
+                                    </button>
+
+                                    <div
+                                      class="dropdown-menu"
+                                      id="dropdown-menu"
+                                      role="menu"
+                                    >
+                                      <div class="dropdown-content">
+                                        <a href="#" class="dropdown-item">
+                                          <i class="sl icon-pencil"></i>
+                                          <span>
+                                            <span>Edit</span>
+                                            <span>Edit this task</span>
+                                          </span>
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a href="#" class="dropdown-item">
+                                          <i class="sl icon-settings"></i>
+                                          <span>
+                                            <span>Settings</span>
+                                            <span>Edit task settings</span>
+                                          </span>
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item">
+                                          <i class="sl icon-plus"></i>
+                                          <span>
+                                            <span>Invite</span>
+                                            <span>Invite team members</span>
+                                          </span>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- Task Card -->
+                          <div class="task-card">
+                            <div class="card-progress" data-progress="55"></div>
+                            <div class="card-inner">
+                              <div class="task-meta">
+                                <span class="task-title">
+                                  ICO Presales Report
+                                </span>
+                                <span class="task-due-date">
+                                  1 month remaining
+                                </span>
+                              </div>
+                              <div class="task-info">
+                                <div class="task-members">
+                                  <div class="face">
+                                    <img src="/img/avatars/ray.jpg" alt="" />
+                                  </div>
+                                  <div class="face">
+                                    <img src="/img/avatars/melany.jpg" alt="" />
+                                  </div>
+                                  <div class="face">
+                                    <img src="/img/avatars/sally.jpg" alt="" />
+                                  </div>
+                                </div>
+                                <div class="subtasks-count">
+                                  <i class="sl icon-check"></i>
+                                  <span>8/15</span>
+                                </div>
+                                <div class="more-drop">
+                                  <!-- Task dropdown -->
+                                  <div
+                                    x-ref="taskdrop3"
+                                    @click.away="$refs.taskdrop3.classList.remove('is-active')"
+                                    class="dropdown styled-dropdown is-right dropdown-trigger"
+                                  >
+                                    <button
+                                      @click="$refs.taskdrop3.classList.add('is-active')"
+                                      class="button is-circle"
+                                      aria-haspopup="true"
+                                      aria-controls="dropdown-menu"
+                                    >
+                                      <span class="material-icons"
+                                        >more_vert</span
+                                      >
+                                    </button>
+
+                                    <div
+                                      class="dropdown-menu"
+                                      id="dropdown-menu"
+                                      role="menu"
+                                    >
+                                      <div class="dropdown-content">
+                                        <a href="#" class="dropdown-item">
+                                          <i class="sl icon-pencil"></i>
+                                          <span>
+                                            <span>Edit</span>
+                                            <span>Edit this task</span>
+                                          </span>
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a href="#" class="dropdown-item">
+                                          <i class="sl icon-settings"></i>
+                                          <span>
+                                            <span>Settings</span>
+                                            <span>Edit task settings</span>
+                                          </span>
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item">
+                                          <i class="sl icon-plus"></i>
+                                          <span>
+                                            <span>Invite</span>
+                                            <span>Invite team members</span>
+                                          </span>
+                                        </a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- /Task Group -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--New team modal-->
+  <ModalNewTeam />
+
+  <!--Task modal-->
+  <ModalNewTask />
+
+  <!--Create project modal-->
+  <ModalNewProject />
+</div>
+
+</Layout>

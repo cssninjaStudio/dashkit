@@ -1,0 +1,120 @@
+---
+import NavbarDropdownAccount from "./NavbarDropdownAccount.astro";
+import NavbarDropdownMessages from "./NavbarDropdownMessages.astro";
+import NavbarDropdownNotifications from "./NavbarDropdownNotifications.astro";
+---
+
+<!-- Top Navbar -->
+<nav
+  class="navbar dashboard-nav"
+  x-data="initNavbar()"
+  x-on:scroll.window="scroll()"
+  :class="{
+      'is-pushed': $store.app.sidebarOpenedState,
+      '': !$store.app.sidebarOpenedState,
+      'is-scrolled': scrolled,
+      '': !scrolled
+  }"
+>
+  <!-- Container -->
+  <div class="container">
+    <!-- Nav left -->
+    <div class="navbar-brand">
+      <!-- Reader mode switch -->
+      <div class="navbar-item reader-switch is-hidden-desktop is-hidden-tablet">
+        <div class="field">
+          <label
+            class="f-switch is-primary scale-8"
+            :class="{
+              'is-disabled': $store.app.sidebarOpenedState,
+              '': !$store.app.sidebarOpenedState
+          }"
+          >
+            <input
+              x-on:change="toggleReaderMode()"
+              id="reader-mode-switch"
+              type="checkbox"
+              class="is-primary"
+            />
+            <i></i>
+          </label>
+        </div>
+      </div>
+
+      <!--Search-->
+      <div class="control has-icon searchbox">
+        <input
+          x-on:keyup="searchMocked($event)"
+          type="text"
+          class="input search-field"
+          placeholder="Search people or companies..."
+        />
+        <div class="form-icon">
+          <i class="iconify" data-icon="lucide:search"></i>
+        </div>
+        <div id="search-results-wrapper" class="search-results has-slimscroll">
+          <div id="search-results-container" class="search-results-inner"></div>
+          <div
+            id="search-results-placeholder"
+            class="search-results-placeholder is-hidden"
+          >
+            <div class="has-text-centered">No Results Found</div>
+          </div>
+        </div>
+      </div>
+
+      <a
+        @click="openMobileMenu()"
+        class="navbar-item hamburger-btn is-hidden-desktop"
+        href="javascript:"
+      >
+        <span class="menu-toggle">
+          <span
+            class="icon-box-toggle"
+            :class="{
+              'active': mobileOpen,
+              '': !mobileOpen
+          }"
+          >
+            <span class="rotate">
+              <i class="icon-line-top"></i>
+              <i class="icon-line-center"></i>
+              <i class="icon-line-bottom"></i>
+            </span>
+          </span>
+        </span>
+      </a>
+    </div>
+
+    <!-- Nav right -->
+    <div
+      class="navbar-menu"
+      :class="{
+        'is-active': mobileOpen,
+        '': !mobileOpen
+    }"
+    >
+      <div class="navbar-end">
+        <NavbarDropdownNotifications />
+
+        <NavbarDropdownMessages />
+
+        <!-- Right sidebar trigger (desktop and tablet only) -->
+        <div class="icon-button chat-button" @click="openRightSidebar()">
+          <i class="iconify" data-icon="lucide:message-square"></i>
+          <span class="indicator is-alt"></span>
+        </div>
+
+        <label class="theme-toggle">
+          <input type="checkbox" x-on:change="toggleTheme()" />
+          <span class="theme-toggle-inner">
+            <i class="sun-icon iconify" data-icon="lucide:sun"></i>
+            <i class="moon-icon iconify" data-icon="lucide:moon"></i>
+          </span>
+        </label>
+
+        <NavbarDropdownAccount />
+      </div>
+    </div>
+  </div>
+</nav>

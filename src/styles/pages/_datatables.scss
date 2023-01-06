@@ -1,0 +1,217 @@
+/*
+  0. Datatable
+*/
+
+.datatable-container {
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg-color);
+  border: 1px solid var(--card-border-color);
+  border-radius: 0.65rem;
+  padding: 2rem;
+  width: 100%;
+
+  .datatable-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    p {
+      font-family: var(--font);
+      font-size: .9rem;
+      color: var(--medium-text);
+    }
+
+    .header-format {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
+
+  .inner-table {
+    margin-top: 2rem;
+
+    .table-head {
+      border-bottom: 1px solid var(--card-border-color);
+
+      .head-cell {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.75rem;
+
+        .head-label {
+          font-family: var(--font);
+          font-size: 0.7rem;
+          font-weight: 600;
+          color: var(--title-color);
+          text-transform: uppercase;
+        }
+      }
+
+      .head-sort {
+        display: flex;
+        flex-direction: column;
+
+        .sort-icon {
+          width: 0.5rem;
+          height: 0.5rem;
+          cursor: pointer;
+          color: var(--light-text);
+          fill: none;
+        }
+      }
+    }
+
+    .table-row {
+      transition: background-color 0.3s;
+
+      .avatar {
+        position: relative;
+        display: block;
+        height: 36px;
+        width: 36px;
+        min-width: 36px;
+
+        img {
+          border-radius: 50%;
+        }
+      }
+
+      td {
+        padding: 0.75rem;
+        vertical-align: middle;
+
+        .cell-flex-center {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+
+        .table-text {
+          font-family: var(--font);
+          font-size: 0.9rem;
+        }
+
+        .table-text-light {
+          color: var(--light-text);
+        }
+
+        .table-text-medium {
+          color: var(--medium-text);
+        }
+
+        .table-text-dark {
+          color: var(--title-color);
+        }
+
+        .table-text-lowercase {
+          text-transform: lowercase;
+        }
+      }
+
+      &:hover {
+        background: var(--wrap-muted-color);
+      }
+    }
+  }
+
+  .table-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+
+    .table-pagination-group {
+      display: flex;
+      align-items: center;
+
+      &.is-end {
+        justify-content: flex-end;
+      }
+    }
+
+    .table-pagination-link {
+      font-family: var(--font);
+      font-size: .9rem;
+      color: var(--light-text);
+      cursor: pointer;
+
+      &:hover {
+        color: var(--secondary);
+      }
+    }
+
+    .table-pagination-button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 36px;
+      width: 36px;
+      border: none;
+      background-color: transparent;
+      padding: 0;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color .3s, box-shadow .3s;
+
+      .iconify {
+        font-size: 1rem;
+        color: var(--medium-text);
+      }
+
+      span {
+        font-family: var(--font);
+        font-size: .9rem;
+        color: var(--medium-text);
+      }
+
+      &:hover {
+        background-color: var(--wrap-muted-color);
+      }
+
+      &.is-active {
+        background-color: var(--secondary);
+        box-shadow: var(--secondary-box-shadow);
+
+        span {
+          color: var(--white-smoke);
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .datatable-container {
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 1.5rem;
+
+    .datatable-header {
+      .header-format {
+        display: none;
+      }
+
+      > div, .control {
+        width: 100%;
+      }
+    }
+
+    .table-pagination {
+      .table-pagination-group {
+        
+        &.is-end {
+          justify-content: center;
+          width: 100%;
+        }
+
+        &:first-child {
+          display: none;
+        }
+      }
+    }
+  }
+  
+}

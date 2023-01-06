@@ -14,7 +14,7 @@ export function initApexRadialChart() {
           show: false,
         },
       },
-      colors: [themeColors.primary],
+      colors: [themeColors.secondary],
       plotOptions: {
         radialBar: {
           hollow: {
@@ -22,7 +22,6 @@ export function initApexRadialChart() {
           },
         },
       },
-      s,
     };
 
     const apexRadialChartInstance = new ApexCharts(

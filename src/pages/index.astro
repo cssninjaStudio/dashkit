@@ -1,0 +1,751 @@
+---
+import { version } from '../../package.json'
+import Layout from '../layouts/Minimal.astro';
+const title = 'Dashboard HTML Template'
+---
+
+<Layout title={title}>
+  <!--Wrapper-->
+  <div class="cssninja-product">
+    <!--Navigation-->
+    <div
+      class="cssninja-nav"
+      x-data="initNavbar()"
+      x-init="initScrollAnchors()"
+      x-on:scroll.window="scroll()"
+      :class="{
+        'is-scrolled': scrolled,
+        '': !scrolled,
+        'is-solid': mobileOpen,
+        '': !mobileOpen
+      }"
+    >
+      <div class="cssninja-nav-inner">
+        <div class="left">
+          <img
+            class="brand-logo light-image-block"
+            src="/img/logo/dashkit-violet.svg"
+            alt="Product logo"
+          />
+          <img
+            class="brand-logo dark-image-block"
+            src="/img/logo/dashkit-violet-dark.svg"
+            alt="Product logo"
+          />
+          <span class="version">v{version}</span>
+          <div class="nav-burger" @click="openMobileMenu()">
+            <div class="menu-toggle">
+              <div
+                class="icon-box-toggle is-navbar"
+                :class="{
+                    'active': mobileOpen,
+                    '': !mobileOpen
+                }"
+              >
+                <div class="rotate">
+                  <i class="icon-line-top"></i>
+                  <i class="icon-line-center"></i>
+                  <i class="icon-line-bottom"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="right"
+          :class="{
+              'is-active': mobileOpen,
+              '': !mobileOpen
+          }"
+        >
+          <a href="https://go.cssninja.io/buy-dashkit" class="nav-link"
+            >Product</a
+          >
+          <a href="#template-demos" class="nav-link scroll-link">Demos</a>
+          <a href="https://go.cssninja.io/docs-dashkit" class="nav-link"
+            >Documentation</a
+          >
+          <label class="theme-toggle mask mask-blob">
+            <input
+              type="checkbox"
+              x-on:change="toggleTheme()"
+              :checked="$store.app.isDark"
+            />
+            <span class="theme-toggle-inner">
+              <i class="sun-icon iconify" data-icon="feather:sun"></i>
+              <i class="moon-icon iconify" data-icon="feather:moon"></i>
+            </span>
+          </label>
+          <a
+            href="https://go.cssninja.io/support-dashkit"
+            class="button is-secondary is-long-1 raised"
+            >Get Support</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!--Hero-->
+    <div class="cssninja-hero">
+      <img
+        class="plant-pattern"
+        src="/img/demo/plant-pattern.svg"
+        alt="pattern"
+      />
+      <div class="container">
+        <div class="cssninja-hero-inner">
+          <div class="hero-caption mx-auto max-w-6">
+            <h1 class="title is-1 is-bold is-narrow">Dashkit UI.</h1>
+            <p class="product-stacks">Astro + Bulma + AlpineJS HTML Template</p>
+            <h3 class="subtitle is-5">
+              Dashkit is a professional admin and dashboard UI template that will
+              help you jumpstart your development project seamlessly.
+            </h3>
+            <div class="buttons is-centered">
+              <a
+                href="https://go.cssninja.io/buy-dashkit"
+                class="button is-primary raised scroll-link"
+                >Buy Now</a
+              >
+              <a href="#get-started" class="button is-solid scroll-link"
+                >Discover</a
+              >
+            </div>
+            <div class="product-stack product-stack-1">
+							<img src="/img/stacks/html5-light.svg" alt="stack" />
+						</div>
+						<div class="product-stack product-stack-2">
+							<img src="/img/stacks/astro-light.svg" class="light-image-block" alt="stack" />
+							<img src="/img/stacks/astro-dark.svg" class="dark-image-block" alt="stack" />
+						</div>
+						<div class="product-stack product-stack-3">
+							<img src="/img/stacks/alpinejs-light.svg" alt="stack" />
+						</div>
+						<div class="product-stack product-stack-4">
+							<img src="/img/stacks/vite.svg" alt="stack" />
+						</div>
+						<div class="product-stack product-stack-5">
+							<img src="/img/stacks/bulma-light.svg" alt="stack" />
+						</div>
+          </div>
+        </div>
+      </div>
+      <img
+        class="template-mockup light-image-block"
+        src="/img/demo/dashkit-mockup-1.png"
+        alt="Dashkit header image"
+      />
+      <img
+        class="template-mockup dark-image-block"
+        src="/img/demo/dashkit-mockup-1-dark.png"
+        alt="Dashkit header image"
+      />
+      <img class="plant-pot" src="/img/demo/plant-pot.svg" alt="Plant" />
+    </div>
+
+    <div class="section">
+      <div class="container">
+        <div class="cssninja-template">
+          <div class="columns">
+            <div class="column is-8">
+              <!--Template info-->
+              <div class="template-info">
+                <!--Section-->
+                <div id="get-started" class="template-info-section">
+                  <!--Section title-->
+                  <div class="max-w-4 mb-5">
+                    <h2 class="title is-3 is-bold is-leading">Built with</h2>
+                    <p class="paragraph">
+                      Although it is an HTML template, Dashkit relies on powerful
+                      stacks like Alpine JS v3.x and Bulma as a CSS framework,
+                      making you able to build beautiful apps.
+                    </p>
+                  </div>
+
+                  <!--Stacks-->
+                  <div class="template-stacks">
+                    <div
+                      class="columns is-multiline b-columns-half-mobile b-flex-tablet-p"
+                    >
+                      <!--Stack-->
+											<div class="column is-3">
+												<div class="template-stack-card">
+													<i class="iconify" data-icon="vscode-icons:file-type-astro"></i>
+													<h3 class="title is-6 is-narrow">Astro</h3>
+													<p class="paragraph rem-85">Version 1.x</p>
+												</div>
+											</div>
+											<!--Stack-->
+											<div class="column is-3">
+												<div class="template-stack-card">
+													<i
+														class="iconify smaller"
+														data-icon="logos:alpinejs-icon"
+													></i>
+													<h3 class="title is-6 is-narrow">Alpine JS</h3>
+													<p class="paragraph rem-85">Version 3.x</p>
+												</div>
+											</div>
+											<!--Stack-->
+											<div class="column is-3">
+												<div class="template-stack-card">
+													<i class="iconify" data-icon="logos:bulma"></i>
+													<h3 class="title is-6 is-narrow">Bulma</h3>
+													<p class="paragraph rem-85">Version 9.x</p>
+												</div>
+											</div>
+											<!--Stack-->
+											<div class="column is-3">
+												<div class="template-stack-card">
+													<i class="iconify" data-icon="logos:vitejs"></i>
+													<h3 class="title is-6 is-narrow">Vite</h3>
+													<p class="paragraph rem-85">Version 4.x</p>
+												</div>
+											</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--Section-->
+                <div class="template-info-section">
+                  <!--Section title-->
+                  <div class="max-w-4 mb-5">
+                    <h2 class="title is-3 is-bold is-leading">Features</h2>
+                    <p class="paragraph">
+                      Dashkit ships with a lot of features to make your developer
+                      and customer experiences as nice as possible, without the
+                      hassle and unecessary effort.
+                    </p>
+                  </div>
+
+                  <!--Features-->
+                  <div class="template-features">
+                    <div class="columns is-multiline b-columns-third-tablet-p">
+                      <!--Feature-->
+                      <div class="column is-4">
+                        <div class="template-feature">
+                          <i
+                            class="iconify"
+                            data-icon="ph:circles-three-duotone"
+                          ></i>
+                          <h3 class="title is-6 is-leading">Modern UI</h3>
+                          <p class="paragraph rem-90">
+                            A clean, well designed and well integrated UI for your
+                            app.
+                          </p>
+                        </div>
+                      </div>
+
+                      <!--Feature-->
+                      <div class="column is-4">
+                        <div class="template-feature">
+                          <i
+                            class="iconify"
+                            data-icon="ph:terminal-window-duotone"
+                          ></i>
+                          <h3 class="title is-6 is-leading">Clean code</h3>
+                          <p class="paragraph rem-90">
+                            A clean code structure is there to help you with your
+                            workflow.
+                          </p>
+                        </div>
+                      </div>
+
+                      <!--Feature-->
+                      <div class="column is-4">
+                        <div class="template-feature">
+                          <i
+                            class="iconify"
+                            data-icon="ph:moon-stars-duotone"
+                          ></i>
+                          <h3 class="title is-6 is-leading">Native dark mode</h3>
+                          <p class="paragraph rem-90">
+                            Dashkit uses native CSS variables and makes theming
+                            super easy.
+                          </p>
+                        </div>
+                      </div>
+                      <!--Feature-->
+                      <div class="column is-4">
+                        <div class="template-feature">
+                          <i
+                            class="iconify"
+                            data-icon="ph:globe-hemisphere-west-duotone"
+                          ></i>
+                          <h3 class="title is-6 is-leading">RTL support</h3>
+                          <p class="paragraph rem-90">
+                            Dashkit supports RTL based layouts, just switch the
+                            stylesheet.
+                          </p>
+                        </div>
+                      </div>
+                      <!--Feature-->
+                      <div class="column is-4">
+                        <div class="template-feature">
+                          <i
+                            class="iconify"
+                            data-icon="ph:github-logo-duotone"
+                          ></i>
+                          <h3 class="title is-6 is-leading">GitHub access</h3>
+                          <p class="paragraph rem-90">
+                            We grant you access to the private GitHub repo for
+                            live updates.
+                          </p>
+                        </div>
+                      </div>
+                      <!--Feature-->
+                      <div class="column is-4">
+                        <div class="template-feature">
+                          <i
+                            class="iconify"
+                            data-icon="ph:clock-clockwise-duotone"
+                          ></i>
+                          <h3 class="title is-6 is-leading">Lifetime updates</h3>
+                          <p class="paragraph rem-90">
+                            You're entitled to receive lifetime updates for this
+                            product.
+                          </p>
+                        </div>
+                      </div>
+                      <!--Feature-->
+                      <div class="column is-4">
+                        <div class="template-feature">
+                          <i class="iconify" data-icon="ph:books-duotone"></i>
+                          <h3 class="title is-6 is-leading">Documentation</h3>
+                          <p class="paragraph rem-90">
+                            An extensive documentation helps you setting up
+                            everything.
+                          </p>
+                        </div>
+                      </div>
+                      <!--Feature-->
+                      <div class="column is-4">
+                        <div class="template-feature">
+                          <i class="iconify" data-icon="ph:parachute-duotone"></i>
+                          <h3 class="title is-6 is-leading">Support</h3>
+                          <p class="paragraph rem-90">
+                            A dedicated customer support portal to post your
+                            requests.
+                          </p>
+                        </div>
+                      </div>
+                      <!--Feature-->
+                      <!--div class="column is-4">
+                        <div class="template-feature">
+                          <i
+                            class="iconify"
+                            data-icon="ph:figma-logo-duotone"
+                          ></i>
+                          <h3 class="title is-6 is-leading">Design files</h3>
+                          <p class="paragraph rem-90">
+                            A free and minimal XD/Figma UI kit to help with your
+                            mockups.
+                          </p>
+                        </div>
+                      </div-->
+                    </div>
+                  </div>
+                </div>
+
+                <!--Section-->
+                <div class="template-info-section">
+                  <!--Section title-->
+                  <div class="max-w-4 mb-5">
+                    <h2 class="title is-3 is-bold is-leading">Demo Pages</h2>
+                    <p class="paragraph">
+                      Dashkit ships with more than 39 superb demo pages to help
+                      you get started as fast as possible, and build an
+                      outstanding and memorable project.
+                    </p>
+                  </div>
+
+                  <!--Template demos-->
+                  <div
+                    id="template-demos"
+                    class="template-demos"
+                    x-data="initRenderDemos()"
+                  >
+                    <div class="columns is-multiline b-columns-third-tablet-p">
+                      <template x-for="screenshot in screenshots">
+                        <div class="column is-6 has-text-centered">
+                          <figure class="demo-wrapper">
+                            <template x-if="screenshot.new">
+                              <span class="new-tag">New</span>
+                            </template>
+
+                            <div class="image-wrapper">
+                              <img
+                                class="light-image-block"
+                                x-bind:data-src="screenshot.screenshotLight"
+                                alt="screenshot light image"
+                                data-lazy-load
+                              />
+                              <img
+                                class="dark-image-block"
+                                x-bind:data-src="screenshot.screenshotDark"
+                                alt="screenshot dark image"
+                                data-lazy-load
+                              />
+                            </div>
+
+                            <div class="circle-overlay is-landing"></div>
+                            <div class="demo-info has-text-centered">
+                              <div class="wrapper">
+                                <div
+                                  class="demo-title"
+                                  x-text="screenshot.name"
+                                ></div>
+                                <div class="demo-link">
+                                  <a
+                                    class="is-dm"
+                                    x-bind:href="screenshot.link"
+                                    target="_blank"
+                                    >Go to demo
+                                    <i
+                                      class="iconify"
+                                      data-icon="ph:arrow-right-bold"
+                                    ></i
+                                  ></a>
+                                </div>
+                              </div>
+                            </div>
+                          </figure>
+                        </div>
+                      </template>
+                    </div>
+                  </div>
+                </div>
+
+                <!--Section-->
+                <div class="template-info-section">
+                  <!--Section title-->
+                  <div class="max-w-4 mb-5">
+                    <h2 class="title is-3 is-bold is-leading">FAQs</h2>
+                    <p class="paragraph">
+                      You probably already have a lot of questions. You can open a
+                      support ticket, or read some answers to the most common
+                      questions asked by our customers.
+                    </p>
+                  </div>
+
+                  <!--Template FAQ-->
+                  <div class="template-faq">
+                    <div class="columns">
+                      <div class="column">
+                        <div
+                          class="accordion"
+                          x-data="initAccordion()"
+                          x-init="setup()"
+                        >
+                          <div class="accordion-item">
+                            <button id="accordion-button-1" aria-expanded="false">
+                              <span class="accordion-title"
+                                >What is the difference between your
+                                licenses?</span
+                              ><span class="icon" aria-hidden="true"></span>
+                            </button>
+                            <div class="accordion-content">
+                              <p>
+                                The main difference between our licenses is the
+                                number and type of projects that you can build
+                                with our templates. There are also some special
+                                perks that come with upper licenses. The
+                                <a
+                                  href="https://cssninja.io/about/license-starter"
+                                  >starter license</a
+                                >
+                                allows you to build a single project with limited
+                                support from the discord community. However, if
+                                you are a professional developer or a freelancer,
+                                you might consider purchasing a
+                                <a
+                                  href="https://cssninja.io/about/license-developer"
+                                  >developer license</a
+                                >, granting you access to the Github repository,
+                                and allowing you to build SaaS projects, or the
+                                <a
+                                  href="https://cssninja.io/about/license-business"
+                                  >business license</a
+                                >, which allows unlimited projects, building
+                                complex SaaS products and access to private member
+                                areas and special sales.
+                              </p>
+                            </div>
+                          </div>
+                          <div class="accordion-item">
+                            <button id="accordion-button-2" aria-expanded="false">
+                              <span class="accordion-title"
+                                >What about licensing and SaaS projects?</span
+                              ><span class="icon" aria-hidden="true"></span>
+                            </button>
+                            <div class="accordion-content">
+                              <p>
+                                Unlike other platforms, it doesn't matter to us if
+                                your customers will need to pay to get access to
+                                your product. You can build SaaS products with our
+                                templates starting from the
+                                <a
+                                  href="https://cssninja.io/about/license-developer"
+                                  >developer license</a
+                                >
+                                and the
+                                <a
+                                  href="https://cssninja.io/about/license-business"
+                                  >business license</a
+                                >. Take the time to check each license for details
+                                about usage.
+                              </p>
+                            </div>
+                          </div>
+                          <div class="accordion-item">
+                            <button id="accordion-button-3" aria-expanded="false">
+                              <span class="accordion-title"
+                                >What about theme customization?</span
+                              ><span class="icon" aria-hidden="true"></span>
+                            </button>
+                            <div class="accordion-content">
+                              <p>
+                                Theme customization is not part of our regular
+                                services and therefore not included in a product
+                                purchase. If you need customization services, feel
+                                free to reach us and make sure to send us your
+                                requirements so we can issue a quote for you or
+                                your company.
+                              </p>
+                            </div>
+                          </div>
+                          <div class="accordion-item">
+                            <button id="accordion-button-4" aria-expanded="false">
+                              <span class="accordion-title"
+                                >What about the support scope?</span
+                              ><span class="icon" aria-hidden="true"></span>
+                            </button>
+                            <div class="accordion-content">
+                              <p>
+                                Our support guidelines are very clear. We only
+                                support what is directly related to the template
+                                UI. Anything else remains optional. We do not
+                                support 3rd party plugins as well though we can
+                                provide some guidance on how to use them best, but
+                                not on how to implement them or fix your own
+                                implementation.
+                              </p>
+                            </div>
+                          </div>
+                          <div class="accordion-item">
+                            <button id="accordion-button-5" aria-expanded="false">
+                              <span class="accordion-title"
+                                >Can I be refunded if Iam not happy?</span
+                              ><span class="icon" aria-hidden="true"></span>
+                            </button>
+                            <div class="accordion-content">
+                              <p>
+                                If the product doesn't suit your needs you can
+                                always ask us to get a refund under 14 days after
+                                product purchase. After, that delay you won't be
+                                eligible for a refund anymore. Refund requests
+                                should always explain why you are returning the
+                                product.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="column is-4">
+              <div x-data="initPurchaseCard()" class="purchase-card">
+                <div class="purchase-card-tabs">
+                  <div class="inner-tabs">
+                    <a
+                      data-tab="starter"
+                      @click.prevent="toggleTabs($event)"
+                      :class="{
+                        'is-active': activeTab === 'starter'
+                      }"
+                      >Starter</a
+                    >
+                    <a
+                      data-tab="developer"
+                      @click.prevent="toggleTabs($event)"
+                      :class="{
+                        'is-active': activeTab === 'developer'
+                      }"
+                      >Developer</a
+                    >
+                    <a
+                      data-tab="business"
+                      @click.prevent="toggleTabs($event)"
+                      :class="{
+                        'is-active': activeTab === 'business'
+                      }"
+                      >Business</a
+                    >
+                    <span class="naver"></span>
+                  </div>
+
+                  <div class="inner-tabs-content">
+                    <div class="inner-content">
+                      <!--Starter price-->
+                      <div x-show="activeTab === 'starter'" class="price-block">
+                        <h3 class="price-value">$39</h3>
+                        <div class="price-meta">
+                          <h4>Starter license</h4>
+                          <p class="paragraph rem-85">
+                            Use this template on a single domain / subdomain.
+                          </p>
+                        </div>
+                      </div>
+
+                      <!--Developer price-->
+                      <div x-show="activeTab === 'developer'" class="price-block">
+                        <h3 class="price-value">$59</h3>
+                        <div class="price-meta">
+                          <h4>Developer license</h4>
+                          <p class="paragraph rem-85">
+                            Same as starter license with private Github access.
+                          </p>
+                        </div>
+                      </div>
+
+                      <!--Business price-->
+                      <div x-show="activeTab === 'business'" class="price-block">
+                        <h3 class="price-value">$149</h3>
+                        <div class="price-meta">
+                          <h4>Business license</h4>
+                          <p class="paragraph rem-85">
+                            Use this template on unlimited domains / subdomains.
+                          </p>
+                        </div>
+                      </div>
+
+                      <!--Benefits-->
+                      <div class="benefits">
+                        <ul>
+                          <li x-show="activeTab !== 'business'">
+                            <span>Up to 1 domain / subdomain</span>
+                          </li>
+                          <li x-show="activeTab === 'business'">
+                            <span>Unlimited domains / subdomains</span>
+                          </li>
+                          <li
+                            :class="{
+                              'text-linethrough is-disabled': activeTab === 'starter'
+                            }"
+                          >
+                            <span>Access to Github repository</span>
+                          </li>
+                          <li>
+                            <span>Lifetime updates</span>
+                          </li>
+                          <li x-show="activeTab !== 'starter'">
+                            <span>6 months included support</span>
+                          </li>
+                          <li x-show="activeTab === 'starter'">
+                            <span>Community support</span>
+                          </li>
+                        </ul>
+                      </div>
+
+                      <!--Action-->
+                      <div class="purchase-action">
+                        <a
+                          href="https://go.cssninja.io/buy-dashkit"
+                          class="button is-primary is-fullwidth raised"
+                          >Purchase Now</a
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section template-cta">
+      <div class="container">
+        <div class="inner">
+          <div class="columns is-vcentered">
+            <div class="column is-5">
+              <div class="cta-caption mx-auto max-w-6">
+                <h1 class="title is-2 is-bold">Ready to dive in?</h1>
+                <h3 class="subtitle is-5">
+                  Forget about the hassle, about spaghetti sauce template code and
+                  start working with a clean and professional UI template.
+                </h3>
+                <div class="buttons -mt-2">
+                  <a
+                    href="https://go.cssninja.io/buy-dashkit"
+                    class="button is-primary raised"
+                    >Buy Now</a
+                  >
+                  <a
+                    href="https://go.cssninja.io/docs-dashkit"
+                    class="button is-solid"
+                    >Read Docs</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="column is-6 is-offset-1">
+              <div class="template-image-wrapper">
+                <img
+                  class="template-image light-image-block"
+                  src="/img/demo/dashkit-mockup-1.png"
+                  alt="Dashkit header image"
+                />
+                <img
+                  class="template-image dark-image-block"
+                  src="/img/demo/dashkit-mockup-1-dark.png"
+                  alt="Dashkit header image"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Footer-->
+    <footer class="template-footer">
+      <div class="container">
+        <div class="footer-inner">
+          <a href="https://cssninja.io" class="footer-logo">
+            <img
+              class="inverted-filter"
+              src="/img/logo/cssninja.svg"
+              alt="css ninja logo"
+            />
+            <span>&copy; 2018-{new Date().getFullYear()}</span>
+            <span>All Rights Reserved.</span>
+          </a>
+
+          <div class="footer-socials">
+            <a href="https://github.com/cssninjaStudio" class="social-link">
+              <i class="iconify" data-icon="fa:github"></i>
+              <span class="is-sr-only">GitHub</span>
+            </a>
+            <a href="https://www.facebook.com/cssninjaStudio" class="social-link">
+              <i class="iconify" data-icon="fa:facebook"></i>
+              <span class="is-sr-only">Facebook</span>
+            </a>
+            <a href="https://twitter.com/cssninjaStudio" class="social-link">
+              <i class="iconify" data-icon="fa:twitter"></i>
+              <span class="is-sr-only">Twitter</span>
+            </a>
+            <a href="https://dribbble.com/DrissChelouati" class="social-link">
+              <i class="iconify" data-icon="fa:dribbble"></i>
+              <span class="is-sr-only">Twitter</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</Layout>

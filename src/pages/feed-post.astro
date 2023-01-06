@@ -1,0 +1,536 @@
+---
+import Layout from "../layouts/Default.astro";
+const title = 'Social Post'
+---
+
+<Layout title={title}>
+  <!-- Main dashboard container -->
+  <div
+    id="dashboard-wrapper"
+    class="dashboard-outer"
+    x-data="initBlank()"
+    :class="{
+      'is-pushed': $store.app.sidebarOpenedState,
+      '': !$store.app.sidebarOpenedState
+  }"
+  >
+    <div class="dashboard-inner">
+      <!-- Dashboard Wrapper -->
+      <div class="dashboard-wrapper">
+        <div id="main-dashboard" class="section-wrapper">
+          <!-- Dashboard content -->
+          <div class="dashboard-columns feed-post-columns">
+            <div class="columns is-multiline">
+              <div class="column is-7 is-offset-1">
+                <div class="flex-card featured-feed-post">
+                  <div class="image">
+                    <img src="/img/photo/bg/feed-post-1.jpeg" alt="" />
+                    <div class="image-overlay"></div>
+                    <div class="author-avatar">
+                      <img src="/img/avatars/christina.jpg" alt="" />
+                    </div>
+                    <button
+                      x-ref="likebtn"
+                      @click="$refs.likebtn.classList.toggle('is-active')"
+                      class="like fab-btn mini"
+                    >
+                      <span class="like-wrapper">
+                        <i class="material-icons unliked">favorite_border</i>
+                        <i class="material-icons liked">favorite</i>
+                        <span class="like-overlay"></span>
+                      </span>
+                    </button>
+                    <button class="back fab-btn mini">
+                      <i class="material-icons">arrow_back</i>
+                    </button>
+                  </div>
+                  <div class="card-body p-8">
+                    <h2 class="responsive-title">
+                      How the new prototyping tools impact the design process
+                    </h2>
+                    <div class="post-meta">
+                      <div class="author-meta">
+                        <div class="author-name">
+                          Published by <span>Christina Wong</span>
+                        </div>
+                        <div class="post-timestamp">
+                          <i class="sl sl-icon-clock"></i> Oct 27 2019, 18:49
+                        </div>
+                      </div>
+                      <div class="comments-meta">
+                        <i class="iconify" data-icon="lucide:message-square"></i>
+                        <div class="counter">8</div>
+                      </div>
+                    </div>
+                    <div class="post-body">
+                      <p>
+                        Lorem ipsum dolor sit amet, id qui elit explicari, mel
+                        ne stet semper. Duo audiam antiopam petentium in,
+                        diceret appetere aliquando pri id. Qui porro dolor
+                        deserunt ad, nec inani dolorum qualisque in, vidit
+                        apeirian partiendo ea est. Duo cu qualisque
+                        mediocritatem, graece iuvaret eripuit in usu, usu congue
+                        impedit percipitur no.
+                        <a href="#">Cu vim ludus equidem facilisis</a>, dico
+                        ullum labitur ad mel. Id odio aperiam eripuit quo,
+                        dolores forensibus per te.
+                      </p>
+
+                      <p>
+                        Lorem ipsum dolor sit amet, id qui elit explicari, mel
+                        ne stet semper. Duo audiam antiopam petentium in,
+                        diceret appetere aliquando pri id. Qui porro dolor
+                        deserunt ad, nec inani dolorum qualisque in, vidit
+                        apeirian partiendo ea est. Duo cu qualisque
+                        mediocritatem, graece iuvaret eripuit in usu, usu congue
+                        impedit percipitur no. Cu vim ludus equidem facilisis,
+                        dico ullum labitur ad mel. Id odio aperiam eripuit quo,
+                        dolores forensibus per te.
+                      </p>
+
+                      <p>
+                        Lorem ipsum dolor sit amet, id qui elit explicari, mel
+                        ne stet semper. Duo audiam antiopam petentium in,
+                        diceret appetere aliquando pri id. Qui porro dolor
+                        deserunt ad, nec inani dolorum qualisque in, vidit
+                        apeirian partiendo ea est. Duo cu qualisque
+                        mediocritatem, graece iuvaret eripuit in usu, usu congue
+                        impedit percipitur no. Cu vim ludus equidem facilisis,
+                        dico ullum labitur ad mel. Id odio aperiam eripuit quo,
+                        dolores forensibus per te.
+                      </p>
+
+                      <p>
+                        Lorem ipsum dolor sit amet, id qui elit explicari, mel
+                        ne stet semper. Duo audiam antiopam petentium in,
+                        diceret appetere aliquando pri id. Qui porro dolor
+                        deserunt ad, nec inani dolorum qualisque in, vidit
+                        apeirian partiendo ea est. Duo cu qualisque
+                        mediocritatem, graece iuvaret eripuit in usu, usu congue
+                        impedit percipitur no. Cu vim ludus equidem facilisis,
+                        dico ullum labitur ad mel. Id odio aperiam eripuit quo,
+                        dolores forensibus per te.
+                      </p>
+                    </div>
+                    <div class="post-share">
+                      <i class="fab fa-facebook-f"></i>
+                      <i class="fab fa-twitter"></i>
+                      <i class="fab fa-linkedin-in"></i>
+                      <i class="fab fa-tumblr"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="comments-wrapper">
+                  <h3 class="wrapper-title">Comments (8)</h3>
+                  <div class="compose-card is-flex is-start is-vcenter">
+                    <figure class="avatar image is-48x48 is-hidden-mobile">
+                      <img
+                        class="is-circle"
+                        src="/img/avatars/helen.jpg"
+                        alt=""
+                      />
+                    </figure>
+                    <div class="status-wrapper">
+                      <div class="control">
+                        <textarea
+                          class="textarea is-button"
+                          placeholder="Post a comment..."></textarea>
+                        <div class="buttons is-right py-2">
+                          <button
+                            class="button is-medium is-secondary is-long-1 is-raised is-rounded-md"
+                          >
+                            Publish
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <ul class="comment-list">
+                    <li class="media">
+                      <div class="media-left is-hidden-mobile">
+                        <a href="#">
+                          <img src="/img/avatars/henry.jpg" alt="" />
+                        </a>
+                      </div>
+
+                      <div class="media-body">
+                        <div class="media-heading">
+                          <a href="#" class="text-semibold">Henry Rodstein</a>
+                          <span class="timestamp">2 minutes ago</span>
+                        </div>
+
+                        <p>
+                          Lorem ipsum dolor sit amet, nec ea error laoreet. Usu
+                          ex magna docendi gubergren. Sit cu diceret officiis
+                          perpetua.
+                        </p>
+
+                        <ul class="comment-controls">
+                          <li>
+                            2
+                            <a href="#"
+                              ><i class="material-icons">thumb_up</i>
+                            </a><a href="#"
+                              ><i class="icon-arrow-down22 text-danger"></i>
+                            </a>
+                          </li>
+                          <li><a href="#">Answer</a></li>
+                        </ul>
+                      </div>
+                    </li>
+
+                    <li class="media">
+                      <div class="media-left is-hidden-mobile">
+                        <a href="#">
+                          <img src="/img/avatars/carolin.jpg" alt="" />
+                        </a>
+                      </div>
+
+                      <div class="media-body">
+                        <div class="media-heading">
+                          <a href="#" class="text-semibold">Marjory Cambell</a>
+                          <span class="timestamp">30 minutes ago</span>
+                        </div>
+
+                        <p>
+                          Lorem ipsum dolor sit amet, nec ea error laoreet. Usu
+                          ex magna docendi gubergren. Sit cu diceret officiis
+                          perpetua. Amet, nec ea error laoreet. Usu ex magna
+                          docendi gubergren
+                        </p>
+
+                        <ul class="comment-controls">
+                          <li>
+                            7
+                            <a href="#"
+                              ><i class="material-icons">thumb_up</i>
+                            </a><a href="#"
+                              ><i class="icon-arrow-down22 text-danger"></i>
+                            </a>
+                          </li>
+                          <li><a href="#">Answer</a></li>
+                        </ul>
+                      </div>
+                    </li>
+
+                    <li class="media is-answer">
+                      <div class="media-left is-hidden-mobile">
+                        <a href="#">
+                          <img src="/img/avatars/nina.jpg" alt="" />
+                        </a>
+                      </div>
+
+                      <div class="media-body">
+                        <div class="media-heading">
+                          <a href="#" class="text-semibold">Betty Sanders</a>
+                          <span class="timestamp">24 minutes ago</span>
+                        </div>
+
+                        <p>
+                          Lorem ipsum dolor sit amet, nec ea error laoreet. Usu
+                          ex magna docendi gubergren.
+                        </p>
+
+                        <ul class="comment-controls">
+                          <li>
+                            1
+                            <a href="#"
+                              ><i class="material-icons">thumb_up</i>
+                            </a><a href="#"
+                              ><i class="icon-arrow-down22 text-danger"></i>
+                            </a>
+                          </li>
+                          <li><a href="#">Answer</a></li>
+                        </ul>
+                      </div>
+                    </li>
+
+                    <li class="media is-answer">
+                      <div class="media-left is-hidden-mobile">
+                        <a href="#">
+                          <img src="/img/avatars/anthony.jpg" alt="" />
+                        </a>
+                      </div>
+
+                      <div class="media-body">
+                        <div class="media-heading">
+                          <a href="#" class="text-semibold">Anthony Briggs</a>
+                          <span class="timestamp">12 minutes ago</span>
+                        </div>
+
+                        <p>
+                          Lorem ipsum dolor sit amet, nec ea error laoreet. Usu
+                          ex magna docendi.
+                        </p>
+
+                        <ul class="comment-controls">
+                          <li>
+                            0
+                            <a href="#"
+                              ><i class="material-icons">thumb_up</i>
+                            </a><a href="#"
+                              ><i class="icon-arrow-down22 text-danger"></i>
+                            </a>
+                          </li>
+                          <li><a href="#">Answer</a></li>
+                        </ul>
+                      </div>
+                    </li>
+
+                    <li class="media">
+                      <div class="media-left is-hidden-mobile">
+                        <a href="#">
+                          <img src="/img/avatars/ben.jpg" alt="" />
+                        </a>
+                      </div>
+
+                      <div class="media-body">
+                        <div class="media-heading">
+                          <a href="#" class="text-semibold">Kevin Smith</a>
+                          <span class="timestamp">1 hour ago</span>
+                        </div>
+
+                        <p>
+                          Lorem ipsum dolor sit amet, nec ea error laoreet. Usu
+                          ex magna docendi gubergren. Sit cu diceret officiis
+                          perpetua.
+                        </p>
+
+                        <ul class="comment-controls">
+                          <li>
+                            8
+                            <a href="#"
+                              ><i class="material-icons">thumb_up</i>
+                            </a><a href="#"
+                              ><i class="icon-arrow-down22 text-danger"></i>
+                            </a>
+                          </li>
+                          <li><a href="#">Answer</a></li>
+                        </ul>
+                      </div>
+                    </li>
+
+                    <li class="media">
+                      <div class="media-left is-hidden-mobile">
+                        <a href="#">
+                          <img src="/img/avatars/helen.jpg" alt="" />
+                        </a>
+                      </div>
+
+                      <div class="media-body">
+                        <div class="media-heading">
+                          <a href="#" class="text-semibold">Helen-Miller</a>
+                          <span class="timestamp">2 hours ago</span>
+                        </div>
+
+                        <p>
+                          Lorem ipsum dolor sit amet, nec ea error laoreet. Usu
+                          ex magna docendi gubergren.
+                        </p>
+
+                        <ul class="comment-controls">
+                          <li>
+                            12
+                            <a href="#"
+                              ><i class="material-icons">thumb_up</i>
+                            </a><a href="#"
+                              ><i class="icon-arrow-down22 text-danger"></i>
+                            </a>
+                          </li>
+                          <li><a href="#">Answer</a></li>
+                        </ul>
+                      </div>
+                    </li>
+
+                    <li class="media is-answer">
+                      <div class="media-left is-hidden-mobile">
+                        <a href="#">
+                          <img src="/img/avatars/nicole.jpg" alt="" />
+                        </a>
+                      </div>
+
+                      <div class="media-body">
+                        <div class="media-heading">
+                          <a href="#" class="text-semibold">Nicole Ferrier</a>
+                          <span class="timestamp">1 hour ago</span>
+                        </div>
+
+                        <p>
+                          Lorem ipsum dolor sit amet, nec ea error laoreet. Usu
+                          ex magna docendi gubergren.
+                        </p>
+
+                        <ul class="comment-controls">
+                          <li>
+                            4
+                            <a href="#"
+                              ><i class="material-icons">thumb_up</i>
+                            </a><a href="#"
+                              ><i class="icon-arrow-down22 text-danger"></i>
+                            </a>
+                          </li>
+                          <li><a href="#">Answer</a></li>
+                        </ul>
+                      </div>
+                    </li>
+
+                    <li class="media is-answer">
+                      <div class="media-left is-hidden-mobile">
+                        <a href="#">
+                          <img src="/img/avatars/kareem.jpg" alt="" />
+                        </a>
+                      </div>
+
+                      <div class="media-body">
+                        <div class="media-heading">
+                          <a href="#" class="text-semibold">Kareem Jabbar</a>
+                          <span class="timestamp">47 minutes ago</span>
+                        </div>
+
+                        <p>
+                          Lorem ipsum dolor sit amet, nec ea error laoreet. Usu
+                          ex magna docendi.
+                        </p>
+
+                        <ul class="comment-controls">
+                          <li>
+                            3
+                            <a href="#"
+                              ><i class="material-icons">thumb_up</i>
+                            </a><a href="#"
+                              ><i class="icon-arrow-down22 text-danger"></i>
+                            </a>
+                          </li>
+                          <li><a href="#">Answer</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="column is-4">
+                <div class="flex-card p-4">
+                  <div class="card-head pt-4 px-4">
+                    <h3>Active Users</h3>
+                    <a class="button is-default is-rounded">View All</a>
+                  </div>
+                  <ul class="user-list p-4">
+                    <li>
+                      <div class="user-list-avatar">
+                        <img src="/img/avatars/terry.jpg" alt="" />
+                      </div>
+                      <div class="user-list-info">
+                        <div class="name">Terry Daniels</div>
+                        <div class="position">CEO</div>
+                      </div>
+                      <div class="user-list-status is-online"></div>
+                    </li>
+                    <li>
+                      <div class="user-list-avatar">
+                        <img src="/img/avatars/carolin.jpg" alt="" />
+                      </div>
+                      <div class="user-list-info">
+                        <div class="name">Marjory Cambell</div>
+                        <div class="position">CFO</div>
+                      </div>
+                      <div class="user-list-status is-busy"></div>
+                    </li>
+                    <li>
+                      <div class="user-list-avatar">
+                        <img src="/img/avatars/ben.jpg" alt="" />
+                      </div>
+                      <div class="user-list-info">
+                        <div class="name">Kevin Smith</div>
+                        <div class="position">Software Engineer</div>
+                      </div>
+                      <div class="user-list-status is-offline"></div>
+                    </li>
+                    <li>
+                      <div class="user-list-avatar">
+                        <img src="/img/avatars/melany.jpg" alt="" />
+                      </div>
+                      <div class="user-list-info">
+                        <div class="name">Melany Wright</div>
+                        <div class="position">Sales Manager</div>
+                      </div>
+                      <div class="user-list-status is-online"></div>
+                    </li>
+                    <li>
+                      <div class="user-list-avatar">
+                        <img src="/img/avatars/helen.jpg" alt="" />
+                      </div>
+                      <div class="user-list-info">
+                        <div class="name">Helen Miller</div>
+                        <div class="position">Sales Manager</div>
+                      </div>
+                      <div class="user-list-status is-online"></div>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="flex-card p-4">
+                  <div class="card-head pt-4 px-4">
+                    <h3>Latest Posts</h3>
+                  </div>
+                  <ul class="user-list p-4">
+                    <li>
+                      <div class="user-list-avatar">
+                        <img src="/img/avatars/terry.jpg" alt="" />
+                      </div>
+                      <div class="user-list-info">
+                        <div class="name">
+                          How team building boosts productivity
+                        </div>
+                        <div class="position">oct 19 2020</div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="user-list-avatar">
+                        <img src="/img/avatars/carolin.jpg" alt="" />
+                      </div>
+                      <div class="user-list-info">
+                        <div class="name">New Adobe updates this winter</div>
+                        <div class="position">dec 7 2020</div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="user-list-avatar">
+                        <img src="/img/avatars/ben.jpg" alt="" />
+                      </div>
+                      <div class="user-list-info">
+                        <div class="name">Important annoucement</div>
+                        <div class="position">dec 18 2020</div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="user-list-avatar">
+                        <img src="/img/avatars/melany.jpg" alt="" />
+                      </div>
+                      <div class="user-list-info">
+                        <div class="name">
+                          Get the most from customer feedback
+                        </div>
+                        <div class="position">jan 3 2021</div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="user-list-avatar">
+                        <img src="/img/avatars/helen.jpg" alt="" />
+                      </div>
+                      <div class="user-list-info">
+                        <div class="name">5 Free invoicing apps</div>
+                        <div class="position">jan 7 2021</div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

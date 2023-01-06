@@ -1,0 +1,63 @@
+<!-- Create Team Modal -->
+<div
+  id="new-team-modal"
+  class="modal modal-md icon-action-modal"
+  :class="{
+  'is-active': newTeamModalOpened,
+  '': !newTeamModalOpened
+}"
+>
+  <div @click="toggleNewTeamModal()" class="modal-background"></div>
+  <div class="modal-content">
+    <div class="flex-card">
+      <h2 class="title is-5">New Team</h2>
+      <div class="card-body">
+        <div class="has-text-centered">
+          <div class="image">
+            <img
+              class="light-image-block"
+              src="/img/logo/square-violet.svg"
+              alt=""
+            />
+            <img
+              class="dark-image-block"
+              src="/img/logo/square-green.svg"
+              alt=""
+            />
+          </div>
+          <div class="help-text has-text-left">
+            Create a New Team to use in your projects
+          </div>
+
+          <div class="field">
+            <div class="control has-icons-left">
+              <input
+                class="input is-medium"
+                type="text"
+                placeholder="Team Name"
+              />
+              <span class="icon is-left">
+                <i class="fa fa-users"></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="columns is-fieldset">
+            <div class="column">
+              <textarea
+                class="textarea"
+                rows="3"
+                placeholder="What will this team be in charge of ?"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button @click="toggleNewTeamModal()" class="button modal-dismiss"
+          >Cancel</button
+        >
+        <button type="submit" class="button is-modal">Create Team</button>
+      </div>
+    </div>
+  </div>
+</div>

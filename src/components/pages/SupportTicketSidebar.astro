@@ -1,0 +1,463 @@
+<!-- Tickets quickview -->
+<div
+  id="ticket-details-quickview"
+  class="quickview is-right ticket-details-quickview"
+  :class="{
+        'is-active': ticketSidebarOpen,
+        '': !ticketSidebarOpen
+    }"
+>
+  <!-- Quickview header -->
+  <div class="quickview-header">
+    <h3>Ticket Details</h3>
+    <div class="quickview-close" @click="toggleTicketSidebar()">
+      <span class="material-icons">close</span>
+    </div>
+  </div>
+
+  <!-- Quickview body -->
+  <div class="quickview-body">
+    <div class="body-inner has-slimscroll">
+      <!-- Ticket Group -->
+      <div class="field">
+        <div class="control is-combo">
+          <div class="combo-label">Ticket Group</div>
+          <div
+            class="combo-box"
+            @click="openGroupCombo()"
+            @click.away="closeGroupCombo()"
+            :class="{
+                            'is-active': groupComboOpened,
+                            '': !groupComboOpened,
+                        }"
+          >
+            <div class="box-inner">
+              <div class="combo-item">
+                <i :class="groupComboIcon"></i>
+                <span x-text="groupComboText" class="selected-item"
+                  >Shipping</span
+                >
+              </div>
+            </div>
+            <div class="box-chevron">
+              <i class="material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="box-dropdown">
+              <div class="dropdown-inner has-slimscroll">
+                <ul>
+                  <li
+                    @click="updateGroupCombo($event)"
+                    data-icon="im icon-Shop-3"
+                    data-text="Sales"
+                  >
+                    <span class="item-icon">
+                      <i class="im icon-Shop-3"></i>
+                    </span>
+                    <span class="item-name">Sales</span>
+                    <span class="checkmark">
+                      <i class="material-icons">done</i>
+                    </span>
+                  </li>
+                  <li
+                    @click="updateGroupCombo($event)"
+                    data-icon="im icon-Receipt-3"
+                    data-text="Orders"
+                  >
+                    <span class="item-icon">
+                      <i class="im icon-Receipt-3"></i>
+                    </span>
+                    <span class="item-name">Orders</span>
+                    <span class="checkmark">
+                      <i class="material-icons">done</i>
+                    </span>
+                  </li>
+                  <li
+                    @click="updateGroupCombo($event)"
+                    data-icon="im icon-Box-Close"
+                    data-text="Shipping"
+                  >
+                    <span class="item-icon">
+                      <i class="im icon-Box-Close"></i>
+                    </span>
+                    <span class="item-name">Shipping</span>
+                    <span class="checkmark">
+                      <i class="material-icons">done</i>
+                    </span>
+                  </li>
+                  <li
+                    @click="updateGroupCombo($event)"
+                    data-icon="im icon-Credit-Card2"
+                    data-text="Payments"
+                  >
+                    <span class="item-icon">
+                      <i class="im icon-Credit-Card2"></i>
+                    </span>
+                    <span class="item-name">Payments</span>
+                    <span class="checkmark">
+                      <i class="material-icons">done</i>
+                    </span>
+                  </li>
+                  <li
+                    @click="updateGroupCombo($event)"
+                    data-icon="im icon-Life-Safer"
+                    data-text="Support"
+                  >
+                    <span class="item-icon">
+                      <i class="im icon-Life-Safer"></i>
+                    </span>
+                    <span class="item-name">Support</span>
+                    <span class="checkmark">
+                      <i class="material-icons">done</i>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Ticket assignee -->
+      <div class="field">
+        <div class="control is-combo">
+          <div class="combo-label">Assignee</div>
+          <div
+            class="image-combo-box has-rounded-images"
+            @click="openAssigneeCombo()"
+            @click.away="closeAssigneeCombo()"
+            :class="{
+                            'is-active': assigneeComboOpened,
+                            '': !assigneeComboOpened,
+                        }"
+          >
+            <div class="box-inner">
+              <div class="combo-item">
+                <img
+                  :src="assigneeComboIcon"
+                  src="/img/avatars/ray.jpg"
+                  alt=""
+                />
+                <span x-text="assigneeComboText" class="selected-item"
+                  >Ray Donovan</span
+                >
+              </div>
+            </div>
+            <div class="box-chevron">
+              <i class="material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="box-dropdown">
+              <div class="dropdown-inner has-slimscroll">
+                <ul>
+                  <li
+                    @click="updateAssigneeCombo($event)"
+                    data-icon="/img/avatars/ray.jpg"
+                    data-text="Ray Donovan"
+                  >
+                    <span class="item-icon">
+                      <img
+                        src="https://via.placeholder.com/150x150"
+                        src="/img/avatars/ray.jpg"
+                        alt=""
+                      />
+                    </span>
+                    <span class="item-name">Ray Donovan</span>
+                    <span class="checkmark">
+                      <i class="material-icons">done</i>
+                    </span>
+                  </li>
+                  <li
+                    @click="updateAssigneeCombo($event)"
+                    data-icon="/img/avatars/helen.jpg"
+                    data-text="Helen Miller"
+                  >
+                    <span class="item-icon">
+                      <img
+                        src="https://via.placeholder.com/150x150"
+                        src="/img/avatars/helen.jpg"
+                        alt=""
+                      />
+                    </span>
+                    <span class="item-name">Helen Miller</span>
+                    <span class="checkmark">
+                      <i class="material-icons">done</i>
+                    </span>
+                  </li>
+                  <li
+                    @click="updateAssigneeCombo($event)"
+                    data-icon="/img/avatars/alan.jpg"
+                    data-text="Alan Maynard"
+                  >
+                    <span class="item-icon">
+                      <img
+                        src="https://via.placeholder.com/150x150"
+                        src="/img/avatars/alan.jpg"
+                        alt=""
+                      />
+                    </span>
+                    <span class="item-name">Alan Maynard</span>
+                    <span class="checkmark">
+                      <i class="material-icons">done</i>
+                    </span>
+                  </li>
+                  <li
+                    @click="updateAssigneeCombo($event)"
+                    data-icon="/img/avatars/lakisha.jpg"
+                    data-text="Lakisha Williams"
+                  >
+                    <span class="item-icon">
+                      <img
+                        src="https://via.placeholder.com/150x150"
+                        src="/img/avatars/lakisha.jpg"
+                        alt=""
+                      />
+                    </span>
+                    <span class="item-name">Lakisha Williams</span>
+                    <span class="checkmark">
+                      <i class="material-icons">done</i>
+                    </span>
+                  </li>
+                  <li
+                    @click="updateAssigneeCombo($event)"
+                    data-icon="/img/avatars/sally.jpg"
+                    data-text="Sally Mitchels"
+                  >
+                    <span class="item-icon">
+                      <img
+                        src="https://via.placeholder.com/150x150"
+                        src="/img/avatars/sally.jpg"
+                        alt=""
+                      />
+                    </span>
+                    <span class="item-name">Sally Mitchels</span>
+                    <span class="checkmark">
+                      <i class="material-icons">done</i>
+                    </span>
+                  </li>
+                  <li
+                    @click="updateAssigneeCombo($event)"
+                    data-icon="/img/avatars/melany.jpg"
+                    data-text="Melany Smith"
+                  >
+                    <span class="item-icon">
+                      <img
+                        src="https://via.placeholder.com/150x150"
+                        src="/img/avatars/melany.jpg"
+                        alt=""
+                      />
+                    </span>
+                    <span class="item-name">Melany Smith</span>
+                    <span class="checkmark">
+                      <i class="material-icons">done</i>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Ticket Reminder -->
+      <div class="field datepicker-field">
+        <label class="grey-label-compact">Remind me before</label>
+        <div class="control">
+          <input
+            type="text"
+            class="input"
+            placeholder="Pick a date"
+            data-toggle="datepicker"
+          />
+          <div class="form-icon">
+            <i class="im icon-Calendar-4"></i>
+          </div>
+        </div>
+      </div>
+      <!-- Ticket Status -->
+      <div class="field">
+        <div class="control is-combo">
+          <div class="combo-label">Status</div>
+          <div
+            class="combo-box"
+            @click="openStatusCombo()"
+            @click.away="closeStatusCombo()"
+            :class="{
+                            'is-active': statusComboOpened,
+                            '': !statusComboOpened,
+                        }"
+          >
+            <div class="box-inner">
+              <div class="combo-item">
+                <i :class="statusComboIcon"></i>
+                <span x-text="statusComboText" class="selected-item"
+                  >In Progress</span
+                >
+              </div>
+            </div>
+            <div class="box-chevron">
+              <i class="material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="box-dropdown">
+              <div class="dropdown-inner has-slimscroll">
+                <ul>
+                  <li
+                    @click="updateStatusCombo($event)"
+                    data-icon="fas fa-circle is-blue"
+                    data-text="Open"
+                  >
+                    <span class="item-icon">
+                      <i class="fas fa-circle is-blue"></i>
+                    </span>
+                    <span class="item-name">Open</span>
+                    <span class="checkmark">
+                      <i class="material-icons">done</i>
+                    </span>
+                  </li>
+                  <li
+                    @click="updateStatusCombo($event)"
+                    data-icon="fas fa-circle is-secondary"
+                    data-text="In Progress"
+                  >
+                    <span class="item-icon">
+                      <i class="fas fa-circle is-secondary"></i>
+                    </span>
+                    <span class="item-name">In Progress</span>
+                    <span class="checkmark">
+                      <i class="material-icons">done</i>
+                    </span>
+                  </li>
+                  <li
+                    @click="updateStatusCombo($event)"
+                    data-icon="fas fa-circle is-orange"
+                    data-text="Escalated"
+                  >
+                    <span class="item-icon">
+                      <i class="fas fa-circle is-orange"></i>
+                    </span>
+                    <span class="item-name">Escalated</span>
+                    <span class="checkmark">
+                      <i class="material-icons">done</i>
+                    </span>
+                  </li>
+                  <li
+                    @click="updateStatusCombo($event)"
+                    data-icon="fas fa-circle"
+                    data-text="Closed"
+                  >
+                    <span class="item-icon">
+                      <i class="fas fa-circle"></i>
+                    </span>
+                    <span class="item-name">Closed</span>
+                    <span class="checkmark">
+                      <i class="material-icons">done</i>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Ticket Priority -->
+      <div class="field">
+        <div class="control is-combo">
+          <div class="combo-label">Priority</div>
+          <div
+            class="combo-box"
+            @click="openPriorityCombo()"
+            @click.away="closePriorityCombo()"
+            :class="{
+                            'is-active': priorityComboOpened,
+                            '': !priorityComboOpened,
+                        }"
+          >
+            <div class="box-inner">
+              <div class="combo-item">
+                <i :class="priorityComboIcon"></i>
+                <span x-text="priorityComboText" class="selected-item"
+                  >Medium</span
+                >
+              </div>
+            </div>
+            <div class="box-chevron">
+              <i class="material-icons">keyboard_arrow_down</i>
+            </div>
+            <div class="box-dropdown">
+              <div class="dropdown-inner has-slimscroll">
+                <ul>
+                  <li
+                    @click="updatePriorityCombo($event)"
+                    data-icon="fas fa-circle is-red"
+                    data-text="High"
+                  >
+                    <span class="item-icon">
+                      <i class="fas fa-circle is-red"></i>
+                    </span>
+                    <span class="item-name">High</span>
+                    <span class="checkmark">
+                      <i class="material-icons">done</i>
+                    </span>
+                  </li>
+                  <li
+                    @click="updatePriorityCombo($event)"
+                    data-icon="fas fa-circle is-orange"
+                    data-text="Medium"
+                  >
+                    <span class="item-icon">
+                      <i class="fas fa-circle is-orange"></i>
+                    </span>
+                    <span class="item-name">Medium</span>
+                    <span class="checkmark">
+                      <i class="material-icons">done</i>
+                    </span>
+                  </li>
+                  <li
+                    @click="updatePriorityCombo($event)"
+                    data-icon="fas fa-circle is-green"
+                    data-text="Low"
+                  >
+                    <span class="item-icon">
+                      <i class="fas fa-circle is-green"></i>
+                    </span>
+                    <span class="item-name">Low</span>
+                    <span class="checkmark">
+                      <i class="material-icons">done</i>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Ticket tags -->
+      <div class="field">
+        <label class="grey-label-compact">Tags</label>
+        <div class="sidebar-tags">
+          <div class="control">
+            <div class="tags has-addons">
+              <a class="tag is-link">Order</a>
+              <a class="tag is-delete"></a>
+            </div>
+          </div>
+          <div class="control">
+            <div class="tags has-addons">
+              <a class="tag is-link">Delivery</a>
+              <a class="tag is-delete"></a>
+            </div>
+          </div>
+        </div>
+        <a class="add-tags">
+          <i class="material-icons">add</i>
+          <span>Add Tags</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Quickview footer -->
+    <footer class="quickview-footer">
+      <a
+        @click="saveTicket($event)"
+        class="button is-secondary is-fullwidth is-raised is-rounded ripple"
+        data-ripple-color="">Save Changes</a
+      >
+    </footer>
+  </div>
+</div>

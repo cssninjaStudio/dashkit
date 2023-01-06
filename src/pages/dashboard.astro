@@ -1,0 +1,408 @@
+---
+import Layout from "../layouts/Default.astro";
+const title = 'Dashboard'
+---
+
+<Layout title={title}>
+  <!-- Main dashboard container -->
+  <div
+    id="dashboard-wrapper"
+    class="dashboard-outer"
+    x-data="initDashboard()"
+    :class="{
+      'is-pushed': $store.app.sidebarOpenedState,
+      '': !$store.app.sidebarOpenedState
+  }"
+  >
+    <div class="dashboard-inner">
+      <!-- Dashboard Wrapper -->
+      <div class="dashboard-wrapper">
+        <div id="main-dashboard" class="section-wrapper">
+          <!-- Dashboard content -->
+          <div class="dashboard-columns">
+            <div class="columns dashboard-tiles">
+              <!-- Tile -->
+              <div class="column is-3">
+                <div class="dashboard-tile">
+                  <div class="icon-header">
+                    <i class="material-icons primary">account_balance_wallet</i>
+                  </div>
+                  <div class="tile-content">
+                    <h3>Sales</h3>
+                    <p>
+                      <span>284</span>
+                      <span>This month</span>
+                    </p>
+                  </div>
+                  <a class="view-all-button">
+                    <i class="fa fa-angle-right"></i>
+                  </a>
+                </div>
+              </div>
+              <!-- Tile -->
+              <div class="column is-3">
+                <div class="dashboard-tile">
+                  <div class="icon-header">
+                    <i class="material-icons primary">account_balance</i>
+                  </div>
+                  <div class="tile-content">
+                    <h3>Balance</h3>
+                    <p>
+                      <span>$8647,23</span>
+                    </p>
+                  </div>
+                  <a class="view-all-button">
+                    <i class="fa fa-angle-right"></i>
+                  </a>
+                </div>
+              </div>
+              <!-- Tile -->
+              <div class="column is-3">
+                <div class="dashboard-tile">
+                  <div class="icon-header">
+                    <i class="material-icons secondary">work</i>
+                  </div>
+                  <div class="tile-content">
+                    <h3>Deals</h3>
+                    <p>
+                      <span>24</span>
+                      <span>pending</span>
+                    </p>
+                  </div>
+                  <a class="view-all-button">
+                    <i class="fa fa-angle-right"></i>
+                  </a>
+                </div>
+              </div>
+              <!-- Tile -->
+              <div class="column is-3">
+                <div class="dashboard-tile">
+                  <div class="icon-header">
+                    <i class="material-icons secondary">business</i>
+                  </div>
+                  <div class="tile-content">
+                    <h3>Leads</h3>
+                    <p>
+                      <span>53</span>
+                      <span>New Leads</span>
+                    </p>
+                  </div>
+                  <a class="view-all-button">
+                    <i class="fa fa-angle-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="columns is-multiline">
+              <div class="column is-4">
+                <div class="flex-card p-4">
+                  <div class="card-head p-4 is-spaced">
+                    <h3>Customers</h3>
+                    <a class="button is-default is-rounded">Reports</a>
+                  </div>
+                  <div id="apexAreaChartDashboard"></div>
+                </div>
+              </div>
+
+              <div class="column is-4">
+                <div class="flex-card p-4">
+                  <div class="card-head p-4 is-spaced">
+                    <h3>Energy</h3>
+                    <a class="button is-default is-rounded">Reports</a>
+                  </div>
+                  <div id="apexScatterChartDashboard"></div>
+                </div>
+              </div>
+
+              <div class="column is-4">
+                <div class="flex-card p-4">
+                  <div class="card-head p-4">
+                    <h3>Members</h3>
+                    <a class="button is-default is-rounded">View All</a>
+                  </div>
+                  <ul class="user-list px-5 py-4">
+                    <li>
+                      <div class="user-list-avatar">
+                        <img src="/img/avatars/terry.jpg" alt="" />
+                      </div>
+                      <div class="user-list-info">
+                        <div class="name">Terry Daniels</div>
+                        <div class="position">CEO</div>
+                      </div>
+                      <div class="user-list-status is-online"></div>
+                    </li>
+                    <li>
+                      <div class="user-list-avatar">
+                        <img src="/img/avatars/carolin.jpg" alt="" />
+                      </div>
+                      <div class="user-list-info">
+                        <div class="name">Marjory Cambell</div>
+                        <div class="position">CFO</div>
+                      </div>
+                      <div class="user-list-status is-busy"></div>
+                    </li>
+                    <li>
+                      <div class="user-list-avatar">
+                        <img src="/img/avatars/ben.jpg" alt="" />
+                      </div>
+                      <div class="user-list-info">
+                        <div class="name">Kevin Smith</div>
+                        <div class="position">Software Engineer</div>
+                      </div>
+                      <div class="user-list-status is-offline"></div>
+                    </li>
+                    <li>
+                      <div class="user-list-avatar">
+                        <img src="/img/avatars/melany.jpg" alt="" />
+                      </div>
+                      <div class="user-list-info">
+                        <div class="name">Melany Wright</div>
+                        <div class="position">Sales Manager</div>
+                      </div>
+                      <div class="user-list-status is-online"></div>
+                    </li>
+                    <li>
+                      <div class="user-list-avatar">
+                        <img src="/img/avatars/helen.jpg" alt="" />
+                      </div>
+                      <div class="user-list-info">
+                        <div class="name">Helen Miller</div>
+                        <div class="position">Sales Manager</div>
+                      </div>
+                      <div class="user-list-status is-online"></div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="column is-4">
+                <div class="flex-card p-4">
+                  <div class="card-head p-4">
+                    <h3>Companies</h3>
+                    <a class="button is-default is-rounded">View All</a>
+                  </div>
+                  <ul class="user-list px-5 py-4">
+                    <li>
+                      <div class="user-list-avatar">
+                        <img src="/img/logo/companies/airbnb.svg" alt="" />
+                      </div>
+                      <div class="user-list-info">
+                        <div class="name">Airbnb</div>
+                        <div class="position">Travel & Hosts</div>
+                      </div>
+                      <div class="user-list-action">
+                        <i class="iconify" data-icon="lucide:arrow-right"></i>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="user-list-avatar">
+                        <img src="/img/logo/companies/alfresco.svg" alt="" />
+                      </div>
+                      <div class="user-list-info">
+                        <div class="name">Alfresco</div>
+                        <div class="position">ECM Software</div>
+                      </div>
+                      <div class="user-list-action">
+                        <i class="iconify" data-icon="lucide:arrow-right"></i>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="user-list-avatar">
+                        <img src="/img/logo/companies/amazon.svg" alt="" />
+                      </div>
+                      <div class="user-list-info">
+                        <div class="name">Amazon</div>
+                        <div class="position">Ecommerce</div>
+                      </div>
+                      <div class="user-list-action">
+                        <i class="iconify" data-icon="lucide:arrow-right"></i>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="user-list-avatar">
+                        <img src="/img/logo/companies/tesla.svg" alt="" />
+                      </div>
+                      <div class="user-list-info">
+                        <div class="name">Tesla</div>
+                        <div class="position">Car Industry</div>
+                      </div>
+                      <div class="user-list-action">
+                        <i class="iconify" data-icon="lucide:arrow-right"></i>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="user-list-avatar">
+                        <img src="/img/logo/companies/hm.svg" alt="" />
+                      </div>
+                      <div class="user-list-info">
+                        <div class="name">H&M</div>
+                        <div class="position">Clothing & Fashion</div>
+                      </div>
+                      <div class="user-list-action">
+                        <i class="iconify" data-icon="lucide:arrow-right"></i>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="column is-4">
+                <div class="widget circle-chart-widget px-4 pt-4 pb-8">
+                  <div class="card-head px-4 pt-4 pb-6">
+                    <h3>Deals</h3>
+                    <a class="button is-default is-rounded">View All</a>
+                  </div>
+                  <svg
+                    class="circle-chart"
+                    viewbox="0 0 33.83098862 33.83098862"
+                    width="140"
+                    height="140"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle
+                      class="circle-chart-background"
+                      stroke-width="2"
+                      fill="none"
+                      cx="16.91549431"
+                      cy="16.91549431"
+                      r="15.91549431"></circle>
+                    <circle
+                      class="circle-chart-circle"
+                      stroke="#7F00FF"
+                      stroke-width="2"
+                      stroke-dasharray="68,100"
+                      stroke-linecap="round"
+                      fill="none"
+                      cx="16.91549431"
+                      cy="16.91549431"
+                      r="15.91549431"></circle>
+                  </svg>
+                  <div class="chart-avatar">
+                    <img src="/img/avatars/ray.jpg" alt="" />
+                  </div>
+                  <div class="ring-title has-text-centered">
+                    <span>68% Deals Won</span>
+                  </div>
+                </div>
+
+                <div class="widget circle-chart-widget px-4 pt-4 pb-8">
+                  <div class="card-head px-4 pt-4 pb-6">
+                    <h3>Tasks</h3>
+                    <a class="button is-default is-rounded">View All</a>
+                  </div>
+                  <svg
+                    class="circle-chart"
+                    viewbox="0 0 33.83098862 33.83098862"
+                    width="140"
+                    height="140"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle
+                      class="circle-chart-background"
+                      stroke-width="2"
+                      fill="none"
+                      cx="16.91549431"
+                      cy="16.91549431"
+                      r="15.91549431"></circle>
+                    <circle
+                      class="circle-chart-circle"
+                      stroke="#00d1b2"
+                      stroke-width="2"
+                      stroke-dasharray="77,100"
+                      stroke-linecap="round"
+                      fill="none"
+                      cx="16.91549431"
+                      cy="16.91549431"
+                      r="15.91549431"></circle>
+                  </svg>
+                  <div class="chart-avatar">
+                    <img src="/img/avatars/lakisha.jpg" alt="" />
+                  </div>
+                  <div class="ring-title has-text-centered">
+                    <span>8 average tasks / day</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="column is-4">
+                <div class="flex-card tasks-card p-4">
+                  <div class="card-head px-4 pt-4 pb-6">
+                    <h3>Tweet Feed</h3>
+                    <a class="button is-default is-rounded">View All</a>
+                  </div>
+
+                  <!--Tweet-->
+                  <div class="widget tweet-widget">
+                    <div class="tweet-header">
+                      <img src="/img/avatars/alan.jpg" alt="" />
+                      <div class="user-info">
+                        <div class="name">Alan Maynard</div>
+                        <div class="alias">@amaynard</div>
+                      </div>
+                      <div class="twitter-icon">
+                        <i class="fab fa-twitter"></i>
+                      </div>
+                    </div>
+                    <p class="tweet-content">
+                      Lorem ipsum dolor sit amet, integre explicari has in,
+                      justo ipsum viderer mea ad.
+                    </p>
+                    <div class="hashtags">
+                      <span>#codeTalk</span>
+                      <span>#iLoveCode</span>
+                    </div>
+                  </div>
+
+                  <!--Tweet-->
+                  <div class="widget tweet-widget">
+                    <div class="tweet-header">
+                      <img src="/img/avatars/nick.jpg" alt="" />
+                      <div class="user-info">
+                        <div class="name">Nick Fraiser</div>
+                        <div class="alias">@nickthegeek</div>
+                      </div>
+                      <div class="twitter-icon">
+                        <i class="fab fa-twitter"></i>
+                      </div>
+                    </div>
+                    <p class="tweet-content">
+                      Lorem ipsum dolor sit amet, integre explicari has in,
+                      justo ipsum viderer mea ad.
+                    </p>
+                    <div class="hashtags">
+                      <span>#devOps</span>
+                      <span>#backend</span>
+                    </div>
+                  </div>
+
+                  <!--Tweet-->
+                  <div class="widget tweet-widget">
+                    <div class="tweet-header">
+                      <img src="/img/avatars/janet.jpg" alt="" />
+                      <div class="user-info">
+                        <div class="name">Janet Briggs</div>
+                        <div class="alias">@theshoppist</div>
+                      </div>
+                      <div class="twitter-icon">
+                        <i class="fab fa-twitter"></i>
+                      </div>
+                    </div>
+                    <p class="tweet-content">
+                      Lorem ipsum dolor sit amet, integre explicari has in,
+                      justo ipsum viderer mea ad.
+                    </p>
+                    <div class="hashtags">
+                      <span>#shopping</span>
+                      <span>#fashiontime</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

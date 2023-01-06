@@ -4,6 +4,7 @@ import { initSidebar } from "./sidebar/sidebar";
 import { initSidebarLeft } from "./sidebar/sidebar-left";
 import { initSidebarRight } from "./sidebar/sidebar-right";
 import { initAccordion } from "./accordion/accordion";
+import { initDatatable } from "./datatable/datatable"
 import { initBackToTop } from "./backtotop/backtotop";
 
 window.initTheme = initTheme;
@@ -13,4 +14,5 @@ window.initSidebar = initSidebar;
 window.initSidebarLeft = initSidebarLeft;
 window.initSidebarRight = initSidebarRight;
 window.initAccordion = initAccordion;
+window.initDatatable = initDatatable;
 window.initBackToTop = initBackToTop;

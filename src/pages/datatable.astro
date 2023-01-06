@@ -1,0 +1,324 @@
+---
+import Layout from "../layouts/Default.astro";
+const title = 'Datatable'
+---
+
+<Layout title={title}>
+  <!-- Main dashboard container -->
+  <div
+    id="dashboard-wrapper"
+    class="dashboard-outer"
+    :class="{
+        'is-pushed': $store.app.sidebarOpenedState,
+        '': !$store.app.sidebarOpenedState
+    }"
+  >
+    <div class="dashboard-inner">
+      <!-- Dashboard Wrapper -->
+      <div class="dashboard-wrapper">
+        <div id="main-dashboard" class="section-wrapper">
+          <!-- Dashboard content -->
+          <div class="dashboard-columns">
+            <h2 class="title is-4 mt-5">Datatable</h2>
+
+            <!-- Datatable -->
+            <div
+              x-data="initDatatable()"
+              x-init="
+                initData()
+                $watch('searchInput', value => {
+                  search(value)
+              })"
+              class="datatable-container"
+            >
+              <div class="datatable-header">
+                <div class="header-format">
+                  <p>Show</p>
+                  <div class="control">
+                    <div class="select">
+                      <select x-model="view" @change="changeView()">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div class="control has-icon">
+                    <input
+                      x-model="searchInput"
+                      type="text"
+                      class="input"
+                      placeholder="Search..."
+                    />
+                    <div class="form-icon">
+                      <i class="iconify" data-icon="lucide:search"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <table class="inner-table">
+                <thead class="table-head">
+                  <th width="20%">
+                    <div class="head-cell">
+                      <span class="head-label"> Name</span>
+                      <div class="head-sort">
+                        <svg
+                          @click="sort('name', 'asc')"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="4"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          class="sort-icon"
+                          x-bind:class="{'text-primary': sorted.field === 'name' && sorted.rule === 'asc'}"
+                          ><path d="M5 15l7-7 7 7"></path>
+                        </svg>
+                        <svg
+                          @click="sort('name', 'desc')"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="4"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          class="sort-icon"
+                          x-bind:class="{'text-primary': sorted.field === 'name' && sorted.rule === 'desc'}"
+                          ><path d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </th>
+                  <th width="20%">
+                    <div class="head-cell">
+                      <span class="head-label"> Job</span>
+                      <div class="head-sort">
+                        <svg
+                          @click="sort('job', 'asc')"
+                          fill="none"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="4"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          class="sort-icon"
+                          x-bind:class="{'text-primary': sorted.field === 'job' && sorted.rule === 'asc'}"
+                          ><path d="M5 15l7-7 7 7"></path>
+                        </svg>
+                        <svg
+                          @click="sort('job', 'desc')"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="4"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          class="sort-icon"
+                          x-bind:class="{'text-primary': sorted.field === 'job' && sorted.rule === 'desc'}"
+                          ><path d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </th>
+                  <th width="30%">
+                    <div class="head-cell">
+                      <span class="head-label"> Email</span>
+                      <div class="head-sort">
+                        <svg
+                          @click="sort('email', 'asc')"
+                          fill="none"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="4"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          class="sort-icon"
+                          x-bind:class="{'text-primary': sorted.field === 'email' && sorted.rule === 'asc'}"
+                          ><path d="M5 15l7-7 7 7"></path>
+                        </svg>
+                        <svg
+                          @click="sort('email', 'desc')"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="4"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          class="sort-icon"
+                          x-bind:class="{'text-primary': sorted.field === 'email' && sorted.rule === 'desc'}"
+                          ><path d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </th>
+                  <th width="10%">
+                    <div class="head-cell">
+                      <span class="head-label"> Year</span>
+                      <div class="head-sort">
+                        <svg
+                          @click="sort('year', 'asc')"
+                          fill="none"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="4"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          class="sort-icon"
+                          x-bind:class="{'text-primary': sorted.field === 'year' && sorted.rule === 'asc'}"
+                          ><path d="M5 15l7-7 7 7"></path>
+                        </svg>
+                        <svg
+                          @click="sort('year', 'desc')"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="4"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          class="sort-icon"
+                          x-bind:class="{'text-primary': sorted.field === 'year' && sorted.rule === 'desc'}"
+                          ><path d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </th>
+                  <th width="15%">
+                    <div class="head-cell">
+                      <span class="head-label"> Country</span>
+                      <div class="head-sort">
+                        <svg
+                          @click="sort('country', 'asc')"
+                          fill="none"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="4"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          class="sort-icon"
+                          x-bind:class="{'text-primary': sorted.field === 'country' && sorted.rule === 'asc'}"
+                          ><path d="M5 15l7-7 7 7"></path>
+                        </svg>
+                        <svg
+                          @click="sort('country', 'desc')"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="4"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          class="sort-icon"
+                          x-bind:class="{'text-primary': sorted.field === 'country' && sorted.rule === 'desc'}"
+                          ><path d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                      </div>
+                    </div>
+                  </th>
+                </thead>
+                <tbody>
+                  <template x-for="(item, index) in items" :key="index">
+                    <tr x-show="checkView(index + 1)" class="table-row">
+                      <td>
+                        <div class="cell-flex-center">
+                          <template x-if="item.picture !== null">
+                            <div class="avatar is-xs">
+                              <img :src="item.picture" alt="user photo" />
+                            </div>
+                          </template>
+                          <template x-if="item.picture === null">
+                            <div class="avatar is-xs">
+                              <img
+                                src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"
+                                alt="placeholder"
+                              />
+                            </div>
+                          </template>
+
+                          <span
+                            class="table-text table-text-dark"
+                            x-text="item.name"></span>
+                        </div>
+                      </td>
+                      <td>
+                        <span
+                          class="table-text table-text-light"
+                          x-text="item.job"></span>
+                      </td>
+                      <td>
+                        <span
+                          class="table-text table-text-medium table-text-lowercase"
+                          x-text="item.email"></span>
+                      </td>
+                      <td>
+                        <span
+                          class="table-text table-text-light"
+                          x-text="item.year"></span>
+                      </td>
+                      <td>
+                        <span
+                          class="table-text table-text-light"
+                          x-text="item.country"></span>
+                      </td>
+                    </tr>
+                  </template>
+                  <tr x-show="isEmpty()">
+                    <td
+                      colspan="5"
+                      class="text-center py-3 text-gray-900 text-sm"
+                      >No matching records found.</td
+                    >
+                  </tr>
+                </tbody>
+              </table>
+              <div class="table-pagination">
+                <div class="table-pagination-group">
+                  <div class="table-pagination-link" @click.prevent="changePage(1)">
+                    <span>First</span>
+                  </div>
+                  <span class="px-2 table-pagination-link">·</span>
+                  <div
+                    class="table-pagination-link"
+                    @click.prevent="changePage(pagination.lastPage)"
+                  >
+                    <span>Last</span>
+                  </div>
+                </div>
+                <div class="table-pagination-group is-end">
+                  <button
+                    class="table-pagination-button"
+                    @click="changePage(currentPage - 1)"
+                  >
+                    <i class="iconify" data-icon="feather:chevron-left"></i>
+                  </button>
+                  <template x-for="item in pages">
+                    <button
+                      @click="changePage(item)"
+                      class="table-pagination-button"
+                      x-bind:class="{ 'is-active': currentPage === item }"
+                    >
+                      <span x-text="item"></span>
+                    </button>
+                  </template>
+                  <button
+                    class="table-pagination-button"
+                    @click="changePage(currentPage + 1)"
+                  >
+                    <i class="iconify" data-icon="feather:chevron-right"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

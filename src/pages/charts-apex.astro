@@ -1,0 +1,252 @@
+---
+import Layout from "../layouts/Default.astro";
+const title = 'Apex Charts'
+---
+
+<Layout title={title}>
+  <!-- Main dashboard container -->
+  <div
+    id="dashboard-wrapper"
+    class="dashboard-outer"
+    x-data="initApexCharts()"
+    :class="{
+  'is-pushed': $store.app.sidebarOpenedState,
+  '': !$store.app.sidebarOpenedState
+}"
+  >
+    <div class="dashboard-inner">
+      <!-- Dashboard Wrapper -->
+      <div class="dashboard-wrapper">
+        <div id="main-dashboard" class="section-wrapper">
+          <!-- Dashboard content -->
+          <div class="dashboard-columns">
+            <div class="columns is-multiline">
+              <!--Logo Card-->
+              <div class="column is-4">
+                <div class="widget logo-widget">
+                  <div class="lib-logo">
+                    <img
+                      class="light-image-block"
+                      src="/img/logo/stacks/apex.svg"
+                      alt=""
+                    />
+                    <img
+                      class="dark-image-block"
+                      src="/img/logo/stacks/apex-dark.svg"
+                      alt=""
+                    />
+                  </div>
+                  <div class="logo-card-content">
+                    <div class="lib-name">Apex Charts</div>
+                    <div class="subname">Javascript charting library</div>
+                  </div>
+                  <div class="filigrane"><i class="sl icon-pie-chart"></i></div>
+                </div>
+              </div>
+
+              <!--Apex Area Chart-->
+              <div class="column is-4">
+                <div class="flex-card p-4">
+                  <div class="card-head p-4 is-spaced">
+                    <h3>Area Chart</h3>
+                  </div>
+                  <div id="apexAreaChart"></div>
+                </div>
+              </div>
+
+              <!--Apex Line Chart-->
+              <div class="column is-4">
+                <div class="flex-card p-4">
+                  <div class="card-head p-4 is-spaced">
+                    <h3>Line Chart</h3>
+                  </div>
+                  <div id="apexLineChart"></div>
+                </div>
+              </div>
+
+              <!--Apex Single Line Chart-->
+              <div class="column is-4">
+                <div class="flex-card p-4">
+                  <div class="card-head p-4 is-spaced">
+                    <h3>Single Line</h3>
+                  </div>
+                  <div id="apexSingleLineChart"></div>
+                </div>
+              </div>
+
+              <!--Apex Step Line Chart-->
+              <div class="column is-4">
+                <div class="flex-card p-4">
+                  <div class="card-head p-4 is-spaced">
+                    <h3>Step Line</h3>
+                  </div>
+                  <div id="apexStepLineChart"></div>
+                </div>
+              </div>
+
+              <!--Apex Bar Chart-->
+              <div class="column is-4">
+                <div class="flex-card p-4">
+                  <div class="card-head p-4 is-spaced">
+                    <h3>Bar Chart</h3>
+                  </div>
+                  <div id="apexBarChart"></div>
+                </div>
+              </div>
+
+              <!--Apex Multiple Bar Chart-->
+              <div class="column is-4">
+                <div class="flex-card p-4">
+                  <div class="card-head p-4 is-spaced">
+                    <h3>Multiple Bars</h3>
+                  </div>
+                  <div id="apexBarMultipleChart"></div>
+                </div>
+              </div>
+
+              <!--Apex Stacked Bar Chart-->
+              <div class="column is-4">
+                <div class="flex-card p-4">
+                  <div class="card-head p-4 is-spaced">
+                    <h3>Stacked Bars</h3>
+                  </div>
+                  <div id="apexBarStackedChart"></div>
+                </div>
+              </div>
+
+              <!--Apex Column Bar Chart-->
+              <div class="column is-4">
+                <div class="flex-card p-4">
+                  <div class="card-head p-4 is-spaced">
+                    <h3>Range Columns</h3>
+                  </div>
+                  <div id="apexBarColumnChart"></div>
+                </div>
+              </div>
+
+              <!--Apex Horizontal Bar Chart-->
+              <div class="column is-4">
+                <div class="flex-card p-4">
+                  <div class="card-head p-4 is-spaced">
+                    <h3>Horizontal Bar</h3>
+                  </div>
+                  <div id="apexBarHorizontalChart"></div>
+                </div>
+              </div>
+
+              <!--Apex Horizontal Multiple Bar Chart-->
+              <div class="column is-4">
+                <div class="flex-card p-4">
+                  <div class="card-head p-4 is-spaced">
+                    <h3>Horizontal Multiple</h3>
+                  </div>
+                  <div id="apexBarHorizontalMultipleChart"></div>
+                </div>
+              </div>
+
+              <!--Apex Timeline Chart-->
+              <div class="column is-4">
+                <div class="flex-card p-4">
+                  <div class="card-head p-4 is-spaced">
+                    <h3>Timeline Chart</h3>
+                  </div>
+                  <div id="apexTimelineChart"></div>
+                </div>
+              </div>
+
+              <!--Apex Bubble Chart-->
+              <div class="column is-4">
+                <div class="flex-card p-4">
+                  <div class="card-head p-4 is-spaced">
+                    <h3>Bubble Chart</h3>
+                  </div>
+                  <div id="apexBubbleChart"></div>
+                </div>
+              </div>
+
+              <!--Apex Scatter Chart-->
+              <div class="column is-4">
+                <div class="flex-card p-4">
+                  <div class="card-head p-4 is-spaced">
+                    <h3>Scatter Chart</h3>
+                  </div>
+                  <div id="apexScatterChart"></div>
+                </div>
+              </div>
+
+              <!--Apex Pie Chart-->
+              <div class="column is-4">
+                <div class="flex-card p-4">
+                  <div class="card-head p-4 is-spaced">
+                    <h3>Pie Chart</h3>
+                  </div>
+                  <div id="apexPieChart"></div>
+                </div>
+              </div>
+
+              <!--Apex Donut Chart-->
+              <div class="column is-4">
+                <div class="flex-card p-4">
+                  <div class="card-head p-4 is-spaced">
+                    <h3>Donut Chart</h3>
+                  </div>
+                  <div id="apexDonutChart"></div>
+                </div>
+              </div>
+
+              <!--Apex Radial Chart-->
+              <div class="column is-4">
+                <div class="flex-card p-4">
+                  <div class="card-head p-4 is-spaced">
+                    <h3>Radial Chart</h3>
+                  </div>
+                  <div id="apexRadialChart"></div>
+                </div>
+              </div>
+
+              <!--Apex Radial Multiple-->
+              <div class="column is-4">
+                <div class="flex-card p-4">
+                  <div class="card-head p-4 is-spaced">
+                    <h3>Radial Multiple</h3>
+                  </div>
+                  <div id="apexRadialMultipleChart"></div>
+                </div>
+              </div>
+
+              <!--Apex Radial Gauge-->
+              <div class="column is-4">
+                <div class="flex-card p-4">
+                  <div class="card-head p-4 is-spaced">
+                    <h3>Radial Gauge</h3>
+                  </div>
+                  <div id="apexRadialGaugeChart"></div>
+                </div>
+              </div>
+
+              <!--Apex Radar-->
+              <div class="column is-4">
+                <div class="flex-card p-4">
+                  <div class="card-head p-4 is-spaced">
+                    <h3>Radar Chart</h3>
+                  </div>
+                  <div id="apexRadarChart"></div>
+                </div>
+              </div>
+
+              <!--Apex Gauge-->
+              <div class="column is-4">
+                <div class="flex-card p-4">
+                  <div class="card-head p-4 is-spaced">
+                    <h3>Gauge Chart</h3>
+                  </div>
+                  <div id="apexGaugeChart"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

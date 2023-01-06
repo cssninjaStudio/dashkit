@@ -1,0 +1,140 @@
+---
+import ChatNavigation from './chat-navigation/ChatNavigation.astro'
+import ConversationsList from './chat-sidebar/ConversationsList.astro'
+import AlexConversation from './chat-body/AlexConversation.astro'
+import AnthonyConversation from './chat-body/AnthonyConversation.astro'
+import DanConversation from './chat-body/DanConversation.astro'
+import ElieConversation from './chat-body/ElieConversation.astro'
+import LakishaConversation from './chat-body/LakishaConversation.astro'
+import NickConversation from './chat-body/NickConversation.astro'
+import RayConversation from './chat-body/RayConversation.astro'
+import SallyConversation from './chat-body/SallyConversation.astro'
+import ComposeDropdown from './chat-dropdowns/ComposeDropdown.astro'
+import AlexDetailsPanel from './chat-panel/AlexDetailsPanel.astro'
+import AnthonyDetailsPanel from './chat-panel/AnthonyDetailsPanel.astro'
+import DanDetailsPanel from './chat-panel/DanDetailsPanel.astro'
+import ElieDetailsPanel from './chat-panel/ElieDetailsPanel.astro'
+import LakishaDetailsPanel from './chat-panel/LakishaDetailsPanel.astro'
+import NickDetailsPanel from './chat-panel/NickDetailsPanel.astro'
+import RayDetailsPanel from './chat-panel/RayDetailsPanel.astro'
+import SallyDetailsPanel from './chat-panel/SallyDetailsPanel.astro'
+import AddConversationModal from './chat-modals/AddConversationModal.astro'
+---
+
+<div class="chat-wrapper" x-data="initChat()">
+  <div class="chat-inner">
+    <!-- Chat top navigation -->
+    <ChatNavigation />
+
+    <!-- Chat sidebar -->
+    <div id="chat-sidebar" class="users-sidebar">
+      <!-- Header -->
+      <a href="/" class="header-item">
+        <img
+          class="light-image-block"
+          src="/img/logo/square-violet.svg"
+          alt=""
+        />
+        <img class="dark-image-block" src="/img/logo/square-green.svg" alt="" />
+      </a>
+      <!-- User list -->
+      <div class="conversations-list has-slimscroll-xs">
+        <ConversationsList />
+      </div>
+      <!-- Add Conversation -->
+      <div class="footer-item">
+        <div @click="toggleConversationModal()" class="add-button">
+          <i class="material-icons">add</i>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat body -->
+    <div
+      id="chat-body"
+      class="chat-body"
+      :class="{
+          'is-opened': chatBodyOpened,
+          '': !chatBodyOpened
+      }"
+    >
+      <!-- Conversation with Dan -->
+      <DanConversation />
+
+      <!-- Conversation with Elie -->
+      <ElieConversation />
+
+      <!-- Conversation with Lakisha -->
+      <LakishaConversation />
+
+      <!-- Conversation with Anthony -->
+      <AnthonyConversation />
+
+      <!-- Conversation with Alex -->
+      <AlexConversation />
+
+      <!-- Conversation with Ray -->
+      <RayConversation />
+
+      <!-- Conversation with Nick -->
+      <NickConversation />
+
+      <!-- Conversation with Sally -->
+      <SallyConversation />
+
+      <!-- Compose message area -->
+      <div class="chat-action">
+        <div class="chat-action-inner">
+          <div class="control">
+            <textarea class="textarea comment-textarea" rows="1"></textarea>
+            <ComposeDropdown />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="chat-panel"
+      class="chat-panel"
+      :class="{
+                'is-opened': chatBodyOpened,
+                '': !chatBodyOpened
+            }"
+    >
+      <div class="panel-inner">
+        <div class="panel-header">
+          <h3>Details</h3>
+          <div @click="closeChatPanel()" class="panel-close">
+            <i class="material-icons">close</i>
+          </div>
+        </div>
+
+        <!-- Dan details -->
+        <DanDetailsPanel />
+
+        <!-- Lakisha details -->
+        <LakishaDetailsPanel />
+
+        <!-- Elie details -->
+        <ElieDetailsPanel />
+
+        <!-- Anthony details -->
+        <AnthonyDetailsPanel />
+
+        <!-- Alex details -->
+        <AlexDetailsPanel />
+
+        <!-- Ray details -->
+        <RayDetailsPanel />
+
+        <!-- Nick details -->
+        <NickDetailsPanel />
+
+        <!-- Sally details -->
+        <SallyDetailsPanel />
+      </div>
+    </div>
+  </div>
+
+  <AddConversationModal />
+</div>
