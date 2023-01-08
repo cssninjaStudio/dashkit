@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.0.0](https://github.com/cssninjaStudio/dashkit/compare/v5.0.1...v6.0.0) (2023-01-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* migrate from gulp to astro
+
+### Features
+
+* migrate from gulp to astro ([ff89f88](https://github.com/cssninjaStudio/dashkit/commit/ff89f887ea02d029c9c4dd13b76659bb392cf69c))
+
 ### [5.0.1](https://github.com/cssninjaStudio/dashkit/compare/v5.0.0...v5.0.1) (2022-11-27)
 
 ## [5.0.0](https://github.com/cssninjaStudio/dashkit/compare/v4.2.0...v5.0.0) (2022-10-24)
