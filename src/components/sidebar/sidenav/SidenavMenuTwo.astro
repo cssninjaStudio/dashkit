@@ -15,14 +15,14 @@
         '': !$store.app.activeSidebarMenu != 'documents-menu-1'
     }"
   >
-    <a class="parent-link" href="javascript:">
+    <a class="parent-link" href="javascript:;">
       <span class="material-icons">insert_drive_file</span>
       Documents
     </a>
     <ul x-show="$store.app.activeSidebarMenu == 'documents-menu-1'" x-collapse>
-      <li><a href="document-list">Document list</a></li>
-      <li><a href="document-details">Document details</a></li>
-      <li><a href="document-invoice">Invoice</a></li>
+      <li><a href="/document-list">Document list</a></li>
+      <li><a href="/document-details">Document details</a></li>
+      <li><a href="/document-invoice">Invoice</a></li>
     </ul>
   </li>
   <li
@@ -33,13 +33,13 @@
         '': !$store.app.activeSidebarMenu != 'documents-menu-2'
     }"
   >
-    <a class="parent-link" href="javascript:">
+    <a class="parent-link" href="javascript:;">
       <span class="material-icons">assignment</span>
       Projects
     </a>
     <ul x-show="$store.app.activeSidebarMenu == 'documents-menu-2'" x-collapse>
-      <li><a href="projects-list">Project list</a></li>
-      <li><a href="projects-details">Project details</a></li>
+      <li><a href="/projects-list">Project list</a></li>
+      <li><a href="/projects-details">Project details</a></li>
     </ul>
   </li>
   <li
@@ -50,14 +50,14 @@
         '': !$store.app.activeSidebarMenu != 'documents-menu-3'
     }"
   >
-    <a class="parent-link" href="javascript:">
+    <a class="parent-link" href="javascript:;">
       <span class="material-icons">assignment_turned_in</span>
       Tasks
     </a>
     <ul x-show="$store.app.activeSidebarMenu == 'documents-menu-3'" x-collapse>
-      <li><a href="projects-task">Single Task</a></li>
-      <li><a href="projects-mytasks">My Tasks</a></li>
-      <li><a href="events-board">Events</a></li>
+      <li><a href="/projects-task">Single Task</a></li>
+      <li><a href="/projects-mytasks">My Tasks</a></li>
+      <li><a href="/events-board">Events</a></li>
     </ul>
   </li>
 </ul>

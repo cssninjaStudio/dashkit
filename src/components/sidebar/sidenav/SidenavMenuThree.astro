@@ -15,14 +15,14 @@
         '': !$store.app.activeSidebarMenu != 'business-menu-1'
     }"
   >
-    <a class="parent-link" href="javascript:">
+    <a class="parent-link" href="javascript:;">
       <span class="material-icons">group</span>
       Contacts
     </a>
     <ul x-show="$store.app.activeSidebarMenu == 'business-menu-1'" x-collapse>
-      <li><a href="contacts-list">Contact list</a></li>
-      <li><a href="contacts-grid">Contact grid</a></li>
-      <li><a href="contacts-single">Contact details</a></li>
+      <li><a href="/contacts-list">Contact list</a></li>
+      <li><a href="/contacts-grid">Contact grid</a></li>
+      <li><a href="/contacts-single">Contact details</a></li>
     </ul>
   </li>
   <li
@@ -33,14 +33,14 @@
         '': !$store.app.activeSidebarMenu != 'business-menu-2'
     }"
   >
-    <a class="parent-link" href="javascript:">
+    <a class="parent-link" href="javascript:;">
       <span class="material-icons">work</span>
       CRM
     </a>
     <ul x-show="$store.app.activeSidebarMenu == 'business-menu-2'" x-collapse>
-      <li><a href="crm-boards">All Boards</a></li>
-      <li><a href="crm-kanban">Deals Kanban</a></li>
-      <li><a href="crm-deal">Single Deal</a></li>
+      <li><a href="/crm-boards">All Boards</a></li>
+      <li><a href="/crm-kanban">Deals Kanban</a></li>
+      <li><a href="/crm-deal">Single Deal</a></li>
     </ul>
   </li>
   <li
@@ -51,14 +51,14 @@
         '': !$store.app.activeSidebarMenu != 'business-menu-3'
     }"
   >
-    <a class="parent-link" href="javascript:">
+    <a class="parent-link" href="javascript:;">
       <span class="material-icons">verified_user</span>
       Support Desk
     </a>
     <ul x-show="$store.app.activeSidebarMenu == 'business-menu-3'" x-collapse>
-      <li><a href="support-dashboard">Desk Dashboard</a></li>
-      <li><a href="support-tickets">Ticket list</a></li>
-      <li><a href="support-ticket">Single Ticket</a></li>
+      <li><a href="/support-dashboard">Desk Dashboard</a></li>
+      <li><a href="/support-tickets">Ticket list</a></li>
+      <li><a href="/support-ticket">Single Ticket</a></li>
     </ul>
   </li>
 </ul>
