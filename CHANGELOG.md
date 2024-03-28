@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.1.1](https://github.com/cssninjaStudio/dashkit/compare/v6.1.0...v6.1.1) (2023-04-27)
+
+## [6.1.0](https://github.com/cssninjaStudio/dashkit/compare/v6.0.0...v6.1.0) (2023-02-10)
+
+
+### Features
+
+* upgrade to Astro v2 ([2b0251a](https://github.com/cssninjaStudio/dashkit/commit/2b0251a3c369c1293fb16c4d905ad43697370708))
+
 ## [6.0.0](https://github.com/cssninjaStudio/dashkit/compare/v5.0.1...v6.0.0) (2023-01-06)
 
 
