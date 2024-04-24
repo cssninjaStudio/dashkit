@@ -3,47 +3,32 @@
   @click.self="switchMessage($event)"
   class="inbox-message is-unread"
   data-message="message-2"
-  :class="{
+  :class=`{
         'is-selected': activeMessage === 'message-2',
         '': activeMessage != 'message-2'
-    }"
+    }`
 >
   <div class="message-checkbox">
     <div class="b-checkbox is-muted is-secondary">
-      <input
-        id="checkbox-mail-1"
-        class="styled styled-checkbox"
-        type="checkbox"
-      />
+      <input id="checkbox-mail-1" class="styled styled-checkbox" type="checkbox" />
       <label for="checkbox-mail-1"></label>
     </div>
   </div>
   <div class="message-meta">
     <span class="name">Elie Daniels</span>
     <span class="email">&lt;eliedaniels@Dashkit.io&gt;</span>
-    <span class="subject"
-      ><b>I couldn't catch up on last time's dinner</b>
-    </span>
+    <span class="subject"><b>I couldn't catch up on last time's dinner</b> </span>
   </div>
   <div class="pushed">Mar 03</div>
 </div>
 <!--Message-->
-<div
-  @click.self="switchMessage($event)"
-  class="inbox-message"
-  data-message="message-1"
-  :class="{
+<div @click.self="switchMessage($event)" class="inbox-message" data-message="message-1" :class=`{
         'is-selected': activeMessage === 'message-1',
         '': activeMessage != 'message-1'
-    }"
->
+    }`>
   <div class="message-checkbox">
     <div class="b-checkbox is-muted is-secondary">
-      <input
-        id="checkbox-mail-2"
-        class="styled styled-checkbox"
-        type="checkbox"
-      />
+      <input id="checkbox-mail-2" class="styled styled-checkbox" type="checkbox" />
       <label for="checkbox-mail-2"></label>
     </div>
   </div>
@@ -55,22 +40,13 @@
   <div class="pushed">Mar 01</div>
 </div>
 <!--Message-->
-<div
-  @click.self="switchMessage($event)"
-  class="inbox-message"
-  data-message="message-3"
-  :class="{
+<div @click.self="switchMessage($event)" class="inbox-message" data-message="message-3" :class=`{
         'is-selected': activeMessage === 'message-3',
         '': activeMessage != 'message-3'
-    }"
->
+    }`>
   <div class="message-checkbox">
     <div class="b-checkbox is-muted is-secondary">
-      <input
-        id="checkbox-mail-3"
-        class="styled styled-checkbox"
-        type="checkbox"
-      />
+      <input id="checkbox-mail-3" class="styled styled-checkbox" type="checkbox" />
       <label for="checkbox-mail-3"></label>
     </div>
   </div>
@@ -82,22 +58,13 @@
   <div class="pushed">Feb 26</div>
 </div>
 <!--Message-->
-<div
-  @click.self="switchMessage($event)"
-  class="inbox-message"
-  data-message="message-4"
-  :class="{
+<div @click.self="switchMessage($event)" class="inbox-message" data-message="message-4" :class=`{
         'is-selected': activeMessage === 'message-4',
         '': activeMessage != 'message-4'
-    }"
->
+    }`>
   <div class="message-checkbox">
     <div class="b-checkbox is-muted is-secondary">
-      <input
-        id="checkbox-mail-4"
-        class="styled styled-checkbox"
-        type="checkbox"
-      />
+      <input id="checkbox-mail-4" class="styled styled-checkbox" type="checkbox" />
       <label for="checkbox-mail-4"></label>
     </div>
   </div>
@@ -109,51 +76,31 @@
   <div class="pushed">Feb 24</div>
 </div>
 <!--Message-->
-<div
-  @click.self="switchMessage($event)"
-  class="inbox-message"
-  data-message="message-5"
-  :class="{
+<div @click.self="switchMessage($event)" class="inbox-message" data-message="message-5" :class=`{
         'is-selected': activeMessage === 'message-5',
         '': activeMessage != 'message-5'
-    }"
->
+    }`>
   <div class="message-checkbox">
     <div class="b-checkbox is-muted is-secondary">
-      <input
-        id="checkbox-mail-5"
-        class="styled styled-checkbox"
-        type="checkbox"
-      />
+      <input id="checkbox-mail-5" class="styled styled-checkbox" type="checkbox" />
       <label for="checkbox-mail-5"></label>
     </div>
   </div>
   <div class="message-meta">
     <span class="name">Elie Daniels</span>
     <span class="email">&lt;eliedaniels@Dashkit.io&gt;</span>
-    <span class="subject"
-      >I got some new delightful stuff that you absolutely must see</span
-    >
+    <span class="subject">I got some new delightful stuff that you absolutely must see</span>
   </div>
   <div class="pushed">Feb 23</div>
 </div>
 <!--Message-->
-<div
-  @click.self="switchMessage($event)"
-  class="inbox-message"
-  data-message="message-6"
-  :class="{
+<div @click.self="switchMessage($event)" class="inbox-message" data-message="message-6" :class=`{
         'is-selected': activeMessage === 'message-6',
         '': activeMessage != 'message-6'
-    }"
->
+    }`>
   <div class="message-checkbox">
     <div class="b-checkbox is-muted is-secondary">
-      <input
-        id="checkbox-mail-6"
-        class="styled styled-checkbox"
-        type="checkbox"
-      />
+      <input id="checkbox-mail-6" class="styled styled-checkbox" type="checkbox" />
       <label for="checkbox-mail-6"></label>
     </div>
   </div>
@@ -165,22 +112,13 @@
   <div class="pushed">Feb 21</div>
 </div>
 <!--Message-->
-<div
-  @click.self="switchMessage($event)"
-  class="inbox-message"
-  data-message="message-7"
-  :class="{
+<div @click.self="switchMessage($event)" class="inbox-message" data-message="message-7" :class=`{
         'is-selected': activeMessage === 'message-7',
         '': activeMessage != 'message-7'
-    }"
->
+    }`>
   <div class="message-checkbox">
     <div class="b-checkbox is-muted is-secondary">
-      <input
-        id="checkbox-mail-7"
-        class="styled styled-checkbox"
-        type="checkbox"
-      />
+      <input id="checkbox-mail-7" class="styled styled-checkbox" type="checkbox" />
       <label for="checkbox-mail-7"></label>
     </div>
   </div>
@@ -192,22 +130,13 @@
   <div class="pushed">Feb 19</div>
 </div>
 <!--Message-->
-<div
-  @click.self="switchMessage($event)"
-  class="inbox-message"
-  data-message="message-8"
-  :class="{
+<div @click.self="switchMessage($event)" class="inbox-message" data-message="message-8" :class=`{
         'is-selected': activeMessage === 'message-8',
         '': activeMessage != 'message-8'
-    }"
->
+    }`>
   <div class="message-checkbox">
     <div class="b-checkbox is-muted is-secondary">
-      <input
-        id="checkbox-mail-8"
-        class="styled styled-checkbox"
-        type="checkbox"
-      />
+      <input id="checkbox-mail-8" class="styled styled-checkbox" type="checkbox" />
       <label for="checkbox-mail-8"></label>
     </div>
   </div>
@@ -219,22 +148,13 @@
   <div class="pushed">Feb 18</div>
 </div>
 <!--Message-->
-<div
-  @click.self="switchMessage($event)"
-  class="inbox-message"
-  data-message="message-9"
-  :class="{
+<div @click.self="switchMessage($event)" class="inbox-message" data-message="message-9" :class=`{
         'is-selected': activeMessage === 'message-9',
         '': activeMessage != 'message-9'
-    }"
->
+    }`>
   <div class="message-checkbox">
     <div class="b-checkbox is-muted is-secondary">
-      <input
-        id="checkbox-mail-9"
-        class="styled styled-checkbox"
-        type="checkbox"
-      />
+      <input id="checkbox-mail-9" class="styled styled-checkbox" type="checkbox" />
       <label for="checkbox-mail-9"></label>
     </div>
   </div>
@@ -246,22 +166,13 @@
   <div class="pushed">Feb 18</div>
 </div>
 <!--Message-->
-<div
-  @click.self="switchMessage($event)"
-  class="inbox-message"
-  data-message="message-10"
-  :class="{
+<div @click.self="switchMessage($event)" class="inbox-message" data-message="message-10" :class=`{
         'is-selected': activeMessage === 'message-10',
         '': activeMessage != 'message-10'
-    }"
->
+    }`>
   <div class="message-checkbox">
     <div class="b-checkbox is-muted is-secondary">
-      <input
-        id="checkbox-mail-10"
-        class="styled styled-checkbox"
-        type="checkbox"
-      />
+      <input id="checkbox-mail-10" class="styled styled-checkbox" type="checkbox" />
       <label for="checkbox-mail-10"></label>
     </div>
   </div>

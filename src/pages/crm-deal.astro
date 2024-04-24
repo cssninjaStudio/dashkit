@@ -1,5 +1,5 @@
 ---
-import Layout from "../layouts/Default.astro";
+import Layout from '../layouts/Default.astro'
 const title = 'Deal Details'
 ---
 
@@ -10,10 +10,10 @@ const title = 'Deal Details'
     class="dashboard-outer"
     x-data="initCrmDeal()"
     x-init="initDatePicker()"
-    :class="{
+    :class=`{
         'is-pushed': $store.app.sidebarOpenedState,
         '': !$store.app.sidebarOpenedState
-    }"
+    }`
   >
     <div class="dashboard-inner">
       <!-- Dashboard Wrapper -->
@@ -23,11 +23,7 @@ const title = 'Deal Details'
           <div class="dashboard-columns">
             <!-- Page title -->
             <div class="deal-title-wrapper is-mobile">
-              <img
-                class="deal-image"
-                src="/img/logo/companies/airbnb.svg"
-                alt=""
-              />
+              <img class="deal-image" src="/img/logo/companies/airbnb.svg" alt="" />
               <div class="inner-wrap">
                 <h3 class="deal-title">Airbnb Deal</h3>
                 <div class="title-meta">
@@ -43,12 +39,7 @@ const title = 'Deal Details'
               </div>
               <!-- Filter input -->
               <div class="actions">
-                <a
-                  class="button is-secondary is-raised ripple ripple-light"
-                  data-ripple-color=""
-                >
-                  Won
-                </a>
+                <a class="button is-secondary is-raised ripple ripple-light" data-ripple-color=""> Won </a>
 
                 <a class="button ripple" data-ripple-color=""> Lost</a>
               </div>
@@ -56,9 +47,7 @@ const title = 'Deal Details'
             <!-- Stage -->
             <div class="stage-wrapper">
               <div class="stage-inner">
-                <progress class="progress is-small" value="35" max="100">
-                  35%
-                </progress>
+                <progress class="progress is-small" value="35" max="100"> 35% </progress>
               </div>
               <div class="stages">
                 <div class="stage is-done">
@@ -92,21 +81,11 @@ const title = 'Deal Details'
                   <span>Deal owner</span>
                 </div>
                 <!-- Menu -->
-                <div
-                  x-ref="dealdrop1"
-                  @click.away="$refs.dealdrop1.classList.remove('is-active')"
-                  class="dropdown is-right dropdown-trigger styled-dropdown is-round"
-                >
-                  <div
-                    @click="$refs.dealdrop1.classList.add('is-active')"
-                    class="button"
-                  >
+                <div x-ref="dealdrop1" @click.away="$refs.dealdrop1.classList.remove('is-active')" class="dropdown is-right dropdown-trigger styled-dropdown is-round">
+                  <div @click="$refs.dealdrop1.classList.add('is-active')" class="button">
                     <i class="material-icons">keyboard_arrow_down</i>
                   </div>
-                  <div
-                    class="dropdown-menu is-text-bigger has-text-left"
-                    role="menu"
-                  >
+                  <div class="dropdown-menu is-text-bigger has-text-left" role="menu">
                     <div class="dropdown-content">
                       <a class="dropdown-item">
                         <i class="sl icon-people"></i>
@@ -153,25 +132,20 @@ const title = 'Deal Details'
                     <div
                       class="deal-card-header is-toggle"
                       @click="detailsPanelOpened = !detailsPanelOpened"
-                      :class="{
-                                            'is-active': detailsPanelOpened,
-                                            '': !detailsPanelOpened,
-                                        }"
+                      :class=`{
+                          'is-active': detailsPanelOpened,
+                          '': !detailsPanelOpened,
+                      }`
                     >
                       <h3>Details</h3>
                       <div class="toggle-icon">
                         <i class="material-icons">keyboard_arrow_right</i>
                       </div>
                     </div>
-                    <div
-                      x-show="detailsPanelOpened"
-                      class="deal-card-content"
-                      x-collapse
-                    >
+                    <div x-show="detailsPanelOpened" class="deal-card-content" x-collapse>
                       <div class="details-placeholder">
                         <span>What do you know about this deal?</span>
-                        <a><i class="material-icons">add</i> Add more details</a
-                        >
+                        <a><i class="material-icons">add</i> Add more details</a>
                       </div>
                     </div>
                   </div>
@@ -180,21 +154,17 @@ const title = 'Deal Details'
                     <div
                       class="deal-card-header is-toggle"
                       @click="contactPanelOpened = !contactPanelOpened"
-                      :class="{
-                                            'is-active': contactPanelOpened,
-                                            '': !contactPanelOpened,
-                                        }"
+                      :class=`{
+                          'is-active': contactPanelOpened,
+                          '': !contactPanelOpened,
+                      }`
                     >
                       <h3>Contact</h3>
                       <div class="toggle-icon">
                         <i class="material-icons">keyboard_arrow_right</i>
                       </div>
                     </div>
-                    <div
-                      x-show="contactPanelOpened"
-                      class="deal-card-content"
-                      x-collapse
-                    >
+                    <div x-show="contactPanelOpened" class="deal-card-content" x-collapse>
                       <!-- Deal contact -->
                       <div class="deal-contact">
                         <img src="/img/avatars/ray.jpg" alt="" />
@@ -250,21 +220,17 @@ const title = 'Deal Details'
                     <div
                       class="deal-card-header is-toggle"
                       @click="organisationPanelOpened = !organisationPanelOpened"
-                      :class="{
-                                            'is-active': organisationPanelOpened,
-                                            '': !organisationPanelOpened,
-                                        }"
+                      :class=`{
+                          'is-active': organisationPanelOpened,
+                          '': !organisationPanelOpened,
+                      }`
                     >
                       <h3>Organization</h3>
                       <div class="toggle-icon">
                         <i class="material-icons">keyboard_arrow_right</i>
                       </div>
                     </div>
-                    <div
-                      x-show="organisationPanelOpened"
-                      class="deal-card-content"
-                      x-collapse
-                    >
+                    <div x-show="organisationPanelOpened" class="deal-card-content" x-collapse>
                       <!-- Deal contact -->
                       <div class="deal-contact">
                         <img src="/img/logo/companies/airbnb.svg" alt="" />
@@ -327,10 +293,10 @@ const title = 'Deal Details'
                       <div
                         class="action"
                         @click="toggleActionTabs('note-tab')"
-                        :class="{
-                                                'is-active': activeActionTab === 'note-tab',
-                                                '': activeActionTab !== 'note-tab',
-                                            }"
+                        :class=`{
+                            'is-active': activeActionTab === 'note-tab',
+                            '': activeActionTab !== 'note-tab',
+                        }`
                       >
                         <i class="sl icon-doc"></i>
                         <span>Write a note</span>
@@ -341,10 +307,10 @@ const title = 'Deal Details'
                         class="action"
                         class="action"
                         @click="toggleActionTabs('event-tab')"
-                        :class="{
-                                                'is-active': activeActionTab === 'event-tab',
-                                                '': activeActionTab !== 'event-tab',
-                                            }"
+                        :class=`{
+                            'is-active': activeActionTab === 'event-tab',
+                            '': activeActionTab !== 'event-tab',
+                        }`
                       >
                         <i class="sl icon-clock"></i>
                         <span>Schedule event</span>
@@ -355,10 +321,10 @@ const title = 'Deal Details'
                         class="action"
                         class="action"
                         @click="toggleActionTabs('file-tab')"
-                        :class="{
-                                                'is-active': activeActionTab === 'file-tab',
-                                                '': activeActionTab !== 'file-tab',
-                                            }"
+                        :class=`{
+                            'is-active': activeActionTab === 'file-tab',
+                            '': activeActionTab !== 'file-tab',
+                        }`
                       >
                         <i class="sl icon-paper-clip"></i>
                         <span>Upload files</span>
@@ -368,23 +334,13 @@ const title = 'Deal Details'
                     <!-- Body -->
                     <div class="action-card-body">
                       <!-- Write note -->
-                      <div
-                        x-show.transition="activeActionTab === 'note-tab'"
-                        class="action-wrap"
-                      >
+                      <div x-show.transition="activeActionTab === 'note-tab'" class="action-wrap">
                         <div class="control">
-                          <textarea
-                            class="textarea"
-                            rows="1"
-                            placeholder="Click here to write a Note ..."
-                          ></textarea>
+                          <textarea class="textarea" rows="1" placeholder="Click here to write a Note ..."></textarea>
                         </div>
                       </div>
                       <!-- Schedule event -->
-                      <div
-                        x-show.transition="activeActionTab === 'event-tab'"
-                        class="action-wrap"
-                      >
+                      <div x-show.transition="activeActionTab === 'event-tab'" class="action-wrap">
                         <!-- Form -->
                         <form class="event-form">
                           <h3 class="action-title">New Event</h3>
@@ -397,115 +353,73 @@ const title = 'Deal Details'
                                   @click="openEventCombo()"
                                   @click.away="closeEventCombo()"
                                   class="combo-box"
-                                  :class="{
-                                                                    'is-active': eventComboOpened,
-                                                                    '': !eventComboOpened,
-                                                                }"
+                                  :class=`{
+                                      'is-active': eventComboOpened,
+                                      '': !eventComboOpened,
+                                  }`
                                 >
                                   <div class="box-inner">
                                     <div class="combo-item">
                                       <i :class="eventComboIcon"></i>
-                                      <span
-                                        x-text="eventComboText"
-                                        class="selected-item"
-                                        >Conference Call</span
-                                      >
+                                      <span x-text="eventComboText" class="selected-item">Conference Call</span>
                                     </div>
                                   </div>
                                   <div class="box-chevron">
-                                    <i class="material-icons"
-                                      >keyboard_arrow_down</i
-                                    >
+                                    <i class="material-icons">keyboard_arrow_down</i>
                                   </div>
                                   <div class="box-dropdown">
                                     <div class="dropdown-inner has-slimscroll">
                                       <ul>
-                                        <li
-                                          @click="updateEventCombo($event)"
-                                          data-icon="im icon-Phone-2"
-                                          data-text="Phone Call"
-                                        >
+                                        <li @click="updateEventCombo($event)" data-icon="im icon-Phone-2" data-text="Phone Call">
                                           <span class="item-icon">
                                             <i class="im icon-Phone-2"></i>
                                           </span>
-                                          <span class="item-name"
-                                            >Phone Call</span
-                                          >
+                                          <span class="item-name">Phone Call</span>
                                           <span class="checkmark">
                                             <i class="material-icons">done</i>
                                           </span>
                                         </li>
-                                        <li
-                                          @click="updateEventCombo($event)"
-                                          data-icon="im icon-Conference"
-                                          data-text="Conference Call"
-                                        >
+                                        <li @click="updateEventCombo($event)" data-icon="im icon-Conference" data-text="Conference Call">
                                           <span class="item-icon">
                                             <i class="im icon-Conference"></i>
                                           </span>
-                                          <span class="item-name"
-                                            >Conference Call</span
-                                          >
+                                          <span class="item-name">Conference Call</span>
                                           <span class="checkmark">
                                             <i class="material-icons">done</i>
                                           </span>
                                         </li>
-                                        <li
-                                          @click="updateEventCombo($event)"
-                                          data-icon="im icon-Cinema"
-                                          data-text="Business Conference"
-                                        >
+                                        <li @click="updateEventCombo($event)" data-icon="im icon-Cinema" data-text="Business Conference">
                                           <span class="item-icon">
                                             <i class="im icon-Cinema"></i>
                                           </span>
-                                          <span class="item-name"
-                                            >Business Conference</span
-                                          >
+                                          <span class="item-name">Business Conference</span>
                                           <span class="checkmark">
                                             <i class="material-icons">done</i>
                                           </span>
                                         </li>
-                                        <li
-                                          @click="updateEventCombo($event)"
-                                          data-icon="im icon-Pipette"
-                                          data-text="Test Session"
-                                        >
+                                        <li @click="updateEventCombo($event)" data-icon="im icon-Pipette" data-text="Test Session">
                                           <span class="item-icon">
                                             <i class="im icon-Pipette"></i>
                                           </span>
-                                          <span class="item-name"
-                                            >Test Session</span
-                                          >
+                                          <span class="item-name">Test Session</span>
                                           <span class="checkmark">
                                             <i class="material-icons">done</i>
                                           </span>
                                         </li>
-                                        <li
-                                          @click="updateEventCombo($event)"
-                                          data-icon="im icon-Note"
-                                          data-text="Project Review"
-                                        >
+                                        <li @click="updateEventCombo($event)" data-icon="im icon-Note" data-text="Project Review">
                                           <span class="item-icon">
                                             <i class="im icon-Note"></i>
                                           </span>
-                                          <span class="item-name"
-                                            >Project Review</span
-                                          >
+                                          <span class="item-name">Project Review</span>
                                           <span class="checkmark">
                                             <i class="material-icons">done</i>
                                           </span>
                                         </li>
-                                        <li
-                                          @click="updateEventCombo($event)"
-                                          data-icon="im icon-Professor"
-                                          data-text="Interview"
-                                        >
+                                        <li @click="updateEventCombo($event)" data-icon="im icon-Professor" data-text="Interview">
                                           <span class="item-icon">
                                             <i class="im icon-Professor"></i>
                                           </span>
-                                          <span class="item-name"
-                                            >Interview</span
-                                          >
+                                          <span class="item-name">Interview</span>
                                           <span class="checkmark">
                                             <i class="material-icons">done</i>
                                           </span>
@@ -517,15 +431,9 @@ const title = 'Deal Details'
                               </div>
                               <!-- Event date -->
                               <div class="field deal-field">
-                                <label class="grey-label-compact"
-                                  >When is the event?</label
-                                >
+                                <label class="grey-label-compact">When is the event?</label>
                                 <div class="control">
-                                  <input
-                                    type="text"
-                                    class="input event-datepicker"
-                                    placeholder="Pick a date"
-                                  />
+                                  <input type="text" class="input event-datepicker" placeholder="Pick a date" />
                                   <div class="form-icon">
                                     <i class="im icon-Calendar-4"></i>
                                   </div>
@@ -533,9 +441,7 @@ const title = 'Deal Details'
                               </div>
                               <!-- Event Start -->
                               <div class="field deal-field">
-                                <label class="grey-label-compact"
-                                  >Starts at</label
-                                >
+                                <label class="grey-label-compact">Starts at</label>
                                 <div class="control">
                                   <input type="text" class="input" />
                                   <div class="form-icon">
@@ -553,175 +459,97 @@ const title = 'Deal Details'
                                   @click="openParticipantsCombo()"
                                   @click.away="closeParticipantsCombo()"
                                   class="combo-box"
-                                  :class="{
-                                                                    'is-active': participantsComboOpened,
-                                                                    '': !participantsComboOpened,
-                                                                }"
+                                  :class=`{
+                                      'is-active': participantsComboOpened,
+                                      '': !participantsComboOpened,
+                                  }`
                                 >
                                   <div class="box-inner">
-                                    <div
-                                      x-html="participantsComboState"
-                                      class="combo-item"
-                                    >
-                                    </div>
+                                    <div x-html="participantsComboState" class="combo-item"></div>
                                   </div>
                                   <div class="box-chevron">
-                                    <i class="material-icons"
-                                      >keyboard_arrow_down</i
-                                    >
+                                    <i class="material-icons">keyboard_arrow_down</i>
                                   </div>
                                   <div class="box-dropdown">
                                     <div class="dropdown-inner has-slimscroll">
                                       <ul>
-                                        <li
-                                          @click="updateParticipantsCombo($event)"
-                                          data-src="/img/avatars/ray.jpg"
-                                        >
+                                        <li @click="updateParticipantsCombo($event)" data-src="/img/avatars/ray.jpg">
                                           <span class="item-icon">
-                                            <img
-                                              src="/img/avatars/ray.jpg"
-                                              alt=""
-                                            />
+                                            <img src="/img/avatars/ray.jpg" alt="" />
                                           </span>
-                                          <span class="item-name"
-                                            >Jeff Stockton</span
-                                          >
+                                          <span class="item-name">Jeff Stockton</span>
                                           <span class="checkmark">
                                             <i class="material-icons">done</i>
                                           </span>
                                         </li>
-                                        <li
-                                          @click="updateParticipantsCombo($event)"
-                                          data-src="/img/avatars/melany.jpg"
-                                        >
+                                        <li @click="updateParticipantsCombo($event)" data-src="/img/avatars/melany.jpg">
                                           <span class="item-icon">
-                                            <img
-                                              src="/img/avatars/melany.jpg"
-                                              alt=""
-                                            />
+                                            <img src="/img/avatars/melany.jpg" alt="" />
                                           </span>
-                                          <span class="item-name"
-                                            >Melany Smith</span
-                                          >
+                                          <span class="item-name">Melany Smith</span>
                                           <span class="checkmark">
                                             <i class="material-icons">done</i>
                                           </span>
                                         </li>
-                                        <li
-                                          @click="updateParticipantsCombo($event)"
-                                          data-src="/img/avatars/helen.jpg"
-                                        >
+                                        <li @click="updateParticipantsCombo($event)" data-src="/img/avatars/helen.jpg">
                                           <span class="item-icon">
-                                            <img
-                                              src="/img/avatars/helen.jpg"
-                                              alt=""
-                                            />
+                                            <img src="/img/avatars/helen.jpg" alt="" />
                                           </span>
-                                          <span class="item-name"
-                                            >Helen Miller</span
-                                          >
+                                          <span class="item-name">Helen Miller</span>
                                           <span class="checkmark">
                                             <i class="material-icons">done</i>
                                           </span>
                                         </li>
-                                        <li
-                                          @click="updateParticipantsCombo($event)"
-                                          data-src="/img/avatars/kareem.jpg"
-                                        >
+                                        <li @click="updateParticipantsCombo($event)" data-src="/img/avatars/kareem.jpg">
                                           <span class="item-icon">
-                                            <img
-                                              src="/img/avatars/kareem.jpg"
-                                              alt=""
-                                            />
+                                            <img src="/img/avatars/kareem.jpg" alt="" />
                                           </span>
-                                          <span class="item-name"
-                                            >Kareem Jabbar</span
-                                          >
+                                          <span class="item-name">Kareem Jabbar</span>
                                           <span class="checkmark">
                                             <i class="material-icons">done</i>
                                           </span>
                                         </li>
-                                        <li
-                                          @click="updateParticipantsCombo($event)"
-                                          data-src="/img/avatars/terry.jpg"
-                                        >
+                                        <li @click="updateParticipantsCombo($event)" data-src="/img/avatars/terry.jpg">
                                           <span class="item-icon">
-                                            <img
-                                              src="/img/avatars/terry.jpg"
-                                              alt=""
-                                            />
+                                            <img src="/img/avatars/terry.jpg" alt="" />
                                           </span>
-                                          <span class="item-name"
-                                            >Terry Daniels</span
-                                          >
+                                          <span class="item-name">Terry Daniels</span>
                                           <span class="checkmark">
                                             <i class="material-icons">done</i>
                                           </span>
                                         </li>
-                                        <li
-                                          @click="updateParticipantsCombo($event)"
-                                          data-src="/img/avatars/elie.jpg"
-                                        >
+                                        <li @click="updateParticipantsCombo($event)" data-src="/img/avatars/elie.jpg">
                                           <span class="item-icon">
-                                            <img
-                                              src="/img/avatars/elie.jpg"
-                                              alt=""
-                                            />
+                                            <img src="/img/avatars/elie.jpg" alt="" />
                                           </span>
-                                          <span class="item-name"
-                                            >Elie Brock</span
-                                          >
+                                          <span class="item-name">Elie Brock</span>
                                           <span class="checkmark">
                                             <i class="material-icons">done</i>
                                           </span>
                                         </li>
-                                        <li
-                                          @click="updateParticipantsCombo($event)"
-                                          data-src="/img/avatars/nick.jpg"
-                                        >
+                                        <li @click="updateParticipantsCombo($event)" data-src="/img/avatars/nick.jpg">
                                           <span class="item-icon">
-                                            <img
-                                              src="/img/avatars/nick.jpg"
-                                              alt=""
-                                            />
+                                            <img src="/img/avatars/nick.jpg" alt="" />
                                           </span>
-                                          <span class="item-name"
-                                            >Nick Schwartz</span
-                                          >
+                                          <span class="item-name">Nick Schwartz</span>
                                           <span class="checkmark">
                                             <i class="material-icons">done</i>
                                           </span>
                                         </li>
-                                        <li
-                                          @click="updateParticipantsCombo($event)"
-                                          data-src="/img/avatars/lakisha.jpg"
-                                        >
+                                        <li @click="updateParticipantsCombo($event)" data-src="/img/avatars/lakisha.jpg">
                                           <span class="item-icon">
-                                            <img
-                                              src="/img/avatars/lakisha.jpg"
-                                              alt=""
-                                            />
+                                            <img src="/img/avatars/lakisha.jpg" alt="" />
                                           </span>
-                                          <span class="item-name"
-                                            >Lakisha Williams</span
-                                          >
+                                          <span class="item-name">Lakisha Williams</span>
                                           <span class="checkmark">
                                             <i class="material-icons">done</i>
                                           </span>
                                         </li>
-                                        <li
-                                          @click="updateParticipantsCombo($event)"
-                                          data-src="/img/avatars/alan.jpg"
-                                        >
+                                        <li @click="updateParticipantsCombo($event)" data-src="/img/avatars/alan.jpg">
                                           <span class="item-icon">
-                                            <img
-                                              src="/img/avatars/alan.jpg"
-                                              alt=""
-                                            />
+                                            <img src="/img/avatars/alan.jpg" alt="" />
                                           </span>
-                                          <span class="item-name"
-                                            >Alan Maynard</span
-                                          >
+                                          <span class="item-name">Alan Maynard</span>
                                           <span class="checkmark">
                                             <i class="material-icons">done</i>
                                           </span>
@@ -733,9 +561,7 @@ const title = 'Deal Details'
                               </div>
                               <!-- Full day -->
                               <div class="field deal-field">
-                                <label class="grey-label-compact"
-                                  >Full day event?</label
-                                >
+                                <label class="grey-label-compact">Full day event?</label>
                                 <div class="control is-flex">
                                   <label class="custom-checkbox scale-9">
                                     <input type="checkbox" checked />
@@ -748,21 +574,14 @@ const title = 'Deal Details'
                                       </span>
                                     </span>
                                   </label>
-                                  <span class="checkbox-label"
-                                    >Is this a full day event ?</span
-                                  >
+                                  <span class="checkbox-label">Is this a full day event ?</span>
                                 </div>
                               </div>
                               <!-- Event End -->
                               <div class="field deal-field">
-                                <label class="grey-label-compact">Ends at</label
-                                >
+                                <label class="grey-label-compact">Ends at</label>
                                 <div class="control">
-                                  <input
-                                    type="text"
-                                    class="input timepicker-24"
-                                    placeholder="set time"
-                                  />
+                                  <input type="text" class="input timepicker-24" placeholder="set time" />
                                   <div class="form-icon">
                                     <i class="im icon-Clock-Forward"></i>
                                   </div>
@@ -772,35 +591,20 @@ const title = 'Deal Details'
                             <div class="column is-12 is-spaced">
                               <!-- Event Description -->
                               <div class="field deal-field">
-                                <label class="grey-label-compact"
-                                  >Description</label
-                                >
+                                <label class="grey-label-compact">Description</label>
                                 <div class="control">
-                                  <textarea
-                                    class="textarea"
-                                    rows="1"
-                                    placeholder="Describe the event..."
-                                  ></textarea>
+                                  <textarea class="textarea" rows="1" placeholder="Describe the event..."></textarea>
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div class="button-wrap">
-                            <button
-                              class="button is-secondary is-raised is-rounded ripple ripple-light"
-                              data-
-                              ripple-light-color=""
-                            >
-                              Create Event
-                            </button>
+                            <button class="button is-secondary is-raised is-rounded ripple ripple-light" data- ripple-light-color=""> Create Event </button>
                           </div>
                         </form>
                       </div>
 
-                      <div
-                        x-show.transition="activeActionTab === 'file-tab'"
-                        class="action-wrap"
-                      >
+                      <div x-show.transition="activeActionTab === 'file-tab'" class="action-wrap">
                         <form>
                           <div class="control">
                             <div class="control attachments-field">
@@ -827,19 +631,9 @@ const title = 'Deal Details'
                             </div>
                             <div class="button-wrap">
                               <div class="control">
-                                <textarea
-                                  class="textarea"
-                                  rows="1"
-                                  placeholder="A quick note about these files..."
-                                ></textarea>
+                                <textarea class="textarea" rows="1" placeholder="A quick note about these files..."></textarea>
                               </div>
-                              <button
-                                type="submit"
-                                class="button is-secondary is-raised is-rounded ripple ripple-light"
-                                data-ripple-color=""
-                              >
-                                Upload
-                              </button>
+                              <button type="submit" class="button is-secondary is-raised is-rounded ripple ripple-light" data-ripple-color=""> Upload </button>
                             </div>
                           </div>
                         </form>
@@ -863,9 +657,7 @@ const title = 'Deal Details'
                             <h3>Meeting with Jeff</h3>
                             <div class="meta-list">
                               <div class="meta-list-item">
-                                <span class="is-thin"
-                                  >Tomorrow at 03:00pm with Melany Smith</span
-                                >
+                                <span class="is-thin">Tomorrow at 03:00pm with Melany Smith</span>
                               </div>
                             </div>
                             <div class="meta-list">
@@ -880,9 +672,7 @@ const title = 'Deal Details'
                             </div>
                           </div>
                           <div class="item-footer">
-                            <p>
-                              Meeting to discuss the future marketing campaign
-                            </p>
+                            <p>Meeting to discuss the future marketing campaign</p>
                           </div>
                         </div>
                       </li>
@@ -899,47 +689,44 @@ const title = 'Deal Details'
                       <ul>
                         <li
                           @click="toggleBusinessTabs('all-tab')"
-                          :class="{
-                                                'is-active': activeBusinessTab === 'all-tab',
-                                                '': activeBusinessTab !== 'all-tab',
-                                            }"
+                          :class=`{
+                              'is-active': activeBusinessTab === 'all-tab',
+                              '': activeBusinessTab !== 'all-tab',
+                          }`
                         >
                           <a>All</a>
                         </li>
                         <li
                           @click="toggleBusinessTabs('activities-tab')"
-                          :class="{
-                                                'is-active': activeBusinessTab === 'activities-tab',
-                                                '': activeBusinessTab !== 'activities-tab',
-                                            }"
+                          :class=`{
+                              'is-active': activeBusinessTab === 'activities-tab',
+                              '': activeBusinessTab !== 'activities-tab',
+                          }`
                         >
                           <a>Activities</a>
                         </li>
                         <li
                           @click="toggleBusinessTabs('notes-tab')"
-                          :class="{
-                                                'is-active': activeBusinessTab === 'notes-tab',
-                                                '': activeBusinessTab !== 'notes-tab',
-                                            }"
+                          :class=`{
+                              'is-active': activeBusinessTab === 'notes-tab',
+                              '': activeBusinessTab !== 'notes-tab',
+                          }`
                         >
                           <a>Notes</a>
                         </li>
                         <li
                           @click="toggleBusinessTabs('files-tab')"
-                          :class="{
-                                                'is-active': activeBusinessTab === 'files-tab',
-                                                '': activeBusinessTab !== 'files-tab',
-                                            }"
+                          :class=`{
+                              'is-active': activeBusinessTab === 'files-tab',
+                              '': activeBusinessTab !== 'files-tab',
+                          }`
                         >
                           <a>Files</a>
                         </li>
                       </ul>
                     </div>
                     <!-- All items -->
-                    <div
-                      x-show.transition="activeBusinessTab === 'all-tab'"
-                      class="navtab-content is-active"
-                    >
+                    <div x-show.transition="activeBusinessTab === 'all-tab'" class="navtab-content is-active">
                       <!-- Timeline section -->
                       <div class="deal-timeline">
                         <ul>
@@ -953,9 +740,7 @@ const title = 'Deal Details'
                                 <div class="meta-list">
                                   <div class="meta-list-item">
                                     <img src="/img/avatars/melany.jpg" alt="" />
-                                    <span class="is-thin"
-                                      >3 hours ago by Melany Smith</span
-                                    >
+                                    <span class="is-thin">3 hours ago by Melany Smith</span>
                                   </div>
                                 </div>
                               </div>
@@ -971,9 +756,7 @@ const title = 'Deal Details'
                                   <img src="/img/icons/ms/pdf.svg" alt="" />
                                   <div class="document-meta">
                                     <span><a>business_contract.pdf</a></span>
-                                    <span
-                                      >Yesterday at 11:05am, by Melany Smith</span
-                                    >
+                                    <span>Yesterday at 11:05am, by Melany Smith</span>
                                   </div>
                                 </div>
                               </div>
@@ -986,17 +769,11 @@ const title = 'Deal Details'
                             <div class="timeline-item is-note">
                               <div class="item-body">
                                 <h3>Note</h3>
-                                <p class="note-text">
-                                  We should really consider the new products we
-                                  saw. Should create a meeting involving Dan and
-                                  others.
-                                </p>
+                                <p class="note-text">We should really consider the new products we saw. Should create a meeting involving Dan and others.</p>
                                 <div class="meta-list">
                                   <div class="meta-list-item">
                                     <img src="/img/avatars/jhonny.jpg" alt="" />
-                                    <span class="is-thin"
-                                      >Yesterday, at 09:45am</span
-                                    >
+                                    <span class="is-thin">Yesterday, at 09:45am</span>
                                   </div>
                                 </div>
                               </div>
@@ -1009,17 +786,10 @@ const title = 'Deal Details'
                             <div class="timeline-item">
                               <div class="item-body">
                                 <div class="document-item">
-                                  <img
-                                    src="/img/icons/ms/powerpoint.svg"
-                                    alt=""
-                                  />
+                                  <img src="/img/icons/ms/powerpoint.svg" alt="" />
                                   <div class="document-meta">
-                                    <span
-                                      ><a>concept-presentation.pptx</a>
-                                    </span>
-                                    <span
-                                      >Yesterday at 09:11am, by Tony Wyatt</span
-                                    >
+                                    <span><a>concept-presentation.pptx</a> </span>
+                                    <span>Yesterday at 09:11am, by Tony Wyatt</span>
                                   </div>
                                 </div>
                               </div>
@@ -1034,12 +804,8 @@ const title = 'Deal Details'
                                 <div class="document-item">
                                   <img src="/img/icons/ms/word.svg" alt="" />
                                   <div class="document-meta">
-                                    <span
-                                      ><a>project-requirements.docx</a>
-                                    </span>
-                                    <span
-                                      >Yesterday at 08:43am, by Melany Smith</span
-                                    >
+                                    <span><a>project-requirements.docx</a> </span>
+                                    <span>Yesterday at 08:43am, by Melany Smith</span>
                                   </div>
                                 </div>
                               </div>
@@ -1052,16 +818,11 @@ const title = 'Deal Details'
                             <div class="timeline-item is-note">
                               <div class="item-body">
                                 <h3>Note</h3>
-                                <p class="note-text">
-                                  Call the CEO back to discuss potential
-                                  opportunities.
-                                </p>
+                                <p class="note-text">Call the CEO back to discuss potential opportunities.</p>
                                 <div class="meta-list">
                                   <div class="meta-list-item">
                                     <img src="/img/avatars/melany.jpg" alt="" />
-                                    <span class="is-thin"
-                                      >Mon 03, at 12:08pm</span
-                                    >
+                                    <span class="is-thin">Mon 03, at 12:08pm</span>
                                   </div>
                                 </div>
                               </div>
@@ -1071,19 +832,11 @@ const title = 'Deal Details'
                       </div>
                       <!-- Timeline Load more -->
                       <div class="timeline-load has-text-centered">
-                        <a
-                          class="button btn-dash btn-dash is-rounded ripple"
-                          data-ripple-color=""
-                        >
-                          Load More
-                        </a>
+                        <a class="button btn-dash btn-dash is-rounded ripple" data-ripple-color=""> Load More </a>
                       </div>
                     </div>
                     <!-- Deal activities -->
-                    <div
-                      x-show.transition="activeBusinessTab === 'activities-tab'"
-                      class="navtab-content"
-                    >
+                    <div x-show.transition="activeBusinessTab === 'activities-tab'" class="navtab-content">
                       <!-- Timeline section -->
                       <div class="deal-timeline">
                         <ul>
@@ -1097,9 +850,7 @@ const title = 'Deal Details'
                                 <div class="meta-list">
                                   <div class="meta-list-item">
                                     <img src="/img/avatars/melany.jpg" alt="" />
-                                    <span class="is-thin"
-                                      >1 hour ago by Melany Smith</span
-                                    >
+                                    <span class="is-thin">1 hour ago by Melany Smith</span>
                                   </div>
                                 </div>
                               </div>
@@ -1115,9 +866,7 @@ const title = 'Deal Details'
                                 <div class="meta-list">
                                   <div class="meta-list-item">
                                     <img src="/img/avatars/melany.jpg" alt="" />
-                                    <span class="is-thin"
-                                      >3 hours ago by Melany Smith</span
-                                    >
+                                    <span class="is-thin">3 hours ago by Melany Smith</span>
                                   </div>
                                 </div>
                               </div>
@@ -1133,9 +882,7 @@ const title = 'Deal Details'
                                 <div class="meta-list">
                                   <div class="meta-list-item">
                                     <img src="/img/avatars/melany.jpg" alt="" />
-                                    <span class="is-thin"
-                                      >2 days ago by Melany Smith</span
-                                    >
+                                    <span class="is-thin">2 days ago by Melany Smith</span>
                                   </div>
                                 </div>
                               </div>
@@ -1151,9 +898,7 @@ const title = 'Deal Details'
                                 <div class="meta-list">
                                   <div class="meta-list-item">
                                     <img src="/img/avatars/jhonny.jpg" alt="" />
-                                    <span class="is-thin"
-                                      >5 days ago by Tony Wyatt</span
-                                    >
+                                    <span class="is-thin">5 days ago by Tony Wyatt</span>
                                   </div>
                                 </div>
                               </div>
@@ -1169,9 +914,7 @@ const title = 'Deal Details'
                                 <div class="meta-list">
                                   <div class="meta-list-item">
                                     <img src="/img/avatars/jhonny.jpg" alt="" />
-                                    <span class="is-thin"
-                                      >9 day ago by Tony Wyatt</span
-                                    >
+                                    <span class="is-thin">9 day ago by Tony Wyatt</span>
                                   </div>
                                 </div>
                               </div>
@@ -1181,10 +924,7 @@ const title = 'Deal Details'
                       </div>
                     </div>
                     <!-- Deal Notes -->
-                    <div
-                      x-show.transition="activeBusinessTab === 'notes-tab'"
-                      class="navtab-content"
-                    >
+                    <div x-show.transition="activeBusinessTab === 'notes-tab'" class="navtab-content">
                       <!-- Timeline section -->
                       <div class="deal-timeline">
                         <ul>
@@ -1195,17 +935,11 @@ const title = 'Deal Details'
                             <div class="timeline-item is-note">
                               <div class="item-body">
                                 <h3>Note</h3>
-                                <p class="note-text">
-                                  We should really consider the new products we
-                                  saw. Should create a meeting involving Dan and
-                                  others.
-                                </p>
+                                <p class="note-text">We should really consider the new products we saw. Should create a meeting involving Dan and others.</p>
                                 <div class="meta-list">
                                   <div class="meta-list-item">
                                     <img src="/img/avatars/jhonny.jpg" alt="" />
-                                    <span class="is-thin"
-                                      >Yesterday, at 09:45am</span
-                                    >
+                                    <span class="is-thin">Yesterday, at 09:45am</span>
                                   </div>
                                 </div>
                               </div>
@@ -1218,16 +952,11 @@ const title = 'Deal Details'
                             <div class="timeline-item is-note">
                               <div class="item-body">
                                 <h3>Note</h3>
-                                <p class="note-text">
-                                  Call the CEO back to discuss potential
-                                  opportunities.
-                                </p>
+                                <p class="note-text">Call the CEO back to discuss potential opportunities.</p>
                                 <div class="meta-list">
                                   <div class="meta-list-item">
                                     <img src="/img/avatars/melany.jpg" alt="" />
-                                    <span class="is-thin"
-                                      >Mon 03, at 12:08pm</span
-                                    >
+                                    <span class="is-thin">Mon 03, at 12:08pm</span>
                                   </div>
                                 </div>
                               </div>
@@ -1237,10 +966,7 @@ const title = 'Deal Details'
                       </div>
                     </div>
                     <!-- Deal files -->
-                    <div
-                      x-show.transition="activeBusinessTab === 'files-tab'"
-                      class="navtab-content"
-                    >
+                    <div x-show.transition="activeBusinessTab === 'files-tab'" class="navtab-content">
                       <!-- Timeline section -->
                       <div class="deal-timeline">
                         <ul>
@@ -1254,9 +980,7 @@ const title = 'Deal Details'
                                   <img src="/img/icons/ms/pdf.svg" alt="" />
                                   <div class="document-meta">
                                     <span><a>business_contract.pdf</a></span>
-                                    <span
-                                      >Yesterday at 11:05am, by Melany Smith</span
-                                    >
+                                    <span>Yesterday at 11:05am, by Melany Smith</span>
                                   </div>
                                 </div>
                               </div>
@@ -1269,17 +993,10 @@ const title = 'Deal Details'
                             <div class="timeline-item">
                               <div class="item-body">
                                 <div class="document-item">
-                                  <img
-                                    src="/img/icons/ms/powerpoint.svg"
-                                    alt=""
-                                  />
+                                  <img src="/img/icons/ms/powerpoint.svg" alt="" />
                                   <div class="document-meta">
-                                    <span
-                                      ><a>concept-presentation.pptx</a>
-                                    </span>
-                                    <span
-                                      >Yesterday at 09:11am, by Tony Wyatt</span
-                                    >
+                                    <span><a>concept-presentation.pptx</a> </span>
+                                    <span>Yesterday at 09:11am, by Tony Wyatt</span>
                                   </div>
                                 </div>
                               </div>
@@ -1294,12 +1011,8 @@ const title = 'Deal Details'
                                 <div class="document-item">
                                   <img src="/img/icons/ms/word.svg" alt="" />
                                   <div class="document-meta">
-                                    <span
-                                      ><a>project-requirements.docx</a>
-                                    </span>
-                                    <span
-                                      >Yesterday at 08:43am, by Melany Smith</span
-                                    >
+                                    <span><a>project-requirements.docx</a> </span>
+                                    <span>Yesterday at 08:43am, by Melany Smith</span>
                                   </div>
                                 </div>
                               </div>
@@ -1315,9 +1028,7 @@ const title = 'Deal Details'
                                   <img src="/img/icons/ms/excel.svg" alt="" />
                                   <div class="document-meta">
                                     <span><a>project-budget.xlsx</a></span>
-                                    <span
-                                      >Thu 23 at 04:21pm, by Helen Miller</span
-                                    >
+                                    <span>Thu 23 at 04:21pm, by Helen Miller</span>
                                   </div>
                                 </div>
                               </div>

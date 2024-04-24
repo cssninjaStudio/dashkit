@@ -1,11 +1,8 @@
 <!-- Create Project Modal -->
-<div
-  class="modal create-project-modal"
-  :class="{
+<div class="modal create-project-modal" :class=`{
         'is-active': newProjectModalOpened,
         '': !newProjectModalOpened
-    }"
->
+    }`>
   <div @click="toggleNewProjectModal()" class="modal-background"></div>
   <div class="modal-content">
     <div class="flex-card p-5">
@@ -18,30 +15,27 @@
             <li
               class="tab-link"
               @click="toggleModalTabs('overview-modal-tab')"
-              :class="{
-                            'is-active': activeModalTab === 'overview-modal-tab',
-                            '': activeModalTab !== 'overview-modal-tab',
-                        }"
+              :class=`{
+                  'is-active': activeModalTab === 'overview-modal-tab',
+                  '': activeModalTab !== 'overview-modal-tab',
+              }`
             >
               <a>Details</a>
             </li>
             <li
               class="tab-link"
               @click="toggleModalTabs('members-modal-tab')"
-              :class="{
-                            'is-active': activeModalTab === 'members-modal-tab',
-                            '': activeModalTab !== 'members-modal-tab',
-                        }"
+              :class=`{
+                  'is-active': activeModalTab === 'members-modal-tab',
+                  '': activeModalTab !== 'members-modal-tab',
+              }`
             >
               <a>Members</a>
             </li>
           </ul>
         </div>
 
-        <div
-          x-show="activeModalTab === 'overview-modal-tab'"
-          class="navtab-content is-active"
-        >
+        <div x-show="activeModalTab === 'overview-modal-tab'" class="navtab-content is-active">
           <div class="card-body">
             <div class="content">
               <form>
@@ -53,11 +47,7 @@
                     </div>
                     <div class="column is-9">
                       <div class="control has-icon">
-                        <input
-                          type="text"
-                          class="input event-datepicker-start"
-                          placeholder="Start Date"
-                        />
+                        <input type="text" class="input event-datepicker-start" placeholder="Start Date" />
                         <span class="form-icon">
                           <i class="im icon-Calendar-4"></i>
                         </span>
@@ -87,27 +77,15 @@
                 </div>
 
                 <div class="form-footer">
-                  <button
-                    @click="toggleNewProjectModal()"
-                    type="button"
-                    class="button"
-                  >
-                    Cancel
-                  </button>
-                  <button type="submit" class="button is-secondary">
-                    Create Project
-                  </button>
+                  <button @click="toggleNewProjectModal()" type="button" class="button"> Cancel </button>
+                  <button type="submit" class="button is-secondary"> Create Project </button>
                 </div>
               </form>
             </div>
           </div>
         </div>
 
-        <div
-          x-show="activeModalTab === 'members-modal-tab'"
-          id="project-members"
-          class="navtab-content"
-        >
+        <div x-show="activeModalTab === 'members-modal-tab'" id="project-members" class="navtab-content">
           <div class="project-members">
             <div class="face">
               <img src="/img/avatars/ray.jpg" alt="" />
@@ -125,11 +103,7 @@
 
           <div class="modal-filter">
             <div class="control has-icon">
-              <input
-                class="input is-medium is-rounded"
-                type="text"
-                placeholder="Filter Members"
-              />
+              <input class="input is-medium is-rounded" type="text" placeholder="Filter Members" />
               <div class="form-icon is-medium">
                 <span class="material-icons">filter_list</span>
               </div>

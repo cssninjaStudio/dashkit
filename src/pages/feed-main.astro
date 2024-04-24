@@ -1,19 +1,14 @@
 ---
-import Layout from "../layouts/Default.astro";
+import Layout from '../layouts/Default.astro'
 const title = 'Social Feed'
 ---
 
 <Layout title={title}>
   <!-- Main dashboard container -->
-  <div
-    id="dashboard-wrapper"
-    class="dashboard-outer"
-    x-data="initBlank()"
-    :class="{
+  <div id="dashboard-wrapper" class="dashboard-outer" x-data="initBlank()" :class=`{
       'is-pushed': $store.app.sidebarOpenedState,
       '': !$store.app.sidebarOpenedState
-  }"
-  >
+  }`>
     <div class="dashboard-inner">
       <!-- Dashboard Wrapper -->
       <div class="dashboard-wrapper">
@@ -60,16 +55,8 @@ const title = 'Social Feed'
 
                 <!--Illustration card-->
                 <div class="placeholder-card has-text-centered">
-                  <img
-                    class="light-image-block"
-                    src="/img/illustrations/feed.svg"
-                    alt=""
-                  />
-                  <img
-                    class="dark-image-block"
-                    src="/img/illustrations/feed-dark.svg"
-                    alt=""
-                  />
+                  <img class="light-image-block" src="/img/illustrations/feed.svg" alt="" />
+                  <img class="dark-image-block" src="/img/illustrations/feed-dark.svg" alt="" />
                   <h3>Configure Feed</h3>
                   <p>
                     Configure your feed and
@@ -82,15 +69,8 @@ const title = 'Social Feed'
                   <div class="card-head p-4 is-spaced">
                     <h3>Trending</h3>
                     <!--Dropdown-->
-                    <div
-                      x-ref="menu5"
-                      @click.away="$refs.menu5.classList.remove('is-active')"
-                      class="dropdown is-right dropdown-trigger styled-dropdown is-round"
-                    >
-                      <div
-                        @click="$refs.menu5.classList.add('is-active')"
-                        class="button"
-                      >
+                    <div x-ref="menu5" @click.away="$refs.menu5.classList.remove('is-active')" class="dropdown is-right dropdown-trigger styled-dropdown is-round">
+                      <div @click="$refs.menu5.classList.add('is-active')" class="button">
                         <i class="material-icons">more_vert</i>
                       </div>
                       <div class="dropdown-menu is-text-bigger" role="menu">
@@ -132,11 +112,7 @@ const title = 'Social Feed'
                   <ul class="inner-list is-clean">
                     <li>
                       <div class="list-item-data">
-                        <img
-                          class="small-avatar"
-                          src="/img/logo/companies/airbnb.svg"
-                          alt=""
-                        />
+                        <img class="small-avatar" src="/img/logo/companies/airbnb.svg" alt="" />
                         <div class="item-info">
                           <span class="item-title">Airbnb</span>
                           <span>24k followers</span>
@@ -148,11 +124,7 @@ const title = 'Social Feed'
                     </li>
                     <li>
                       <div class="list-item-data">
-                        <img
-                          class="small-avatar"
-                          src="/img/logo/companies/alfresco.svg"
-                          alt=""
-                        />
+                        <img class="small-avatar" src="/img/logo/companies/alfresco.svg" alt="" />
                         <div class="item-info">
                           <span class="item-title">Alfresco</span>
                           <span>21k followers</span>
@@ -164,11 +136,7 @@ const title = 'Social Feed'
                     </li>
                     <li>
                       <div class="list-item-data">
-                        <img
-                          class="small-avatar"
-                          src="/img/logo/companies/amazon.svg"
-                          alt=""
-                        />
+                        <img class="small-avatar" src="/img/logo/companies/amazon.svg" alt="" />
                         <div class="item-info">
                           <span class="item-title">Amazon</span>
                           <span>19k followers</span>
@@ -180,11 +148,7 @@ const title = 'Social Feed'
                     </li>
                     <li>
                       <div class="list-item-data">
-                        <img
-                          class="small-avatar"
-                          src="/img/logo/companies/tesla.svg"
-                          alt=""
-                        />
+                        <img class="small-avatar" src="/img/logo/companies/tesla.svg" alt="" />
                         <div class="item-info">
                           <span class="item-title">Tesla</span>
                           <span>16k followers</span>
@@ -196,11 +160,7 @@ const title = 'Social Feed'
                     </li>
                     <li>
                       <div class="list-item-data">
-                        <img
-                          class="small-avatar"
-                          src="/img/logo/companies/hm.svg"
-                          alt=""
-                        />
+                        <img class="small-avatar" src="/img/logo/companies/hm.svg" alt="" />
                         <div class="item-info">
                           <span class="item-title">H&M</span>
                           <span>9k followers</span>
@@ -219,20 +179,13 @@ const title = 'Social Feed'
                 <!--Compose-->
                 <div class="compose-card is-flex is-start is-vcenter">
                   <figure class="avatar image is-hidden-mobile">
-                    <img
-                      class="is-circle"
-                      src="/img/avatars/helen.jpg"
-                      alt=""
-                    />
+                    <img class="is-circle" src="/img/avatars/helen.jpg" alt="" />
                   </figure>
                   <div class="status-wrapper">
-                    <textarea
-                      class="textarea"
-                      rows="3"
-                      placeholder="Write something ..."></textarea>
+                    <textarea class="textarea" rows="3" placeholder="Write something ..."></textarea>
                   </div>
                   <div class="icon-button">
-                    <i class="iconify" data-icon="lucide:upload-cloud"></i>
+                    <iconify-icon class="iconify" icon="lucide:upload-cloud"></iconify-icon>
                   </div>
                 </div>
 
@@ -240,25 +193,13 @@ const title = 'Social Feed'
                 <div class="post-item">
                   <div class="post-header p-5">
                     <div class="is-flex">
-                      <img
-                        class="feed-avatar"
-                        src="/img/avatars/ray.jpg"
-                        alt=""
-                      />
+                      <img class="feed-avatar" src="/img/avatars/ray.jpg" alt="" />
                       <div class="item-title">
                         <span>Posted by <a href="#">Ray O'Driscol</a></span>
-                        <span class="block feed-time-small">45 minutes ago</span
-                        >
+                        <span class="block feed-time-small">45 minutes ago</span>
                       </div>
-                      <div
-                        x-ref="menu1"
-                        class="dropdown is-right dropdown-trigger styled-dropdown is-round"
-                        @click.away="$refs.menu1.classList.remove('is-active')"
-                      >
-                        <div
-                          @click="$refs.menu1.classList.add('is-active')"
-                          class="button"
-                        >
+                      <div x-ref="menu1" class="dropdown is-right dropdown-trigger styled-dropdown is-round" @click.away="$refs.menu1.classList.remove('is-active')">
+                        <div @click="$refs.menu1.classList.add('is-active')" class="button">
                           <i class="material-icons">more_vert</i>
                         </div>
                         <div class="dropdown-menu is-text-bigger" role="menu">
@@ -300,58 +241,29 @@ const title = 'Social Feed'
                     <div class="post-title">
                       <a href="#">How team building boosts productivity</a>
                     </div>
-                    <p class="post-text">
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry Lorem Ipsum is simply dummy text
-                      Lorem Ipsum ...
-                    </p>
+                    <p class="post-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text Lorem Ipsum ...</p>
                   </div>
 
                   <div class="is-flex">
                     <div class="feed-image-container">
                       <div class="soft-overlay"></div>
-                      <img
-                        src="https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                        alt=""
-                      />
+                      <img src="https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" />
                       <div x-ref="fabwrap1" class="social-fab">
                         <div class="fab-wrapper">
-                          <button
-                            x-ref="like1"
-                            @click="$refs.like1.classList.toggle('is-active')"
-                            class="like fab-btn mini"
-                            data-toggle="tooltip"
-                            data-placement="left"
-                            data-title="Like"
-                          >
+                          <button x-ref="like1" @click="$refs.like1.classList.toggle('is-active')" class="like fab-btn mini" data-toggle="tooltip" data-placement="left" data-title="Like">
                             <span class="like-wrapper">
-                              <i class="material-icons unliked"
-                                >favorite_border</i
-                              >
+                              <i class="material-icons unliked">favorite_border</i>
                               <i class="material-icons liked">favorite</i>
                               <span class="like-overlay"></span>
                             </span>
                           </button>
-                          <button
-                            class="share fab-btn mini ripple"
-                            data-toggle="tooltip"
-                            data-placement="top"
-                            data-title="Share"
-                          >
+                          <button class="share fab-btn mini ripple" data-toggle="tooltip" data-placement="top" data-title="Share">
                             <i class="material-icons">share</i>
                           </button>
-                          <button
-                            class="comment fab-btn mini ripple"
-                            data-toggle="tooltip"
-                            data-placement="top"
-                            data-title="Comment"
-                          >
+                          <button class="comment fab-btn mini ripple" data-toggle="tooltip" data-placement="top" data-title="Comment">
                             <i class="material-icons">chat_bubble</i>
                           </button>
-                          <button
-                            @click="$refs.fabwrap1.classList.toggle('is-open'), $refs.fab1.classList.toggle('is-active')"
-                            class="fab-btn pop-fab social-fab-trigger ripple"
-                          >
+                          <button @click="$refs.fabwrap1.classList.toggle('is-open'), $refs.fab1.classList.toggle('is-active')" class="fab-btn pop-fab social-fab-trigger ripple">
                             <span x-ref="fab1" class="plus-toggle">
                               <i class="material-icons">add</i>
                             </span>
@@ -383,24 +295,13 @@ const title = 'Social Feed'
                 <div class="post-item">
                   <div class="post-header p-5">
                     <div class="is-flex">
-                      <img
-                        class="feed-avatar"
-                        src="/img/avatars/anthony.jpg"
-                        alt=""
-                      />
+                      <img class="feed-avatar" src="/img/avatars/anthony.jpg" alt="" />
                       <div class="item-title">
                         <span>Posted by <a href="#">Anthony Briggs</a></span>
                         <span class="block feed-time-small">2 hours ago</span>
                       </div>
-                      <div
-                        x-ref="menu2"
-                        class="dropdown is-right dropdown-trigger styled-dropdown is-round"
-                        @click.away="$refs.menu2.classList.remove('is-active')"
-                      >
-                        <div
-                          @click="$refs.menu2.classList.add('is-active')"
-                          class="button"
-                        >
+                      <div x-ref="menu2" class="dropdown is-right dropdown-trigger styled-dropdown is-round" @click.away="$refs.menu2.classList.remove('is-active')">
+                        <div @click="$refs.menu2.classList.add('is-active')" class="button">
                           <i class="material-icons">more_vert</i>
                         </div>
                         <div class="dropdown-menu is-text-bigger" role="menu">
@@ -442,58 +343,29 @@ const title = 'Social Feed'
                     <div class="post-title">
                       <a href="#">From an idea to a real world startup</a>
                     </div>
-                    <p class="post-text">
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry Lorem Ipsum is simply dummy text
-                      Lorem Ipsum ...
-                    </p>
+                    <p class="post-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text Lorem Ipsum ...</p>
                   </div>
 
                   <div class="is-flex">
                     <div class="feed-image-container">
                       <div class="soft-overlay"></div>
-                      <img
-                        src="https://images.pexels.com/photos/3184352/pexels-photo-3184352.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                        alt=""
-                      />
+                      <img src="https://images.pexels.com/photos/3184352/pexels-photo-3184352.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" />
                       <div x-ref="fabwrap2" class="social-fab">
                         <div class="fab-wrapper">
-                          <button
-                            x-ref="like2"
-                            @click="$refs.like2.classList.toggle('is-active')"
-                            class="like fab-btn mini"
-                            data-toggle="tooltip"
-                            data-placement="left"
-                            data-title="Like"
-                          >
+                          <button x-ref="like2" @click="$refs.like2.classList.toggle('is-active')" class="like fab-btn mini" data-toggle="tooltip" data-placement="left" data-title="Like">
                             <span class="like-wrapper">
-                              <i class="material-icons unliked"
-                                >favorite_border</i
-                              >
+                              <i class="material-icons unliked">favorite_border</i>
                               <i class="material-icons liked">favorite</i>
                               <span class="like-overlay"></span>
                             </span>
                           </button>
-                          <button
-                            class="share fab-btn mini ripple"
-                            data-toggle="tooltip"
-                            data-placement="top"
-                            data-title="Share"
-                          >
+                          <button class="share fab-btn mini ripple" data-toggle="tooltip" data-placement="top" data-title="Share">
                             <i class="material-icons">share</i>
                           </button>
-                          <button
-                            class="comment fab-btn mini ripple"
-                            data-toggle="tooltip"
-                            data-placement="top"
-                            data-title="Comment"
-                          >
+                          <button class="comment fab-btn mini ripple" data-toggle="tooltip" data-placement="top" data-title="Comment">
                             <i class="material-icons">chat_bubble</i>
                           </button>
-                          <button
-                            @click="$refs.fabwrap2.classList.toggle('is-open'), $refs.fab2.classList.toggle('is-active')"
-                            class="fab-btn pop-fab social-fab-trigger ripple"
-                          >
+                          <button @click="$refs.fabwrap2.classList.toggle('is-open'), $refs.fab2.classList.toggle('is-active')" class="fab-btn pop-fab social-fab-trigger ripple">
                             <span x-ref="fab2" class="plus-toggle">
                               <i class="material-icons">add</i>
                             </span>
@@ -530,18 +402,8 @@ const title = 'Social Feed'
                     <div class="spinner"></div>
                   </div>
                   <div class="play-pause-btn">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="18"
-                      height="24"
-                      viewBox="0 0 18 24"
-                    >
-                      <path
-                        fill="#566574"
-                        fill-rule="evenodd"
-                        d="M18 12L0 24V0"
-                        class="play-pause-icon"
-                        id="playPause"></path>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="24" viewBox="0 0 18 24">
+                      <path fill="#566574" fill-rule="evenodd" d="M18 12L0 24V0" class="play-pause-icon" id="playPause"></path>
                     </svg>
                   </div>
 
@@ -549,8 +411,7 @@ const title = 'Social Feed'
                     <span class="current-time">0:00</span>
                     <div class="slider" data-direction="horizontal">
                       <div class="progress">
-                        <div class="pin" id="progress-pin" data-method="rewind">
-                        </div>
+                        <div class="pin" id="progress-pin" data-method="rewind"></div>
                       </div>
                     </div>
                     <span class="total-time">0:00</span>
@@ -558,12 +419,7 @@ const title = 'Social Feed'
 
                   <div class="volume">
                     <div class="volume-btn">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                      >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         <path
                           fill="#566574"
                           fill-rule="evenodd"
@@ -574,18 +430,13 @@ const title = 'Social Feed'
                     <div class="volume-controls hidden">
                       <div class="slider" data-direction="vertical">
                         <div class="progress">
-                          <div
-                            class="pin"
-                            id="volume-pin"
-                            data-method="changeVolume"
-                          >
-                          </div>
+                          <div class="pin" id="volume-pin" data-method="changeVolume"></div>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  <audio crossorigin>
+                  <audio>
                     <source src="" type="audio/mpeg" />
                   </audio>
                 </div>
@@ -594,24 +445,13 @@ const title = 'Social Feed'
                 <div class="post-item">
                   <div class="post-header p-5">
                     <div class="is-flex">
-                      <img
-                        class="feed-avatar"
-                        src="/img/avatars/elie.jpg"
-                        alt=""
-                      />
+                      <img class="feed-avatar" src="/img/avatars/elie.jpg" alt="" />
                       <div class="item-title">
                         <span>Posted by <a href="#">Elie Daniels</a></span>
                         <span class="block feed-time-small">4 hours ago</span>
                       </div>
-                      <div
-                        x-ref="menu3"
-                        class="dropdown is-right dropdown-trigger styled-dropdown is-round"
-                        @click.away="$refs.menu3.classList.remove('is-active')"
-                      >
-                        <div
-                          @click="$refs.menu3.classList.add('is-active')"
-                          class="button"
-                        >
+                      <div x-ref="menu3" class="dropdown is-right dropdown-trigger styled-dropdown is-round" @click.away="$refs.menu3.classList.remove('is-active')">
+                        <div @click="$refs.menu3.classList.add('is-active')" class="button">
                           <i class="material-icons">more_vert</i>
                         </div>
                         <div class="dropdown-menu is-text-bigger" role="menu">
@@ -651,61 +491,31 @@ const title = 'Social Feed'
                       </div>
                     </div>
                     <div class="post-title">
-                      <a href="#">8 tips to collaborate better with your team</a
-                      >
+                      <a href="#">8 tips to collaborate better with your team</a>
                     </div>
-                    <p class="post-text">
-                      Lorem Ipsum is simply dummy text of the printing and
-                      typesetting industry Lorem Ipsum is simply dummy text
-                      Lorem Ipsum ...
-                    </p>
+                    <p class="post-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum is simply dummy text Lorem Ipsum ...</p>
                   </div>
 
                   <div class="is-flex">
                     <div class="feed-image-container">
                       <div class="soft-overlay"></div>
-                      <img
-                        src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                        alt=""
-                      />
+                      <img src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" />
                       <div x-ref="fabwrap3" class="social-fab">
                         <div class="fab-wrapper">
-                          <button
-                            x-ref="like3"
-                            @click="$refs.like3.classList.toggle('is-active')"
-                            class="like fab-btn mini"
-                            data-toggle="tooltip"
-                            data-placement="left"
-                            data-title="Like"
-                          >
+                          <button x-ref="like3" @click="$refs.like3.classList.toggle('is-active')" class="like fab-btn mini" data-toggle="tooltip" data-placement="left" data-title="Like">
                             <span class="like-wrapper">
-                              <i class="material-icons unliked"
-                                >favorite_border</i
-                              >
+                              <i class="material-icons unliked">favorite_border</i>
                               <i class="material-icons liked">favorite</i>
                               <span class="like-overlay"></span>
                             </span>
                           </button>
-                          <button
-                            class="share fab-btn mini ripple"
-                            data-toggle="tooltip"
-                            data-placement="top"
-                            data-title="Share"
-                          >
+                          <button class="share fab-btn mini ripple" data-toggle="tooltip" data-placement="top" data-title="Share">
                             <i class="material-icons">share</i>
                           </button>
-                          <button
-                            class="comment fab-btn mini ripple"
-                            data-toggle="tooltip"
-                            data-placement="top"
-                            data-title="Comment"
-                          >
+                          <button class="comment fab-btn mini ripple" data-toggle="tooltip" data-placement="top" data-title="Comment">
                             <i class="material-icons">chat_bubble</i>
                           </button>
-                          <button
-                            @click="$refs.fabwrap3.classList.toggle('is-open'), $refs.fab3.classList.toggle('is-active')"
-                            class="fab-btn pop-fab social-fab-trigger ripple"
-                          >
+                          <button @click="$refs.fabwrap3.classList.toggle('is-open'), $refs.fab3.classList.toggle('is-active')" class="fab-btn pop-fab social-fab-trigger ripple">
                             <span x-ref="fab3" class="plus-toggle">
                               <i class="material-icons">add</i>
                             </span>
@@ -734,11 +544,7 @@ const title = 'Social Feed'
                 </div>
 
                 <div class="load-more-wrapper has-text-centered">
-                  <button
-                    class="button btn-dash is-fullwidth secondary-btn raised ripple rounded no-lh"
-                  >
-                    Load more
-                  </button>
+                  <button class="button btn-dash is-fullwidth secondary-btn raised ripple rounded no-lh"> Load more </button>
                 </div>
               </div>
 
@@ -813,9 +619,7 @@ const title = 'Social Feed'
                         <img src="/img/avatars/terry.jpg" alt="" />
                       </div>
                       <div class="user-list-info">
-                        <div class="name">
-                          How team building boosts productivity
-                        </div>
+                        <div class="name">How team building boosts productivity</div>
                         <div class="position">oct 19 2020</div>
                       </div>
                     </li>
@@ -830,7 +634,7 @@ const title = 'Social Feed'
                     </li>
                     <li>
                       <div class="user-list-avatar">
-                        <img rc="/img/avatars/ben.jpg" alt="" />
+                        <img src="/img/avatars/ben.jpg" alt="" />
                       </div>
                       <div class="user-list-info">
                         <div class="name">Important annoucement</div>
@@ -842,9 +646,7 @@ const title = 'Social Feed'
                         <img src="/img/avatars/melany.jpg" alt="" />
                       </div>
                       <div class="user-list-info">
-                        <div class="name">
-                          Get the most from customer feedback
-                        </div>
+                        <div class="name">Get the most from customer feedback</div>
                         <div class="position">jan 3 2021</div>
                       </div>
                     </li>

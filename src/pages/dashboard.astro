@@ -1,19 +1,14 @@
 ---
-import Layout from "../layouts/Default.astro";
+import Layout from '../layouts/Default.astro'
 const title = 'Dashboard'
 ---
 
 <Layout title={title}>
   <!-- Main dashboard container -->
-  <div
-    id="dashboard-wrapper"
-    class="dashboard-outer"
-    x-data="initDashboard()"
-    :class="{
+  <div id="dashboard-wrapper" class="dashboard-outer" x-data="initDashboard()" :class=`{
       'is-pushed': $store.app.sidebarOpenedState,
       '': !$store.app.sidebarOpenedState
-  }"
-  >
+  }`>
     <div class="dashboard-inner">
       <!-- Dashboard Wrapper -->
       <div class="dashboard-wrapper">
@@ -192,7 +187,7 @@ const title = 'Dashboard'
                         <div class="position">Travel & Hosts</div>
                       </div>
                       <div class="user-list-action">
-                        <i class="iconify" data-icon="lucide:arrow-right"></i>
+                        <iconify-icon class="iconify" icon="lucide:arrow-right"></iconify-icon>
                       </div>
                     </li>
                     <li>
@@ -204,7 +199,7 @@ const title = 'Dashboard'
                         <div class="position">ECM Software</div>
                       </div>
                       <div class="user-list-action">
-                        <i class="iconify" data-icon="lucide:arrow-right"></i>
+                        <iconify-icon class="iconify" icon="lucide:arrow-right"></iconify-icon>
                       </div>
                     </li>
                     <li>
@@ -216,7 +211,7 @@ const title = 'Dashboard'
                         <div class="position">Ecommerce</div>
                       </div>
                       <div class="user-list-action">
-                        <i class="iconify" data-icon="lucide:arrow-right"></i>
+                        <iconify-icon class="iconify" icon="lucide:arrow-right"></iconify-icon>
                       </div>
                     </li>
                     <li>
@@ -228,7 +223,7 @@ const title = 'Dashboard'
                         <div class="position">Car Industry</div>
                       </div>
                       <div class="user-list-action">
-                        <i class="iconify" data-icon="lucide:arrow-right"></i>
+                        <iconify-icon class="iconify" icon="lucide:arrow-right"></iconify-icon>
                       </div>
                     </li>
                     <li>
@@ -240,7 +235,7 @@ const title = 'Dashboard'
                         <div class="position">Clothing & Fashion</div>
                       </div>
                       <div class="user-list-action">
-                        <i class="iconify" data-icon="lucide:arrow-right"></i>
+                        <iconify-icon class="iconify" icon="lucide:arrow-right"></iconify-icon>
                       </div>
                     </li>
                   </ul>
@@ -253,30 +248,10 @@ const title = 'Dashboard'
                     <h3>Deals</h3>
                     <a class="button is-default is-rounded">View All</a>
                   </div>
-                  <svg
-                    class="circle-chart"
-                    viewbox="0 0 33.83098862 33.83098862"
-                    width="140"
-                    height="140"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <circle
-                      class="circle-chart-background"
-                      stroke-width="2"
-                      fill="none"
-                      cx="16.91549431"
-                      cy="16.91549431"
-                      r="15.91549431"></circle>
-                    <circle
-                      class="circle-chart-circle"
-                      stroke="#7F00FF"
-                      stroke-width="2"
-                      stroke-dasharray="68,100"
-                      stroke-linecap="round"
-                      fill="none"
-                      cx="16.91549431"
-                      cy="16.91549431"
-                      r="15.91549431"></circle>
+                  <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="140" height="140" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="circle-chart-background" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                    <circle class="circle-chart-circle" stroke="#7F00FF" stroke-width="2" stroke-dasharray="68,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"
+                    ></circle>
                   </svg>
                   <div class="chart-avatar">
                     <img src="/img/avatars/ray.jpg" alt="" />
@@ -291,30 +266,10 @@ const title = 'Dashboard'
                     <h3>Tasks</h3>
                     <a class="button is-default is-rounded">View All</a>
                   </div>
-                  <svg
-                    class="circle-chart"
-                    viewbox="0 0 33.83098862 33.83098862"
-                    width="140"
-                    height="140"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <circle
-                      class="circle-chart-background"
-                      stroke-width="2"
-                      fill="none"
-                      cx="16.91549431"
-                      cy="16.91549431"
-                      r="15.91549431"></circle>
-                    <circle
-                      class="circle-chart-circle"
-                      stroke="#00d1b2"
-                      stroke-width="2"
-                      stroke-dasharray="77,100"
-                      stroke-linecap="round"
-                      fill="none"
-                      cx="16.91549431"
-                      cy="16.91549431"
-                      r="15.91549431"></circle>
+                  <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="140" height="140" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="circle-chart-background" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                    <circle class="circle-chart-circle" stroke="#00d1b2" stroke-width="2" stroke-dasharray="77,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"
+                    ></circle>
                   </svg>
                   <div class="chart-avatar">
                     <img src="/img/avatars/lakisha.jpg" alt="" />
@@ -344,10 +299,7 @@ const title = 'Dashboard'
                         <i class="fab fa-twitter"></i>
                       </div>
                     </div>
-                    <p class="tweet-content">
-                      Lorem ipsum dolor sit amet, integre explicari has in,
-                      justo ipsum viderer mea ad.
-                    </p>
+                    <p class="tweet-content">Lorem ipsum dolor sit amet, integre explicari has in, justo ipsum viderer mea ad.</p>
                     <div class="hashtags">
                       <span>#codeTalk</span>
                       <span>#iLoveCode</span>
@@ -366,10 +318,7 @@ const title = 'Dashboard'
                         <i class="fab fa-twitter"></i>
                       </div>
                     </div>
-                    <p class="tweet-content">
-                      Lorem ipsum dolor sit amet, integre explicari has in,
-                      justo ipsum viderer mea ad.
-                    </p>
+                    <p class="tweet-content">Lorem ipsum dolor sit amet, integre explicari has in, justo ipsum viderer mea ad.</p>
                     <div class="hashtags">
                       <span>#devOps</span>
                       <span>#backend</span>
@@ -388,10 +337,7 @@ const title = 'Dashboard'
                         <i class="fab fa-twitter"></i>
                       </div>
                     </div>
-                    <p class="tweet-content">
-                      Lorem ipsum dolor sit amet, integre explicari has in,
-                      justo ipsum viderer mea ad.
-                    </p>
+                    <p class="tweet-content">Lorem ipsum dolor sit amet, integre explicari has in, justo ipsum viderer mea ad.</p>
                     <div class="hashtags">
                       <span>#shopping</span>
                       <span>#fashiontime</span>

@@ -1,728 +1,637 @@
 ---
-import Layout from '../layouts/Default.astro';
-import ModalNewContact from "../components/modals/ModalNewContact.astro";
+import Layout from '../layouts/Default.astro'
+import ModalNewContact from '../components/modals/ModalNewContact.astro'
 const title = 'Contact Grid'
 ---
 
 <Layout title={title}>
-<!-- Main dashboard container -->
-<div
-  id="dashboard-wrapper"
-  class="dashboard-outer"
-  x-data="initContactGrid()"
-  :class="{
+  <!-- Main dashboard container -->
+  <div id="dashboard-wrapper" class="dashboard-outer" x-data="initContactGrid()" :class=`{
         'is-pushed': $store.app.sidebarOpenedState,
         '': !$store.app.sidebarOpenedState
-    }"
->
-  <div class="dashboard-inner">
-    <!-- Dashboard Wrapper -->
-    <div class="dashboard-wrapper">
-      <div id="main-dashboard" class="section-wrapper">
-        <!-- Dashboard content -->
-        <div class="dashboard-columns">
-          <!-- Page title -->
-          <div class="contacts-title-wrapper">
-            <h3 class="contacts-title">Contacts</h3>
-            <!-- Filter input -->
-            <div class="list-filter">
-              <div class="control has-icon b-hidden-mobile">
-                <input
-                  class="input"
-                  type="text"
-                  placeholder="Filter Contacts"
-                />
-                <div class="form-icon">
-                  <i class="iconify" data-icon="lucide:filter"></i>
+    }`>
+    <div class="dashboard-inner">
+      <!-- Dashboard Wrapper -->
+      <div class="dashboard-wrapper">
+        <div id="main-dashboard" class="section-wrapper">
+          <!-- Dashboard content -->
+          <div class="dashboard-columns">
+            <!-- Page title -->
+            <div class="contacts-title-wrapper">
+              <h3 class="contacts-title">Contacts</h3>
+              <!-- Filter input -->
+              <div class="list-filter">
+                <div class="control has-icon b-hidden-mobile">
+                  <input class="input" type="text" placeholder="Filter Contacts" />
+                  <div class="form-icon">
+                    <iconify-icon class="iconify" icon="lucide:filter"></iconify-icon>
+                  </div>
                 </div>
+                <!-- Add contact button -->
+                <a @click="toggleNewContactModal()" class="button is-secondary is-raised is-long-1">
+                  <span class="icon is-small">
+                    <i class="fas fa-plus"></i>
+                  </span>
+                  <span>New Contact</span>
+                </a>
               </div>
-              <!-- Add contact button -->
-              <a
-                @click="toggleNewContactModal()"
-                class="button is-secondary is-raised is-long-1"
-              >
-                <span class="icon is-small">
-                  <i class="fas fa-plus"></i>
-                </span>
-                <span>New Contact</span>
-              </a>
             </div>
-          </div>
 
-          <!-- Contacts grid -->
-          <div class="columns is-multiline is-contacts-grid">
-            <!-- Contact card -->
-            <div class="column is-4">
-              <div class="contact-card">
-                <!-- Progress bar -->
-                <div class="progress-block">
-                  <progress class="progress is-xs is-mid" value="30" max="100">
-                    30%
-                  </progress>
-                  <div class="task-count">
-                    <span class="sl icon-pencil"></span>
-                    <span>30%</span>
+            <!-- Contacts grid -->
+            <div class="columns is-multiline is-contacts-grid">
+              <!-- Contact card -->
+              <div class="column is-4">
+                <div class="contact-card">
+                  <!-- Progress bar -->
+                  <div class="progress-block">
+                    <progress class="progress is-xs is-mid" value="30" max="100"> 30% </progress>
+                    <div class="task-count">
+                      <span class="sl icon-pencil"></span>
+                      <span>30%</span>
+                    </div>
                   </div>
-                </div>
-                <!-- Contact info -->
-                <div class="contact-block">
-                  <img src="/img/avatars/terry.jpg" alt="" />
-                  <div class="contact-meta">
-                    <span class="name">Terry Daniels</span>
-                    <span class="position">Multicorp Inc.</span>
-                    <span class="email">tdaniels@multicorp.com</span>
+                  <!-- Contact info -->
+                  <div class="contact-block">
+                    <img src="/img/avatars/terry.jpg" alt="" />
+                    <div class="contact-meta">
+                      <span class="name">Terry Daniels</span>
+                      <span class="position">Multicorp Inc.</span>
+                      <span class="email">tdaniels@multicorp.com</span>
+                    </div>
                   </div>
-                </div>
-                <div class="contact-actions">
-                  <small class="tag is-curved">Prospect</small>
-                  <div class="right-actions">
-                    <a class="button contact-button">
-                      <i class="material-icons">bookmark</i>
-                    </a>
-                    <a class="button contact-button">
-                      <i class="material-icons">mail</i>
-                    </a>
-                    <!--Dropdown-->
-                    <div
-                      x-ref="contactdrop1"
-                      @click.away="$refs.contactdrop1.classList.remove('is-active')"
-                      class="dropdown is-right dropdown-trigger contacts-grid-dropdown"
-                    >
-                      <button
-                        @click="$refs.contactdrop1.classList.add('is-active')"
-                        class="button"
-                      >
-                        <i class="material-icons">more_horiz</i>
-                      </button>
+                  <div class="contact-actions">
+                    <small class="tag is-curved">Prospect</small>
+                    <div class="right-actions">
+                      <a class="button contact-button">
+                        <i class="material-icons">bookmark</i>
+                      </a>
+                      <a class="button contact-button">
+                        <i class="material-icons">mail</i>
+                      </a>
+                      <!--Dropdown-->
+                      <div x-ref="contactdrop1" @click.away="$refs.contactdrop1.classList.remove('is-active')" class="dropdown is-right dropdown-trigger contacts-grid-dropdown">
+                        <button @click="$refs.contactdrop1.classList.add('is-active')" class="button">
+                          <i class="material-icons">more_horiz</i>
+                        </button>
 
-                      <div class="dropdown-menu is-text-bigger" role="menu">
-                        <div class="dropdown-content">
-                          <a class="dropdown-item">
-                            <i class="sl icon-eye"></i>
-                            <span>
-                              <span>View</span>
-                              <span>View contact details</span>
-                            </span>
-                          </a>
-                          <a href="#" class="dropdown-item">
-                            <i class="sl icon-pencil"></i>
-                            <span>
-                              <span>Edit</span>
-                              <span>Edit contact details</span>
-                            </span>
-                          </a>
-                          <div class="dropdown-divider"></div>
-                          <a href="#" class="dropdown-item">
-                            <i class="sl icon-bell"></i>
-                            <span>
-                              <span>Notifications</span>
-                              <span>Manage contact notifications</span>
-                            </span>
-                          </a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item">
-                            <i class="sl icon-trash"></i>
-                            <span>
-                              <span>Delete</span>
-                              <span>Delete this contact</span>
-                            </span>
-                          </a>
+                        <div class="dropdown-menu is-text-bigger" role="menu">
+                          <div class="dropdown-content">
+                            <a class="dropdown-item">
+                              <i class="sl icon-eye"></i>
+                              <span>
+                                <span>View</span>
+                                <span>View contact details</span>
+                              </span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-pencil"></i>
+                              <span>
+                                <span>Edit</span>
+                                <span>Edit contact details</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-bell"></i>
+                              <span>
+                                <span>Notifications</span>
+                                <span>Manage contact notifications</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">
+                              <i class="sl icon-trash"></i>
+                              <span>
+                                <span>Delete</span>
+                                <span>Delete this contact</span>
+                              </span>
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <!-- Contact card -->
-            <div class="column is-4">
-              <div class="contact-card">
-                <!-- Progress bar -->
-                <div class="progress-block">
-                  <progress class="progress is-xs is-high" value="87" max="100">
-                    87%
-                  </progress>
-                  <div class="task-count">
-                    <span class="sl icon-pencil"></span>
-                    <span>87%</span>
+              <!-- Contact card -->
+              <div class="column is-4">
+                <div class="contact-card">
+                  <!-- Progress bar -->
+                  <div class="progress-block">
+                    <progress class="progress is-xs is-high" value="87" max="100"> 87% </progress>
+                    <div class="task-count">
+                      <span class="sl icon-pencil"></span>
+                      <span>87%</span>
+                    </div>
                   </div>
-                </div>
-                <!-- Contact info -->
-                <div class="contact-block">
-                  <img src="/img/avatars/elie.jpg" alt="" />
-                  <div class="contact-meta">
-                    <span class="name">Elie Mayers</span>
-                    <span class="position">AwesomeCo</span>
-                    <span class="email">mayers22@awesomeco.io</span>
+                  <!-- Contact info -->
+                  <div class="contact-block">
+                    <img src="/img/avatars/elie.jpg" alt="" />
+                    <div class="contact-meta">
+                      <span class="name">Elie Mayers</span>
+                      <span class="position">AwesomeCo</span>
+                      <span class="email">mayers22@awesomeco.io</span>
+                    </div>
                   </div>
-                </div>
-                <!-- Contact actions -->
-                <div class="contact-actions">
-                  <small class="tag is-curved is-green">Customer</small>
-                  <div class="right-actions">
-                    <a class="button contact-button">
-                      <i class="material-icons">bookmark</i>
-                    </a>
-                    <a class="button contact-button">
-                      <i class="material-icons">mail</i>
-                    </a>
-                    <!--Dropdown-->
-                    <div
-                      x-ref="contactdrop2"
-                      @click.away="$refs.contactdrop2.classList.remove('is-active')"
-                      class="dropdown is-right dropdown-trigger contacts-grid-dropdown"
-                    >
-                      <button
-                        @click="$refs.contactdrop2.classList.add('is-active')"
-                        class="button"
-                      >
-                        <i class="material-icons">more_horiz</i>
-                      </button>
+                  <!-- Contact actions -->
+                  <div class="contact-actions">
+                    <small class="tag is-curved is-green">Customer</small>
+                    <div class="right-actions">
+                      <a class="button contact-button">
+                        <i class="material-icons">bookmark</i>
+                      </a>
+                      <a class="button contact-button">
+                        <i class="material-icons">mail</i>
+                      </a>
+                      <!--Dropdown-->
+                      <div x-ref="contactdrop2" @click.away="$refs.contactdrop2.classList.remove('is-active')" class="dropdown is-right dropdown-trigger contacts-grid-dropdown">
+                        <button @click="$refs.contactdrop2.classList.add('is-active')" class="button">
+                          <i class="material-icons">more_horiz</i>
+                        </button>
 
-                      <div class="dropdown-menu is-text-bigger" role="menu">
-                        <div class="dropdown-content">
-                          <a class="dropdown-item">
-                            <i class="sl icon-eye"></i>
-                            <span>
-                              <span>View</span>
-                              <span>View contact details</span>
-                            </span>
-                          </a>
-                          <a href="#" class="dropdown-item">
-                            <i class="sl icon-pencil"></i>
-                            <span>
-                              <span>Edit</span>
-                              <span>Edit contact details</span>
-                            </span>
-                          </a>
-                          <div class="dropdown-divider"></div>
-                          <a href="#" class="dropdown-item">
-                            <i class="sl icon-bell"></i>
-                            <span>
-                              <span>Notifications</span>
-                              <span>Manage contact notifications</span>
-                            </span>
-                          </a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item">
-                            <i class="sl icon-trash"></i>
-                            <span>
-                              <span>Delete</span>
-                              <span>Delete this contact</span>
-                            </span>
-                          </a>
+                        <div class="dropdown-menu is-text-bigger" role="menu">
+                          <div class="dropdown-content">
+                            <a class="dropdown-item">
+                              <i class="sl icon-eye"></i>
+                              <span>
+                                <span>View</span>
+                                <span>View contact details</span>
+                              </span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-pencil"></i>
+                              <span>
+                                <span>Edit</span>
+                                <span>Edit contact details</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-bell"></i>
+                              <span>
+                                <span>Notifications</span>
+                                <span>Manage contact notifications</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">
+                              <i class="sl icon-trash"></i>
+                              <span>
+                                <span>Delete</span>
+                                <span>Delete this contact</span>
+                              </span>
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <!-- Contact card -->
-            <div class="column is-4">
-              <div class="contact-card">
-                <!-- Progress bar -->
-                <div class="progress-block">
-                  <progress
-                    class="progress is-xs is-secondary"
-                    value="100"
-                    max="100"
-                  >
-                    100%
-                  </progress>
-                  <div class="task-count">
-                    <span class="sl icon-pencil"></span>
-                    <span>100%</span>
+              <!-- Contact card -->
+              <div class="column is-4">
+                <div class="contact-card">
+                  <!-- Progress bar -->
+                  <div class="progress-block">
+                    <progress class="progress is-xs is-secondary" value="100" max="100"> 100% </progress>
+                    <div class="task-count">
+                      <span class="sl icon-pencil"></span>
+                      <span>100%</span>
+                    </div>
                   </div>
-                </div>
-                <!-- Contact info -->
-                <div class="contact-block">
-                  <img src="/img/avatars/carolin.jpg" alt="" />
-                  <div class="contact-meta">
-                    <span class="name">Marjory Cambell</span>
-                    <span class="position">Fintech</span>
-                    <span class="email">marjory@fintech.co</span>
+                  <!-- Contact info -->
+                  <div class="contact-block">
+                    <img src="/img/avatars/carolin.jpg" alt="" />
+                    <div class="contact-meta">
+                      <span class="name">Marjory Cambell</span>
+                      <span class="position">Fintech</span>
+                      <span class="email">marjory@fintech.co</span>
+                    </div>
                   </div>
-                </div>
-                <!-- Contact actions -->
-                <div class="contact-actions">
-                  <small class="tag is-curved">Lead</small>
-                  <div class="right-actions">
-                    <a class="button contact-button">
-                      <i class="material-icons">bookmark</i>
-                    </a>
-                    <a class="button contact-button">
-                      <i class="material-icons">mail</i>
-                    </a>
-                    <!--Dropdown-->
-                    <div
-                      x-ref="contactdrop3"
-                      @click.away="$refs.contactdrop3.classList.remove('is-active')"
-                      class="dropdown is-right dropdown-trigger contacts-grid-dropdown"
-                    >
-                      <button
-                        @click="$refs.contactdrop3.classList.add('is-active')"
-                        class="button"
-                      >
-                        <i class="material-icons">more_horiz</i>
-                      </button>
+                  <!-- Contact actions -->
+                  <div class="contact-actions">
+                    <small class="tag is-curved">Lead</small>
+                    <div class="right-actions">
+                      <a class="button contact-button">
+                        <i class="material-icons">bookmark</i>
+                      </a>
+                      <a class="button contact-button">
+                        <i class="material-icons">mail</i>
+                      </a>
+                      <!--Dropdown-->
+                      <div x-ref="contactdrop3" @click.away="$refs.contactdrop3.classList.remove('is-active')" class="dropdown is-right dropdown-trigger contacts-grid-dropdown">
+                        <button @click="$refs.contactdrop3.classList.add('is-active')" class="button">
+                          <i class="material-icons">more_horiz</i>
+                        </button>
 
-                      <div class="dropdown-menu is-text-bigger" role="menu">
-                        <div class="dropdown-content">
-                          <a class="dropdown-item">
-                            <i class="sl icon-eye"></i>
-                            <span>
-                              <span>View</span>
-                              <span>View contact details</span>
-                            </span>
-                          </a>
-                          <a href="#" class="dropdown-item">
-                            <i class="sl icon-pencil"></i>
-                            <span>
-                              <span>Edit</span>
-                              <span>Edit contact details</span>
-                            </span>
-                          </a>
-                          <div class="dropdown-divider"></div>
-                          <a href="#" class="dropdown-item">
-                            <i class="sl icon-bell"></i>
-                            <span>
-                              <span>Notifications</span>
-                              <span>Manage contact notifications</span>
-                            </span>
-                          </a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item">
-                            <i class="sl icon-trash"></i>
-                            <span>
-                              <span>Delete</span>
-                              <span>Delete this contact</span>
-                            </span>
-                          </a>
+                        <div class="dropdown-menu is-text-bigger" role="menu">
+                          <div class="dropdown-content">
+                            <a class="dropdown-item">
+                              <i class="sl icon-eye"></i>
+                              <span>
+                                <span>View</span>
+                                <span>View contact details</span>
+                              </span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-pencil"></i>
+                              <span>
+                                <span>Edit</span>
+                                <span>Edit contact details</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-bell"></i>
+                              <span>
+                                <span>Notifications</span>
+                                <span>Manage contact notifications</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">
+                              <i class="sl icon-trash"></i>
+                              <span>
+                                <span>Delete</span>
+                                <span>Delete this contact</span>
+                              </span>
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <!-- Contact card -->
-            <div class="column is-4">
-              <div class="contact-card">
-                <!-- Progress bar -->
-                <div class="progress-block">
-                  <progress
-                    class="progress is-xs is-secondary"
-                    value="100"
-                    max="100"
-                  >
-                    100%
-                  </progress>
-                  <div class="task-count">
-                    <span class="sl icon-pencil"></span>
-                    <span>100%</span>
+              <!-- Contact card -->
+              <div class="column is-4">
+                <div class="contact-card">
+                  <!-- Progress bar -->
+                  <div class="progress-block">
+                    <progress class="progress is-xs is-secondary" value="100" max="100"> 100% </progress>
+                    <div class="task-count">
+                      <span class="sl icon-pencil"></span>
+                      <span>100%</span>
+                    </div>
                   </div>
-                </div>
-                <!-- Contact info -->
-                <div class="contact-block">
-                  <img src="/img/avatars/anthony.jpg" alt="" />
-                  <div class="contact-meta">
-                    <span class="name">Anthony Briggs</span>
-                    <span class="position">SpaceX Corp.</span>
-                    <span class="email">anthonyb@spacex.co</span>
+                  <!-- Contact info -->
+                  <div class="contact-block">
+                    <img src="/img/avatars/anthony.jpg" alt="" />
+                    <div class="contact-meta">
+                      <span class="name">Anthony Briggs</span>
+                      <span class="position">SpaceX Corp.</span>
+                      <span class="email">anthonyb@spacex.co</span>
+                    </div>
                   </div>
-                </div>
-                <!-- Contact actions -->
-                <div class="contact-actions">
-                  <small class="tag is-curved is-green">Customer</small>
-                  <div class="right-actions">
-                    <a class="button contact-button">
-                      <i class="material-icons">bookmark</i>
-                    </a>
-                    <a class="button contact-button">
-                      <i class="material-icons">mail</i>
-                    </a>
-                    <!--Dropdown-->
-                    <div
-                      x-ref="contactdrop4"
-                      @click.away="$refs.contactdrop4.classList.remove('is-active')"
-                      class="dropdown is-right dropdown-trigger contacts-grid-dropdown"
-                    >
-                      <button
-                        @click="$refs.contactdrop4.classList.add('is-active')"
-                        class="button"
-                      >
-                        <i class="material-icons">more_horiz</i>
-                      </button>
+                  <!-- Contact actions -->
+                  <div class="contact-actions">
+                    <small class="tag is-curved is-green">Customer</small>
+                    <div class="right-actions">
+                      <a class="button contact-button">
+                        <i class="material-icons">bookmark</i>
+                      </a>
+                      <a class="button contact-button">
+                        <i class="material-icons">mail</i>
+                      </a>
+                      <!--Dropdown-->
+                      <div x-ref="contactdrop4" @click.away="$refs.contactdrop4.classList.remove('is-active')" class="dropdown is-right dropdown-trigger contacts-grid-dropdown">
+                        <button @click="$refs.contactdrop4.classList.add('is-active')" class="button">
+                          <i class="material-icons">more_horiz</i>
+                        </button>
 
-                      <div class="dropdown-menu is-text-bigger" role="menu">
-                        <div class="dropdown-content">
-                          <a class="dropdown-item">
-                            <i class="sl icon-eye"></i>
-                            <span>
-                              <span>View</span>
-                              <span>View contact details</span>
-                            </span>
-                          </a>
-                          <a href="#" class="dropdown-item">
-                            <i class="sl icon-pencil"></i>
-                            <span>
-                              <span>Edit</span>
-                              <span>Edit contact details</span>
-                            </span>
-                          </a>
-                          <div class="dropdown-divider"></div>
-                          <a href="#" class="dropdown-item">
-                            <i class="sl icon-bell"></i>
-                            <span>
-                              <span>Notifications</span>
-                              <span>Manage contact notifications</span>
-                            </span>
-                          </a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item">
-                            <i class="sl icon-trash"></i>
-                            <span>
-                              <span>Delete</span>
-                              <span>Delete this contact</span>
-                            </span>
-                          </a>
+                        <div class="dropdown-menu is-text-bigger" role="menu">
+                          <div class="dropdown-content">
+                            <a class="dropdown-item">
+                              <i class="sl icon-eye"></i>
+                              <span>
+                                <span>View</span>
+                                <span>View contact details</span>
+                              </span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-pencil"></i>
+                              <span>
+                                <span>Edit</span>
+                                <span>Edit contact details</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-bell"></i>
+                              <span>
+                                <span>Notifications</span>
+                                <span>Manage contact notifications</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">
+                              <i class="sl icon-trash"></i>
+                              <span>
+                                <span>Delete</span>
+                                <span>Delete this contact</span>
+                              </span>
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <!-- Contact card -->
-            <div class="column is-4">
-              <div class="contact-card">
-                <!-- Progress bar -->
-                <div class="progress-block">
-                  <progress class="progress is-xs is-low" value="5" max="100">
-                    5%
-                  </progress>
-                  <div class="task-count">
-                    <span class="sl icon-pencil"></span>
-                    <span>5%</span>
+              <!-- Contact card -->
+              <div class="column is-4">
+                <div class="contact-card">
+                  <!-- Progress bar -->
+                  <div class="progress-block">
+                    <progress class="progress is-xs is-low" value="5" max="100"> 5% </progress>
+                    <div class="task-count">
+                      <span class="sl icon-pencil"></span>
+                      <span>5%</span>
+                    </div>
                   </div>
-                </div>
-                <!-- Contact info -->
-                <div class="contact-block">
-                  <img src="/img/avatars/nina.jpg" alt="" />
-                  <div class="contact-meta">
-                    <span class="name">Elisa Ortega</span>
-                    <span class="position">Ortega Group Ltd.</span>
-                    <span class="email">eortega@ortegagroup.es</span>
+                  <!-- Contact info -->
+                  <div class="contact-block">
+                    <img src="/img/avatars/nina.jpg" alt="" />
+                    <div class="contact-meta">
+                      <span class="name">Elisa Ortega</span>
+                      <span class="position">Ortega Group Ltd.</span>
+                      <span class="email">eortega@ortegagroup.es</span>
+                    </div>
                   </div>
-                </div>
-                <!-- Contact actions -->
-                <div class="contact-actions">
-                  <small class="tag is-curved">Unqualified</small>
-                  <div class="right-actions">
-                    <a class="button contact-button">
-                      <i class="material-icons">bookmark</i>
-                    </a>
-                    <a class="button contact-button">
-                      <i class="material-icons">mail</i>
-                    </a>
-                    <!--Dropdown-->
-                    <div
-                      x-ref="contactdrop5"
-                      @click.away="$refs.contactdrop5.classList.remove('is-active')"
-                      class="dropdown is-right dropdown-trigger contacts-grid-dropdown"
-                    >
-                      <button
-                        @click="$refs.contactdrop5.classList.add('is-active')"
-                        class="button"
-                      >
-                        <i class="material-icons">more_horiz</i>
-                      </button>
+                  <!-- Contact actions -->
+                  <div class="contact-actions">
+                    <small class="tag is-curved">Unqualified</small>
+                    <div class="right-actions">
+                      <a class="button contact-button">
+                        <i class="material-icons">bookmark</i>
+                      </a>
+                      <a class="button contact-button">
+                        <i class="material-icons">mail</i>
+                      </a>
+                      <!--Dropdown-->
+                      <div x-ref="contactdrop5" @click.away="$refs.contactdrop5.classList.remove('is-active')" class="dropdown is-right dropdown-trigger contacts-grid-dropdown">
+                        <button @click="$refs.contactdrop5.classList.add('is-active')" class="button">
+                          <i class="material-icons">more_horiz</i>
+                        </button>
 
-                      <div class="dropdown-menu is-text-bigger" role="menu">
-                        <div class="dropdown-content">
-                          <a class="dropdown-item">
-                            <i class="sl icon-eye"></i>
-                            <span>
-                              <span>View</span>
-                              <span>View contact details</span>
-                            </span>
-                          </a>
-                          <a href="#" class="dropdown-item">
-                            <i class="sl icon-pencil"></i>
-                            <span>
-                              <span>Edit</span>
-                              <span>Edit contact details</span>
-                            </span>
-                          </a>
-                          <div class="dropdown-divider"></div>
-                          <a href="#" class="dropdown-item">
-                            <i class="sl icon-bell"></i>
-                            <span>
-                              <span>Notifications</span>
-                              <span>Manage contact notifications</span>
-                            </span>
-                          </a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item">
-                            <i class="sl icon-trash"></i>
-                            <span>
-                              <span>Delete</span>
-                              <span>Delete this contact</span>
-                            </span>
-                          </a>
+                        <div class="dropdown-menu is-text-bigger" role="menu">
+                          <div class="dropdown-content">
+                            <a class="dropdown-item">
+                              <i class="sl icon-eye"></i>
+                              <span>
+                                <span>View</span>
+                                <span>View contact details</span>
+                              </span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-pencil"></i>
+                              <span>
+                                <span>Edit</span>
+                                <span>Edit contact details</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-bell"></i>
+                              <span>
+                                <span>Notifications</span>
+                                <span>Manage contact notifications</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">
+                              <i class="sl icon-trash"></i>
+                              <span>
+                                <span>Delete</span>
+                                <span>Delete this contact</span>
+                              </span>
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <!-- Contact card -->
-            <div class="column is-4">
-              <div class="contact-card">
-                <!-- Progress bar -->
-                <div class="progress-block">
-                  <progress class="progress is-xs is-low" value="21" max="100">
-                    21%
-                  </progress>
-                  <div class="task-count">
-                    <span class="sl icon-pencil"></span>
-                    <span>21%</span>
+              <!-- Contact card -->
+              <div class="column is-4">
+                <div class="contact-card">
+                  <!-- Progress bar -->
+                  <div class="progress-block">
+                    <progress class="progress is-xs is-low" value="21" max="100"> 21% </progress>
+                    <div class="task-count">
+                      <span class="sl icon-pencil"></span>
+                      <span>21%</span>
+                    </div>
                   </div>
-                </div>
-                <!-- Contact info -->
-                <div class="contact-block">
-                  <img src="/img/avatars/kareem.jpg" alt="" />
-                  <div class="contact-meta">
-                    <span class="name">Kareem Jabbar</span>
-                    <span class="position">Associated Accountants.</span>
-                    <span class="email">jabbar@aaccountants.com</span>
+                  <!-- Contact info -->
+                  <div class="contact-block">
+                    <img src="/img/avatars/kareem.jpg" alt="" />
+                    <div class="contact-meta">
+                      <span class="name">Kareem Jabbar</span>
+                      <span class="position">Associated Accountants.</span>
+                      <span class="email">jabbar@aaccountants.com</span>
+                    </div>
                   </div>
-                </div>
-                <!-- Contact actions -->
-                <div class="contact-actions">
-                  <small class="tag is-curved">Prospect</small>
-                  <div class="right-actions">
-                    <a class="button contact-button">
-                      <i class="material-icons">bookmark</i>
-                    </a>
-                    <a class="button contact-button">
-                      <i class="material-icons">mail</i>
-                    </a>
-                    <!--Dropdown-->
-                    <div
-                      x-ref="contactdrop6"
-                      @click.away="$refs.contactdrop6.classList.remove('is-active')"
-                      class="dropdown is-right dropdown-trigger contacts-grid-dropdown"
-                    >
-                      <button
-                        @click="$refs.contactdrop6.classList.add('is-active')"
-                        class="button"
-                      >
-                        <i class="material-icons">more_horiz</i>
-                      </button>
+                  <!-- Contact actions -->
+                  <div class="contact-actions">
+                    <small class="tag is-curved">Prospect</small>
+                    <div class="right-actions">
+                      <a class="button contact-button">
+                        <i class="material-icons">bookmark</i>
+                      </a>
+                      <a class="button contact-button">
+                        <i class="material-icons">mail</i>
+                      </a>
+                      <!--Dropdown-->
+                      <div x-ref="contactdrop6" @click.away="$refs.contactdrop6.classList.remove('is-active')" class="dropdown is-right dropdown-trigger contacts-grid-dropdown">
+                        <button @click="$refs.contactdrop6.classList.add('is-active')" class="button">
+                          <i class="material-icons">more_horiz</i>
+                        </button>
 
-                      <div class="dropdown-menu is-text-bigger" role="menu">
-                        <div class="dropdown-content">
-                          <a class="dropdown-item">
-                            <i class="sl icon-eye"></i>
-                            <span>
-                              <span>View</span>
-                              <span>View contact details</span>
-                            </span>
-                          </a>
-                          <a href="#" class="dropdown-item">
-                            <i class="sl icon-pencil"></i>
-                            <span>
-                              <span>Edit</span>
-                              <span>Edit contact details</span>
-                            </span>
-                          </a>
-                          <div class="dropdown-divider"></div>
-                          <a href="#" class="dropdown-item">
-                            <i class="sl icon-bell"></i>
-                            <span>
-                              <span>Notifications</span>
-                              <span>Manage contact notifications</span>
-                            </span>
-                          </a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item">
-                            <i class="sl icon-trash"></i>
-                            <span>
-                              <span>Delete</span>
-                              <span>Delete this contact</span>
-                            </span>
-                          </a>
+                        <div class="dropdown-menu is-text-bigger" role="menu">
+                          <div class="dropdown-content">
+                            <a class="dropdown-item">
+                              <i class="sl icon-eye"></i>
+                              <span>
+                                <span>View</span>
+                                <span>View contact details</span>
+                              </span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-pencil"></i>
+                              <span>
+                                <span>Edit</span>
+                                <span>Edit contact details</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-bell"></i>
+                              <span>
+                                <span>Notifications</span>
+                                <span>Manage contact notifications</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">
+                              <i class="sl icon-trash"></i>
+                              <span>
+                                <span>Delete</span>
+                                <span>Delete this contact</span>
+                              </span>
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <!-- Contact card -->
-            <div class="column is-4">
-              <div class="contact-card">
-                <!-- Progress bar -->
-                <div class="progress-block">
-                  <progress class="progress is-xs is-high" value="65" max="100">
-                    65%
-                  </progress>
-                  <div class="task-count">
-                    <span class="sl icon-pencil"></span>
-                    <span>65%</span>
+              <!-- Contact card -->
+              <div class="column is-4">
+                <div class="contact-card">
+                  <!-- Progress bar -->
+                  <div class="progress-block">
+                    <progress class="progress is-xs is-high" value="65" max="100"> 65% </progress>
+                    <div class="task-count">
+                      <span class="sl icon-pencil"></span>
+                      <span>65%</span>
+                    </div>
                   </div>
-                </div>
-                <!-- Contact info -->
-                <div class="contact-block">
-                  <img src="/img/avatars/marc.jpg" alt="" />
-                  <div class="contact-meta">
-                    <span class="name">Marc Walters</span>
-                    <span class="position">The Agency </span>
-                    <span class="email">waltersm@theagency.me</span>
+                  <!-- Contact info -->
+                  <div class="contact-block">
+                    <img src="/img/avatars/marc.jpg" alt="" />
+                    <div class="contact-meta">
+                      <span class="name">Marc Walters</span>
+                      <span class="position">The Agency </span>
+                      <span class="email">waltersm@theagency.me</span>
+                    </div>
                   </div>
-                </div>
-                <!-- Contact actions -->
-                <div class="contact-actions">
-                  <small class="tag is-curved is-green">Opportunity</small>
-                  <div class="right-actions">
-                    <a class="button contact-button">
-                      <i class="material-icons">bookmark</i>
-                    </a>
-                    <a class="button contact-button">
-                      <i class="material-icons">mail</i>
-                    </a>
-                    <!--Dropdown-->
-                    <div
-                      x-ref="contactdrop7"
-                      @click.away="$refs.contactdrop7.classList.remove('is-active')"
-                      class="dropdown is-right dropdown-trigger contacts-grid-dropdown"
-                    >
-                      <button
-                        @click="$refs.contactdrop7.classList.add('is-active')"
-                        class="button"
-                      >
-                        <i class="material-icons">more_horiz</i>
-                      </button>
+                  <!-- Contact actions -->
+                  <div class="contact-actions">
+                    <small class="tag is-curved is-green">Opportunity</small>
+                    <div class="right-actions">
+                      <a class="button contact-button">
+                        <i class="material-icons">bookmark</i>
+                      </a>
+                      <a class="button contact-button">
+                        <i class="material-icons">mail</i>
+                      </a>
+                      <!--Dropdown-->
+                      <div x-ref="contactdrop7" @click.away="$refs.contactdrop7.classList.remove('is-active')" class="dropdown is-right dropdown-trigger contacts-grid-dropdown">
+                        <button @click="$refs.contactdrop7.classList.add('is-active')" class="button">
+                          <i class="material-icons">more_horiz</i>
+                        </button>
 
-                      <div class="dropdown-menu is-text-bigger" role="menu">
-                        <div class="dropdown-content">
-                          <a class="dropdown-item">
-                            <i class="sl icon-eye"></i>
-                            <span>
-                              <span>View</span>
-                              <span>View contact details</span>
-                            </span>
-                          </a>
-                          <a href="#" class="dropdown-item">
-                            <i class="sl icon-pencil"></i>
-                            <span>
-                              <span>Edit</span>
-                              <span>Edit contact details</span>
-                            </span>
-                          </a>
-                          <div class="dropdown-divider"></div>
-                          <a href="#" class="dropdown-item">
-                            <i class="sl icon-bell"></i>
-                            <span>
-                              <span>Notifications</span>
-                              <span>Manage contact notifications</span>
-                            </span>
-                          </a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item">
-                            <i class="sl icon-trash"></i>
-                            <span>
-                              <span>Delete</span>
-                              <span>Delete this contact</span>
-                            </span>
-                          </a>
+                        <div class="dropdown-menu is-text-bigger" role="menu">
+                          <div class="dropdown-content">
+                            <a class="dropdown-item">
+                              <i class="sl icon-eye"></i>
+                              <span>
+                                <span>View</span>
+                                <span>View contact details</span>
+                              </span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-pencil"></i>
+                              <span>
+                                <span>Edit</span>
+                                <span>Edit contact details</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-bell"></i>
+                              <span>
+                                <span>Notifications</span>
+                                <span>Manage contact notifications</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">
+                              <i class="sl icon-trash"></i>
+                              <span>
+                                <span>Delete</span>
+                                <span>Delete this contact</span>
+                              </span>
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <!-- Contact card -->
-            <div class="column is-4">
-              <div class="contact-card">
-                <!-- Progress bar -->
-                <div class="progress-block">
-                  <progress class="progress is-xs is-mid" value="48" max="100">
-                    48%
-                  </progress>
-                  <div class="task-count">
-                    <span class="sl icon-pencil"></span>
-                    <span>48%</span>
+              <!-- Contact card -->
+              <div class="column is-4">
+                <div class="contact-card">
+                  <!-- Progress bar -->
+                  <div class="progress-block">
+                    <progress class="progress is-xs is-mid" value="48" max="100"> 48% </progress>
+                    <div class="task-count">
+                      <span class="sl icon-pencil"></span>
+                      <span>48%</span>
+                    </div>
                   </div>
-                </div>
-                <!-- Contact info -->
-                <div class="contact-block">
-                  <img src="/img/avatars/melany.jpg" alt="" />
-                  <div class="contact-meta">
-                    <span class="name">Melany Smith</span>
-                    <span class="position">Serviceo Inc.</span>
-                    <span class="email">melsmith@serviceo.io</span>
+                  <!-- Contact info -->
+                  <div class="contact-block">
+                    <img src="/img/avatars/melany.jpg" alt="" />
+                    <div class="contact-meta">
+                      <span class="name">Melany Smith</span>
+                      <span class="position">Serviceo Inc.</span>
+                      <span class="email">melsmith@serviceo.io</span>
+                    </div>
                   </div>
-                </div>
-                <!-- Contact actions -->
-                <div class="contact-actions">
-                  <small class="tag is-curved">Prospect</small>
-                  <div class="right-actions">
-                    <a class="button contact-button">
-                      <i class="material-icons">bookmark</i>
-                    </a>
-                    <a class="button contact-button">
-                      <i class="material-icons">mail</i>
-                    </a>
-                    <!--Dropdown-->
-                    <div
-                      x-ref="contactdrop8"
-                      @click.away="$refs.contactdrop8.classList.remove('is-active')"
-                      class="dropdown is-right dropdown-trigger contacts-grid-dropdown"
-                    >
-                      <button
-                        @click="$refs.contactdrop8.classList.add('is-active')"
-                        class="button"
-                      >
-                        <i class="material-icons">more_horiz</i>
-                      </button>
+                  <!-- Contact actions -->
+                  <div class="contact-actions">
+                    <small class="tag is-curved">Prospect</small>
+                    <div class="right-actions">
+                      <a class="button contact-button">
+                        <i class="material-icons">bookmark</i>
+                      </a>
+                      <a class="button contact-button">
+                        <i class="material-icons">mail</i>
+                      </a>
+                      <!--Dropdown-->
+                      <div x-ref="contactdrop8" @click.away="$refs.contactdrop8.classList.remove('is-active')" class="dropdown is-right dropdown-trigger contacts-grid-dropdown">
+                        <button @click="$refs.contactdrop8.classList.add('is-active')" class="button">
+                          <i class="material-icons">more_horiz</i>
+                        </button>
 
-                      <div class="dropdown-menu is-text-bigger" role="menu">
-                        <div class="dropdown-content">
-                          <a class="dropdown-item">
-                            <i class="sl icon-eye"></i>
-                            <span>
-                              <span>View</span>
-                              <span>View contact details</span>
-                            </span>
-                          </a>
-                          <a href="#" class="dropdown-item">
-                            <i class="sl icon-pencil"></i>
-                            <span>
-                              <span>Edit</span>
-                              <span>Edit contact details</span>
-                            </span>
-                          </a>
-                          <div class="dropdown-divider"></div>
-                          <a href="#" class="dropdown-item">
-                            <i class="sl icon-bell"></i>
-                            <span>
-                              <span>Notifications</span>
-                              <span>Manage contact notifications</span>
-                            </span>
-                          </a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item">
-                            <i class="sl icon-trash"></i>
-                            <span>
-                              <span>Delete</span>
-                              <span>Delete this contact</span>
-                            </span>
-                          </a>
+                        <div class="dropdown-menu is-text-bigger" role="menu">
+                          <div class="dropdown-content">
+                            <a class="dropdown-item">
+                              <i class="sl icon-eye"></i>
+                              <span>
+                                <span>View</span>
+                                <span>View contact details</span>
+                              </span>
+                            </a>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-pencil"></i>
+                              <span>
+                                <span>Edit</span>
+                                <span>Edit contact details</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">
+                              <i class="sl icon-bell"></i>
+                              <span>
+                                <span>Notifications</span>
+                                <span>Manage contact notifications</span>
+                              </span>
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item">
+                              <i class="sl icon-trash"></i>
+                              <span>
+                                <span>Delete</span>
+                                <span>Delete this contact</span>
+                              </span>
+                            </a>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -734,9 +643,7 @@ const title = 'Contact Grid'
         </div>
       </div>
     </div>
+
+    <ModalNewContact />
   </div>
-
-  <ModalNewContact />
-</div>
-
 </Layout>

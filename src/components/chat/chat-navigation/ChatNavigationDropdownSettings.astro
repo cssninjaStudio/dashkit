@@ -1,13 +1,6 @@
-<div
-  x-ref="settingsdrop"
-  @click.away="$refs.settingsdrop.classList.remove('is-active')"
-  class="dropdown is-spaced is-right dropdown-trigger"
->
+<div x-ref="settingsdrop" @click.away="$refs.settingsdrop.classList.remove('is-active')" class="dropdown is-spaced is-right dropdown-trigger">
   <div>
-    <a
-      @click="$refs.settingsdrop.classList.add('is-active')"
-      class="chat-nav-item is-icon"
-    >
+    <a @click="$refs.settingsdrop.classList.add('is-active')" class="chat-nav-item is-icon">
       <i class="sl icon-settings"></i>
     </a>
   </div>

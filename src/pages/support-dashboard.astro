@@ -1,6 +1,6 @@
 ---
-import Layout from "../layouts/Default.astro";
-import SupportActivitySidebar from "../components/pages/SupportActivitySidebar.astro";
+import Layout from '../layouts/Default.astro'
+import SupportActivitySidebar from '../components/pages/SupportActivitySidebar.astro'
 const title = 'Help Desk'
 ---
 
@@ -11,10 +11,10 @@ const title = 'Help Desk'
     class="dashboard-outer"
     x-data="initSupportDashboard()"
     x-init="initAssignedTickets()"
-    :class="{
-        'is-pushed': $store.app.sidebarOpenedState,
-        '': !$store.app.sidebarOpenedState
-    }"
+    :class=`{
+      'is-pushed': $store.app.sidebarOpenedState,
+      '': !$store.app.sidebarOpenedState
+    }`
   >
     <div class="dashboard-inner">
       <!-- Dashboard Wrapper -->
@@ -44,16 +44,8 @@ const title = 'Help Desk'
                   <i class="sl icon-energy"></i>
                 </div>
                 <!-- Dropdown -->
-                <div
-                  x-ref="supportdrop1"
-                  @click.away="$refs.supportdrop1.classList.remove('is-active')"
-                  class="dropdown button-dropdown dropdown-trigger is-right"
-                >
-                  <div
-                    @click="$refs.supportdrop1.classList.add('is-active')"
-                    class="button is-secondary is-raised ripple"
-                    data-ripple-color=""
-                  >
+                <div x-ref="supportdrop1" @click.away="$refs.supportdrop1.classList.remove('is-active')" class="dropdown button-dropdown dropdown-trigger is-right">
+                  <div @click="$refs.supportdrop1.classList.add('is-active')" class="button is-secondary is-raised ripple" data-ripple-color="">
                     <span class="icon is-small">
                       <i class="material-icons">more_vert</i>
                     </span>
@@ -127,11 +119,7 @@ const title = 'Help Desk'
                 <div class="column is-4">
                   <div class="flex-card support-box light-bordered">
                     <h3 class="box-title has-text-centered">Escalation</h3>
-                    <img
-                      class="box-image"
-                      src="/img/icons/support/chat-happy.svg"
-                      alt=""
-                    />
+                    <img class="box-image" src="/img/icons/support/chat-happy.svg" alt="" />
                     <div class="box-meta">
                       <p>0 of my tickets are escalated</p>
                       <p>Total: 0</p>
@@ -222,11 +210,7 @@ const title = 'Help Desk'
                 <div class="column is-4">
                   <div class="flex-card support-box light-bordered">
                     <h3 class="box-title has-text-centered">Ticket Progress</h3>
-                    <img
-                      class="box-image"
-                      src="/img/icons/support/chat-alt.svg"
-                      alt=""
-                    />
+                    <img class="box-image" src="/img/icons/support/chat-alt.svg" alt="" />
                     <div class="box-meta">
                       <p>82% are currently in progress</p>
                       <p>Average: 74%</p>
@@ -236,11 +220,7 @@ const title = 'Help Desk'
                 <div class="column is-4">
                   <div class="flex-card support-box light-bordered">
                     <h3 class="box-title has-text-centered">Reopening Rate</h3>
-                    <img
-                      class="box-image"
-                      src="/img/icons/support/reopen.svg"
-                      alt=""
-                    />
+                    <img class="box-image" src="/img/icons/support/reopen.svg" alt="" />
                     <div class="box-meta">
                       <p>0% tickets have been reopened</p>
                       <p>Average: 0%</p>

@@ -1,19 +1,14 @@
 ---
-import Layout from "../layouts/Default.astro";
+import Layout from '../layouts/Default.astro'
 const title = 'Document List'
 ---
 
 <Layout title={title}>
   <!-- Main dashboard container -->
-  <div
-    id="dashboard-wrapper"
-    class="dashboard-outer"
-    x-data="initDocumentList()"
-    :class="{
+  <div id="dashboard-wrapper" class="dashboard-outer" x-data="initDocumentList()" :class=`{
         'is-pushed': $store.app.sidebarOpenedState,
         '': !$store.app.sidebarOpenedState
-    }"
-  >
+    }`>
     <div class="dashboard-inner">
       <!-- Dashboard Wrapper -->
       <div class="dashboard-wrapper">
@@ -30,44 +25,26 @@ const title = 'Document List'
                       <tr>
                         <th>
                           <div class="b-checkbox is-secondary">
-                            <input
-                              x-on:change="toggleAllCheckboxes()"
-                              id="checkbox-docs-all"
-                              class="styled"
-                              type="checkbox"
-                            />
+                            <input x-on:change="toggleAllCheckboxes()" id="checkbox-docs-all" class="styled" type="checkbox" />
                             <label for="checkbox-docs-all"></label>
                           </div>
                         </th>
                         <th class="w-50">
                           <!-- Filter dropdown -->
-                          <div
-                            x-ref="headermenu1"
-                            @click.away="$refs.headermenu1.classList.remove('is-active')"
-                            class="dropdown filter-dropdown dropdown-trigger"
-                          >
-                            <div
-                              @click="$refs.headermenu1.classList.add('is-active')"
-                              class="button"
-                            >
+                          <div x-ref="headermenu1" @click.away="$refs.headermenu1.classList.remove('is-active')" class="dropdown filter-dropdown dropdown-trigger">
+                            <div @click="$refs.headermenu1.classList.add('is-active')" class="button">
                               <span>Name</span>
                               <i class="material-icons">keyboard_arrow_down</i>
                             </div>
 
                             <div class="dropdown-menu" role="menu">
                               <div class="dropdown-content">
-                                <div class="dropdown-item filter-title">
-                                  Order
-                                </div>
+                                <div class="dropdown-item filter-title">Order</div>
                                 <a href="#" class="dropdown-item">
-                                  <span
-                                    >Ascending</span
-                                  >
+                                  <span>Ascending</span>
                                 </a>
                                 <a class="dropdown-item">
-                                  <span
-                                    >Descending</span
-                                  >
+                                  <span>Descending</span>
                                 </a>
                               </div>
                             </div>
@@ -75,71 +52,36 @@ const title = 'Document List'
                         </th>
                         <th>
                           <!-- Filter dropdown -->
-                          <div
-                            x-ref="headermenu2"
-                            @click.away="$refs.headermenu2.classList.remove('is-active')"
-                            class="dropdown filter-dropdown dropdown-trigger"
-                          >
-                            <div
-                              @click="$refs.headermenu2.classList.add('is-active')"
-                              class="button"
-                            >
+                          <div x-ref="headermenu2" @click.away="$refs.headermenu2.classList.remove('is-active')" class="dropdown filter-dropdown dropdown-trigger">
+                            <div @click="$refs.headermenu2.classList.add('is-active')" class="button">
                               <span>Modification</span>
                               <i class="material-icons">keyboard_arrow_down</i>
                             </div>
 
                             <div class="dropdown-menu" role="menu">
                               <div class="dropdown-content">
-                                <div class="dropdown-item filter-title">
-                                  Order
-                                </div>
-                                <a
-                                  href="javascript:void(0);"
-                                  class="dropdown-item"
-                                >
-                                  <span
-                                    ><i class="fa fa-check"></i> Ascending</span
-                                  >
+                                <div class="dropdown-item filter-title">Order</div>
+                                <a href="javascript:void(0);" class="dropdown-item">
+                                  <span><i class="fa fa-check"></i> Ascending</span>
                                 </a>
-                                <a
-                                  href="javascript:void(0);"
-                                  class="dropdown-item"
-                                >
-                                  <span
-                                    ><i class="fa fa-check"></i> Descending</span
-                                  >
+                                <a href="javascript:void(0);" class="dropdown-item">
+                                  <span><i class="fa fa-check"></i> Descending</span>
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <div class="dropdown-item filter-title">
-                                  Display
-                                </div>
-                                <a
-                                  href="javascript:void(0);"
-                                  class="dropdown-item is-active"
-                                >
+                                <div class="dropdown-item filter-title">Display</div>
+                                <a href="javascript:void(0);" class="dropdown-item is-active">
                                   <span
                                     ><i class="fa fa-check"></i>
                                     Modification</span
                                   >
                                 </a>
-                                <a
-                                  href="javascript:void(0);"
-                                  class="dropdown-item is-disabled"
-                                >
-                                  <span
-                                    ><i class="fa fa-check"></i> Members</span
-                                  >
+                                <a href="javascript:void(0);" class="dropdown-item is-disabled">
+                                  <span><i class="fa fa-check"></i> Members</span>
                                 </a>
-                                <a
-                                  href="javascript:void(0);"
-                                  class="dropdown-item"
-                                >
+                                <a href="javascript:void(0);" class="dropdown-item">
                                   <span><i class="fa fa-check"></i> Type</span>
                                 </a>
-                                <a
-                                  href="javascript:void(0);"
-                                  class="dropdown-item"
-                                >
+                                <a href="javascript:void(0);" class="dropdown-item">
                                   <span><i class="fa fa-check"></i> Size</span>
                                 </a>
                               </div>
@@ -148,71 +90,36 @@ const title = 'Document List'
                         </th>
                         <th>
                           <!-- Filter dropdown -->
-                          <div
-                            x-ref="headermenu3"
-                            @click.away="$refs.headermenu3.classList.remove('is-active')"
-                            class="dropdown filter-dropdown dropdown-trigger"
-                          >
-                            <div
-                              @click="$refs.headermenu3.classList.add('is-active')"
-                              class="button"
-                            >
+                          <div x-ref="headermenu3" @click.away="$refs.headermenu3.classList.remove('is-active')" class="dropdown filter-dropdown dropdown-trigger">
+                            <div @click="$refs.headermenu3.classList.add('is-active')" class="button">
                               <span>Members</span>
                               <i class="material-icons">keyboard_arrow_down</i>
                             </div>
 
                             <div class="dropdown-menu" role="menu">
                               <div class="dropdown-content">
-                                <div class="dropdown-item filter-title">
-                                  Order
-                                </div>
-                                <a
-                                  href="javascript:void(0);"
-                                  class="dropdown-item"
-                                >
-                                  <span
-                                    ><i class="fa fa-check"></i> Ascending</span
-                                  >
+                                <div class="dropdown-item filter-title">Order</div>
+                                <a href="javascript:void(0);" class="dropdown-item">
+                                  <span><i class="fa fa-check"></i> Ascending</span>
                                 </a>
-                                <a
-                                  href="javascript:void(0);"
-                                  class="dropdown-item"
-                                >
-                                  <span
-                                    ><i class="fa fa-check"></i> Descending</span
-                                  >
+                                <a href="javascript:void(0);" class="dropdown-item">
+                                  <span><i class="fa fa-check"></i> Descending</span>
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <div class="dropdown-item filter-title">
-                                  Display
-                                </div>
-                                <a
-                                  href="javascript:void(0);"
-                                  class="dropdown-item is-disabled"
-                                >
+                                <div class="dropdown-item filter-title">Display</div>
+                                <a href="javascript:void(0);" class="dropdown-item is-disabled">
                                   <span
                                     ><i class="fa fa-check"></i>
                                     Modification</span
                                   >
                                 </a>
-                                <a
-                                  href="javascript:void(0);"
-                                  class="dropdown-item is-active"
-                                >
-                                  <span
-                                    ><i class="fa fa-check"></i> Members</span
-                                  >
+                                <a href="javascript:void(0);" class="dropdown-item is-active">
+                                  <span><i class="fa fa-check"></i> Members</span>
                                 </a>
-                                <a
-                                  href="javascript:void(0);"
-                                  class="dropdown-item"
-                                >
+                                <a href="javascript:void(0);" class="dropdown-item">
                                   <span><i class="fa fa-check"></i> Type</span>
                                 </a>
-                                <a
-                                  href="javascript:void(0);"
-                                  class="dropdown-item"
-                                >
+                                <a href="javascript:void(0);" class="dropdown-item">
                                   <span><i class="fa fa-check"></i> Size</span>
                                 </a>
                               </div>
@@ -221,37 +128,21 @@ const title = 'Document List'
                         </th>
                         <th class="w-5">
                           <!-- Filter dropdown -->
-                          <div
-                            x-ref="headermenu4"
-                            @click.away="$refs.headermenu4.classList.remove('is-active')"
-                            class="dropdown filter-dropdown is-right dropdown-trigger"
-                          >
-                            <div
-                              @click="$refs.headermenu4.classList.add('is-active')"
-                              class="button"
-                            >
+                          <div x-ref="headermenu4" @click.away="$refs.headermenu4.classList.remove('is-active')" class="dropdown filter-dropdown is-right dropdown-trigger">
+                            <div @click="$refs.headermenu4.classList.add('is-active')" class="button">
                               <span class="material-icons">subject</span>
                               <i class="material-icons">keyboard_arrow_down</i>
                             </div>
 
                             <div class="dropdown-menu" role="menu">
                               <div class="dropdown-content">
-                                <div class="dropdown-item filter-title">
-                                  View type
-                                </div>
-                                <a
-                                  href="#"
-                                  class="dropdown-item is-spaced is-active"
-                                >
-                                  <span
-                                    ><i class="fa fa-check"></i> List view</span
-                                  >
+                                <div class="dropdown-item filter-title">View type</div>
+                                <a href="#" class="dropdown-item is-spaced is-active">
+                                  <span><i class="fa fa-check"></i> List view</span>
                                   <i class="material-icons">view_list</i>
                                 </a>
                                 <a class="dropdown-item is-spaced">
-                                  <span
-                                    ><i class="fa fa-check"></i> Grid view</span
-                                  >
+                                  <span><i class="fa fa-check"></i> Grid view</span>
                                   <i class="material-icons">view_module</i>
                                 </a>
                               </div>
@@ -266,11 +157,7 @@ const title = 'Document List'
                       <tr>
                         <td>
                           <div class="b-checkbox is-secondary">
-                            <input
-                              id="checkbox-docs-1"
-                              class="styled"
-                              type="checkbox"
-                            />
+                            <input id="checkbox-docs-1" class="styled" type="checkbox" />
                             <label for="checkbox-docs-1"></label>
                           </div>
                         </td>
@@ -290,13 +177,7 @@ const title = 'Document List'
                         </td>
                         <td class="members">
                           <span class="inner">
-                            <span
-                              class="member-count"
-                              data-toggle="tooltip"
-                              data-placement="top"
-                              data-title="Hellen Miller (you)<br>Terry Daniels<br>Melany Smith"
-                              data-trigger="hover"
-                            >
+                            <span class="member-count" data-toggle="tooltip" data-placement="top" data-title="Hellen Miller (you)<br>Terry Daniels<br>Melany Smith" data-trigger="hover">
                               3 members
                             </span>
                             <button type="button" class="button">Share</button>
@@ -309,17 +190,11 @@ const title = 'Document List'
                             class="dropdown is-right dropdown-trigger document-list-dropdown"
                             class="dropdown is-right dropdown-trigger document-list-dropdown"
                           >
-                            <div
-                              @click="$refs.menu0.classList.add('is-active')"
-                              class="button"
-                            >
+                            <div @click="$refs.menu0.classList.add('is-active')" class="button">
                               <i class="material-icons">more_horiz</i>
                             </div>
 
-                            <div
-                              class="dropdown-menu is-text-bigger"
-                              role="menu"
-                            >
+                            <div class="dropdown-menu is-text-bigger" role="menu">
                               <div class="dropdown-content">
                                 <a href="#" class="dropdown-item"> Share</a>
                                 <a class="dropdown-item"> Download</a>
@@ -331,20 +206,14 @@ const title = 'Document List'
                               </div>
                             </div>
                           </div>
-                          <a href="#" class="button is-hidden"
-                            ><i class="material-icons">remove_red_eye</i>
-                          </a>
+                          <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                         </td>
                       </tr>
                       <!-- Table row -->
                       <tr>
                         <td>
                           <div class="b-checkbox is-secondary">
-                            <input
-                              id="checkbox-docs-2"
-                              class="styled"
-                              type="checkbox"
-                            />
+                            <input id="checkbox-docs-2" class="styled" type="checkbox" />
                             <label for="checkbox-docs-2"></label>
                           </div>
                         </td>
@@ -364,35 +233,17 @@ const title = 'Document List'
                         </td>
                         <td class="members">
                           <span class="inner">
-                            <span
-                              class="member-count"
-                              data-toggle="tooltip"
-                              data-placement="top"
-                              data-title="Hellen Miller (you)"
-                              data-trigger="hover"
-                            >
-                              1 member
-                            </span>
+                            <span class="member-count" data-toggle="tooltip" data-placement="top" data-title="Hellen Miller (you)" data-trigger="hover"> 1 member </span>
                             <button type="button" class="button">Share</button>
                           </span>
                         </td>
                         <td class="actions">
-                          <div
-                            x-ref="menu1"
-                            @click.away="$refs.menu1.classList.remove('is-active')"
-                            class="dropdown is-right dropdown-trigger document-list-dropdown"
-                          >
-                            <div
-                              @click="$refs.menu1.classList.add('is-active')"
-                              class="button"
-                            >
+                          <div x-ref="menu1" @click.away="$refs.menu1.classList.remove('is-active')" class="dropdown is-right dropdown-trigger document-list-dropdown">
+                            <div @click="$refs.menu1.classList.add('is-active')" class="button">
                               <i class="material-icons">more_horiz</i>
                             </div>
 
-                            <div
-                              class="dropdown-menu is-text-bigger"
-                              role="menu"
-                            >
+                            <div class="dropdown-menu is-text-bigger" role="menu">
                               <div class="dropdown-content">
                                 <a href="#" class="dropdown-item"> Share</a>
                                 <a class="dropdown-item"> Download</a>
@@ -404,20 +255,14 @@ const title = 'Document List'
                               </div>
                             </div>
                           </div>
-                          <a href="#" class="button is-hidden"
-                            ><i class="material-icons">remove_red_eye</i>
-                          </a>
+                          <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                         </td>
                       </tr>
                       <!-- Table row -->
                       <tr>
                         <td>
                           <div class="b-checkbox is-secondary">
-                            <input
-                              id="checkbox-docs-3"
-                              class="styled"
-                              type="checkbox"
-                            />
+                            <input id="checkbox-docs-3" class="styled" type="checkbox" />
                             <label for="checkbox-docs-3"></label>
                           </div>
                         </td>
@@ -437,35 +282,19 @@ const title = 'Document List'
                         </td>
                         <td class="members">
                           <span class="inner">
-                            <span
-                              class="member-count"
-                              data-toggle="tooltip"
-                              data-placement="top"
-                              data-title="Hellen Miller (you)<br>Terry Daniels<br>Melany Smith<br>Elie Mayers"
-                              data-trigger="hover"
-                            >
+                            <span class="member-count" data-toggle="tooltip" data-placement="top" data-title="Hellen Miller (you)<br>Terry Daniels<br>Melany Smith<br>Elie Mayers" data-trigger="hover">
                               4 members
                             </span>
                             <button type="button" class="button">Share</button>
                           </span>
                         </td>
                         <td class="actions">
-                          <div
-                            x-ref="menu2"
-                            @click.away="$refs.menu2.classList.remove('is-active')"
-                            class="dropdown is-right dropdown-trigger document-list-dropdown"
-                          >
-                            <div
-                              @click="$refs.menu2.classList.add('is-active')"
-                              class="button"
-                            >
+                          <div x-ref="menu2" @click.away="$refs.menu2.classList.remove('is-active')" class="dropdown is-right dropdown-trigger document-list-dropdown">
+                            <div @click="$refs.menu2.classList.add('is-active')" class="button">
                               <i class="material-icons">more_horiz</i>
                             </div>
 
-                            <div
-                              class="dropdown-menu is-text-bigger"
-                              role="menu"
-                            >
+                            <div class="dropdown-menu is-text-bigger" role="menu">
                               <div class="dropdown-content">
                                 <a href="#" class="dropdown-item"> Share</a>
                                 <a class="dropdown-item"> Download</a>
@@ -477,20 +306,14 @@ const title = 'Document List'
                               </div>
                             </div>
                           </div>
-                          <a href="#" class="button is-hidden"
-                            ><i class="material-icons">remove_red_eye</i>
-                          </a>
+                          <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                         </td>
                       </tr>
                       <!-- Table row -->
                       <tr>
                         <td>
                           <div class="b-checkbox is-secondary">
-                            <input
-                              id="checkbox-docs-4"
-                              class="styled"
-                              type="checkbox"
-                            />
+                            <input id="checkbox-docs-4" class="styled" type="checkbox" />
                             <label for="checkbox-docs-4"></label>
                           </div>
                         </td>
@@ -510,35 +333,17 @@ const title = 'Document List'
                         </td>
                         <td class="members">
                           <span class="inner">
-                            <span
-                              class="member-count"
-                              data-toggle="tooltip"
-                              data-placement="top"
-                              data-title="Hellen Miller (you)<br>Elie Mayers"
-                              data-trigger="hover"
-                            >
-                              2 members
-                            </span>
+                            <span class="member-count" data-toggle="tooltip" data-placement="top" data-title="Hellen Miller (you)<br>Elie Mayers" data-trigger="hover"> 2 members </span>
                             <button type="button" class="button">Share</button>
                           </span>
                         </td>
                         <td class="actions">
-                          <div
-                            x-ref="menu3"
-                            @click.away="$refs.menu3.classList.remove('is-active')"
-                            class="dropdown is-right dropdown-trigger document-list-dropdown"
-                          >
-                            <div
-                              @click="$refs.menu3.classList.add('is-active')"
-                              class="button"
-                            >
+                          <div x-ref="menu3" @click.away="$refs.menu3.classList.remove('is-active')" class="dropdown is-right dropdown-trigger document-list-dropdown">
+                            <div @click="$refs.menu3.classList.add('is-active')" class="button">
                               <i class="material-icons">more_horiz</i>
                             </div>
 
-                            <div
-                              class="dropdown-menu is-text-bigger"
-                              role="menu"
-                            >
+                            <div class="dropdown-menu is-text-bigger" role="menu">
                               <div class="dropdown-content">
                                 <a href="#" class="dropdown-item"> Share</a>
                                 <a class="dropdown-item"> Download</a>
@@ -550,20 +355,14 @@ const title = 'Document List'
                               </div>
                             </div>
                           </div>
-                          <a href="#" class="button is-hidden"
-                            ><i class="material-icons">remove_red_eye</i>
-                          </a>
+                          <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                         </td>
                       </tr>
                       <!-- Table row -->
                       <tr>
                         <td>
                           <div class="b-checkbox is-secondary">
-                            <input
-                              id="checkbox-docs-5"
-                              class="styled"
-                              type="checkbox"
-                            />
+                            <input id="checkbox-docs-5" class="styled" type="checkbox" />
                             <label for="checkbox-docs-5"></label>
                           </div>
                         </td>
@@ -583,35 +382,19 @@ const title = 'Document List'
                         </td>
                         <td class="members">
                           <span class="inner">
-                            <span
-                              class="member-count"
-                              data-toggle="tooltip"
-                              data-placement="top"
-                              data-title="Hellen Miller (you)<br>Terry Daniels<br>Melany Smith"
-                              data-trigger="hover"
-                            >
+                            <span class="member-count" data-toggle="tooltip" data-placement="top" data-title="Hellen Miller (you)<br>Terry Daniels<br>Melany Smith" data-trigger="hover">
                               3 members
                             </span>
                             <button type="button" class="button">Share</button>
                           </span>
                         </td>
                         <td class="actions">
-                          <div
-                            x-ref="menu4"
-                            @click.away="$refs.menu4.classList.remove('is-active')"
-                            class="dropdown is-right dropdown-trigger document-list-dropdown"
-                          >
-                            <div
-                              @click="$refs.menu4.classList.add('is-active')"
-                              class="button"
-                            >
+                          <div x-ref="menu4" @click.away="$refs.menu4.classList.remove('is-active')" class="dropdown is-right dropdown-trigger document-list-dropdown">
+                            <div @click="$refs.menu4.classList.add('is-active')" class="button">
                               <i class="material-icons">more_horiz</i>
                             </div>
 
-                            <div
-                              class="dropdown-menu is-text-bigger"
-                              role="menu"
-                            >
+                            <div class="dropdown-menu is-text-bigger" role="menu">
                               <div class="dropdown-content">
                                 <a href="#" class="dropdown-item"> Share</a>
                                 <a class="dropdown-item"> Download</a>
@@ -623,20 +406,14 @@ const title = 'Document List'
                               </div>
                             </div>
                           </div>
-                          <a href="#" class="button is-hidden"
-                            ><i class="material-icons">remove_red_eye</i>
-                          </a>
+                          <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                         </td>
                       </tr>
                       <!-- Table row -->
                       <tr>
                         <td>
                           <div class="b-checkbox is-secondary">
-                            <input
-                              id="checkbox-docs-6"
-                              class="styled"
-                              type="checkbox"
-                            />
+                            <input id="checkbox-docs-6" class="styled" type="checkbox" />
                             <label for="checkbox-docs-6"></label>
                           </div>
                         </td>
@@ -656,35 +433,17 @@ const title = 'Document List'
                         </td>
                         <td class="members">
                           <span class="inner">
-                            <span
-                              class="member-count"
-                              data-toggle="tooltip"
-                              data-placement="top"
-                              data-title="Elie Mayers<br>Terry Daniels"
-                              data-trigger="hover"
-                            >
-                              2 members
-                            </span>
+                            <span class="member-count" data-toggle="tooltip" data-placement="top" data-title="Elie Mayers<br>Terry Daniels" data-trigger="hover"> 2 members </span>
                             <button type="button" class="button">Share</button>
                           </span>
                         </td>
                         <td class="actions">
-                          <div
-                            x-ref="menu5"
-                            @click.away="$refs.menu5.classList.remove('is-active')"
-                            class="dropdown is-right dropdown-trigger document-list-dropdown"
-                          >
-                            <div
-                              @click="$refs.menu5.classList.add('is-active')"
-                              class="button"
-                            >
+                          <div x-ref="menu5" @click.away="$refs.menu5.classList.remove('is-active')" class="dropdown is-right dropdown-trigger document-list-dropdown">
+                            <div @click="$refs.menu5.classList.add('is-active')" class="button">
                               <i class="material-icons">more_horiz</i>
                             </div>
 
-                            <div
-                              class="dropdown-menu is-text-bigger"
-                              role="menu"
-                            >
+                            <div class="dropdown-menu is-text-bigger" role="menu">
                               <div class="dropdown-content">
                                 <a href="#" class="dropdown-item"> Share</a>
                                 <a class="dropdown-item"> Download</a>
@@ -696,20 +455,14 @@ const title = 'Document List'
                               </div>
                             </div>
                           </div>
-                          <a href="#" class="button is-hidden"
-                            ><i class="material-icons">remove_red_eye</i>
-                          </a>
+                          <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                         </td>
                       </tr>
                       <!-- Table row -->
                       <tr>
                         <td>
                           <div class="b-checkbox is-secondary">
-                            <input
-                              id="checkbox-docs-7"
-                              class="styled"
-                              type="checkbox"
-                            />
+                            <input id="checkbox-docs-7" class="styled" type="checkbox" />
                             <label for="checkbox-docs-7"></label>
                           </div>
                         </td>
@@ -729,35 +482,17 @@ const title = 'Document List'
                         </td>
                         <td class="members">
                           <span class="inner">
-                            <span
-                              class="member-count"
-                              data-toggle="tooltip"
-                              data-placement="top"
-                              data-title="Hellen Miller (you)<br>Melany Smith"
-                              data-trigger="hover"
-                            >
-                              2 members
-                            </span>
+                            <span class="member-count" data-toggle="tooltip" data-placement="top" data-title="Hellen Miller (you)<br>Melany Smith" data-trigger="hover"> 2 members </span>
                             <button type="button" class="button">Share</button>
                           </span>
                         </td>
                         <td class="actions">
-                          <div
-                            x-ref="menu6"
-                            @click.away="$refs.menu6.classList.remove('is-active')"
-                            class="dropdown is-right dropdown-trigger document-list-dropdown"
-                          >
-                            <div
-                              @click="$refs.menu6.classList.add('is-active')"
-                              class="button"
-                            >
+                          <div x-ref="menu6" @click.away="$refs.menu6.classList.remove('is-active')" class="dropdown is-right dropdown-trigger document-list-dropdown">
+                            <div @click="$refs.menu6.classList.add('is-active')" class="button">
                               <i class="material-icons">more_horiz</i>
                             </div>
 
-                            <div
-                              class="dropdown-menu is-text-bigger"
-                              role="menu"
-                            >
+                            <div class="dropdown-menu is-text-bigger" role="menu">
                               <div class="dropdown-content">
                                 <a href="#" class="dropdown-item"> Share</a>
                                 <a class="dropdown-item"> Download</a>
@@ -769,20 +504,14 @@ const title = 'Document List'
                               </div>
                             </div>
                           </div>
-                          <a href="#" class="button is-hidden"
-                            ><i class="material-icons">remove_red_eye</i>
-                          </a>
+                          <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                         </td>
                       </tr>
                       <!-- Table row -->
                       <tr>
                         <td>
                           <div class="b-checkbox is-secondary">
-                            <input
-                              id="checkbox-docs-8"
-                              class="styled"
-                              type="checkbox"
-                            />
+                            <input id="checkbox-docs-8" class="styled" type="checkbox" />
                             <label for="checkbox-docs-8"></label>
                           </div>
                         </td>
@@ -802,35 +531,19 @@ const title = 'Document List'
                         </td>
                         <td class="members">
                           <span class="inner">
-                            <span
-                              class="member-count"
-                              data-toggle="tooltip"
-                              data-placement="top"
-                              data-title="Hellen Miller (you)<br>Terry Daniels<br>Melany Smith"
-                              data-trigger="hover"
-                            >
+                            <span class="member-count" data-toggle="tooltip" data-placement="top" data-title="Hellen Miller (you)<br>Terry Daniels<br>Melany Smith" data-trigger="hover">
                               3 members
                             </span>
                             <button type="button" class="button">Share</button>
                           </span>
                         </td>
                         <td class="actions">
-                          <div
-                            x-ref="menu7"
-                            @click.away="$refs.menu7.classList.remove('is-active')"
-                            class="dropdown is-right dropdown-trigger document-list-dropdown"
-                          >
-                            <div
-                              @click="$refs.menu7.classList.add('is-active')"
-                              class="button"
-                            >
+                          <div x-ref="menu7" @click.away="$refs.menu7.classList.remove('is-active')" class="dropdown is-right dropdown-trigger document-list-dropdown">
+                            <div @click="$refs.menu7.classList.add('is-active')" class="button">
                               <i class="material-icons">more_horiz</i>
                             </div>
 
-                            <div
-                              class="dropdown-menu is-text-bigger"
-                              role="menu"
-                            >
+                            <div class="dropdown-menu is-text-bigger" role="menu">
                               <div class="dropdown-content">
                                 <a href="#" class="dropdown-item"> Share</a>
                                 <a class="dropdown-item"> Download</a>
@@ -842,20 +555,14 @@ const title = 'Document List'
                               </div>
                             </div>
                           </div>
-                          <a href="#" class="button is-hidden"
-                            ><i class="material-icons">remove_red_eye</i>
-                          </a>
+                          <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                         </td>
                       </tr>
                       <!-- Table row -->
                       <tr>
                         <td>
                           <div class="b-checkbox is-secondary">
-                            <input
-                              id="checkbox-docs-9"
-                              class="styled"
-                              type="checkbox"
-                            />
+                            <input id="checkbox-docs-9" class="styled" type="checkbox" />
                             <label for="checkbox-docs-9"></label>
                           </div>
                         </td>
@@ -875,35 +582,17 @@ const title = 'Document List'
                         </td>
                         <td class="members">
                           <span class="inner">
-                            <span
-                              class="member-count"
-                              data-toggle="tooltip"
-                              data-placement="top"
-                              data-title="Terry Daniels"
-                              data-trigger="hover"
-                            >
-                              1 member
-                            </span>
+                            <span class="member-count" data-toggle="tooltip" data-placement="top" data-title="Terry Daniels" data-trigger="hover"> 1 member </span>
                             <button type="button" class="button">Share</button>
                           </span>
                         </td>
                         <td class="actions">
-                          <div
-                            x-ref="menu8"
-                            @click.away="$refs.menu8.classList.remove('is-active')"
-                            class="dropdown is-up is-right dropdown-trigger document-list-dropdown"
-                          >
-                            <div
-                              @click="$refs.menu8.classList.add('is-active')"
-                              class="button"
-                            >
+                          <div x-ref="menu8" @click.away="$refs.menu8.classList.remove('is-active')" class="dropdown is-up is-right dropdown-trigger document-list-dropdown">
+                            <div @click="$refs.menu8.classList.add('is-active')" class="button">
                               <i class="material-icons">more_horiz</i>
                             </div>
 
-                            <div
-                              class="dropdown-menu is-text-bigger"
-                              role="menu"
-                            >
+                            <div class="dropdown-menu is-text-bigger" role="menu">
                               <div class="dropdown-content">
                                 <a href="#" class="dropdown-item"> Share</a>
                                 <a class="dropdown-item"> Download</a>
@@ -915,20 +604,14 @@ const title = 'Document List'
                               </div>
                             </div>
                           </div>
-                          <a href="#" class="button is-hidden"
-                            ><i class="material-icons">remove_red_eye</i>
-                          </a>
+                          <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                         </td>
                       </tr>
                       <!-- Table row -->
                       <tr>
                         <td>
                           <div class="b-checkbox is-secondary">
-                            <input
-                              id="checkbox-docs-10"
-                              class="styled"
-                              type="checkbox"
-                            />
+                            <input id="checkbox-docs-10" class="styled" type="checkbox" />
                             <label for="checkbox-docs-10"></label>
                           </div>
                         </td>
@@ -948,35 +631,17 @@ const title = 'Document List'
                         </td>
                         <td class="members">
                           <span class="inner">
-                            <span
-                              class="member-count"
-                              data-toggle="tooltip"
-                              data-placement="top"
-                              data-title="Hellen Miller (you)<br>Melany Smith"
-                              data-trigger="hover"
-                            >
-                              2 members
-                            </span>
+                            <span class="member-count" data-toggle="tooltip" data-placement="top" data-title="Hellen Miller (you)<br>Melany Smith" data-trigger="hover"> 2 members </span>
                             <button type="button" class="button">Share</button>
                           </span>
                         </td>
                         <td class="actions">
-                          <div
-                            x-ref="menu9"
-                            @click.away="$refs.menu9.classList.remove('is-active')"
-                            class="dropdown is-up is-right dropdown-trigger document-list-dropdown"
-                          >
-                            <div
-                              @click="$refs.menu9.classList.add('is-active')"
-                              class="button"
-                            >
+                          <div x-ref="menu9" @click.away="$refs.menu9.classList.remove('is-active')" class="dropdown is-up is-right dropdown-trigger document-list-dropdown">
+                            <div @click="$refs.menu9.classList.add('is-active')" class="button">
                               <i class="material-icons">more_horiz</i>
                             </div>
 
-                            <div
-                              class="dropdown-menu is-text-bigger"
-                              role="menu"
-                            >
+                            <div class="dropdown-menu is-text-bigger" role="menu">
                               <div class="dropdown-content">
                                 <a href="#" class="dropdown-item"> Share</a>
                                 <a class="dropdown-item"> Download</a>
@@ -988,9 +653,7 @@ const title = 'Document List'
                               </div>
                             </div>
                           </div>
-                          <a href="#" class="button is-hidden"
-                            ><i class="material-icons">remove_red_eye</i>
-                          </a>
+                          <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                         </td>
                       </tr>
                     </tbody>
@@ -1004,31 +667,15 @@ const title = 'Document List'
                   <div class="right-options">
                     <!-- members -->
                     <div class="members">
-                      <img
-                        src="/img/avatars/helen.jpg"
-                        data-toggle="tooltip"
-                        data-placement="top"
-                        data-title="You are the owner"
-                        data-trigger="hover"
-                        alt=""
-                      />
+                      <img src="/img/avatars/helen.jpg" data-toggle="tooltip" data-placement="top" data-title="You are the owner" data-trigger="hover" alt="" />
                       <img src="/img/avatars/elie.jpg" alt="" />
                       <img src="/img/avatars/henry.jpg" alt="" />
                       <img src="/img/avatars/barry.jpg" alt="" />
                     </div>
                     <!-- Share -->
-                    <button
-                      type="button"
-                      class="button is-secondary is-fullwidth is-medium is-rounded-md is-raised"
-                    >
-                      Share folder
-                    </button>
+                    <button type="button" class="button is-secondary is-fullwidth is-medium is-rounded-md is-raised"> Share folder </button>
                     <!-- Actions list -->
-                    <div
-                      x-show.transition="!allChecked"
-                      id="default-controls"
-                      class="controls"
-                    >
+                    <div x-show.transition="!allChecked" id="default-controls" class="controls">
                       <a class="control-block">
                         <i class="sl icon-cloud-upload"></i> Upload files
                       </a>
@@ -1046,11 +693,7 @@ const title = 'Document List'
                       </a>
                     </div>
                     <!-- Actions list -->
-                    <div
-                      x-show.transition="allChecked"
-                      id="single-controls"
-                      class="controls"
-                    >
+                    <div x-show.transition="allChecked" id="single-controls" class="controls">
                       <a class="control-block">
                         <i class="sl icon-cloud-download"></i> Download
                       </a>
@@ -1090,29 +733,14 @@ const title = 'Document List'
                   <div class="card-head is-spaced">
                     <div>
                       <h3>Metrics</h3>
-                      <p class="is-font text-light">
-                        Based on stats from last 7 days
-                      </p>
+                      <p class="is-font text-light">Based on stats from last 7 days</p>
                     </div>
                   </div>
                   <div class="statistics pt-5 pb-2">
                     <div class="statistic">
                       <div class="circle-container">
-                        <svg
-                          class="circle-chart"
-                          viewbox="0 0 33.83098862 33.83098862"
-                          width="50"
-                          height="50"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            class="circle-chart-background"
-                            stroke="#efefef"
-                            stroke-width="2"
-                            fill="none"
-                            cx="16.91549431"
-                            cy="16.91549431"
-                            r="15.91549431"></circle>
+                        <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                          <circle class="circle-chart-background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                           <circle
                             class="circle-chart-circle"
                             stroke="#9e3dff"
@@ -1133,21 +761,8 @@ const title = 'Document List'
                     </div>
                     <div class="statistic">
                       <div class="circle-container">
-                        <svg
-                          class="circle-chart"
-                          viewbox="0 0 33.83098862 33.83098862"
-                          width="50"
-                          height="50"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            class="circle-chart-background"
-                            stroke="#efefef"
-                            stroke-width="2"
-                            fill="none"
-                            cx="16.91549431"
-                            cy="16.91549431"
-                            r="15.91549431"></circle>
+                        <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                          <circle class="circle-chart-background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                           <circle
                             class="circle-chart-circle"
                             stroke="#00d1b2"
@@ -1171,17 +786,12 @@ const title = 'Document List'
               </div>
 
               <!-- Mobile placeholder -->
-              <div
-                class="column is-8 is-offset-2 is-hidden-desktop is-hidden-tablet"
-              >
+              <div class="column is-8 is-offset-2 is-hidden-desktop is-hidden-tablet">
                 <div class="flex-card is-not-supported light-bordered">
                   <img src="/img/illustrations/not-mobile.svg" alt="" />
                   <div class="has-text-centered">
                     <h3>Ouch...</h3>
-                    <p>
-                      Sorry, the document view is not supported on mobile.
-                      Please try a device with a wider screen.
-                    </p>
+                    <p>Sorry, the document view is not supported on mobile. Please try a device with a wider screen.</p>
                   </div>
                 </div>
               </div>

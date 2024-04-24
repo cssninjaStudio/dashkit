@@ -1,35 +1,21 @@
 <!-- Message details -->
-<div
-  x-show="activeMessage === 'message-7'"
-  id="message-7"
-  class="inbox-message-details"
-  :class="{
+<div x-show="activeMessage === 'message-7'" id="message-7" class="inbox-message-details" :class=`{
         'mobile-active tablet-active': isMobileMessageActive,
         '': !isMobileMessageActive
-    }"
->
+    }`>
   <div class="header-area">
     <img class="sender-pic" src="/img/avatars/nick.jpg" alt="" />
     <div class="message-meta">
-      <span class="message-title"
-        >New design ideas from the user experience team</span
-      >
+      <span class="message-title">New design ideas from the user experience team</span>
       <span class="sender-email">&lt;nathan@Dashkit.io&gt;</span>
     </div>
     <div class="attachments inbox-hidden-mobile">
       <i class="sl icon-paper-clip"></i>
       <span>2</span>
     </div>
-    <div
-      x-ref="messagedrop7"
-      @click.away="$refs.messagedrop7.classList.remove('is-active')"
-      class="dropdown inbox-dropdown dropdown-trigger is-right"
-    >
+    <div x-ref="messagedrop7" @click.away="$refs.messagedrop7.classList.remove('is-active')" class="dropdown inbox-dropdown dropdown-trigger is-right">
       <div>
-        <button
-          @click="$refs.messagedrop7.classList.add('is-active')"
-          class="button"
-        >
+        <button @click="$refs.messagedrop7.classList.add('is-active')" class="button">
           <span class="icon is-small">
             <i class="sl icon-options"></i>
           </span>
@@ -54,10 +40,7 @@
         </div>
       </div>
     </div>
-    <a
-      @click="closeMobileMessage()"
-      class="inbox-action inbox-close-details-mobile"
-    >
+    <a @click="closeMobileMessage()" class="inbox-action inbox-close-details-mobile">
       <i class="material-icons">close</i>
     </a>
   </div>
@@ -91,33 +74,20 @@
       <div class="mail-content content">
         <p>Hey Helen,</p>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid adiuvas?
-          Philosophi autem in suis lectulis plerumque moriuntur. Reguli
-          reiciendam; Si autem id non concedatur, non continuo vita beata
-          tollitur. <mark>Quod quidem nobis non saepe contingit.</mark>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid adiuvas? Philosophi autem in suis lectulis plerumque moriuntur. Reguli reiciendam; Si autem id non concedatur, non continuo vita
+          beata tollitur. <mark>Quod quidem nobis non saepe contingit.</mark>
         </p>
         <p>
-          <a href="http://loripsum.net/" target="_blank"
-            >Illa tamen simplicia, vestra versuta.</a
-          >
+          <a href="http://loripsum.net/" target="_blank">Illa tamen simplicia, vestra versuta.</a>
           Ea possunt paria non esse. Quid adiuvas? Praeclarae mortes sunt imperatoriae;
         </p>
         <ul>
           <li>Si enim ita est, vide ne facinus facias, cum mori suadeas.</li>
           <li>In eo enim positum est id, quod dicimus esse expetendum.</li>
-          <li>
-            Minime id quidem, inquam, alienum, multumque ad ea, quae quaerimus,
-            explicatio tua ista profecerit.
-          </li>
-          <li>
-            Quae qui non vident, nihil umquam magnum ac cognitione dignum
-            amaverunt.
-          </li>
+          <li>Minime id quidem, inquam, alienum, multumque ad ea, quae quaerimus, explicatio tua ista profecerit.</li>
+          <li>Quae qui non vident, nihil umquam magnum ac cognitione dignum amaverunt.</li>
         </ul>
-        <p>
-          Duo Reges: constructio interrete. Qui est in parvis malis. Paria sunt
-          igitur.
-        </p>
+        <p>Duo Reges: constructio interrete. Qui est in parvis malis. Paria sunt igitur.</p>
 
         <p>Nick</p>
       </div>
@@ -148,16 +118,9 @@
             <span>Reply as</span>
             <span>helenmiller@Dashkit.io</span>
           </div>
-          <div
-            x-ref="composedrop7"
-            @click.away="$refs.composedrop7.classList.remove('is-active')"
-            class="dropdown inbox-dropdown dropdown-trigger is-right"
-          >
+          <div x-ref="composedrop7" @click.away="$refs.composedrop7.classList.remove('is-active')" class="dropdown inbox-dropdown dropdown-trigger is-right">
             <div>
-              <button
-                @click="$refs.composedrop7.classList.add('is-active')"
-                class="button"
-              >
+              <button @click="$refs.composedrop7.classList.add('is-active')" class="button">
                 <span class="icon is-small">
                   <i class="sl icon-options"></i>
                 </span>
@@ -185,8 +148,7 @@
         </div>
         <!--textarea-->
         <div class="control">
-          <textarea class="textarea" rows="6" placeholder="Type your message..."
-          ></textarea>
+          <textarea class="textarea" rows="6" placeholder="Type your message..."></textarea>
           <button type="button" class="button">Send Message</button>
         </div>
       </div>

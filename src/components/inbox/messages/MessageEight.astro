@@ -1,13 +1,8 @@
 <!-- Message details -->
-<div
-  x-show="activeMessage === 'message-8'"
-  id="message-8"
-  class="inbox-message-details"
-  :class="{
+<div x-show="activeMessage === 'message-8'" id="message-8" class="inbox-message-details" :class=`{
         'mobile-active tablet-active': isMobileMessageActive,
         '': !isMobileMessageActive
-    }"
->
+    }`>
   <div class="header-area">
     <img class="sender-pic" src="/img/avatars/nick.jpg" alt="" />
     <div class="message-meta">
@@ -18,16 +13,9 @@
       <i class="sl icon-paper-clip"></i>
       <span>1</span>
     </div>
-    <div
-      x-ref="messagedrop8"
-      @click.away="$refs.messagedrop8.classList.remove('is-active')"
-      class="dropdown inbox-dropdown dropdown-trigger is-right"
-    >
+    <div x-ref="messagedrop8" @click.away="$refs.messagedrop8.classList.remove('is-active')" class="dropdown inbox-dropdown dropdown-trigger is-right">
       <div>
-        <button
-          @click="$refs.messagedrop8.classList.add('is-active')"
-          class="button"
-        >
+        <button @click="$refs.messagedrop8.classList.add('is-active')" class="button">
           <span class="icon is-small">
             <i class="sl icon-options"></i>
           </span>
@@ -52,10 +40,7 @@
         </div>
       </div>
     </div>
-    <a
-      @click="closeMobileMessage()"
-      class="inbox-action inbox-close-details-mobile"
-    >
+    <a @click="closeMobileMessage()" class="inbox-action inbox-close-details-mobile">
       <i class="material-icons">close</i>
     </a>
   </div>
@@ -90,18 +75,12 @@
         <p>Hi,</p>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          <a href="#" target="_blank"
-            >Nunc haec primum fortasse audientis servire debemus.</a
-          >
-          At iste non dolendi status non vocatur voluptas. Quae duo sunt, unum facit.
-          Etiam beatissimum? Haec quo modo conveniant, non sane intellego. Duo Reges:
-          constructio interrete.
+          <a href="#" target="_blank">Nunc haec primum fortasse audientis servire debemus.</a>
+          At iste non dolendi status non vocatur voluptas. Quae duo sunt, unum facit. Etiam beatissimum? Haec quo modo conveniant, non sane intellego. Duo Reges: constructio interrete.
         </p>
         <ul>
           <li>Nam Pyrrho, Aristo, Erillus iam diu abiecti.</li>
-          <li>
-            Maximas vero virtutes iacere omnis necesse est voluptate dominante.
-          </li>
+          <li>Maximas vero virtutes iacere omnis necesse est voluptate dominante.</li>
         </ul>
 
         <p>Nick</p>
@@ -127,16 +106,9 @@
             <span>Reply as</span>
             <span>helenmiller@Dashkit.io</span>
           </div>
-          <div
-            x-ref="composedrop8"
-            @click.away="$refs.composedrop8.classList.remove('is-active')"
-            class="dropdown inbox-dropdown dropdown-trigger is-right"
-          >
+          <div x-ref="composedrop8" @click.away="$refs.composedrop8.classList.remove('is-active')" class="dropdown inbox-dropdown dropdown-trigger is-right">
             <div>
-              <button
-                @click="$refs.composedrop8.classList.add('is-active')"
-                class="button"
-              >
+              <button @click="$refs.composedrop8.classList.add('is-active')" class="button">
                 <span class="icon is-small">
                   <i class="sl icon-options"></i>
                 </span>
@@ -164,8 +136,7 @@
         </div>
         <!--textarea-->
         <div class="control">
-          <textarea class="textarea" rows="6" placeholder="Type your message..."
-          ></textarea>
+          <textarea class="textarea" rows="6" placeholder="Type your message..."></textarea>
           <button type="button" class="button">Send Message</button>
         </div>
       </div>

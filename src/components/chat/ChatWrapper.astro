@@ -30,11 +30,7 @@ import AddConversationModal from './chat-modals/AddConversationModal.astro'
     <div id="chat-sidebar" class="users-sidebar">
       <!-- Header -->
       <a href="/" class="header-item">
-        <img
-          class="light-image-block"
-          src="/img/logo/square-violet.svg"
-          alt=""
-        />
+        <img class="light-image-block" src="/img/logo/square-violet.svg" alt="" />
         <img class="dark-image-block" src="/img/logo/square-green.svg" alt="" />
       </a>
       <!-- User list -->
@@ -50,14 +46,10 @@ import AddConversationModal from './chat-modals/AddConversationModal.astro'
     </div>
 
     <!-- Chat body -->
-    <div
-      id="chat-body"
-      class="chat-body"
-      :class="{
+    <div id="chat-body" class="chat-body" :class=`{
           'is-opened': chatBodyOpened,
           '': !chatBodyOpened
-      }"
-    >
+      }`>
       <!-- Conversation with Dan -->
       <DanConversation />
 
@@ -93,14 +85,10 @@ import AddConversationModal from './chat-modals/AddConversationModal.astro'
       </div>
     </div>
 
-    <div
-      id="chat-panel"
-      class="chat-panel"
-      :class="{
+    <div id="chat-panel" class="chat-panel" :class=`{
                 'is-opened': chatBodyOpened,
                 '': !chatBodyOpened
-            }"
-    >
+            }`>
       <div class="panel-inner">
         <div class="panel-header">
           <h3>Details</h3>

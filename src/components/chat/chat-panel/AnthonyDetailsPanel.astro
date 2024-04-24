@@ -2,11 +2,7 @@
 import UserDropdown from '../chat-dropdowns/UserDropdown.astro'
 ---
 
-<div
-  x-show="activeConversation === 'anthony'"
-  id="anthony-details"
-  class="panel-body is-user-details"
->
+<div x-show="activeConversation === 'anthony'" id="anthony-details" class="panel-body is-user-details">
   <div class="panel-body-inner">
     <div class="subheader">
       <div class="action-icon">
@@ -54,9 +50,7 @@ import UserDropdown from '../chat-dropdowns/UserDropdown.astro'
         <i class="material-icons">domain</i>
         <div class="about-text">
           <span>Works at</span>
-          <span
-            ><a class="is-inverted" href="#">Blizzard Entertainment</a></span
-          >
+          <span><a class="is-inverted" href="#">Blizzard Entertainment</a></span>
         </div>
       </div>
       <div class="about-block">

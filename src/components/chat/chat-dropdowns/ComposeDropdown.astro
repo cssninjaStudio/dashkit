@@ -1,13 +1,6 @@
-<div
-  x-ref="composedrop"
-  @click.away="$refs.composedrop.classList.remove('is-active')"
-  class="dropdown compose-dropdown is-spaced is-up dropdown-trigger"
->
+<div x-ref="composedrop" @click.away="$refs.composedrop.classList.remove('is-active')" class="dropdown compose-dropdown is-spaced is-up dropdown-trigger">
   <div>
-    <div
-      @click="$refs.composedrop.classList.add('is-active')"
-      class="add-button"
-    >
+    <div @click="$refs.composedrop.classList.add('is-active')" class="add-button">
       <div class="button-inner">
         <i class="material-icons">add</i>
       </div>

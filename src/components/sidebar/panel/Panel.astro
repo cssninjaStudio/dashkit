@@ -9,10 +9,10 @@ import PanelContentSettings from './PanelContentSettings.astro'
   id="main-quickview"
   class="quickview is-right is-main"
   x-data="initSidebarRight()"
-  :class="{
+  :class=`{
         'is-active': $store.app.isSidebarRightOpened,
         '': !$store.app.isSidebarRightOpened
-    }"
+    }`
 >
   <!-- Quickview header -->
   <header class="quickview-header">
@@ -32,32 +32,32 @@ import PanelContentSettings from './PanelContentSettings.astro'
             <li
               class="tab-item"
               @click="switchSidebarTabs('people-tab')"
-              :class="{
+              :class=`{
                     'is-active': activeTab === 'people-tab',
                     '': !activeTab === 'people-tab'
-                }"
+                }`
             >
-              <a><i class="iconify" data-icon="lucide:message-square"></i></a>
+              <a><iconify-icon class="iconify" icon="lucide:message-square"></iconify-icon></a>
             </li>
             <li
               class="tab-item"
               @click="switchSidebarTabs('reminders-tab')"
-              :class="{
+              :class=`{
                     'is-active': activeTab === 'reminders-tab',
                     '': !activeTab === 'reminders-tab'
-                }"
+                }`
             >
-              <a><i class="iconify" data-icon="lucide:clock"></i></a>
+              <a><iconify-icon class="iconify" icon="lucide:clock"></iconify-icon></a>
             </li>
             <li
               class="tab-item"
               @click="switchSidebarTabs('settings-tab')"
-              :class="{
+              :class=`{
                     'is-active': activeTab === 'settings-tab',
                     '': !activeTab === 'settings-tab'
-                }"
+                }`
             >
-              <a><i class="iconify" data-icon="lucide:settings"></i></a>
+              <a><iconify-icon class="iconify" icon="lucide:settings"></iconify-icon></a>
             </li>
             <li class="naver"></li>
           </ul>
@@ -65,10 +65,10 @@ import PanelContentSettings from './PanelContentSettings.astro'
 
         <!--Users tab-->
         <PanelContentUsers />
-        
+
         <!--Reminders tab-->
         <PanelContentReminders />
-        
+
         <!--Settings tab-->
         <PanelContentSettings />
       </div>

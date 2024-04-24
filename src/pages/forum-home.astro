@@ -9,10 +9,10 @@ const title = 'Forum Home'
     id="dashboard-wrapper"
     class="dashboard-outer"
     x-data="initForumHome()"
-    :class="{
+    :class=`{
         'is-pushed': $store.app.sidebarOpenedState,
         '': !$store.app.sidebarOpenedState
-    }"
+    }`
   >
     <div class="dashboard-inner">
       <!-- Dashboard Wrapper -->

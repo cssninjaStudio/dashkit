@@ -1,20 +1,15 @@
 ---
-import Layout from "../layouts/Default.astro";
-import ModalNewEvent from "../components/modals/ModalNewEvent.astro";
+import Layout from '../layouts/Default.astro'
+import ModalNewEvent from '../components/modals/ModalNewEvent.astro'
 const title = 'Events Board'
 ---
 
 <Layout title={title}>
   <!-- Main dashboard container -->
-  <div
-    id="dashboard-wrapper"
-    class="dashboard-outer"
-    x-data="initEvents()"
-    :class="{
+  <div id="dashboard-wrapper" class="dashboard-outer" x-data="initEvents()" :class=`{
         'is-pushed': $store.app.sidebarOpenedState,
         '': !$store.app.sidebarOpenedState
-    }"
-  >
+    }`>
     <div class="dashboard-inner">
       <!-- Dashboard Wrapper -->
       <div class="dashboard-wrapper">
@@ -27,10 +22,7 @@ const title = 'Events Board'
 
               <!-- Create event -->
               <div class="list-filter">
-                <a
-                  @click="toggleEventModal()"
-                  class="button is-secondary is-raised is-long-1"
-                >
+                <a @click="toggleEventModal()" class="button is-secondary is-raised is-long-1">
                   <span class="icon is-small">
                     <i class="fas fa-plus"></i>
                   </span>
@@ -102,26 +94,10 @@ const title = 'Events Board'
                     </div>
                     <!-- Participants -->
                     <div class="event-participants">
-                      <img
-                        class="participant"
-                        src="/img/avatars/janet.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="participant"
-                        src="/img/avatars/ray.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="participant"
-                        src="/img/avatars/helen.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="participant"
-                        src="/img/avatars/melany.jpg"
-                        alt=""
-                      />
+                      <img class="participant" src="/img/avatars/janet.jpg" alt="" />
+                      <img class="participant" src="/img/avatars/ray.jpg" alt="" />
+                      <img class="participant" src="/img/avatars/helen.jpg" alt="" />
+                      <img class="participant" src="/img/avatars/melany.jpg" alt="" />
                       <div class="participant is-more"><span>+12</span></div>
                     </div>
                   </div>
@@ -130,11 +106,7 @@ const title = 'Events Board'
                     <div class="back-inner">
                       <div class="event-summary">
                         <span>Event Summary</span>
-                        <p>
-                          Lorem ipsum dolor sit amet, ad blandit intellegam cum,
-                          nulla legere possit id vim, clita nullam graecis duo
-                          ne.
-                        </p>
+                        <p>Lorem ipsum dolor sit amet, ad blandit intellegam cum, nulla legere possit id vim, clita nullam graecis duo ne.</p>
                       </div>
                     </div>
                   </div>
@@ -142,9 +114,7 @@ const title = 'Events Board'
               </div>
               <!-- Subevent card -->
               <div class="column is-3">
-                <div
-                  class="flex-card light-bordered subevent-card is-secondary"
-                >
+                <div class="flex-card light-bordered subevent-card is-secondary">
                   <!-- Front side -->
                   <div class="front-face animated preFadeInUp fadeInUp">
                     <div class="event-date">
@@ -161,26 +131,10 @@ const title = 'Events Board'
                     </div>
                     <!-- Participants -->
                     <div class="event-participants">
-                      <img
-                        class="participant"
-                        src="/img/avatars/alan.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="participant"
-                        src="/img/avatars/janet.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="participant"
-                        src="/img/avatars/terry.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="participant"
-                        src="/img/avatars/henry.jpg"
-                        alt=""
-                      />
+                      <img class="participant" src="/img/avatars/alan.jpg" alt="" />
+                      <img class="participant" src="/img/avatars/janet.jpg" alt="" />
+                      <img class="participant" src="/img/avatars/terry.jpg" alt="" />
+                      <img class="participant" src="/img/avatars/henry.jpg" alt="" />
                       <div class="participant is-more"><span>+9</span></div>
                     </div>
                   </div>
@@ -189,11 +143,7 @@ const title = 'Events Board'
                     <div class="back-inner">
                       <div class="event-summary">
                         <span>Event Summary</span>
-                        <p>
-                          Lorem ipsum dolor sit amet, ad blandit intellegam cum,
-                          nulla legere possit id vim, clita nullam graecis duo
-                          ne.
-                        </p>
+                        <p>Lorem ipsum dolor sit amet, ad blandit intellegam cum, nulla legere possit id vim, clita nullam graecis duo ne.</p>
                       </div>
                     </div>
                   </div>
@@ -218,26 +168,10 @@ const title = 'Events Board'
                     </div>
                     <!-- Participants -->
                     <div class="event-participants">
-                      <img
-                        class="participant"
-                        src="/img/avatars/elie.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="participant"
-                        src="/img/avatars/helen.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="participant"
-                        src="/img/avatars/lakisha.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="participant"
-                        src="/img/avatars/christina.jpg"
-                        alt=""
-                      />
+                      <img class="participant" src="/img/avatars/elie.jpg" alt="" />
+                      <img class="participant" src="/img/avatars/helen.jpg" alt="" />
+                      <img class="participant" src="/img/avatars/lakisha.jpg" alt="" />
+                      <img class="participant" src="/img/avatars/christina.jpg" alt="" />
                       <div class="participant is-more"><span>+5</span></div>
                     </div>
                   </div>
@@ -246,11 +180,7 @@ const title = 'Events Board'
                     <div class="back-inner">
                       <div class="event-summary">
                         <span>Event Summary</span>
-                        <p>
-                          Lorem ipsum dolor sit amet, ad blandit intellegam cum,
-                          nulla legere possit id vim, clita nullam graecis duo
-                          ne.
-                        </p>
+                        <p>Lorem ipsum dolor sit amet, ad blandit intellegam cum, nulla legere possit id vim, clita nullam graecis duo ne.</p>
                       </div>
                     </div>
                   </div>
@@ -275,26 +205,10 @@ const title = 'Events Board'
                     </div>
                     <!-- Participants -->
                     <div class="event-participants">
-                      <img
-                        class="participant"
-                        src="/img/avatars/anthony.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="participant"
-                        src="/img/avatars/ben.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="participant"
-                        src="/img/avatars/christina.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="participant"
-                        src="/img/avatars/kareem.jpg"
-                        alt=""
-                      />
+                      <img class="participant" src="/img/avatars/anthony.jpg" alt="" />
+                      <img class="participant" src="/img/avatars/ben.jpg" alt="" />
+                      <img class="participant" src="/img/avatars/christina.jpg" alt="" />
+                      <img class="participant" src="/img/avatars/kareem.jpg" alt="" />
                       <div class="participant is-more"><span>+2</span></div>
                     </div>
                   </div>
@@ -303,11 +217,7 @@ const title = 'Events Board'
                     <div class="back-inner">
                       <div class="event-summary">
                         <span>Event Summary</span>
-                        <p>
-                          Lorem ipsum dolor sit amet, ad blandit intellegam cum,
-                          nulla legere possit id vim, clita nullam graecis duo
-                          ne.
-                        </p>
+                        <p>Lorem ipsum dolor sit amet, ad blandit intellegam cum, nulla legere possit id vim, clita nullam graecis duo ne.</p>
                       </div>
                     </div>
                   </div>

@@ -1,13 +1,6 @@
-<div
-  x-ref="accountdrop"
-  @click.away="$refs.accountdrop.classList.remove('is-active')"
-  class="dropdown is-spaced is-right dropdown-trigger"
->
+<div x-ref="accountdrop" @click.away="$refs.accountdrop.classList.remove('is-active')" class="dropdown is-spaced is-right dropdown-trigger">
   <div>
-    <a
-      @click="$refs.accountdrop.classList.add('is-active')"
-      class="chat-nav-item is-account"
-    >
+    <a @click="$refs.accountdrop.classList.add('is-active')" class="chat-nav-item is-account">
       <img class="user-avatar" src="/img/avatars/helen.jpg" alt="" />
     </a>
   </div>

@@ -1,11 +1,8 @@
 <!-- Create Task Modal -->
-<div
-  class="modal create-task-modal"
-  :class="{
+<div class="modal create-task-modal" :class=`{
     'is-active': newTaskModalOpened,
     '': !newTaskModalOpened
-}"
->
+}`>
   <div @click="toggleNewTaskModal()" class="modal-background"></div>
   <div class="modal-content">
     <div class="flex-card p-8">
@@ -18,30 +15,27 @@
             <li
               class="tab-link"
               @click="toggleTaskModalTabs('task-overview-modal-tab')"
-              :class="{
-                        'is-active': activeTaskModalTab === 'task-overview-modal-tab',
-                        '': activeTaskModalTab !== 'task-overview-modal-tab',
-                    }"
+              :class=`{
+                  'is-active': activeTaskModalTab === 'task-overview-modal-tab',
+                  '': activeTaskModalTab !== 'task-overview-modal-tab',
+              }`
             >
               <a>Details</a>
             </li>
             <li
               class="tab-link"
               @click="toggleTaskModalTabs('task-members-modal-tab')"
-              :class="{
-                        'is-active': activeTaskModalTab === 'task-members-modal-tab',
-                        '': activeTaskModalTab !== 'task-members-modal-tab',
-                    }"
+              :class=`{
+                  'is-active': activeTaskModalTab === 'task-members-modal-tab',
+                  '': activeTaskModalTab !== 'task-members-modal-tab',
+              }`
             >
               <a>Members</a>
             </li>
           </ul>
         </div>
 
-        <div
-          x-show="activeTaskModalTab === 'task-overview-modal-tab'"
-          class="navtab-content is-active"
-        >
+        <div x-show="activeTaskModalTab === 'task-overview-modal-tab'" class="navtab-content is-active">
           <div class="card-body">
             <div class="content">
               <form>
@@ -53,12 +47,7 @@
                     </div>
                     <div class="column is-9">
                       <div class="control has-icon">
-                        <input
-                          data-toggle="datepicker"
-                          type="text"
-                          class="input"
-                          placeholder="Start Date"
-                        />
+                        <input data-toggle="datepicker" type="text" class="input" placeholder="Start Date" />
                         <span class="form-icon">
                           <i class="im icon-Calendar-4"></i>
                         </span>
@@ -88,27 +77,15 @@
                 </div>
 
                 <div class="form-footer">
-                  <button
-                    @click="toggleNewTaskModal()"
-                    type="button"
-                    class="button"
-                  >
-                    Cancel
-                  </button>
-                  <button type="submit" class="button is-secondary">
-                    Create Project
-                  </button>
+                  <button @click="toggleNewTaskModal()" type="button" class="button"> Cancel </button>
+                  <button type="submit" class="button is-secondary"> Create Project </button>
                 </div>
               </form>
             </div>
           </div>
         </div>
 
-        <div
-          x-show="activeTaskModalTab === 'task-members-modal-tab'"
-          id="project-members"
-          class="navtab-content"
-        >
+        <div x-show="activeTaskModalTab === 'task-members-modal-tab'" id="project-members" class="navtab-content">
           <div class="project-members">
             <div class="face">
               <img src="/img/avatars/ray.jpg" alt="" />
@@ -126,11 +103,7 @@
 
           <div class="modal-filter">
             <div class="control has-icon">
-              <input
-                class="input is-medium is-rounded"
-                type="text"
-                placeholder="Filter Members"
-              />
+              <input class="input is-medium is-rounded" type="text" placeholder="Filter Members" />
               <div class="form-icon is-medium">
                 <span class="material-icons">filter_list</span>
               </div>

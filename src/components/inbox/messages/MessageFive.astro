@@ -1,35 +1,21 @@
 <!-- Message details -->
-<div
-  x-show="activeMessage === 'message-5'"
-  id="message-5"
-  class="inbox-message-details"
-  :class="{
+<div x-show="activeMessage === 'message-5'" id="message-5" class="inbox-message-details" :class=`{
         'mobile-active tablet-active': isMobileMessageActive,
         '': !isMobileMessageActive
-    }"
->
+    }`>
   <div class="header-area">
     <img class="sender-pic" src="/img/avatars/elie.jpg" alt="" />
     <div class="message-meta">
-      <span class="message-title"
-        >I got some new delightful stuff that you absolutely must see</span
-      >
+      <span class="message-title">I got some new delightful stuff that you absolutely must see</span>
       <span class="sender-email">&lt;eliedaniels@Dashkit.io&gt;</span>
     </div>
     <div class="attachments inbox-hidden-mobile">
       <i class="sl icon-paper-clip"></i>
       <span>2</span>
     </div>
-    <div
-      x-ref="messagedrop5"
-      @click.away="$refs.messagedrop5.classList.remove('is-active')"
-      class="dropdown inbox-dropdown dropdown-trigger is-right"
-    >
+    <div x-ref="messagedrop5" @click.away="$refs.messagedrop5.classList.remove('is-active')" class="dropdown inbox-dropdown dropdown-trigger is-right">
       <div>
-        <button
-          @click="$refs.messagedrop5.classList.add('is-active')"
-          class="button"
-        >
+        <button @click="$refs.messagedrop5.classList.add('is-active')" class="button">
           <span class="icon is-small">
             <i class="sl icon-options"></i>
           </span>
@@ -54,10 +40,7 @@
         </div>
       </div>
     </div>
-    <a
-      @click="closeMobileMessage()"
-      class="inbox-action inbox-close-details-mobile"
-    >
+    <a @click="closeMobileMessage()" class="inbox-action inbox-close-details-mobile">
       <i class="material-icons">close</i>
     </a>
   </div>
@@ -91,23 +74,15 @@
       <div class="mail-content content">
         <p>Hey Baby,</p>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nos commodius
-          agimus. Si longus, levis;
-          <a href="http://loripsum.net/" target="_blank"
-            >Summum ením bonum exposuit vacuitatem doloris;</a
-          >
-          Eadem fortitudinis ratio reperietur. Duo Reges: constructio interrete.
-          Facile est hoc cernere in primis puerorum aetatulis.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nos commodius agimus. Si longus, levis;
+          <a href="http://loripsum.net/" target="_blank">Summum ením bonum exposuit vacuitatem doloris;</a>
+          Eadem fortitudinis ratio reperietur. Duo Reges: constructio interrete. Facile est hoc cernere in primis puerorum aetatulis.
         </p>
         <ul>
           <li>Sed residamus, inquit, si placet.</li>
-          <li>
-            Parvi enim primo ortu sic iacent, tamquam omnino sine animo sint.
-          </li>
+          <li>Parvi enim primo ortu sic iacent, tamquam omnino sine animo sint.</li>
           <li>Beatus autem esse in maximarum rerum timore nemo potest.</li>
-          <li>
-            Illa argumenta propria videamus, cur omnia sint paria peccata.
-          </li>
+          <li>Illa argumenta propria videamus, cur omnia sint paria peccata.</li>
         </ul>
 
         <p>Just call me after work.</p>
@@ -139,16 +114,9 @@
             <span>Reply as</span>
             <span>helenmiller@Dashkit.io</span>
           </div>
-          <div
-            x-ref="composedrop5"
-            @click.away="$refs.composedrop5.classList.remove('is-active')"
-            class="dropdown inbox-dropdown dropdown-trigger is-right"
-          >
+          <div x-ref="composedrop5" @click.away="$refs.composedrop5.classList.remove('is-active')" class="dropdown inbox-dropdown dropdown-trigger is-right">
             <div>
-              <button
-                @click="$refs.composedrop5.classList.add('is-active')"
-                class="button"
-              >
+              <button @click="$refs.composedrop5.classList.add('is-active')" class="button">
                 <span class="icon is-small">
                   <i class="sl icon-options"></i>
                 </span>
@@ -176,8 +144,7 @@
         </div>
         <!--textarea-->
         <div class="control">
-          <textarea class="textarea" rows="6" placeholder="Type your message..."
-          ></textarea>
+          <textarea class="textarea" rows="6" placeholder="Type your message..."></textarea>
           <button type="button" class="button">Send Message</button>
         </div>
       </div>

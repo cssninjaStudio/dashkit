@@ -1,19 +1,14 @@
 ---
-import Layout from "../layouts/Default.astro";
+import Layout from '../layouts/Default.astro'
 const title = 'Social Widgets'
 ---
 
 <Layout title={title}>
   <!-- Main dashboard container -->
-  <div
-    id="dashboard-wrapper"
-    class="dashboard-outer"
-    x-data="initBlank()"
-    :class="{
+  <div id="dashboard-wrapper" class="dashboard-outer" x-data="initBlank()" :class=`{
       'is-pushed': $store.app.sidebarOpenedState,
       '': !$store.app.sidebarOpenedState
-  }"
-  >
+    }`>
     <div class="dashboard-inner">
       <!-- Dashboard Wrapper -->
       <div class="dashboard-wrapper">
@@ -25,11 +20,7 @@ const title = 'Social Widgets'
                 <!--Follow-->
                 <div class="widget follow-widget">
                   <div class="header">
-                    <img
-                      class="cover"
-                      src="/img/photo/bg/social-bg.png"
-                      alt=""
-                    />
+                    <img class="cover" src="/img/photo/bg/social-bg.png" alt="" />
                     <img class="avatar" src="/img/avatars/alan.jpg" alt="" />
                     <span
                       >Alan Maynard <br />
@@ -81,11 +72,7 @@ const title = 'Social Widgets'
                       <i class="material-icons unstared">star</i>
                     </div>
                     <div class="rating-title">Awesome product!</div>
-                    <div class="rating-text">
-                      Lorem ipsum dolor sit amet, ut graece recusabo prodesset
-                      eam, in vim alterum urbanitas. Enim sanctus quaestio et
-                      mea.
-                    </div>
+                    <div class="rating-text">Lorem ipsum dolor sit amet, ut graece recusabo prodesset eam, in vim alterum urbanitas. Enim sanctus quaestio et mea.</div>
                   </div>
                 </div>
 
@@ -103,11 +90,7 @@ const title = 'Social Widgets'
                       <i class="material-icons unstared">favorite</i>
                     </div>
                     <div class="rating-title">Great product!</div>
-                    <div class="rating-text">
-                      Lorem ipsum dolor sit amet, ut graece recusabo prodesset
-                      eam, in vim alterum urbanitas. Enim sanctus quaestio et
-                      mea.
-                    </div>
+                    <div class="rating-text">Lorem ipsum dolor sit amet, ut graece recusabo prodesset eam, in vim alterum urbanitas. Enim sanctus quaestio et mea.</div>
                   </div>
                 </div>
 
@@ -123,10 +106,7 @@ const title = 'Social Widgets'
                       <i class="fab fa-twitter"></i>
                     </div>
                   </div>
-                  <p class="tweet-content">
-                    Lorem ipsum dolor sit amet, integre explicari has in, justo
-                    ipsum viderer mea ad.
-                  </p>
+                  <p class="tweet-content">Lorem ipsum dolor sit amet, integre explicari has in, justo ipsum viderer mea ad.</p>
                   <div class="hashtags">
                     <span>#codeTalk</span>
                     <span>#iLoveCode</span>
@@ -144,10 +124,7 @@ const title = 'Social Widgets'
                       <i class="fab fa-twitter"></i>
                     </div>
                   </div>
-                  <p class="tweet-content">
-                    Lorem ipsum dolor sit amet, integre explicari has in, justo
-                    ipsum viderer mea ad.
-                  </p>
+                  <p class="tweet-content">Lorem ipsum dolor sit amet, integre explicari has in, justo ipsum viderer mea ad.</p>
                   <div class="hashtags">
                     <span>#codeTalk</span>
                     <span>#iLoveCode</span>
@@ -211,17 +188,13 @@ const title = 'Social Widgets'
                     <div class="status">Available</div>
                   </div>
                   <div class="call">
-                    <button
-                      class="button is-small is-rounded-md is-primary is-raised"
-                    >
+                    <button class="button is-small is-rounded-md is-primary is-raised">
                       <span class="icon is-small">
                         <i class="fas fa-phone"></i>
                       </span>
                       <span>Call</span>
                     </button>
-                    <button
-                      class="button is-small is-rounded-md is-info is-raised"
-                    >
+                    <button class="button is-small is-rounded-md is-info is-raised">
                       <span class="icon is-small">
                         <i class="fas fa-video"></i>
                       </span>

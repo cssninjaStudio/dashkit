@@ -1,19 +1,14 @@
 ---
-import Layout from "../layouts/Default.astro";
+import Layout from '../layouts/Default.astro'
 const title = 'Data Widgets'
 ---
 
 <Layout title={title}>
   <!-- Main dashboard container -->
-  <div
-    id="dashboard-wrapper"
-    class="dashboard-outer"
-    x-data="initBlank()"
-    :class="{
+  <div id="dashboard-wrapper" class="dashboard-outer" x-data="initBlank()" :class=`{
       'is-pushed': $store.app.sidebarOpenedState,
       '': !$store.app.sidebarOpenedState
-  }"
-  >
+    }`>
     <div class="dashboard-inner">
       <!-- Dashboard Wrapper -->
       <div class="dashboard-wrapper">
@@ -27,15 +22,8 @@ const title = 'Data Widgets'
                   <div class="card-head p-4 m-0 is-spaced">
                     <h3>Tickets</h3>
                     <!--Dropdown-->
-                    <div
-                      x-ref="menu1"
-                      @click.away="$refs.menu1.classList.remove('is-active')"
-                      class="dropdown is-right dropdown-trigger styled-dropdown is-round"
-                    >
-                      <div
-                        @click="$refs.menu1.classList.add('is-active')"
-                        class="button"
-                      >
+                    <div x-ref="menu1" @click.away="$refs.menu1.classList.remove('is-active')" class="dropdown is-right dropdown-trigger styled-dropdown is-round">
+                      <div @click="$refs.menu1.classList.add('is-active')" class="button">
                         <i class="material-icons">more_vert</i>
                       </div>
                       <div class="dropdown-menu is-text-bigger" role="menu">
@@ -77,15 +65,9 @@ const title = 'Data Widgets'
                   <ul class="inner-list">
                     <li>
                       <div class="list-item-data">
-                        <img
-                          class="small-avatar"
-                          src="/img/avatars/william.jpg"
-                          alt=""
-                        />
+                        <img class="small-avatar" src="/img/avatars/william.jpg" alt="" />
                         <div class="item-info">
-                          <span class="item-title"
-                            >[#223] Can't connect to account</span
-                          >
+                          <span class="item-title">[#223] Can't connect to account</span>
                           <span>Will Brettner | 3 min ago</span>
                         </div>
                       </div>
@@ -95,11 +77,7 @@ const title = 'Data Widgets'
                     </li>
                     <li>
                       <div class="list-item-data">
-                        <img
-                          class="small-avatar"
-                          src="/img/avatars/carolin.jpg"
-                          alt=""
-                        />
+                        <img class="small-avatar" src="/img/avatars/carolin.jpg" alt="" />
                         <div class="item-info">
                           <span class="item-title">[#518] Upload problem</span>
                           <span>Marjory Cambell | 15 min ago</span>
@@ -111,15 +89,9 @@ const title = 'Data Widgets'
                     </li>
                     <li>
                       <div class="list-item-data">
-                        <img
-                          class="small-avatar"
-                          src="/img/avatars/terry.jpg"
-                          alt=""
-                        />
+                        <img class="small-avatar" src="/img/avatars/terry.jpg" alt="" />
                         <div class="item-info">
-                          <span class="item-title"
-                            >[#248] Invoices are not sent by email</span
-                          >
+                          <span class="item-title">[#248] Invoices are not sent by email</span>
                           <span>Terry Daniels | 1 day ago</span>
                         </div>
                       </div>
@@ -129,15 +101,9 @@ const title = 'Data Widgets'
                     </li>
                     <li>
                       <div class="list-item-data">
-                        <img
-                          class="small-avatar"
-                          src="/img/avatars/marge.jpg"
-                          alt=""
-                        />
+                        <img class="small-avatar" src="/img/avatars/marge.jpg" alt="" />
                         <div class="item-info">
-                          <span class="item-title"
-                            >[#154] Uploads do not display</span
-                          >
+                          <span class="item-title">[#154] Uploads do not display</span>
                           <span>Stella Henriks | 1 day ago</span>
                         </div>
                       </div>
@@ -147,15 +113,9 @@ const title = 'Data Widgets'
                     </li>
                     <li>
                       <div class="list-item-data">
-                        <img
-                          class="small-avatar"
-                          src="/img/avatars/nick.jpg"
-                          alt=""
-                        />
+                        <img class="small-avatar" src="/img/avatars/nick.jpg" alt="" />
                         <div class="item-info">
-                          <span class="item-title"
-                            >[#152] App crashes constantly</span
-                          >
+                          <span class="item-title">[#152] App crashes constantly</span>
                           <span>Nick Fraiser | 2 days ago</span>
                         </div>
                       </div>
@@ -173,15 +133,8 @@ const title = 'Data Widgets'
                   <div class="card-head p-4 m-0 is-spaced">
                     <h3>Trending</h3>
                     <!--Dropdown-->
-                    <div
-                      x-ref="menu2"
-                      @click.away="$refs.menu2.classList.remove('is-active')"
-                      class="dropdown is-right dropdown-trigger styled-dropdown is-round"
-                    >
-                      <div
-                        @click="$refs.menu2.classList.add('is-active')"
-                        class="button"
-                      >
+                    <div x-ref="menu2" @click.away="$refs.menu2.classList.remove('is-active')" class="dropdown is-right dropdown-trigger styled-dropdown is-round">
+                      <div @click="$refs.menu2.classList.add('is-active')" class="button">
                         <i class="material-icons">more_vert</i>
                       </div>
                       <div class="dropdown-menu is-text-bigger" role="menu">
@@ -223,11 +176,7 @@ const title = 'Data Widgets'
                   <ul class="inner-list">
                     <li>
                       <div class="list-item-data">
-                        <img
-                          class="small-avatar"
-                          src="/img/logo/companies/airbnb.svg"
-                          alt=""
-                        />
+                        <img class="small-avatar" src="/img/logo/companies/airbnb.svg" alt="" />
                         <div class="item-info">
                           <span class="item-title">Airbnb</span>
                           <span>24k followers</span>
@@ -239,11 +188,7 @@ const title = 'Data Widgets'
                     </li>
                     <li>
                       <div class="list-item-data">
-                        <img
-                          class="small-avatar"
-                          src="/img/logo/companies/alfresco.svg"
-                          alt=""
-                        />
+                        <img class="small-avatar" src="/img/logo/companies/alfresco.svg" alt="" />
                         <div class="item-info">
                           <span class="item-title">Alfresco</span>
                           <span>21k followers</span>
@@ -255,11 +200,7 @@ const title = 'Data Widgets'
                     </li>
                     <li>
                       <div class="list-item-data">
-                        <img
-                          class="small-avatar"
-                          src="/img/logo/companies/amazon.svg"
-                          alt=""
-                        />
+                        <img class="small-avatar" src="/img/logo/companies/amazon.svg" alt="" />
                         <div class="item-info">
                           <span class="item-title">Amazon</span>
                           <span>19k followers</span>
@@ -271,11 +212,7 @@ const title = 'Data Widgets'
                     </li>
                     <li>
                       <div class="list-item-data">
-                        <img
-                          class="small-avatar"
-                          src="/img/logo/companies/tesla.svg"
-                          alt=""
-                        />
+                        <img class="small-avatar" src="/img/logo/companies/tesla.svg" alt="" />
                         <div class="item-info">
                           <span class="item-title">Tesla</span>
                           <span>16k followers</span>
@@ -287,11 +224,7 @@ const title = 'Data Widgets'
                     </li>
                     <li>
                       <div class="list-item-data">
-                        <img
-                          class="small-avatar"
-                          src="/img/logo/companies/hm.svg"
-                          alt=""
-                        />
+                        <img class="small-avatar" src="/img/logo/companies/hm.svg" alt="" />
                         <div class="item-info">
                           <span class="item-title">H&M</span>
                           <span>9k followers</span>
@@ -311,15 +244,8 @@ const title = 'Data Widgets'
                   <div class="card-head p-4 m-0 is-spaced">
                     <h3>Topics</h3>
                     <!--Dropdown-->
-                    <div
-                      x-ref="menu3"
-                      @click.away="$refs.menu3.classList.remove('is-active')"
-                      class="dropdown is-right dropdown-trigger styled-dropdown is-round"
-                    >
-                      <div
-                        @click="$refs.menu3.classList.add('is-active')"
-                        class="button"
-                      >
+                    <div x-ref="menu3" @click.away="$refs.menu3.classList.remove('is-active')" class="dropdown is-right dropdown-trigger styled-dropdown is-round">
+                      <div @click="$refs.menu3.classList.add('is-active')" class="button">
                         <i class="material-icons">more_vert</i>
                       </div>
                       <div class="dropdown-menu is-text-bigger" role="menu">
@@ -459,9 +385,7 @@ const title = 'Data Widgets'
                         <td class="heavy-cell">8 <span>years</span></td>
                         <td>
                           <span class="tag is-curved is-secondary">Php</span>
-                          <span class="tag is-curved is-warning"
-                            >Javascript</span
-                          >
+                          <span class="tag is-curved is-warning">Javascript</span>
                           <span class="tag is-curved is-accent">CSS 3</span>
                         </td>
                         <td class="has-text-centered">
@@ -477,8 +401,7 @@ const title = 'Data Widgets'
                         <td class="heavy-cell">5 <span>years</span></td>
                         <td>
                           <span class="tag is-curved is-success">Sales</span>
-                          <span class="tag is-curved is-success">Marketing</span
-                          >
+                          <span class="tag is-curved is-success">Marketing</span>
                         </td>
                         <td class="has-text-centered">
                           <a class="button is-rounded-md">Details</a>
@@ -493,9 +416,7 @@ const title = 'Data Widgets'
                         <td class="heavy-cell">9 <span>years</span></td>
                         <td>
                           <span class="tag is-curved is-secondary">Budget</span>
-                          <span class="tag is-curved is-secondary"
-                            >Accounting</span
-                          >
+                          <span class="tag is-curved is-secondary">Accounting</span>
                         </td>
                         <td class="has-text-centered">
                           <a class="button is-rounded-md">Details</a>
@@ -509,9 +430,7 @@ const title = 'Data Widgets'
                         <td class="light-cell">Project Manager</td>
                         <td class="heavy-cell">10 <span>years</span></td>
                         <td>
-                          <span class="tag is-curved is-secondary"
-                            >Projects</span
-                          >
+                          <span class="tag is-curved is-secondary">Projects</span>
                           <span class="tag is-curved is-info">Sales</span>
                         </td>
                         <td class="has-text-centered">
@@ -526,9 +445,7 @@ const title = 'Data Widgets'
                         <td class="light-cell">Sales Manager</td>
                         <td class="heavy-cell">7 <span>years</span></td>
                         <td>
-                          <span class="tag is-curved is-secondary"
-                            >Marketing</span
-                          >
+                          <span class="tag is-curved is-secondary">Marketing</span>
                           <span class="tag is-curved is-info">Sales</span>
                         </td>
                         <td class="has-text-centered">
@@ -544,9 +461,7 @@ const title = 'Data Widgets'
                         <td class="heavy-cell">4 <span>years</span></td>
                         <td>
                           <span class="tag is-curved is-secondary">ECM</span>
-                          <span class="tag is-curved is-success"
-                            >Management</span
-                          >
+                          <span class="tag is-curved is-success">Management</span>
                         </td>
                         <td class="has-text-centered">
                           <a class="button is-rounded-md">Details</a>
@@ -563,15 +478,8 @@ const title = 'Data Widgets'
                   <div class="card-head p-4 m-0 is-spaced">
                     <h3>Tickets</h3>
                     <!--Dropdown-->
-                    <div
-                      x-ref="menu4"
-                      @click.away="$refs.menu4.classList.remove('is-active')"
-                      class="dropdown is-right dropdown-trigger styled-dropdown is-round"
-                    >
-                      <div
-                        @click="$refs.menu4.classList.add('is-active')"
-                        class="button"
-                      >
+                    <div x-ref="menu4" @click.away="$refs.menu4.classList.remove('is-active')" class="dropdown is-right dropdown-trigger styled-dropdown is-round">
+                      <div @click="$refs.menu4.classList.add('is-active')" class="button">
                         <i class="material-icons">more_vert</i>
                       </div>
                       <div class="dropdown-menu is-text-bigger" role="menu">
@@ -613,15 +521,9 @@ const title = 'Data Widgets'
                   <ul class="inner-list is-clean">
                     <li>
                       <div class="list-item-data">
-                        <img
-                          class="small-avatar"
-                          src="/img/avatars/william.jpg"
-                          alt=""
-                        />
+                        <img class="small-avatar" src="/img/avatars/william.jpg" alt="" />
                         <div class="item-info">
-                          <span class="item-title"
-                            >[#223] Can't connect to account</span
-                          >
+                          <span class="item-title">[#223] Can't connect to account</span>
                           <span>Will Brettner | 3 min ago</span>
                         </div>
                       </div>
@@ -631,11 +533,7 @@ const title = 'Data Widgets'
                     </li>
                     <li>
                       <div class="list-item-data">
-                        <img
-                          class="small-avatar"
-                          src="/img/avatars/carolin.jpg"
-                          alt=""
-                        />
+                        <img class="small-avatar" src="/img/avatars/carolin.jpg" alt="" />
                         <div class="item-info">
                           <span class="item-title">[#518] Upload problem</span>
                           <span>Marjory Cambell | 15 min ago</span>
@@ -647,15 +545,9 @@ const title = 'Data Widgets'
                     </li>
                     <li>
                       <div class="list-item-data">
-                        <img
-                          class="small-avatar"
-                          src="/img/avatars/terry.jpg"
-                          alt=""
-                        />
+                        <img class="small-avatar" src="/img/avatars/terry.jpg" alt="" />
                         <div class="item-info">
-                          <span class="item-title"
-                            >[#248] Invoices are not sent by email</span
-                          >
+                          <span class="item-title">[#248] Invoices are not sent by email</span>
                           <span>Terry Daniels | 1 day ago</span>
                         </div>
                       </div>
@@ -665,15 +557,9 @@ const title = 'Data Widgets'
                     </li>
                     <li>
                       <div class="list-item-data">
-                        <img
-                          class="small-avatar"
-                          src="/img/avatars/marge.jpg"
-                          alt=""
-                        />
+                        <img class="small-avatar" src="/img/avatars/marge.jpg" alt="" />
                         <div class="item-info">
-                          <span class="item-title"
-                            >[#154] Uploads do not display</span
-                          >
+                          <span class="item-title">[#154] Uploads do not display</span>
                           <span>Stella Henriks | 1 day ago</span>
                         </div>
                       </div>
@@ -683,15 +569,9 @@ const title = 'Data Widgets'
                     </li>
                     <li>
                       <div class="list-item-data">
-                        <img
-                          class="small-avatar"
-                          src="/img/avatars/nick.jpg"
-                          alt=""
-                        />
+                        <img class="small-avatar" src="/img/avatars/nick.jpg" alt="" />
                         <div class="item-info">
-                          <span class="item-title"
-                            >[#152] App crashes constantly</span
-                          >
+                          <span class="item-title">[#152] App crashes constantly</span>
                           <span>Nick Fraiser | 2 days ago</span>
                         </div>
                       </div>
@@ -709,15 +589,8 @@ const title = 'Data Widgets'
                   <div class="card-head p-4 m-0 is-spaced">
                     <h3>Trending</h3>
                     <!--Dropdown-->
-                    <div
-                      x-ref="menu5"
-                      @click.away="$refs.menu5.classList.remove('is-active')"
-                      class="dropdown is-right dropdown-trigger styled-dropdown is-round"
-                    >
-                      <div
-                        @click="$refs.menu5.classList.add('is-active')"
-                        class="button"
-                      >
+                    <div x-ref="menu5" @click.away="$refs.menu5.classList.remove('is-active')" class="dropdown is-right dropdown-trigger styled-dropdown is-round">
+                      <div @click="$refs.menu5.classList.add('is-active')" class="button">
                         <i class="material-icons">more_vert</i>
                       </div>
                       <div class="dropdown-menu is-text-bigger" role="menu">
@@ -759,11 +632,7 @@ const title = 'Data Widgets'
                   <ul class="inner-list is-clean">
                     <li>
                       <div class="list-item-data">
-                        <img
-                          class="small-avatar"
-                          src="/img/logo/companies/airbnb.svg"
-                          alt=""
-                        />
+                        <img class="small-avatar" src="/img/logo/companies/airbnb.svg" alt="" />
                         <div class="item-info">
                           <span class="item-title">Airbnb</span>
                           <span>24k followers</span>
@@ -775,11 +644,7 @@ const title = 'Data Widgets'
                     </li>
                     <li>
                       <div class="list-item-data">
-                        <img
-                          class="small-avatar"
-                          src="/img/logo/companies/alfresco.svg"
-                          alt=""
-                        />
+                        <img class="small-avatar" src="/img/logo/companies/alfresco.svg" alt="" />
                         <div class="item-info">
                           <span class="item-title">Alfresco</span>
                           <span>21k followers</span>
@@ -791,11 +656,7 @@ const title = 'Data Widgets'
                     </li>
                     <li>
                       <div class="list-item-data">
-                        <img
-                          class="small-avatar"
-                          src="/img/logo/companies/amazon.svg"
-                          alt=""
-                        />
+                        <img class="small-avatar" src="/img/logo/companies/amazon.svg" alt="" />
                         <div class="item-info">
                           <span class="item-title">Amazon</span>
                           <span>19k followers</span>
@@ -807,11 +668,7 @@ const title = 'Data Widgets'
                     </li>
                     <li>
                       <div class="list-item-data">
-                        <img
-                          class="small-avatar"
-                          src="/img/logo/companies/tesla.svg"
-                          alt=""
-                        />
+                        <img class="small-avatar" src="/img/logo/companies/tesla.svg" alt="" />
                         <div class="item-info">
                           <span class="item-title">Tesla</span>
                           <span>16k followers</span>
@@ -823,11 +680,7 @@ const title = 'Data Widgets'
                     </li>
                     <li>
                       <div class="list-item-data">
-                        <img
-                          class="small-avatar"
-                          src="/img/logo/companies/hm.svg"
-                          alt=""
-                        />
+                        <img class="small-avatar" src="/img/logo/companies/hm.svg" alt="" />
                         <div class="item-info">
                           <span class="item-title">H&M</span>
                           <span>9k followers</span>
@@ -847,15 +700,8 @@ const title = 'Data Widgets'
                   <div class="card-head p-4 m-0 is-spaced">
                     <h3>Topics</h3>
                     <!--Dropdown-->
-                    <div
-                      x-ref="menu6"
-                      @click.away="$refs.menu6.classList.remove('is-active')"
-                      class="dropdown is-right dropdown-trigger styled-dropdown is-round"
-                    >
-                      <div
-                        @click="$refs.menu6.classList.add('is-active')"
-                        class="button"
-                      >
+                    <div x-ref="menu6" @click.away="$refs.menu6.classList.remove('is-active')" class="dropdown is-right dropdown-trigger styled-dropdown is-round">
+                      <div @click="$refs.menu6.classList.add('is-active')" class="button">
                         <i class="material-icons">more_vert</i>
                       </div>
                       <div class="dropdown-menu is-text-bigger" role="menu">
@@ -977,30 +823,10 @@ const title = 'Data Widgets'
                     <h3>Deals</h3>
                     <a class="button is-default is-rounded">View All</a>
                   </div>
-                  <svg
-                    class="circle-chart"
-                    viewbox="0 0 33.83098862 33.83098862"
-                    width="140"
-                    height="140"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <circle
-                      class="circle-chart-background"
-                      stroke-width="2"
-                      fill="none"
-                      cx="16.91549431"
-                      cy="16.91549431"
-                      r="15.91549431"></circle>
-                    <circle
-                      class="circle-chart-circle"
-                      stroke="#7F00FF"
-                      stroke-width="2"
-                      stroke-dasharray="68,100"
-                      stroke-linecap="round"
-                      fill="none"
-                      cx="16.91549431"
-                      cy="16.91549431"
-                      r="15.91549431"></circle>
+                  <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="140" height="140" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="circle-chart-background" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                    <circle class="circle-chart-circle" stroke="#7F00FF" stroke-width="2" stroke-dasharray="68,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"
+                    ></circle>
                   </svg>
                   <div class="chart-avatar">
                     <img src="/img/avatars/ray.jpg" alt="" />
@@ -1016,30 +842,10 @@ const title = 'Data Widgets'
                     <h3>Tasks</h3>
                     <a class="button is-default is-rounded">View All</a>
                   </div>
-                  <svg
-                    class="circle-chart"
-                    viewbox="0 0 33.83098862 33.83098862"
-                    width="140"
-                    height="140"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <circle
-                      class="circle-chart-background"
-                      stroke-width="2"
-                      fill="none"
-                      cx="16.91549431"
-                      cy="16.91549431"
-                      r="15.91549431"></circle>
-                    <circle
-                      class="circle-chart-circle"
-                      stroke="#00d1b2"
-                      stroke-width="2"
-                      stroke-dasharray="77,100"
-                      stroke-linecap="round"
-                      fill="none"
-                      cx="16.91549431"
-                      cy="16.91549431"
-                      r="15.91549431"></circle>
+                  <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="140" height="140" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="circle-chart-background" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
+                    <circle class="circle-chart-circle" stroke="#00d1b2" stroke-width="2" stroke-dasharray="77,100" stroke-linecap="round" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"
+                    ></circle>
                   </svg>
                   <div class="chart-avatar">
                     <img src="/img/avatars/lakisha.jpg" alt="" />
@@ -1055,21 +861,8 @@ const title = 'Data Widgets'
                 <!--Widget-->
                 <div class="widget circle-side-widget p-5">
                   <div class="circle-container">
-                    <svg
-                      class="circle-chart"
-                      viewbox="0 0 33.83098862 33.83098862"
-                      width="70"
-                      height="70"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <circle
-                        class="circle-chart-background"
-                        stroke="#efefef"
-                        stroke-width="2"
-                        fill="none"
-                        cx="16.91549431"
-                        cy="16.91549431"
-                        r="15.91549431"></circle>
+                    <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="70" height="70" xmlns="http://www.w3.org/2000/svg">
+                      <circle class="circle-chart-background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                       <circle
                         class="circle-chart-circle"
                         stroke="#00d1b2"
@@ -1087,31 +880,15 @@ const title = 'Data Widgets'
                   </div>
                   <div class="circle-meta">
                     <h3>Sales Revenue</h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Ad eos igitur converte te, quaeso.
-                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ad eos igitur converte te, quaeso.</p>
                   </div>
                 </div>
 
                 <!--Widget-->
                 <div class="widget circle-side-widget p-5">
                   <div class="circle-container">
-                    <svg
-                      class="circle-chart"
-                      viewbox="0 0 33.83098862 33.83098862"
-                      width="70"
-                      height="70"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <circle
-                        class="circle-chart-background"
-                        stroke="#efefef"
-                        stroke-width="2"
-                        fill="none"
-                        cx="16.91549431"
-                        cy="16.91549431"
-                        r="15.91549431"></circle>
+                    <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="70" height="70" xmlns="http://www.w3.org/2000/svg">
+                      <circle class="circle-chart-background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                       <circle
                         class="circle-chart-circle"
                         stroke="#E82127"
@@ -1129,31 +906,15 @@ const title = 'Data Widgets'
                   </div>
                   <div class="circle-meta">
                     <h3>Overall Growth</h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Ad eos igitur converte te, quaeso.
-                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ad eos igitur converte te, quaeso.</p>
                   </div>
                 </div>
 
                 <!--Widget-->
                 <div class="widget circle-side-widget p-5">
                   <div class="circle-container">
-                    <svg
-                      class="circle-chart"
-                      viewbox="0 0 33.83098862 33.83098862"
-                      width="70"
-                      height="70"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <circle
-                        class="circle-chart-background"
-                        stroke="#efefef"
-                        stroke-width="2"
-                        fill="none"
-                        cx="16.91549431"
-                        cy="16.91549431"
-                        r="15.91549431"></circle>
+                    <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="70" height="70" xmlns="http://www.w3.org/2000/svg">
+                      <circle class="circle-chart-background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                       <circle
                         class="circle-chart-circle"
                         stroke="#fcba03"
@@ -1171,31 +932,15 @@ const title = 'Data Widgets'
                   </div>
                   <div class="circle-meta">
                     <h3>Overall Growth</h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Ad eos igitur converte te, quaeso.
-                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ad eos igitur converte te, quaeso.</p>
                   </div>
                 </div>
 
                 <!--Widget-->
                 <div class="widget circle-side-widget p-5">
                   <div class="circle-container">
-                    <svg
-                      class="circle-chart"
-                      viewbox="0 0 33.83098862 33.83098862"
-                      width="70"
-                      height="70"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <circle
-                        class="circle-chart-background"
-                        stroke="#efefef"
-                        stroke-width="2"
-                        fill="none"
-                        cx="16.91549431"
-                        cy="16.91549431"
-                        r="15.91549431"></circle>
+                    <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="70" height="70" xmlns="http://www.w3.org/2000/svg">
+                      <circle class="circle-chart-background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                       <circle
                         class="circle-chart-circle"
                         stroke="#9e3dff"
@@ -1213,10 +958,7 @@ const title = 'Data Widgets'
                   </div>
                   <div class="circle-meta">
                     <h3>Overall Growth</h3>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Ad eos igitur converte te, quaeso.
-                    </p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ad eos igitur converte te, quaeso.</p>
                   </div>
                 </div>
               </div>
@@ -1231,21 +973,8 @@ const title = 'Data Widgets'
                   <div class="statistics pt-6 pb-2">
                     <div class="statistic">
                       <div class="circle-container">
-                        <svg
-                          class="circle-chart"
-                          viewbox="0 0 33.83098862 33.83098862"
-                          width="50"
-                          height="50"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            class="circle-chart-background"
-                            stroke="#efefef"
-                            stroke-width="2"
-                            fill="none"
-                            cx="16.91549431"
-                            cy="16.91549431"
-                            r="15.91549431"></circle>
+                        <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                          <circle class="circle-chart-background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                           <circle
                             class="circle-chart-circle"
                             stroke="#9e3dff"
@@ -1266,21 +995,8 @@ const title = 'Data Widgets'
                     </div>
                     <div class="statistic">
                       <div class="circle-container">
-                        <svg
-                          class="circle-chart"
-                          viewbox="0 0 33.83098862 33.83098862"
-                          width="50"
-                          height="50"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            class="circle-chart-background"
-                            stroke="#efefef"
-                            stroke-width="2"
-                            fill="none"
-                            cx="16.91549431"
-                            cy="16.91549431"
-                            r="15.91549431"></circle>
+                        <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                          <circle class="circle-chart-background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                           <circle
                             class="circle-chart-circle"
                             stroke="#FFA981"
@@ -1301,21 +1017,8 @@ const title = 'Data Widgets'
                     </div>
                     <div class="statistic">
                       <div class="circle-container">
-                        <svg
-                          class="circle-chart"
-                          viewbox="0 0 33.83098862 33.83098862"
-                          width="50"
-                          height="50"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            class="circle-chart-background"
-                            stroke="#efefef"
-                            stroke-width="2"
-                            fill="none"
-                            cx="16.91549431"
-                            cy="16.91549431"
-                            r="15.91549431"></circle>
+                        <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                          <circle class="circle-chart-background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                           <circle
                             class="circle-chart-circle"
                             stroke="#00d1b2"
@@ -1335,10 +1038,7 @@ const title = 'Data Widgets'
                       <span>Performance</span>
                     </div>
                   </div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ad
-                    eos igitur converte te, quaeso.
-                  </p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ad eos igitur converte te, quaeso.</p>
                 </div>
 
                 <!--Widget-->
@@ -1349,21 +1049,8 @@ const title = 'Data Widgets'
                   <div class="statistics pt-6 pb-2">
                     <div class="statistic">
                       <div class="circle-container">
-                        <svg
-                          class="circle-chart"
-                          viewbox="0 0 33.83098862 33.83098862"
-                          width="50"
-                          height="50"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            class="circle-chart-background"
-                            stroke="#efefef"
-                            stroke-width="2"
-                            fill="none"
-                            cx="16.91549431"
-                            cy="16.91549431"
-                            r="15.91549431"></circle>
+                        <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                          <circle class="circle-chart-background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                           <circle
                             class="circle-chart-circle"
                             stroke="#9e3dff"
@@ -1384,21 +1071,8 @@ const title = 'Data Widgets'
                     </div>
                     <div class="statistic">
                       <div class="circle-container">
-                        <svg
-                          class="circle-chart"
-                          viewbox="0 0 33.83098862 33.83098862"
-                          width="50"
-                          height="50"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            class="circle-chart-background"
-                            stroke="#efefef"
-                            stroke-width="2"
-                            fill="none"
-                            cx="16.91549431"
-                            cy="16.91549431"
-                            r="15.91549431"></circle>
+                        <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                          <circle class="circle-chart-background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                           <circle
                             class="circle-chart-circle"
                             stroke="#FFA981"
@@ -1419,21 +1093,8 @@ const title = 'Data Widgets'
                     </div>
                     <div class="statistic">
                       <div class="circle-container">
-                        <svg
-                          class="circle-chart"
-                          viewbox="0 0 33.83098862 33.83098862"
-                          width="50"
-                          height="50"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            class="circle-chart-background"
-                            stroke="#efefef"
-                            stroke-width="2"
-                            fill="none"
-                            cx="16.91549431"
-                            cy="16.91549431"
-                            r="15.91549431"></circle>
+                        <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                          <circle class="circle-chart-background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                           <circle
                             class="circle-chart-circle"
                             stroke="#00d1b2"
@@ -1454,21 +1115,8 @@ const title = 'Data Widgets'
                     </div>
                     <div class="statistic">
                       <div class="circle-container">
-                        <svg
-                          class="circle-chart"
-                          viewbox="0 0 33.83098862 33.83098862"
-                          width="50"
-                          height="50"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            class="circle-chart-background"
-                            stroke="#efefef"
-                            stroke-width="2"
-                            fill="none"
-                            cx="16.91549431"
-                            cy="16.91549431"
-                            r="15.91549431"></circle>
+                        <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                          <circle class="circle-chart-background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                           <circle
                             class="circle-chart-circle"
                             stroke="#ff5c85"
@@ -1488,10 +1136,7 @@ const title = 'Data Widgets'
                       <span>Team 4</span>
                     </div>
                   </div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ad
-                    eos igitur converte te, quaeso.
-                  </p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ad eos igitur converte te, quaeso.</p>
                 </div>
               </div>
 
@@ -1518,21 +1163,8 @@ const title = 'Data Widgets'
                         <td><a>Blake & Daniels</a></td>
                         <td>
                           <div class="circle-container">
-                            <svg
-                              class="circle-chart"
-                              viewbox="0 0 33.83098862 33.83098862"
-                              width="44"
-                              height="44"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <circle
-                                class="circle-chart-background"
-                                stroke="#efefef"
-                                stroke-width="2"
-                                fill="none"
-                                cx="16.91549431"
-                                cy="16.91549431"
-                                r="15.91549431"></circle>
+                            <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="44" height="44" xmlns="http://www.w3.org/2000/svg">
+                              <circle class="circle-chart-background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                               <circle
                                 class="circle-chart-circle"
                                 stroke="#7F00FF"
@@ -1561,15 +1193,11 @@ const title = 'Data Widgets'
                             <a href="#">
                               <img src="/img/avatars/stella.jpg" alt="" />
                             </a>
-                            <span class="is-font is-weight-600 rem-100 ml-2"
-                              >+ 2</span
-                            >
+                            <span class="is-font is-weight-600 rem-100 ml-2">+ 2</span>
                           </div>
                         </td>
                         <td>
-                          <span class="tag is-curved is-secondary"
-                            >In progress</span
-                          >
+                          <span class="tag is-curved is-secondary">In progress</span>
                         </td>
                         <td class="has-text-centered">
                           <a class="button is-rounded-md">Details</a>
@@ -1582,21 +1210,8 @@ const title = 'Data Widgets'
                         <td><a>Fresh Wear Ltd.</a></td>
                         <td>
                           <div class="circle-container">
-                            <svg
-                              class="circle-chart"
-                              viewbox="0 0 33.83098862 33.83098862"
-                              width="44"
-                              height="44"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <circle
-                                class="circle-chart-background"
-                                stroke="#efefef"
-                                stroke-width="2"
-                                fill="none"
-                                cx="16.91549431"
-                                cy="16.91549431"
-                                r="15.91549431"></circle>
+                            <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="44" height="44" xmlns="http://www.w3.org/2000/svg">
+                              <circle class="circle-chart-background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                               <circle
                                 class="circle-chart-circle"
                                 stroke="#7F00FF"
@@ -1625,9 +1240,7 @@ const title = 'Data Widgets'
                           </div>
                         </td>
                         <td>
-                          <span class="tag is-curved is-warning"
-                            >Needs info</span
-                          >
+                          <span class="tag is-curved is-warning">Needs info</span>
                         </td>
                         <td class="has-text-centered">
                           <a class="button is-rounded-md">Details</a>
@@ -1640,21 +1253,8 @@ const title = 'Data Widgets'
                         <td><a>Gallagher</a></td>
                         <td>
                           <div class="circle-container">
-                            <svg
-                              class="circle-chart"
-                              viewbox="0 0 33.83098862 33.83098862"
-                              width="44"
-                              height="44"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <circle
-                                class="circle-chart-background"
-                                stroke="#efefef"
-                                stroke-width="2"
-                                fill="none"
-                                cx="16.91549431"
-                                cy="16.91549431"
-                                r="15.91549431"></circle>
+                            <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="44" height="44" xmlns="http://www.w3.org/2000/svg">
+                              <circle class="circle-chart-background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                               <circle
                                 class="circle-chart-circle"
                                 stroke="#7F00FF"
@@ -1683,15 +1283,11 @@ const title = 'Data Widgets'
                             <a href="#">
                               <img src="/img/avatars/janet.jpg" alt="" />
                             </a>
-                            <span class="is-font is-weight-600 rem-100 ml-2"
-                              >+ 1</span
-                            >
+                            <span class="is-font is-weight-600 rem-100 ml-2">+ 1</span>
                           </div>
                         </td>
                         <td>
-                          <span class="tag is-curved is-secondary"
-                            >In progress</span
-                          >
+                          <span class="tag is-curved is-secondary">In progress</span>
                         </td>
                         <td class="has-text-centered">
                           <a class="button is-rounded-md">Details</a>
@@ -1704,21 +1300,8 @@ const title = 'Data Widgets'
                         <td><a>Crash Records</a></td>
                         <td>
                           <div class="circle-container">
-                            <svg
-                              class="circle-chart"
-                              viewbox="0 0 33.83098862 33.83098862"
-                              width="44"
-                              height="44"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <circle
-                                class="circle-chart-background"
-                                stroke="#efefef"
-                                stroke-width="2"
-                                fill="none"
-                                cx="16.91549431"
-                                cy="16.91549431"
-                                r="15.91549431"></circle>
+                            <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="44" height="44" xmlns="http://www.w3.org/2000/svg">
+                              <circle class="circle-chart-background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                               <circle
                                 class="circle-chart-circle"
                                 stroke="#7F00FF"
@@ -1744,9 +1327,7 @@ const title = 'Data Widgets'
                           </div>
                         </td>
                         <td>
-                          <span class="tag is-curved is-secondary"
-                            >In progress</span
-                          >
+                          <span class="tag is-curved is-secondary">In progress</span>
                         </td>
                         <td class="has-text-centered">
                           <a class="button is-rounded-md">Details</a>
@@ -1759,21 +1340,8 @@ const title = 'Data Widgets'
                         <td><a>Someco Inc.</a></td>
                         <td>
                           <div class="circle-container">
-                            <svg
-                              class="circle-chart"
-                              viewbox="0 0 33.83098862 33.83098862"
-                              width="44"
-                              height="44"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <circle
-                                class="circle-chart-background"
-                                stroke="#efefef"
-                                stroke-width="2"
-                                fill="none"
-                                cx="16.91549431"
-                                cy="16.91549431"
-                                r="15.91549431"></circle>
+                            <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="44" height="44" xmlns="http://www.w3.org/2000/svg">
+                              <circle class="circle-chart-background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                               <circle
                                 class="circle-chart-circle"
                                 stroke="#7F00FF"
@@ -1802,14 +1370,11 @@ const title = 'Data Widgets'
                             <a href="#">
                               <img src="/img/avatars/fred.jpg" alt="" />
                             </a>
-                            <span class="is-font is-weight-600 rem-100 ml-2"
-                              >+ 2</span
-                            >
+                            <span class="is-font is-weight-600 rem-100 ml-2">+ 2</span>
                           </div>
                         </td>
                         <td>
-                          <span class="tag is-curved is-danger">Has issues</span
-                          >
+                          <span class="tag is-curved is-danger">Has issues</span>
                         </td>
                         <td class="has-text-centered">
                           <a class="button is-rounded-md">Details</a>
@@ -1822,21 +1387,8 @@ const title = 'Data Widgets'
                         <td><a>Mortimer & Sons</a></td>
                         <td>
                           <div class="circle-container">
-                            <svg
-                              class="circle-chart"
-                              viewbox="0 0 33.83098862 33.83098862"
-                              width="44"
-                              height="44"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <circle
-                                class="circle-chart-background"
-                                stroke="#efefef"
-                                stroke-width="2"
-                                fill="none"
-                                cx="16.91549431"
-                                cy="16.91549431"
-                                r="15.91549431"></circle>
+                            <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="44" height="44" xmlns="http://www.w3.org/2000/svg">
+                              <circle class="circle-chart-background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                               <circle
                                 class="circle-chart-circle"
                                 stroke="#7F00FF"

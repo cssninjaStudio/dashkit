@@ -3,10 +3,6 @@ import SidebarProfileMenuStats from './SidebarProfileMenuStats.astro'
 ---
 
 <!-- Profile details -->
-<div
-  x-show.transition="activeProfileTab === 'overview-tab'"
-  id="profile-details"
-  class="profile-details"
->
+<div x-show.transition="activeProfileTab === 'overview-tab'" id="profile-details" class="profile-details">
   <SidebarProfileMenuStats />
 </div>

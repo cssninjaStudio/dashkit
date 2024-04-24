@@ -1,13 +1,8 @@
 <!-- Message details -->
-<div
-  x-show="activeMessage === 'message-6'"
-  id="message-6"
-  class="inbox-message-details"
-  :class="{
+<div x-show="activeMessage === 'message-6'" id="message-6" class="inbox-message-details" :class=`{
         'mobile-active tablet-active': isMobileMessageActive,
         '': !isMobileMessageActive
-    }"
->
+    }`>
   <div class="header-area">
     <img class="sender-pic" src="/img/avatars/ray.jpg" alt="" />
     <div class="message-meta">
@@ -18,16 +13,9 @@
       <i class="sl icon-paper-clip"></i>
       <span>1</span>
     </div>
-    <div
-      x-ref="messagedrop6"
-      @click.away="$refs.messagedrop6.classList.remove('is-active')"
-      class="dropdown inbox-dropdown dropdown-trigger is-right"
-    >
+    <div x-ref="messagedrop6" @click.away="$refs.messagedrop6.classList.remove('is-active')" class="dropdown inbox-dropdown dropdown-trigger is-right">
       <div>
-        <button
-          @click="$refs.messagedrop6.classList.add('is-active')"
-          class="button"
-        >
+        <button @click="$refs.messagedrop6.classList.add('is-active')" class="button">
           <span class="icon is-small">
             <i class="sl icon-options"></i>
           </span>
@@ -52,10 +40,7 @@
         </div>
       </div>
     </div>
-    <a
-      @click="closeMobileMessage()"
-      class="inbox-action inbox-close-details-mobile"
-    >
+    <a @click="closeMobileMessage()" class="inbox-action inbox-close-details-mobile">
       <i class="material-icons">close</i>
     </a>
   </div>
@@ -91,28 +76,18 @@
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           <mark>Quam nemo umquam voluptatem appellavit, appellat;</mark>
-          <mark>Sequitur disserendi ratio cognitioque naturae;</mark> Ea possunt
-          paria non esse. Poterat autem inpune;
+          <mark>Sequitur disserendi ratio cognitioque naturae;</mark> Ea possunt paria non esse. Poterat autem inpune;
         </p>
         <ul>
           <li>Urgent tamen et nihil remittunt.</li>
-          <li>
-            Miserum hominem! Si dolor summum malum est, dici aliter non potest.
-          </li>
-          <li>
-            Quid igitur dubitamus in tota eius natura quaerere quid sit
-            effectum?
-          </li>
+          <li>Miserum hominem! Si dolor summum malum est, dici aliter non potest.</li>
+          <li>Quid igitur dubitamus in tota eius natura quaerere quid sit effectum?</li>
         </ul>
         <p>
-          <a href="http://loripsum.net/" target="_blank"
-            >Duo Reges: constructio interrete.</a
-          >
+          <a href="http://loripsum.net/" target="_blank">Duo Reges: constructio interrete.</a>
           Satis est ad hoc responsum. Primum in nostrane potestate est, quid meminerimus?
           <a href="http://loripsum.net/" target="_blank">Nihil sane.</a>
-          <a href="http://loripsum.net/" target="_blank"
-            >Sit sane ista voluptas.</a
-          >
+          <a href="http://loripsum.net/" target="_blank">Sit sane ista voluptas.</a>
         </p>
 
         <p>Let me know when you have time to read it.</p>
@@ -138,16 +113,9 @@
             <span>Reply as</span>
             <span>helenmiller@Dashkit.io</span>
           </div>
-          <div
-            x-ref="composedrop6"
-            @click.away="$refs.composedrop6.classList.remove('is-active')"
-            class="dropdown inbox-dropdown dropdown-trigger is-right"
-          >
+          <div x-ref="composedrop6" @click.away="$refs.composedrop6.classList.remove('is-active')" class="dropdown inbox-dropdown dropdown-trigger is-right">
             <div>
-              <button
-                @click="$refs.composedrop6.classList.add('is-active')"
-                class="button"
-              >
+              <button @click="$refs.composedrop6.classList.add('is-active')" class="button">
                 <span class="icon is-small">
                   <i class="sl icon-options"></i>
                 </span>
@@ -175,8 +143,7 @@
         </div>
         <!--textarea-->
         <div class="control">
-          <textarea class="textarea" rows="6" placeholder="Type your message..."
-          ></textarea>
+          <textarea class="textarea" rows="6" placeholder="Type your message..."></textarea>
           <button type="button" class="button">Send Message</button>
         </div>
       </div>

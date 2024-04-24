@@ -1,35 +1,21 @@
 <!-- Message details -->
-<div
-  x-show="activeMessage === 'message-3'"
-  id="message-3"
-  class="inbox-message-details"
-  :class="{
+<div x-show="activeMessage === 'message-3'" id="message-3" class="inbox-message-details" :class=`{
         'mobile-active tablet-active': isMobileMessageActive,
         '': !isMobileMessageActive
-    }"
->
+    }`>
   <div class="header-area">
     <img class="sender-pic" src="/img/avatars/lakisha.jpg" alt="" />
     <div class="message-meta">
-      <span class="message-title"
-        >Don't forget to send me those budget notes</span
-      >
+      <span class="message-title">Don't forget to send me those budget notes</span>
       <span class="sender-email">&lt;lakisha@gmail.com&gt;</span>
     </div>
     <div class="attachments is-vhidden inbox-hidden-mobile">
       <i class="sl icon-paper-clip"></i>
       <span>2</span>
     </div>
-    <div
-      x-ref="messagedrop3"
-      @click.away="$refs.messagedrop3.classList.remove('is-active')"
-      class="dropdown inbox-dropdown dropdown-trigger is-right"
-    >
+    <div x-ref="messagedrop3" @click.away="$refs.messagedrop3.classList.remove('is-active')" class="dropdown inbox-dropdown dropdown-trigger is-right">
       <div>
-        <button
-          @click="$refs.messagedrop3.classList.add('is-active')"
-          class="button"
-        >
+        <button @click="$refs.messagedrop3.classList.add('is-active')" class="button">
           <span class="icon is-small">
             <i class="sl icon-options"></i>
           </span>
@@ -54,10 +40,7 @@
         </div>
       </div>
     </div>
-    <a
-      @click="closeMobileMessage()"
-      class="inbox-action inbox-close-details-mobile"
-    >
+    <a @click="closeMobileMessage()" class="inbox-action inbox-close-details-mobile">
       <i class="material-icons">close</i>
     </a>
   </div>
@@ -90,44 +73,23 @@
       <!--Mail Content-->
       <div class="mail-content content">
         <p>Hi Helen,</p>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suo genere
-          perveniant ad extremum; Non potes, nisi retexueris illa.
-        </p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suo genere perveniant ad extremum; Non potes, nisi retexueris illa.</p>
         <ul>
           <li>Si id dicis, vicimus.</li>
-          <li>
-            Roges enim Aristonem, bonane ei videantur haec: vacuitas doloris,
-            divitiae, valitudo;
-          </li>
+          <li>Roges enim Aristonem, bonane ei videantur haec: vacuitas doloris, divitiae, valitudo;</li>
           <li>Sed ille, ut dixi, vitiose.</li>
-          <li>
-            Nam, ut paulo ante docui, augendae voluptatis finis est doloris
-            omnis amotio.
-          </li>
-          <li>
-            Nam, ut saepe iam dixi, in infirma aetate inbecillaque mente vis
-            naturae quasi per caliginem cernitur;
-          </li>
+          <li>Nam, ut paulo ante docui, augendae voluptatis finis est doloris omnis amotio.</li>
+          <li>Nam, ut saepe iam dixi, in infirma aetate inbecillaque mente vis naturae quasi per caliginem cernitur;</li>
         </ul>
         <p>
-          <mark
-            >Deinde disputat, quod cuiusque generis animantium statui deceat
-            extremum.</mark
-          >
-          Ne amores quidem sanctos a sapiente alienos esse arbitrantur. Qui est in
-          parvis malis. Sit enim idem caecus, debilis. Hic nihil fuit, quod quaereremus.
+          <mark>Deinde disputat, quod cuiusque generis animantium statui deceat extremum.</mark>
+          Ne amores quidem sanctos a sapiente alienos esse arbitrantur. Qui est in parvis malis. Sit enim idem caecus, debilis. Hic nihil fuit, quod quaereremus.
         </p>
         <p>
-          Negat esse eam, inquit, propter se expetendam. Collatio igitur ista te
-          nihil iuvat. Rationis enim perfectio est virtus; At certe gravius.
-          Laboro autem non sine causa; Nam Pyrrho, Aristo, Erillus iam diu
-          abiecti.
+          Negat esse eam, inquit, propter se expetendam. Collatio igitur ista te nihil iuvat. Rationis enim perfectio est virtus; At certe gravius. Laboro autem non sine causa; Nam Pyrrho, Aristo,
+          Erillus iam diu abiecti.
         </p>
-        <p>
-          Nam quid possumus facere melius? Primum divisit ineleganter; Duo
-          Reges: constructio interrete. Erat enim Polemonis. Equidem e Cn.
-        </p>
+        <p>Nam quid possumus facere melius? Primum divisit ineleganter; Duo Reges: constructio interrete. Erat enim Polemonis. Equidem e Cn.</p>
 
         <p>Lakisha Williams</p>
       </div>
@@ -142,16 +104,9 @@
             <span>Reply as</span>
             <span>helenmiller@Dashkit.io</span>
           </div>
-          <div
-            x-ref="composedrop3"
-            @click.away="$refs.composedrop3.classList.remove('is-active')"
-            class="dropdown inbox-dropdown dropdown-trigger is-right"
-          >
+          <div x-ref="composedrop3" @click.away="$refs.composedrop3.classList.remove('is-active')" class="dropdown inbox-dropdown dropdown-trigger is-right">
             <div>
-              <button
-                @click="$refs.composedrop3.classList.add('is-active')"
-                class="button"
-              >
+              <button @click="$refs.composedrop3.classList.add('is-active')" class="button">
                 <span class="icon is-small">
                   <i class="sl icon-options"></i>
                 </span>
@@ -179,8 +134,7 @@
         </div>
         <!--textarea-->
         <div class="control">
-          <textarea class="textarea" rows="6" placeholder="Type your message..."
-          ></textarea>
+          <textarea class="textarea" rows="6" placeholder="Type your message..."></textarea>
           <button type="button" class="button">Send Message</button>
         </div>
       </div>

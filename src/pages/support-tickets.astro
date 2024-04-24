@@ -1,20 +1,15 @@
 ---
-import Layout from "../layouts/Default.astro";
-import SupportActivitySidebar from "../components/pages/SupportActivitySidebar.astro";
+import Layout from '../layouts/Default.astro'
+import SupportActivitySidebar from '../components/pages/SupportActivitySidebar.astro'
 const title = 'Ticket List'
 ---
 
 <Layout title={title}>
   <!-- Main dashboard container -->
-  <div
-    id="dashboard-wrapper"
-    class="dashboard-outer"
-    x-data="initSupportTickets()"
-    :class="{
-        'is-pushed': $store.app.sidebarOpenedState,
-        '': !$store.app.sidebarOpenedState
-    }"
-  >
+  <div id="dashboard-wrapper" class="dashboard-outer" x-data="initSupportTickets()" :class=`{
+      'is-pushed': $store.app.sidebarOpenedState,
+      '': !$store.app.sidebarOpenedState
+    }`>
     <div class="dashboard-inner">
       <!-- Dashboard Wrapper -->
       <div class="dashboard-wrapper">
@@ -43,16 +38,8 @@ const title = 'Ticket List'
                   <i class="sl icon-energy"></i>
                 </div>
                 <!-- Dropdown -->
-                <div
-                  x-ref="supportdrop1"
-                  @click.away="$refs.supportdrop1.classList.remove('is-active')"
-                  class="dropdown button-dropdown dropdown-trigger is-right"
-                >
-                  <div
-                    @click="$refs.supportdrop1.classList.add('is-active')"
-                    class="button is-secondary is-raised ripple"
-                    data-ripple-color=""
-                  >
+                <div x-ref="supportdrop1" @click.away="$refs.supportdrop1.classList.remove('is-active')" class="dropdown button-dropdown dropdown-trigger is-right">
+                  <div @click="$refs.supportdrop1.classList.add('is-active')" class="button is-secondary is-raised ripple" data-ripple-color="">
                     <span class="icon is-small">
                       <i class="material-icons">more_vert</i>
                     </span>
@@ -107,43 +94,25 @@ const title = 'Ticket List'
                     <tr>
                       <th>
                         <div class="b-checkbox is-muted is-secondary">
-                          <input
-                            x-on:change="toggleAllCheckboxes()"
-                            id="checkbox-docs-all"
-                            class="styled"
-                            type="checkbox"
-                          />
+                          <input x-on:change="toggleAllCheckboxes()" id="checkbox-docs-all" class="styled" type="checkbox" />
                           <label for="checkbox-docs-all"></label>
                         </div>
                       </th>
                       <th>
                         <!-- Filter dropdown -->
-                        <div
-                          x-ref="filterdrop1"
-                          @click.away="$refs.filterdrop1.classList.remove('is-active')"
-                          class="dropdown filter-dropdown dropdown-trigger"
-                        >
-                          <div
-                            @click="$refs.filterdrop1.classList.add('is-active')"
-                            class="button"
-                          >
+                        <div x-ref="filterdrop1" @click.away="$refs.filterdrop1.classList.remove('is-active')" class="dropdown filter-dropdown dropdown-trigger">
+                          <div @click="$refs.filterdrop1.classList.add('is-active')" class="button">
                             <span>ID</span>
                             <i class="material-icons">keyboard_arrow_down</i>
                           </div>
                           <div class="dropdown-menu" role="menu">
                             <div class="dropdown-content">
-                              <div class="dropdown-item filter-title">
-                                Order
-                              </div>
+                              <div class="dropdown-item filter-title">Order</div>
                               <a href="#" class="dropdown-item">
-                                <span
-                                  >Ascending</span
-                                >
+                                <span>Ascending</span>
                               </a>
                               <a class="dropdown-item">
-                                <span
-                                  >Descending</span
-                                >
+                                <span>Descending</span>
                               </a>
                             </div>
                           </div>
@@ -151,32 +120,19 @@ const title = 'Ticket List'
                       </th>
                       <th class="w-35">
                         <!-- Filter dropdown -->
-                        <div
-                          x-ref="filterdrop2"
-                          @click.away="$refs.filterdrop2.classList.remove('is-active')"
-                          class="dropdown filter-dropdown dropdown-trigger"
-                        >
-                          <div
-                            @click="$refs.filterdrop2.classList.add('is-active')"
-                            class="button"
-                          >
+                        <div x-ref="filterdrop2" @click.away="$refs.filterdrop2.classList.remove('is-active')" class="dropdown filter-dropdown dropdown-trigger">
+                          <div @click="$refs.filterdrop2.classList.add('is-active')" class="button">
                             <span>Name</span>
                             <i class="material-icons">keyboard_arrow_down</i>
                           </div>
                           <div class="dropdown-menu" role="menu">
                             <div class="dropdown-content">
-                              <div class="dropdown-item filter-title">
-                                Order
-                              </div>
+                              <div class="dropdown-item filter-title">Order</div>
                               <a href="#" class="dropdown-item">
-                                <span
-                                  >Ascending</span
-                                >
+                                <span>Ascending</span>
                               </a>
                               <a class="dropdown-item">
-                                <span
-                                  >Descending</span
-                                >
+                                <span>Descending</span>
                               </a>
                             </div>
                           </div>
@@ -184,23 +140,14 @@ const title = 'Ticket List'
                       </th>
                       <th>
                         <!-- Filter dropdown -->
-                        <div
-                          x-ref="filterdrop3"
-                          @click.away="$refs.filterdrop3.classList.remove('is-active')"
-                          class="dropdown filter-dropdown dropdown-trigger"
-                        >
-                          <div
-                            @click="$refs.filterdrop3.classList.add('is-active')"
-                            class="button"
-                          >
+                        <div x-ref="filterdrop3" @click.away="$refs.filterdrop3.classList.remove('is-active')" class="dropdown filter-dropdown dropdown-trigger">
+                          <div @click="$refs.filterdrop3.classList.add('is-active')" class="button">
                             <span>Priority</span>
                             <i class="material-icons">keyboard_arrow_down</i>
                           </div>
                           <div class="dropdown-menu" role="menu">
                             <div class="dropdown-content">
-                              <div class="dropdown-item filter-title">
-                                Labels
-                              </div>
+                              <div class="dropdown-item filter-title">Labels</div>
                               <a class="dropdown-item">
                                 <span><i class="fa fa-check"></i> All</span>
                               </a>
@@ -219,32 +166,19 @@ const title = 'Ticket List'
                       </th>
                       <th>
                         <!-- Filter dropdown -->
-                        <div
-                          x-ref="filterdrop4"
-                          @click.away="$refs.filterdrop4.classList.remove('is-active')"
-                          class="dropdown filter-dropdown dropdown-trigger"
-                        >
-                          <div
-                            @click="$refs.filterdrop4.classList.add('is-active')"
-                            class="button"
-                          >
+                        <div x-ref="filterdrop4" @click.away="$refs.filterdrop4.classList.remove('is-active')" class="dropdown filter-dropdown dropdown-trigger">
+                          <div @click="$refs.filterdrop4.classList.add('is-active')" class="button">
                             <span>Assignee</span>
                             <i class="material-icons">keyboard_arrow_down</i>
                           </div>
                           <div class="dropdown-menu" role="menu">
                             <div class="dropdown-content">
-                              <div class="dropdown-item filter-title">
-                                Order
-                              </div>
+                              <div class="dropdown-item filter-title">Order</div>
                               <a href="#" class="dropdown-item">
-                                <span
-                                  ><i class="fa fa-check"></i> Ascending</span
-                                >
+                                <span><i class="fa fa-check"></i> Ascending</span>
                               </a>
                               <a class="dropdown-item">
-                                <span
-                                  ><i class="fa fa-check"></i> Descending</span
-                                >
+                                <span><i class="fa fa-check"></i> Descending</span>
                               </a>
                             </div>
                           </div>
@@ -252,71 +186,33 @@ const title = 'Ticket List'
                       </th>
                       <th>
                         <!-- Filter dropdown -->
-                        <div
-                          x-ref="filterdrop5"
-                          @click.away="$refs.filterdrop5.classList.remove('is-active')"
-                          class="dropdown filter-dropdown dropdown-trigger"
-                        >
-                          <div
-                            @click="$refs.filterdrop5.classList.add('is-active')"
-                            class="button"
-                          >
+                        <div x-ref="filterdrop5" @click.away="$refs.filterdrop5.classList.remove('is-active')" class="dropdown filter-dropdown dropdown-trigger">
+                          <div @click="$refs.filterdrop5.classList.add('is-active')" class="button">
                             <span>Modification</span>
                             <i class="material-icons">keyboard_arrow_down</i>
                           </div>
                           <div class="dropdown-menu" role="menu">
                             <div class="dropdown-content">
-                              <div class="dropdown-item filter-title">
-                                Order
-                              </div>
-                              <a
-                                href="javascript:void(0);"
-                                class="dropdown-item"
-                              >
-                                <span
-                                  ><i class="fa fa-check"></i> Ascending</span
-                                >
+                              <div class="dropdown-item filter-title">Order</div>
+                              <a href="javascript:void(0);" class="dropdown-item">
+                                <span><i class="fa fa-check"></i> Ascending</span>
                               </a>
-                              <a
-                                href="javascript:void(0);"
-                                class="dropdown-item"
-                              >
-                                <span
-                                  ><i class="fa fa-check"></i> Descending</span
-                                >
+                              <a href="javascript:void(0);" class="dropdown-item">
+                                <span><i class="fa fa-check"></i> Descending</span>
                               </a>
                               <div class="dropdown-divider"></div>
-                              <div class="dropdown-item filter-title">
-                                Display
-                              </div>
-                              <a
-                                href="javascript:void(0);"
-                                class="dropdown-item is-active"
-                              >
-                                <span
-                                  ><i class="fa fa-check"></i> Modification</span
-                                >
+                              <div class="dropdown-item filter-title">Display</div>
+                              <a href="javascript:void(0);" class="dropdown-item is-active">
+                                <span><i class="fa fa-check"></i> Modification</span>
                               </a>
-                              <a
-                                href="javascript:void(0);"
-                                class="dropdown-item is-disabled"
-                              >
+                              <a href="javascript:void(0);" class="dropdown-item is-disabled">
                                 <span><i class="fa fa-check"></i> Status</span>
                               </a>
-                              <a
-                                href="javascript:void(0);"
-                                class="dropdown-item"
-                              >
-                                <span
-                                  ><i class="fa fa-check"></i> Attachments</span
-                                >
+                              <a href="javascript:void(0);" class="dropdown-item">
+                                <span><i class="fa fa-check"></i> Attachments</span>
                               </a>
-                              <a
-                                href="javascript:void(0);"
-                                class="dropdown-item"
-                              >
-                                <span><i class="fa fa-check"></i> Severity</span
-                                >
+                              <a href="javascript:void(0);" class="dropdown-item">
+                                <span><i class="fa fa-check"></i> Severity</span>
                               </a>
                             </div>
                           </div>
@@ -324,32 +220,19 @@ const title = 'Ticket List'
                       </th>
                       <th>
                         <!-- Filter dropdown -->
-                        <div
-                          x-ref="filterdrop6"
-                          @click.away="$refs.filterdrop6.classList.remove('is-active')"
-                          class="dropdown filter-dropdown dropdown-trigger"
-                        >
-                          <div
-                            @click="$refs.filterdrop6.classList.add('is-active')"
-                            class="button"
-                          >
+                        <div x-ref="filterdrop6" @click.away="$refs.filterdrop6.classList.remove('is-active')" class="dropdown filter-dropdown dropdown-trigger">
+                          <div @click="$refs.filterdrop6.classList.add('is-active')" class="button">
                             <span>Age</span>
                             <i class="material-icons">keyboard_arrow_down</i>
                           </div>
                           <div class="dropdown-menu" role="menu">
                             <div class="dropdown-content">
-                              <div class="dropdown-item filter-title">
-                                Order
-                              </div>
+                              <div class="dropdown-item filter-title">Order</div>
                               <a href="#" class="dropdown-item">
-                                <span
-                                  ><i class="fa fa-check"></i> Ascending</span
-                                >
+                                <span><i class="fa fa-check"></i> Ascending</span>
                               </a>
                               <a class="dropdown-item">
-                                <span
-                                  ><i class="fa fa-check"></i> Descending</span
-                                >
+                                <span><i class="fa fa-check"></i> Descending</span>
                               </a>
                             </div>
                           </div>
@@ -357,71 +240,33 @@ const title = 'Ticket List'
                       </th>
                       <th>
                         <!-- Filter dropdown -->
-                        <div
-                          x-ref="filterdrop7"
-                          @click.away="$refs.filterdrop7.classList.remove('is-active')"
-                          class="dropdown filter-dropdown dropdown-trigger"
-                        >
-                          <div
-                            @click="$refs.filterdrop7.classList.add('is-active')"
-                            class="button"
-                          >
+                        <div x-ref="filterdrop7" @click.away="$refs.filterdrop7.classList.remove('is-active')" class="dropdown filter-dropdown dropdown-trigger">
+                          <div @click="$refs.filterdrop7.classList.add('is-active')" class="button">
                             <span>Status</span>
                             <i class="material-icons">keyboard_arrow_down</i>
                           </div>
                           <div class="dropdown-menu" role="menu">
                             <div class="dropdown-content">
-                              <div class="dropdown-item filter-title">
-                                Order
-                              </div>
-                              <a
-                                href="javascript:void(0);"
-                                class="dropdown-item"
-                              >
-                                <span
-                                  ><i class="fa fa-check"></i> Ascending</span
-                                >
+                              <div class="dropdown-item filter-title">Order</div>
+                              <a href="javascript:void(0);" class="dropdown-item">
+                                <span><i class="fa fa-check"></i> Ascending</span>
                               </a>
-                              <a
-                                href="javascript:void(0);"
-                                class="dropdown-item"
-                              >
-                                <span
-                                  ><i class="fa fa-check"></i> Descending</span
-                                >
+                              <a href="javascript:void(0);" class="dropdown-item">
+                                <span><i class="fa fa-check"></i> Descending</span>
                               </a>
                               <div class="dropdown-divider"></div>
-                              <div class="dropdown-item filter-title">
-                                Display
-                              </div>
-                              <a
-                                href="javascript:void(0);"
-                                class="dropdown-item is-disabled"
-                              >
-                                <span
-                                  ><i class="fa fa-check"></i> Modification</span
-                                >
+                              <div class="dropdown-item filter-title">Display</div>
+                              <a href="javascript:void(0);" class="dropdown-item is-disabled">
+                                <span><i class="fa fa-check"></i> Modification</span>
                               </a>
-                              <a
-                                href="javascript:void(0);"
-                                class="dropdown-item is-active"
-                              >
+                              <a href="javascript:void(0);" class="dropdown-item is-active">
                                 <span><i class="fa fa-check"></i> Status</span>
                               </a>
-                              <a
-                                href="javascript:void(0);"
-                                class="dropdown-item"
-                              >
-                                <span
-                                  ><i class="fa fa-check"></i> Attachments</span
-                                >
+                              <a href="javascript:void(0);" class="dropdown-item">
+                                <span><i class="fa fa-check"></i> Attachments</span>
                               </a>
-                              <a
-                                href="javascript:void(0);"
-                                class="dropdown-item"
-                              >
-                                <span><i class="fa fa-check"></i> Severity</span
-                                >
+                              <a href="javascript:void(0);" class="dropdown-item">
+                                <span><i class="fa fa-check"></i> Severity</span>
                               </a>
                             </div>
                           </div>
@@ -429,36 +274,20 @@ const title = 'Ticket List'
                       </th>
                       <th class="w-5">
                         <!-- Filter dropdown -->
-                        <div
-                          x-ref="filterdrop8"
-                          @click.away="$refs.filterdrop8.classList.remove('is-active')"
-                          class="dropdown filter-dropdown is-right dropdown-trigger"
-                        >
-                          <div
-                            @click="$refs.filterdrop8.classList.add('is-active')"
-                            class="button"
-                          >
+                        <div x-ref="filterdrop8" @click.away="$refs.filterdrop8.classList.remove('is-active')" class="dropdown filter-dropdown is-right dropdown-trigger">
+                          <div @click="$refs.filterdrop8.classList.add('is-active')" class="button">
                             <span class="material-icons">subject</span>
                             <i class="material-icons">keyboard_arrow_down</i>
                           </div>
                           <div class="dropdown-menu" role="menu">
                             <div class="dropdown-content">
-                              <div class="dropdown-item filter-title">
-                                View type
-                              </div>
-                              <a
-                                href="#"
-                                class="dropdown-item is-spaced is-active"
-                              >
-                                <span
-                                  ><i class="fa fa-check"></i> List view</span
-                                >
+                              <div class="dropdown-item filter-title">View type</div>
+                              <a href="#" class="dropdown-item is-spaced is-active">
+                                <span><i class="fa fa-check"></i> List view</span>
                                 <i class="material-icons">view_list</i>
                               </a>
                               <a class="dropdown-item is-spaced">
-                                <span
-                                  ><i class="fa fa-check"></i> Grid view</span
-                                >
+                                <span><i class="fa fa-check"></i> Grid view</span>
                                 <i class="material-icons">view_module</i>
                               </a>
                             </div>
@@ -473,19 +302,13 @@ const title = 'Ticket List'
                     <tr>
                       <td>
                         <div class="b-checkbox is-muted is-secondary">
-                          <input
-                            id="checkbox-tickets-0"
-                            class="styled"
-                            type="checkbox"
-                          />
+                          <input id="checkbox-tickets-0" class="styled" type="checkbox" />
                           <label for="checkbox-tickets-0"></label>
                         </div>
                       </td>
                       <td class="ticket-id">TCK-0874</td>
                       <td class="ticket-name">
-                        <span
-                          >Item forgotten after checking delivery content</span
-                        >
+                        <span>Item forgotten after checking delivery content</span>
                       </td>
                       <td class="priority-type is-low">
                         <div class="dot"></div>
@@ -511,15 +334,8 @@ const title = 'Ticket List'
                       </td>
                       <td class="actions">
                         <!--Dropdown-->
-                        <div
-                          x-ref="ticketdrop1"
-                          @click.away="$refs.ticketdrop1.classList.remove('is-active')"
-                          class="dropdown is-right dropdown-trigger ticket-list-dropdown styled-dropdown"
-                        >
-                          <div
-                            @click="$refs.ticketdrop1.classList.add('is-active')"
-                            class="button"
-                          >
+                        <div x-ref="ticketdrop1" @click.away="$refs.ticketdrop1.classList.remove('is-active')" class="dropdown is-right dropdown-trigger ticket-list-dropdown styled-dropdown">
+                          <div @click="$refs.ticketdrop1.classList.add('is-active')" class="button">
                             <i class="material-icons">more_horiz</i>
                           </div>
 
@@ -565,20 +381,14 @@ const title = 'Ticket List'
                             </div>
                           </div>
                         </div>
-                        <a href="#" class="button is-hidden"
-                          ><i class="material-icons">remove_red_eye</i>
-                        </a>
+                        <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                       </td>
                     </tr>
                     <!-- Table row -->
                     <tr>
                       <td>
                         <div class="b-checkbox is-muted is-secondary">
-                          <input
-                            id="checkbox-tickets-1"
-                            class="styled"
-                            type="checkbox"
-                          />
+                          <input id="checkbox-tickets-1" class="styled" type="checkbox" />
                           <label for="checkbox-tickets-1"></label>
                         </div>
                       </td>
@@ -610,15 +420,8 @@ const title = 'Ticket List'
                       </td>
                       <td class="actions">
                         <!--Dropdown-->
-                        <div
-                          x-ref="ticketdrop2"
-                          @click.away="$refs.ticketdrop2.classList.remove('is-active')"
-                          class="dropdown is-right dropdown-trigger ticket-list-dropdown styled-dropdown"
-                        >
-                          <div
-                            @click="$refs.ticketdrop2.classList.add('is-active')"
-                            class="button"
-                          >
+                        <div x-ref="ticketdrop2" @click.away="$refs.ticketdrop2.classList.remove('is-active')" class="dropdown is-right dropdown-trigger ticket-list-dropdown styled-dropdown">
+                          <div @click="$refs.ticketdrop2.classList.add('is-active')" class="button">
                             <i class="material-icons">more_horiz</i>
                           </div>
 
@@ -664,20 +467,14 @@ const title = 'Ticket List'
                             </div>
                           </div>
                         </div>
-                        <a href="#" class="button is-hidden"
-                          ><i class="material-icons">remove_red_eye</i>
-                        </a>
+                        <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                       </td>
                     </tr>
                     <!-- Table row -->
                     <tr>
                       <td>
                         <div class="b-checkbox is-muted is-secondary">
-                          <input
-                            id="checkbox-tickets-2"
-                            class="styled"
-                            type="checkbox"
-                          />
+                          <input id="checkbox-tickets-2" class="styled" type="checkbox" />
                           <label for="checkbox-tickets-2"></label>
                         </div>
                       </td>
@@ -709,15 +506,8 @@ const title = 'Ticket List'
                       </td>
                       <td class="actions">
                         <!--Dropdown-->
-                        <div
-                          x-ref="ticketdrop3"
-                          @click.away="$refs.ticketdrop3.classList.remove('is-active')"
-                          class="dropdown is-right dropdown-trigger ticket-list-dropdown styled-dropdown"
-                        >
-                          <div
-                            @click="$refs.ticketdrop3.classList.add('is-active')"
-                            class="button"
-                          >
+                        <div x-ref="ticketdrop3" @click.away="$refs.ticketdrop3.classList.remove('is-active')" class="dropdown is-right dropdown-trigger ticket-list-dropdown styled-dropdown">
+                          <div @click="$refs.ticketdrop3.classList.add('is-active')" class="button">
                             <i class="material-icons">more_horiz</i>
                           </div>
 
@@ -763,20 +553,14 @@ const title = 'Ticket List'
                             </div>
                           </div>
                         </div>
-                        <a href="#" class="button is-hidden"
-                          ><i class="material-icons">remove_red_eye</i>
-                        </a>
+                        <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                       </td>
                     </tr>
                     <!-- Table row -->
                     <tr>
                       <td>
                         <div class="b-checkbox is-muted is-secondary">
-                          <input
-                            id="checkbox-tickets-3"
-                            class="styled"
-                            type="checkbox"
-                          />
+                          <input id="checkbox-tickets-3" class="styled" type="checkbox" />
                           <label for="checkbox-tickets-3"></label>
                         </div>
                       </td>
@@ -808,15 +592,8 @@ const title = 'Ticket List'
                       </td>
                       <td class="actions">
                         <!--Dropdown-->
-                        <div
-                          x-ref="ticketdrop4"
-                          @click.away="$refs.ticketdrop4.classList.remove('is-active')"
-                          class="dropdown is-right dropdown-trigger ticket-list-dropdown styled-dropdown"
-                        >
-                          <div
-                            @click="$refs.ticketdrop4.classList.add('is-active')"
-                            class="button"
-                          >
+                        <div x-ref="ticketdrop4" @click.away="$refs.ticketdrop4.classList.remove('is-active')" class="dropdown is-right dropdown-trigger ticket-list-dropdown styled-dropdown">
+                          <div @click="$refs.ticketdrop4.classList.add('is-active')" class="button">
                             <i class="material-icons">more_horiz</i>
                           </div>
 
@@ -862,20 +639,14 @@ const title = 'Ticket List'
                             </div>
                           </div>
                         </div>
-                        <a href="#" class="button is-hidden"
-                          ><i class="material-icons">remove_red_eye</i>
-                        </a>
+                        <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                       </td>
                     </tr>
                     <!-- Table row -->
                     <tr>
                       <td>
                         <div class="b-checkbox is-muted is-secondary">
-                          <input
-                            id="checkbox-tickets-4"
-                            class="styled"
-                            type="checkbox"
-                          />
+                          <input id="checkbox-tickets-4" class="styled" type="checkbox" />
                           <label for="checkbox-tickets-4"></label>
                         </div>
                       </td>
@@ -907,15 +678,8 @@ const title = 'Ticket List'
                       </td>
                       <td class="actions">
                         <!--Dropdown-->
-                        <div
-                          x-ref="ticketdrop5"
-                          @click.away="$refs.ticketdrop5.classList.remove('is-active')"
-                          class="dropdown is-right dropdown-trigger ticket-list-dropdown styled-dropdown"
-                        >
-                          <div
-                            @click="$refs.ticketdrop5.classList.add('is-active')"
-                            class="button"
-                          >
+                        <div x-ref="ticketdrop5" @click.away="$refs.ticketdrop5.classList.remove('is-active')" class="dropdown is-right dropdown-trigger ticket-list-dropdown styled-dropdown">
+                          <div @click="$refs.ticketdrop5.classList.add('is-active')" class="button">
                             <i class="material-icons">more_horiz</i>
                           </div>
 
@@ -961,20 +725,14 @@ const title = 'Ticket List'
                             </div>
                           </div>
                         </div>
-                        <a href="#" class="button is-hidden"
-                          ><i class="material-icons">remove_red_eye</i>
-                        </a>
+                        <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                       </td>
                     </tr>
                     <!-- Table row -->
                     <tr class="is-closed">
                       <td>
                         <div class="b-checkbox is-muted is-secondary">
-                          <input
-                            id="checkbox-tickets-5"
-                            class="styled"
-                            type="checkbox"
-                          />
+                          <input id="checkbox-tickets-5" class="styled" type="checkbox" />
                           <label for="checkbox-tickets-5"></label>
                         </div>
                       </td>
@@ -1006,15 +764,8 @@ const title = 'Ticket List'
                       </td>
                       <td class="actions">
                         <!--Dropdown-->
-                        <div
-                          x-ref="ticketdrop6"
-                          @click.away="$refs.ticketdrop6.classList.remove('is-active')"
-                          class="dropdown is-right dropdown-trigger ticket-list-dropdown styled-dropdown"
-                        >
-                          <div
-                            @click="$refs.ticketdrop6.classList.add('is-active')"
-                            class="button"
-                          >
+                        <div x-ref="ticketdrop6" @click.away="$refs.ticketdrop6.classList.remove('is-active')" class="dropdown is-right dropdown-trigger ticket-list-dropdown styled-dropdown">
+                          <div @click="$refs.ticketdrop6.classList.add('is-active')" class="button">
                             <i class="material-icons">more_horiz</i>
                           </div>
 
@@ -1060,20 +811,14 @@ const title = 'Ticket List'
                             </div>
                           </div>
                         </div>
-                        <a href="#" class="button is-hidden"
-                          ><i class="material-icons">remove_red_eye</i>
-                        </a>
+                        <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                       </td>
                     </tr>
                     <!-- Table row -->
                     <tr class="is-closed">
                       <td>
                         <div class="b-checkbox is-muted is-secondary">
-                          <input
-                            id="checkbox-tickets-6"
-                            class="styled"
-                            type="checkbox"
-                          />
+                          <input id="checkbox-tickets-6" class="styled" type="checkbox" />
                           <label for="checkbox-tickets-6"></label>
                         </div>
                       </td>
@@ -1105,15 +850,8 @@ const title = 'Ticket List'
                       </td>
                       <td class="actions">
                         <!--Dropdown-->
-                        <div
-                          x-ref="ticketdrop7"
-                          @click.away="$refs.ticketdrop7.classList.remove('is-active')"
-                          class="dropdown is-right dropdown-trigger ticket-list-dropdown styled-dropdown"
-                        >
-                          <div
-                            @click="$refs.ticketdrop7.classList.add('is-active')"
-                            class="button"
-                          >
+                        <div x-ref="ticketdrop7" @click.away="$refs.ticketdrop7.classList.remove('is-active')" class="dropdown is-right dropdown-trigger ticket-list-dropdown styled-dropdown">
+                          <div @click="$refs.ticketdrop7.classList.add('is-active')" class="button">
                             <i class="material-icons">more_horiz</i>
                           </div>
 
@@ -1159,29 +897,20 @@ const title = 'Ticket List'
                             </div>
                           </div>
                         </div>
-                        <a href="#" class="button is-hidden"
-                          ><i class="material-icons">remove_red_eye</i>
-                        </a>
+                        <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                       </td>
                     </tr>
                     <!-- Table row -->
                     <tr class="is-closed">
                       <td>
                         <div class="b-checkbox is-muted is-secondary">
-                          <input
-                            id="checkbox-tickets-7"
-                            class="styled"
-                            type="checkbox"
-                          />
+                          <input id="checkbox-tickets-7" class="styled" type="checkbox" />
                           <label for="checkbox-tickets-7"></label>
                         </div>
                       </td>
                       <td class="ticket-id">TCK-0867</td>
                       <td class="ticket-name">
-                        <span
-                          >Iam unable to login to my account. Password recovery
-                          won't work either.</span
-                        >
+                        <span>Iam unable to login to my account. Password recovery won't work either.</span>
                       </td>
                       <td class="priority-type">
                         <div class="dot"></div>
@@ -1207,15 +936,8 @@ const title = 'Ticket List'
                       </td>
                       <td class="actions">
                         <!--Dropdown-->
-                        <div
-                          x-ref="ticketdrop8"
-                          @click.away="$refs.ticketdrop8.classList.remove('is-active')"
-                          class="dropdown is-right dropdown-trigger ticket-list-dropdown styled-dropdown"
-                        >
-                          <div
-                            @click="$refs.ticketdrop8.classList.add('is-active')"
-                            class="button"
-                          >
+                        <div x-ref="ticketdrop8" @click.away="$refs.ticketdrop8.classList.remove('is-active')" class="dropdown is-right dropdown-trigger ticket-list-dropdown styled-dropdown">
+                          <div @click="$refs.ticketdrop8.classList.add('is-active')" class="button">
                             <i class="material-icons">more_horiz</i>
                           </div>
 
@@ -1261,20 +983,14 @@ const title = 'Ticket List'
                             </div>
                           </div>
                         </div>
-                        <a href="#" class="button is-hidden"
-                          ><i class="material-icons">remove_red_eye</i>
-                        </a>
+                        <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                       </td>
                     </tr>
                     <!-- Table row -->
                     <tr class="is-closed">
                       <td>
                         <div class="b-checkbox is-muted is-secondary">
-                          <input
-                            id="checkbox-tickets-8"
-                            class="styled"
-                            type="checkbox"
-                          />
+                          <input id="checkbox-tickets-8" class="styled" type="checkbox" />
                           <label for="checkbox-tickets-8"></label>
                         </div>
                       </td>
@@ -1306,15 +1022,8 @@ const title = 'Ticket List'
                       </td>
                       <td class="actions">
                         <!--Dropdown-->
-                        <div
-                          x-ref="ticketdrop9"
-                          @click.away="$refs.ticketdrop9.classList.remove('is-active')"
-                          class="dropdown is-up is-right dropdown-trigger ticket-list-dropdown styled-dropdown"
-                        >
-                          <div
-                            @click="$refs.ticketdrop9.classList.add('is-active')"
-                            class="button"
-                          >
+                        <div x-ref="ticketdrop9" @click.away="$refs.ticketdrop9.classList.remove('is-active')" class="dropdown is-up is-right dropdown-trigger ticket-list-dropdown styled-dropdown">
+                          <div @click="$refs.ticketdrop9.classList.add('is-active')" class="button">
                             <i class="material-icons">more_horiz</i>
                           </div>
 
@@ -1360,9 +1069,7 @@ const title = 'Ticket List'
                             </div>
                           </div>
                         </div>
-                        <a href="#" class="button is-hidden"
-                          ><i class="material-icons">remove_red_eye</i>
-                        </a>
+                        <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                       </td>
                     </tr>
                   </tbody>

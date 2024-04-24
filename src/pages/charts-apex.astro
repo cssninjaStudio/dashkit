@@ -1,19 +1,14 @@
 ---
-import Layout from "../layouts/Default.astro";
+import Layout from '../layouts/Default.astro'
 const title = 'Apex Charts'
 ---
 
 <Layout title={title}>
   <!-- Main dashboard container -->
-  <div
-    id="dashboard-wrapper"
-    class="dashboard-outer"
-    x-data="initApexCharts()"
-    :class="{
-  'is-pushed': $store.app.sidebarOpenedState,
-  '': !$store.app.sidebarOpenedState
-}"
-  >
+  <div id="dashboard-wrapper" class="dashboard-outer" x-data="initApexCharts()" :class=`{
+    'is-pushed': $store.app.sidebarOpenedState,
+    '': !$store.app.sidebarOpenedState
+  }`>
     <div class="dashboard-inner">
       <!-- Dashboard Wrapper -->
       <div class="dashboard-wrapper">
@@ -25,16 +20,8 @@ const title = 'Apex Charts'
               <div class="column is-4">
                 <div class="widget logo-widget">
                   <div class="lib-logo">
-                    <img
-                      class="light-image-block"
-                      src="/img/logo/stacks/apex.svg"
-                      alt=""
-                    />
-                    <img
-                      class="dark-image-block"
-                      src="/img/logo/stacks/apex-dark.svg"
-                      alt=""
-                    />
+                    <img class="light-image-block" src="/img/logo/stacks/apex.svg" alt="" />
+                    <img class="dark-image-block" src="/img/logo/stacks/apex-dark.svg" alt="" />
                   </div>
                   <div class="logo-card-content">
                     <div class="lib-name">Apex Charts</div>

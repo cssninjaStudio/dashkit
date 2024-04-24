@@ -1,5 +1,5 @@
 ---
-import Layout from "../layouts/Default.astro";
+import Layout from '../layouts/Default.astro'
 const title = 'Forum topic'
 ---
 
@@ -10,10 +10,10 @@ const title = 'Forum topic'
     class="dashboard-outer"
     x-data="initForumTopic()"
     x-init="initReplyBox()"
-    :class="{
-        'is-pushed': $store.app.sidebarOpenedState,
-        '': !$store.app.sidebarOpenedState
-    }"
+    :class=`{
+      'is-pushed': $store.app.sidebarOpenedState,
+      '': !$store.app.sidebarOpenedState
+    }`
   >
     <div class="dashboard-inner">
       <!-- Dashboard Wrapper -->
@@ -24,27 +24,17 @@ const title = 'Forum topic'
             <div class="topic-wrapper">
               <!-- Page title -->
               <div class="forum-title-wrapper is-mobile py-5">
-                <img
-                  class="forum-image"
-                  src="/img/avatars/christina.jpg"
-                  alt=""
-                />
+                <img class="forum-image" src="/img/avatars/christina.jpg" alt="" />
                 <div class="inner-wrap">
-                  <h3 class="forum-title is-topic-title">
-                    Payment now supports cryptocurrencies
-                  </h3>
+                  <h3 class="forum-title is-topic-title">Payment now supports cryptocurrencies</h3>
                   <div class="title-meta">
                     <div class="meta">
                       <a>Home</a>
-                      <i class="material-icons is-breadcrumb"
-                        >keyboard_arrow_right</i
-                      >
+                      <i class="material-icons is-breadcrumb">keyboard_arrow_right</i>
                     </div>
                     <div class="meta">
                       <a>Company Annoucements</a>
-                      <i class="material-icons is-breadcrumb"
-                        >keyboard_arrow_right</i
-                      >
+                      <i class="material-icons is-breadcrumb">keyboard_arrow_right</i>
                     </div>
                     <div class="meta">
                       <span>Topic</span>
@@ -58,13 +48,7 @@ const title = 'Forum topic'
                     <i class="material-icons">arrow_back</i>
                   </div>
                   <!-- Forum main dropdown -->
-                  <a
-                    @click="toggleReplyBox()"
-                    class="button is-secondary is-raised"
-                    data-ripple-color=""
-                  >
-                    Reply
-                  </a>
+                  <a @click="toggleReplyBox()" class="button is-secondary is-raised" data-ripple-color=""> Reply </a>
                 </div>
               </div>
 
@@ -75,15 +59,8 @@ const title = 'Forum topic'
                   <div class="channel-heading">
                     <h3>Payment now supports cryptocurrencies</h3>
                     <!-- Forum channel dropdown -->
-                    <div
-                      x-ref="channeldrop"
-                      @click.away="$refs.channeldrop.classList.remove('is-active')"
-                      class="dropdown is-right dropdown-trigger styled-dropdown is-round"
-                    >
-                      <div
-                        @click="$refs.channeldrop.classList.add('is-active')"
-                        class="button"
-                      >
+                    <div x-ref="channeldrop" @click.away="$refs.channeldrop.classList.remove('is-active')" class="dropdown is-right dropdown-trigger styled-dropdown is-round">
+                      <div @click="$refs.channeldrop.classList.add('is-active')" class="button">
                         <i class="material-icons">more_vert</i>
                       </div>
                       <div class="dropdown-menu is-text-bigger" role="menu">
@@ -126,11 +103,7 @@ const title = 'Forum topic'
                   <div class="topic-stats">
                     <!-- stat -->
                     <div class="stat-block">
-                      <img
-                        class="avatar"
-                        src="/img/avatars/christina.jpg"
-                        alt=""
-                      />
+                      <img class="avatar" src="/img/avatars/christina.jpg" alt="" />
                       <div class="stat-meta">
                         <span>Created</span>
                         <span>19 days</span>
@@ -185,21 +158,9 @@ const title = 'Forum topic'
                       </div>
                     </div>
                     <div class="participants">
-                      <img
-                        class="participant"
-                        src="/img/avatars/elie.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="participant"
-                        src="/img/avatars/helen.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="participant"
-                        src="/img/avatars/henry.jpg"
-                        alt=""
-                      />
+                      <img class="participant" src="/img/avatars/elie.jpg" alt="" />
+                      <img class="participant" src="/img/avatars/helen.jpg" alt="" />
+                      <img class="participant" src="/img/avatars/henry.jpg" alt="" />
                       <div class="participant">
                         <span>+3</span>
                       </div>
@@ -211,11 +172,7 @@ const title = 'Forum topic'
                     <div class="post">
                       <div class="post-meta">
                         <div class="post-owner">
-                          <img
-                            class="avatar"
-                            src="/img/avatars/christina.jpg"
-                            alt=""
-                          />
+                          <img class="avatar" src="/img/avatars/christina.jpg" alt="" />
                           <div class="badge">
                             <i class="material-icons">flash_on</i>
                           </div>
@@ -239,21 +196,11 @@ const title = 'Forum topic'
                               <i class="sl icon-share"></i>
                             </a>
                             <!-- Dropdown -->
-                            <div
-                              x-ref="postdrop1"
-                              @click.away="$refs.postdrop1.classList.remove('is-active')"
-                              class="dropdown is-right dropdown-trigger styled-dropdown is-round"
-                            >
-                              <div
-                                @click="$refs.postdrop1.classList.add('is-active')"
-                                class="button"
-                              >
+                            <div x-ref="postdrop1" @click.away="$refs.postdrop1.classList.remove('is-active')" class="dropdown is-right dropdown-trigger styled-dropdown is-round">
+                              <div @click="$refs.postdrop1.classList.add('is-active')" class="button">
                                 <i class="material-icons">more_vert</i>
                               </div>
-                              <div
-                                class="dropdown-menu is-text-bigger"
-                                role="menu"
-                              >
+                              <div class="dropdown-menu is-text-bigger" role="menu">
                                 <div class="dropdown-content">
                                   <a href="#" class="dropdown-item">
                                     <i class="sl icon-star"></i>
@@ -292,43 +239,23 @@ const title = 'Forum topic'
                         </div>
                         <div class="post-body content">
                           <p>Hello everyone !</p>
+                          <p>I have great news for you all, given you've been waiting so long for it!</p>
                           <p>
-                            I have great news for you all, given you've been
-                            waiting so long for it!
-                          </p>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. At multis se probavit. Is es profecto tu.
-                            Venit ad extremum; Praeclare hoc quidem.
-                            <a href="http://loripsum.net/" target="_blank"
-                              >Collatio igitur ista te nihil iuvat.</a
-                            >
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. At multis se probavit. Is es profecto tu. Venit ad extremum; Praeclare hoc quidem.
+                            <a href="http://loripsum.net/" target="_blank">Collatio igitur ista te nihil iuvat.</a>
                             Duo Reges: constructio interrete.
-                            <a href="http://loripsum.net/" target="_blank"
-                              >Id enim natura desiderat.</a
-                            >
-                            Aliter enim nosmet ipsos nosse non possumus. Zenonis
-                            est, inquam, hoc Stoici.
+                            <a href="http://loripsum.net/" target="_blank">Id enim natura desiderat.</a>
+                            Aliter enim nosmet ipsos nosse non possumus. Zenonis est, inquam, hoc Stoici.
                           </p>
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Si quae forte-possumus. Ac tamen hic mallet
-                            non dolere. Quid ergo hoc loco intellegit honestum?
-                            Hic nihil fuit, quod quaereremus.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Si quae forte-possumus. Ac tamen hic mallet non dolere. Quid ergo hoc loco intellegit honestum? Hic nihil fuit,
+                            quod quaereremus.
                           </p>
                           <ul>
                             <li>Duo Reges: constructio interrete.</li>
-                            <li>
-                              Ego quoque, inquit, didicerim libentius si quid
-                              attuleris, quam te reprehenderim.
-                            </li>
-                            <li>
-                              Qui ita affectus, beatum esse numquam probabis;
-                            </li>
-                            <li>
-                              Semper enim ita adsumit aliquid, ut ea, quae prima
-                              dederit, non deserat.
-                            </li>
+                            <li>Ego quoque, inquit, didicerim libentius si quid attuleris, quam te reprehenderim.</li>
+                            <li>Qui ita affectus, beatum esse numquam probabis;</li>
+                            <li>Semper enim ita adsumit aliquid, ut ea, quae prima dederit, non deserat.</li>
                           </ul>
                           <p>Hope you will all enjoy it ! 🎉🎉🎉</p>
                         </div>
@@ -340,11 +267,7 @@ const title = 'Forum topic'
                     <div class="post">
                       <div class="post-meta">
                         <div class="post-owner">
-                          <img
-                            class="avatar"
-                            src="/img/avatars/marc.jpg"
-                            alt=""
-                          />
+                          <img class="avatar" src="/img/avatars/marc.jpg" alt="" />
                         </div>
                       </div>
                       <div class="post-content">
@@ -362,21 +285,11 @@ const title = 'Forum topic'
                               <i class="sl icon-speech"></i>
                             </a>
                             <!-- Dropdown -->
-                            <div
-                              x-ref="postdrop2"
-                              @click.away="$refs.postdrop2.classList.remove('is-active')"
-                              class="dropdown is-right dropdown-trigger styled-dropdown is-round"
-                            >
-                              <div
-                                @click="$refs.postdrop2.classList.add('is-active')"
-                                class="button"
-                              >
+                            <div x-ref="postdrop2" @click.away="$refs.postdrop2.classList.remove('is-active')" class="dropdown is-right dropdown-trigger styled-dropdown is-round">
+                              <div @click="$refs.postdrop2.classList.add('is-active')" class="button">
                                 <i class="material-icons">more_vert</i>
                               </div>
-                              <div
-                                class="dropdown-menu is-text-bigger"
-                                role="menu"
-                              >
+                              <div class="dropdown-menu is-text-bigger" role="menu">
                                 <div class="dropdown-content">
                                   <a href="#" class="dropdown-item">
                                     <i class="sl icon-star"></i>
@@ -415,10 +328,7 @@ const title = 'Forum topic'
                         </div>
                         <div class="post-body content">
                           <p>That's great to hear !</p>
-                          <p>
-                            I have been waiting for so long to be implemented, i
-                            can now start wiring things up.
-                          </p>
+                          <p>I have been waiting for so long to be implemented, i can now start wiring things up.</p>
                           <p>Thanks for the awesome job ! 👏👏👏</p>
                         </div>
                       </div>
@@ -427,11 +337,7 @@ const title = 'Forum topic'
                     <div class="post">
                       <div class="post-meta">
                         <div class="post-owner">
-                          <img
-                            class="avatar"
-                            src="/img/avatars/dan.jpg"
-                            alt=""
-                          />
+                          <img class="avatar" src="/img/avatars/dan.jpg" alt="" />
                         </div>
                       </div>
                       <div class="post-content">
@@ -449,21 +355,11 @@ const title = 'Forum topic'
                               <i class="sl icon-speech"></i>
                             </a>
                             <!-- Dropdown -->
-                            <div
-                              x-ref="postdrop3"
-                              @click.away="$refs.postdrop3.classList.remove('is-active')"
-                              class="dropdown is-right dropdown-trigger styled-dropdown is-round"
-                            >
-                              <div
-                                @click="$refs.postdrop3.classList.add('is-active')"
-                                class="button"
-                              >
+                            <div x-ref="postdrop3" @click.away="$refs.postdrop3.classList.remove('is-active')" class="dropdown is-right dropdown-trigger styled-dropdown is-round">
+                              <div @click="$refs.postdrop3.classList.add('is-active')" class="button">
                                 <i class="material-icons">more_vert</i>
                               </div>
-                              <div
-                                class="dropdown-menu is-text-bigger"
-                                role="menu"
-                              >
+                              <div class="dropdown-menu is-text-bigger" role="menu">
                                 <div class="dropdown-content">
                                   <a href="#" class="dropdown-item">
                                     <i class="sl icon-star"></i>
@@ -503,18 +399,11 @@ const title = 'Forum topic'
                         <div class="post-body content">
                           <p>That's a real boost for our company. 👌</p>
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Paria sunt igitur. Nos cum te, M. Rationis
-                            enim perfectio est virtus; Philosophi autem in suis
-                            lectulis plerumque moriuntur.
-                            <a href="http://loripsum.net/" target="_blank"
-                              >Sed videbimus.</a
-                            >
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Paria sunt igitur. Nos cum te, M. Rationis enim perfectio est virtus; Philosophi autem in suis lectulis plerumque
+                            moriuntur.
+                            <a href="http://loripsum.net/" target="_blank">Sed videbimus.</a>
                           </p>
-                          <p>
-                            Duo Reges: constructio interrete. Res enim
-                            concurrent contrariae.
-                          </p>
+                          <p>Duo Reges: constructio interrete. Res enim concurrent contrariae.</p>
                         </div>
                       </div>
                     </div>
@@ -522,11 +411,7 @@ const title = 'Forum topic'
                     <div class="post">
                       <div class="post-meta">
                         <div class="post-owner">
-                          <img
-                            class="avatar"
-                            src="/img/avatars/elie.jpg"
-                            alt=""
-                          />
+                          <img class="avatar" src="/img/avatars/elie.jpg" alt="" />
                         </div>
                       </div>
                       <div class="post-content">
@@ -544,21 +429,11 @@ const title = 'Forum topic'
                               <i class="sl icon-speech"></i>
                             </a>
                             <!-- Dropdown -->
-                            <div
-                              x-ref="postdrop4"
-                              @click.away="$refs.postdrop4.classList.remove('is-active')"
-                              class="dropdown is-right dropdown-trigger styled-dropdown is-round"
-                            >
-                              <div
-                                @click="$refs.postdrop4.classList.add('is-active')"
-                                class="button"
-                              >
+                            <div x-ref="postdrop4" @click.away="$refs.postdrop4.classList.remove('is-active')" class="dropdown is-right dropdown-trigger styled-dropdown is-round">
+                              <div @click="$refs.postdrop4.classList.add('is-active')" class="button">
                                 <i class="material-icons">more_vert</i>
                               </div>
-                              <div
-                                class="dropdown-menu is-text-bigger"
-                                role="menu"
-                              >
+                              <div class="dropdown-menu is-text-bigger" role="menu">
                                 <div class="dropdown-content">
                                   <a href="#" class="dropdown-item">
                                     <i class="sl icon-star"></i>
@@ -598,10 +473,8 @@ const title = 'Forum topic'
                         <div class="post-body content">
                           <p>Finally you did it! 🎉🎉🎉🎉🎉🎉</p>
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Quid enim possumus hoc agere divinius? Reguli
-                            reiciendam; Qualem igitur hominem natura inchoavit?
-                            Ratio quidem vestra sic cogit.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid enim possumus hoc agere divinius? Reguli reiciendam; Qualem igitur hominem natura inchoavit? Ratio quidem
+                            vestra sic cogit.
                           </p>
                           <p>Thanks Christina!</p>
                         </div>
@@ -611,11 +484,7 @@ const title = 'Forum topic'
                     <div class="post">
                       <div class="post-meta">
                         <div class="post-owner">
-                          <img
-                            class="avatar"
-                            src="/img/avatars/henry.jpg"
-                            alt=""
-                          />
+                          <img class="avatar" src="/img/avatars/henry.jpg" alt="" />
                         </div>
                       </div>
                       <div class="post-content">
@@ -633,21 +502,11 @@ const title = 'Forum topic'
                               <i class="sl icon-speech"></i>
                             </a>
                             <!-- Dropdown -->
-                            <div
-                              x-ref="postdrop5"
-                              @click.away="$refs.postdrop5.classList.remove('is-active')"
-                              class="dropdown is-right dropdown-trigger styled-dropdown is-round"
-                            >
-                              <div
-                                @click="$refs.postdrop5.classList.add('is-active')"
-                                class="button"
-                              >
+                            <div x-ref="postdrop5" @click.away="$refs.postdrop5.classList.remove('is-active')" class="dropdown is-right dropdown-trigger styled-dropdown is-round">
+                              <div @click="$refs.postdrop5.classList.add('is-active')" class="button">
                                 <i class="material-icons">more_vert</i>
                               </div>
-                              <div
-                                class="dropdown-menu is-text-bigger"
-                                role="menu"
-                              >
+                              <div class="dropdown-menu is-text-bigger" role="menu">
                                 <div class="dropdown-content">
                                   <a href="#" class="dropdown-item">
                                     <i class="sl icon-star"></i>
@@ -687,10 +546,8 @@ const title = 'Forum topic'
                         <div class="post-body content">
                           <p>Awesome! 🎉</p>
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Quid enim possumus hoc agere divinius? Reguli
-                            reiciendam; Qualem igitur hominem natura inchoavit?
-                            Ratio quidem vestra sic cogit.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid enim possumus hoc agere divinius? Reguli reiciendam; Qualem igitur hominem natura inchoavit? Ratio quidem
+                            vestra sic cogit.
                           </p>
                           <p>Don't forget to post some tutorials!</p>
                           <p>Thanks Christina!</p>
@@ -701,11 +558,7 @@ const title = 'Forum topic'
                     <div class="post">
                       <div class="post-meta">
                         <div class="post-owner">
-                          <img
-                            class="avatar"
-                            src="/img/avatars/anthony.jpg"
-                            alt=""
-                          />
+                          <img class="avatar" src="/img/avatars/anthony.jpg" alt="" />
                         </div>
                       </div>
                       <div class="post-content">
@@ -723,21 +576,11 @@ const title = 'Forum topic'
                               <i class="sl icon-speech"></i>
                             </a>
                             <!-- Dropdown -->
-                            <div
-                              x-ref="postdrop6"
-                              @click.away="$refs.postdrop6.classList.remove('is-active')"
-                              class="dropdown is-right dropdown-trigger styled-dropdown is-round"
-                            >
-                              <div
-                                @click="$refs.postdrop6.classList.add('is-active')"
-                                class="button"
-                              >
+                            <div x-ref="postdrop6" @click.away="$refs.postdrop6.classList.remove('is-active')" class="dropdown is-right dropdown-trigger styled-dropdown is-round">
+                              <div @click="$refs.postdrop6.classList.add('is-active')" class="button">
                                 <i class="material-icons">more_vert</i>
                               </div>
-                              <div
-                                class="dropdown-menu is-text-bigger"
-                                role="menu"
-                              >
+                              <div class="dropdown-menu is-text-bigger" role="menu">
                                 <div class="dropdown-content">
                                   <a href="#" class="dropdown-item">
                                     <i class="sl icon-star"></i>
@@ -778,10 +621,8 @@ const title = 'Forum topic'
                           <p>Absolutely fantastic!</p>
                           <p>although, i have a few questions :</p>
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Nos vero, inquit ille; Ut optime, secundum
-                            naturam affectum esse possit. Duo Reges: constructio
-                            interrete. Quid de Pythagora?
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nos vero, inquit ille; Ut optime, secundum naturam affectum esse possit. Duo Reges: constructio interrete. Quid de
+                            Pythagora?
                           </p>
 
                           <blockquote>
@@ -789,16 +630,12 @@ const title = 'Forum topic'
                               <img src="/img/avatars/christina.jpg" alt="" />
                               Christina Chu said :
                             </span>
-                            Sensibus enim ornavit ad res percipiendas idoneis, ut
-                            nihil aut non multum adiumento ullo ad suam confirmationem
-                            indigerent;
+                            Sensibus enim ornavit ad res percipiendas idoneis, ut nihil aut non multum adiumento ullo ad suam confirmationem indigerent;
                           </blockquote>
 
                           <p>
-                            Iam contemni non poteris. Quis non odit sordidos,
-                            vanos, leves, futtiles? Stoici scilicet. Nam ista
-                            vestra: Si gravis, brevis; Tecum optime, deinde
-                            etiam cum mediocri amico. Nihil ad rem! Ne sit sane;
+                            Iam contemni non poteris. Quis non odit sordidos, vanos, leves, futtiles? Stoici scilicet. Nam ista vestra: Si gravis, brevis; Tecum optime, deinde etiam cum mediocri
+                            amico. Nihil ad rem! Ne sit sane;
                           </p>
                           <p>You Rock! 🎉🎉🎉</p>
                         </div>
@@ -832,37 +669,18 @@ const title = 'Forum topic'
       </div>
 
       <!-- Post reply form -->
-      <div
-        class="reply-box"
-        :class="{
+      <div class="reply-box" :class=`{
             'is-active': isReplyActive,
             '': !isReplyActive
-        }"
-      >
+        }`>
         <div class="box-inner">
           <div class="columns">
             <div class="column is-8 is-offset-2">
               <form class="reply-form">
-                <textarea
-                  id="editor"
-                  class="textarea"
-                  name="reply_content"
-                  :placeholder="replyPlaceholder"></textarea>
+                <textarea id="editor" class="textarea" name="reply_content" :placeholder="replyPlaceholder"></textarea>
                 <div class="button-wrap">
-                  <a
-                    @click="toggleReplyBox()"
-                    class="button is-secondary is-raised is-rounded ripple ripple-light"
-                    data-ripple-color=""
-                  >
-                    Reply
-                  </a>
-                  <a
-                    @click="toggleReplyBox()"
-                    class="button is-rounded ripple"
-                    data-ripple-color=""
-                  >
-                    Cancel
-                  </a>
+                  <a @click="toggleReplyBox()" class="button is-secondary is-raised is-rounded ripple ripple-light" data-ripple-color=""> Reply </a>
+                  <a @click="toggleReplyBox()" class="button is-rounded ripple" data-ripple-color=""> Cancel </a>
                 </div>
               </form>
             </div>

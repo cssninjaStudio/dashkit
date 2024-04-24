@@ -1,20 +1,15 @@
 ---
-import Layout from "../layouts/Default.astro";
-import ModalNewContact from "../components/modals/ModalNewContact.astro";
+import Layout from '../layouts/Default.astro'
+import ModalNewContact from '../components/modals/ModalNewContact.astro'
 const title = 'Contact List'
 ---
 
 <Layout title={title}>
   <!-- Main dashboard container -->
-  <div
-    id="dashboard-wrapper"
-    class="dashboard-outer"
-    x-data="initContactList()"
-    :class="{
+  <div id="dashboard-wrapper" class="dashboard-outer" x-data="initContactList()" :class=`{
         'is-pushed': $store.app.sidebarOpenedState,
         '': !$store.app.sidebarOpenedState
-    }"
-  >
+    }`>
     <div class="dashboard-inner">
       <!-- Dashboard Wrapper -->
       <div class="dashboard-wrapper">
@@ -27,20 +22,13 @@ const title = 'Contact List'
               <!-- Filter input -->
               <div class="list-filter">
                 <div class="control has-icon is-hidden-phones">
-                  <input
-                    class="input"
-                    type="text"
-                    placeholder="Filter Contacts"
-                  />
+                  <input class="input" type="text" placeholder="Filter Contacts" />
                   <div class="form-icon">
-                    <i class="iconify" data-icon="lucide:filter"></i>
+                    <iconify-icon class="iconify" icon="lucide:filter"></iconify-icon>
                   </div>
                 </div>
 
-                <a
-                  @click="toggleNewContactModal()"
-                  class="button is-secondary is-raised is-long-1"
-                >
+                <a @click="toggleNewContactModal()" class="button is-secondary is-raised is-long-1">
                   <span class="icon is-small">
                     <i class="fas fa-plus"></i>
                   </span>
@@ -49,9 +37,7 @@ const title = 'Contact List'
               </div>
             </div>
 
-            <div
-              class="flex-card is-contact-list light-bordered card-overflow is-hidden-mobile"
-            >
+            <div class="flex-card is-contact-list light-bordered card-overflow is-hidden-mobile">
               <!-- Contacts table -->
               <table class="table contacts-table">
                 <!-- Table header -->
@@ -59,26 +45,14 @@ const title = 'Contact List'
                   <tr>
                     <th>
                       <div class="b-checkbox is-muted is-secondary">
-                        <input
-                          x-on:change="toggleAllCheckboxes()"
-                          id="checkbox-docs-all"
-                          class="styled"
-                          type="checkbox"
-                        />
+                        <input x-on:change="toggleAllCheckboxes()" id="checkbox-docs-all" class="styled" type="checkbox" />
                         <label for="checkbox-docs-all"></label>
                       </div>
                     </th>
                     <th class="w-50">
                       <!-- Filter dropdown -->
-                      <div
-                        x-ref="filterdrop1"
-                        @click.away="$refs.filterdrop1.classList.remove('is-active')"
-                        class="dropdown filter-dropdown dropdown-trigger"
-                      >
-                        <button
-                          @click="$refs.filterdrop1.classList.add('is-active')"
-                          class="button"
-                        >
+                      <div x-ref="filterdrop1" @click.away="$refs.filterdrop1.classList.remove('is-active')" class="dropdown filter-dropdown dropdown-trigger">
+                        <button @click="$refs.filterdrop1.classList.add('is-active')" class="button">
                           <span>Name</span>
                           <i class="material-icons">keyboard_arrow_down</i>
                         </button>
@@ -98,15 +72,8 @@ const title = 'Contact List'
                     </th>
                     <th>
                       <!-- Filter dropdown -->
-                      <div
-                        x-ref="filterdrop2"
-                        @click.away="$refs.filterdrop2.classList.remove('is-active')"
-                        class="dropdown filter-dropdown dropdown-trigger"
-                      >
-                        <button
-                          @click="$refs.filterdrop2.classList.add('is-active')"
-                          class="button"
-                        >
+                      <div x-ref="filterdrop2" @click.away="$refs.filterdrop2.classList.remove('is-active')" class="dropdown filter-dropdown dropdown-trigger">
+                        <button @click="$refs.filterdrop2.classList.add('is-active')" class="button">
                           <span>Modification</span>
                           <i class="material-icons">keyboard_arrow_down</i>
                         </button>
@@ -118,25 +85,14 @@ const title = 'Contact List'
                               <span><i class="fa fa-check"></i> Ascending</span>
                             </a>
                             <a href="javascript:void(0);" class="dropdown-item">
-                              <span><i class="fa fa-check"></i> Descending</span
-                              >
+                              <span><i class="fa fa-check"></i> Descending</span>
                             </a>
                             <div class="dropdown-divider"></div>
-                            <div class="dropdown-item filter-title">
-                              Display
-                            </div>
-                            <a
-                              href="javascript:void(0);"
-                              class="dropdown-item is-active"
-                            >
-                              <span
-                                ><i class="fa fa-check"></i> Modification</span
-                              >
+                            <div class="dropdown-item filter-title">Display</div>
+                            <a href="javascript:void(0);" class="dropdown-item is-active">
+                              <span><i class="fa fa-check"></i> Modification</span>
                             </a>
-                            <a
-                              href="javascript:void(0);"
-                              class="dropdown-item is-disabled"
-                            >
+                            <a href="javascript:void(0);" class="dropdown-item is-disabled">
                               <span><i class="fa fa-check"></i> Projects</span>
                             </a>
                             <a href="javascript:void(0);" class="dropdown-item">
@@ -151,15 +107,8 @@ const title = 'Contact List'
                     </th>
                     <th>
                       <!-- Filter dropdown -->
-                      <div
-                        x-ref="filterdrop3"
-                        @click.away="$refs.filterdrop3.classList.remove('is-active')"
-                        class="dropdown filter-dropdown dropdown-trigger"
-                      >
-                        <button
-                          @click="$refs.filterdrop3.classList.add('is-active')"
-                          class="button"
-                        >
+                      <div x-ref="filterdrop3" @click.away="$refs.filterdrop3.classList.remove('is-active')" class="dropdown filter-dropdown dropdown-trigger">
+                        <button @click="$refs.filterdrop3.classList.add('is-active')" class="button">
                           <span>Projects</span>
                           <i class="material-icons">keyboard_arrow_down</i>
                         </button>
@@ -171,25 +120,14 @@ const title = 'Contact List'
                               <span><i class="fa fa-check"></i> Ascending</span>
                             </a>
                             <a href="javascript:void(0);" class="dropdown-item">
-                              <span><i class="fa fa-check"></i> Descending</span
-                              >
+                              <span><i class="fa fa-check"></i> Descending</span>
                             </a>
                             <div class="dropdown-divider"></div>
-                            <div class="dropdown-item filter-title">
-                              Display
-                            </div>
-                            <a
-                              href="javascript:void(0);"
-                              class="dropdown-item is-disabled"
-                            >
-                              <span
-                                ><i class="fa fa-check"></i> Modification</span
-                              >
+                            <div class="dropdown-item filter-title">Display</div>
+                            <a href="javascript:void(0);" class="dropdown-item is-disabled">
+                              <span><i class="fa fa-check"></i> Modification</span>
                             </a>
-                            <a
-                              href="javascript:void(0);"
-                              class="dropdown-item is-active"
-                            >
+                            <a href="javascript:void(0);" class="dropdown-item is-active">
                               <span><i class="fa fa-check"></i> Projects</span>
                             </a>
                             <a href="javascript:void(0);" class="dropdown-item">
@@ -204,28 +142,16 @@ const title = 'Contact List'
                     </th>
                     <th class="w-5">
                       <!-- Filter dropdown -->
-                      <div
-                        x-ref="filterdrop4"
-                        @click.away="$refs.filterdrop4.classList.remove('is-active')"
-                        class="dropdown filter-dropdown is-right dropdown-trigger"
-                      >
-                        <button
-                          @click="$refs.filterdrop4.classList.add('is-active')"
-                          class="button"
-                        >
+                      <div x-ref="filterdrop4" @click.away="$refs.filterdrop4.classList.remove('is-active')" class="dropdown filter-dropdown is-right dropdown-trigger">
+                        <button @click="$refs.filterdrop4.classList.add('is-active')" class="button">
                           <span class="material-icons">subject</span>
                           <i class="material-icons">keyboard_arrow_down</i>
                         </button>
 
                         <div class="dropdown-menu" role="menu">
                           <div class="dropdown-content">
-                            <div class="dropdown-item filter-title">
-                              View type
-                            </div>
-                            <a
-                              href="#"
-                              class="dropdown-item is-spaced is-active"
-                            >
+                            <div class="dropdown-item filter-title">View type</div>
+                            <a href="#" class="dropdown-item is-spaced is-active">
                               <span><i class="fa fa-check"></i> List view</span>
                               <i class="material-icons">view_list</i>
                             </a>
@@ -245,11 +171,7 @@ const title = 'Contact List'
                   <tr>
                     <td>
                       <div class="b-checkbox is-muted is-secondary">
-                        <input
-                          id="checkbox-contacts-1"
-                          class="styled"
-                          type="checkbox"
-                        />
+                        <input id="checkbox-contacts-1" class="styled" type="checkbox" />
                         <label for="checkbox-contacts-1"></label>
                       </div>
                     </td>
@@ -261,9 +183,7 @@ const title = 'Contact List'
                       </span>
                     </td>
                     <td class="modifications">
-                      <span
-                        ><span class="date">--</span> <span class="time"></span>
-                      </span>
+                      <span><span class="date">--</span> <span class="time"></span> </span>
                       <span><small></small></span>
                     </td>
                     <td class="projects">
@@ -274,15 +194,8 @@ const title = 'Contact List'
                     </td>
                     <td class="actions">
                       <!--Dropdown-->
-                      <div
-                        x-ref="contactdrop1"
-                        @click.away="$refs.contactdrop1.classList.remove('is-active')"
-                        class="dropdown is-right dropdown-trigger contacts-list-dropdown"
-                      >
-                        <button
-                          @click="$refs.contactdrop1.classList.add('is-active')"
-                          class="button"
-                        >
+                      <div x-ref="contactdrop1" @click.away="$refs.contactdrop1.classList.remove('is-active')" class="dropdown is-right dropdown-trigger contacts-list-dropdown">
+                        <button @click="$refs.contactdrop1.classList.add('is-active')" class="button">
                           <i class="material-icons">more_horiz</i>
                         </button>
 
@@ -321,20 +234,14 @@ const title = 'Contact List'
                           </div>
                         </div>
                       </div>
-                      <a href="#" class="button is-hidden"
-                        ><i class="material-icons">remove_red_eye</i>
-                      </a>
+                      <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                     </td>
                   </tr>
                   <!-- Table row -->
                   <tr>
                     <td>
                       <div class="b-checkbox is-muted is-secondary">
-                        <input
-                          id="checkbox-contacts-2"
-                          class="styled"
-                          type="checkbox"
-                        />
+                        <input id="checkbox-contacts-2" class="styled" type="checkbox" />
                         <label for="checkbox-contacts-2"></label>
                       </div>
                     </td>
@@ -346,9 +253,7 @@ const title = 'Contact List'
                       </span>
                     </td>
                     <td class="modifications">
-                      <span
-                        ><span class="date">--</span> <span class="time"></span>
-                      </span>
+                      <span><span class="date">--</span> <span class="time"></span> </span>
                       <span><small></small></span>
                     </td>
                     <td class="projects">
@@ -359,15 +264,8 @@ const title = 'Contact List'
                     </td>
                     <td class="actions">
                       <!--Dropdown-->
-                      <div
-                        x-ref="contactdrop2"
-                        @click.away="$refs.contactdrop2.classList.remove('is-active')"
-                        class="dropdown is-right dropdown-trigger contacts-list-dropdown"
-                      >
-                        <button
-                          @click="$refs.contactdrop2.classList.add('is-active')"
-                          class="button"
-                        >
+                      <div x-ref="contactdrop2" @click.away="$refs.contactdrop2.classList.remove('is-active')" class="dropdown is-right dropdown-trigger contacts-list-dropdown">
+                        <button @click="$refs.contactdrop2.classList.add('is-active')" class="button">
                           <i class="material-icons">more_horiz</i>
                         </button>
 
@@ -406,20 +304,14 @@ const title = 'Contact List'
                           </div>
                         </div>
                       </div>
-                      <a href="#" class="button is-hidden"
-                        ><i class="material-icons">remove_red_eye</i>
-                      </a>
+                      <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                     </td>
                   </tr>
                   <!-- Table row -->
                   <tr>
                     <td>
                       <div class="b-checkbox is-muted is-secondary">
-                        <input
-                          id="checkbox-contacts-3"
-                          class="styled"
-                          type="checkbox"
-                        />
+                        <input id="checkbox-contacts-3" class="styled" type="checkbox" />
                         <label for="checkbox-contacts-3"></label>
                       </div>
                     </td>
@@ -431,9 +323,7 @@ const title = 'Contact List'
                       </span>
                     </td>
                     <td class="modifications">
-                      <span
-                        ><span class="date">--</span> <span class="time"></span>
-                      </span>
+                      <span><span class="date">--</span> <span class="time"></span> </span>
                       <span><small></small></span>
                     </td>
                     <td class="projects">
@@ -444,15 +334,8 @@ const title = 'Contact List'
                     </td>
                     <td class="actions">
                       <!--Dropdown-->
-                      <div
-                        x-ref="contactdrop3"
-                        @click.away="$refs.contactdrop3.classList.remove('is-active')"
-                        class="dropdown is-right dropdown-trigger contacts-list-dropdown"
-                      >
-                        <button
-                          @click="$refs.contactdrop3.classList.add('is-active')"
-                          class="button"
-                        >
+                      <div x-ref="contactdrop3" @click.away="$refs.contactdrop3.classList.remove('is-active')" class="dropdown is-right dropdown-trigger contacts-list-dropdown">
+                        <button @click="$refs.contactdrop3.classList.add('is-active')" class="button">
                           <i class="material-icons">more_horiz</i>
                         </button>
 
@@ -491,20 +374,14 @@ const title = 'Contact List'
                           </div>
                         </div>
                       </div>
-                      <a href="#" class="button is-hidden"
-                        ><i class="material-icons">remove_red_eye</i>
-                      </a>
+                      <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                     </td>
                   </tr>
                   <!-- Table row -->
                   <tr>
                     <td>
                       <div class="b-checkbox is-muted is-secondary">
-                        <input
-                          id="checkbox-contacts-4"
-                          class="styled"
-                          type="checkbox"
-                        />
+                        <input id="checkbox-contacts-4" class="styled" type="checkbox" />
                         <label for="checkbox-contacts-4"></label>
                       </div>
                     </td>
@@ -516,9 +393,7 @@ const title = 'Contact List'
                       </span>
                     </td>
                     <td class="modifications">
-                      <span
-                        ><span class="date">--</span> <span class="time"></span>
-                      </span>
+                      <span><span class="date">--</span> <span class="time"></span> </span>
                       <span><small></small></span>
                     </td>
                     <td class="projects">
@@ -529,15 +404,8 @@ const title = 'Contact List'
                     </td>
                     <td class="actions">
                       <!--Dropdown-->
-                      <div
-                        x-ref="contactdrop4"
-                        @click.away="$refs.contactdrop4.classList.remove('is-active')"
-                        class="dropdown is-right dropdown-trigger contacts-list-dropdown"
-                      >
-                        <button
-                          @click="$refs.contactdrop4.classList.add('is-active')"
-                          class="button"
-                        >
+                      <div x-ref="contactdrop4" @click.away="$refs.contactdrop4.classList.remove('is-active')" class="dropdown is-right dropdown-trigger contacts-list-dropdown">
+                        <button @click="$refs.contactdrop4.classList.add('is-active')" class="button">
                           <i class="material-icons">more_horiz</i>
                         </button>
 
@@ -576,20 +444,14 @@ const title = 'Contact List'
                           </div>
                         </div>
                       </div>
-                      <a href="#" class="button is-hidden"
-                        ><i class="material-icons">remove_red_eye</i>
-                      </a>
+                      <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                     </td>
                   </tr>
                   <!-- Table row -->
                   <tr>
                     <td>
                       <div class="b-checkbox is-muted is-secondary">
-                        <input
-                          id="checkbox-contacts-5"
-                          class="styled"
-                          type="checkbox"
-                        />
+                        <input id="checkbox-contacts-5" class="styled" type="checkbox" />
                         <label for="checkbox-contacts-5"></label>
                       </div>
                     </td>
@@ -601,9 +463,7 @@ const title = 'Contact List'
                       </span>
                     </td>
                     <td class="modifications">
-                      <span
-                        ><span class="date">--</span> <span class="time"></span>
-                      </span>
+                      <span><span class="date">--</span> <span class="time"></span> </span>
                       <span><small></small></span>
                     </td>
                     <td class="projects">
@@ -614,15 +474,8 @@ const title = 'Contact List'
                     </td>
                     <td class="actions">
                       <!--Dropdown-->
-                      <div
-                        x-ref="contactdrop5"
-                        @click.away="$refs.contactdrop5.classList.remove('is-active')"
-                        class="dropdown is-right dropdown-trigger contacts-list-dropdown"
-                      >
-                        <button
-                          @click="$refs.contactdrop5.classList.add('is-active')"
-                          class="button"
-                        >
+                      <div x-ref="contactdrop5" @click.away="$refs.contactdrop5.classList.remove('is-active')" class="dropdown is-right dropdown-trigger contacts-list-dropdown">
+                        <button @click="$refs.contactdrop5.classList.add('is-active')" class="button">
                           <i class="material-icons">more_horiz</i>
                         </button>
 
@@ -661,20 +514,14 @@ const title = 'Contact List'
                           </div>
                         </div>
                       </div>
-                      <a href="#" class="button is-hidden"
-                        ><i class="material-icons">remove_red_eye</i>
-                      </a>
+                      <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                     </td>
                   </tr>
                   <!-- Table row -->
                   <tr>
                     <td>
                       <div class="b-checkbox is-muted is-secondary">
-                        <input
-                          id="checkbox-contacts-6"
-                          class="styled"
-                          type="checkbox"
-                        />
+                        <input id="checkbox-contacts-6" class="styled" type="checkbox" />
                         <label for="checkbox-contacts-6"></label>
                       </div>
                     </td>
@@ -700,15 +547,8 @@ const title = 'Contact List'
                     </td>
                     <td class="actions">
                       <!--Dropdown-->
-                      <div
-                        x-ref="contactdrop6"
-                        @click.away="$refs.contactdrop6.classList.remove('is-active')"
-                        class="dropdown is-right dropdown-trigger contacts-list-dropdown"
-                      >
-                        <button
-                          @click="$refs.contactdrop6.classList.add('is-active')"
-                          class="button"
-                        >
+                      <div x-ref="contactdrop6" @click.away="$refs.contactdrop6.classList.remove('is-active')" class="dropdown is-right dropdown-trigger contacts-list-dropdown">
+                        <button @click="$refs.contactdrop6.classList.add('is-active')" class="button">
                           <i class="material-icons">more_horiz</i>
                         </button>
 
@@ -747,20 +587,14 @@ const title = 'Contact List'
                           </div>
                         </div>
                       </div>
-                      <a href="#" class="button is-hidden"
-                        ><i class="material-icons">remove_red_eye</i>
-                      </a>
+                      <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                     </td>
                   </tr>
                   <!-- Table row -->
                   <tr>
                     <td>
                       <div class="b-checkbox is-muted is-secondary">
-                        <input
-                          id="checkbox-contacts-7"
-                          class="styled"
-                          type="checkbox"
-                        />
+                        <input id="checkbox-contacts-7" class="styled" type="checkbox" />
                         <label for="checkbox-contacts-7"></label>
                       </div>
                     </td>
@@ -783,15 +617,8 @@ const title = 'Contact List'
                     </td>
                     <td class="actions">
                       <!--Dropdown-->
-                      <div
-                        x-ref="contactdrop7"
-                        @click.away="$refs.contactdrop7.classList.remove('is-active')"
-                        class="dropdown is-right dropdown-trigger contacts-list-dropdown"
-                      >
-                        <button
-                          @click="$refs.contactdrop7.classList.add('is-active')"
-                          class="button"
-                        >
+                      <div x-ref="contactdrop7" @click.away="$refs.contactdrop7.classList.remove('is-active')" class="dropdown is-right dropdown-trigger contacts-list-dropdown">
+                        <button @click="$refs.contactdrop7.classList.add('is-active')" class="button">
                           <i class="material-icons">more_horiz</i>
                         </button>
 
@@ -830,20 +657,14 @@ const title = 'Contact List'
                           </div>
                         </div>
                       </div>
-                      <a href="#" class="button is-hidden"
-                        ><i class="material-icons">remove_red_eye</i>
-                      </a>
+                      <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                     </td>
                   </tr>
                   <!-- Table row -->
                   <tr>
                     <td>
                       <div class="b-checkbox is-muted is-secondary">
-                        <input
-                          id="checkbox-contacts-8"
-                          class="styled"
-                          type="checkbox"
-                        />
+                        <input id="checkbox-contacts-8" class="styled" type="checkbox" />
                         <label for="checkbox-contacts-8"></label>
                       </div>
                     </td>
@@ -866,15 +687,8 @@ const title = 'Contact List'
                     </td>
                     <td class="actions">
                       <!--Dropdown-->
-                      <div
-                        x-ref="contactdrop8"
-                        @click.away="$refs.contactdrop8.classList.remove('is-active')"
-                        class="dropdown is-right dropdown-trigger contacts-list-dropdown"
-                      >
-                        <button
-                          @click="$refs.contactdrop8.classList.add('is-active')"
-                          class="button"
-                        >
+                      <div x-ref="contactdrop8" @click.away="$refs.contactdrop8.classList.remove('is-active')" class="dropdown is-right dropdown-trigger contacts-list-dropdown">
+                        <button @click="$refs.contactdrop8.classList.add('is-active')" class="button">
                           <i class="material-icons">more_horiz</i>
                         </button>
 
@@ -913,20 +727,14 @@ const title = 'Contact List'
                           </div>
                         </div>
                       </div>
-                      <a href="#" class="button is-hidden"
-                        ><i class="material-icons">remove_red_eye</i>
-                      </a>
+                      <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                     </td>
                   </tr>
                   <!-- Table row -->
                   <tr>
                     <td>
                       <div class="b-checkbox is-muted is-secondary">
-                        <input
-                          id="checkbox-contacts-9"
-                          class="styled"
-                          type="checkbox"
-                        />
+                        <input id="checkbox-contacts-9" class="styled" type="checkbox" />
                         <label for="checkbox-contacts-9"></label>
                       </div>
                     </td>
@@ -938,9 +746,7 @@ const title = 'Contact List'
                       </span>
                     </td>
                     <td class="modifications">
-                      <span
-                        ><span class="date">--</span> <span class="time"></span>
-                      </span>
+                      <span><span class="date">--</span> <span class="time"></span> </span>
                       <span><small></small></span>
                     </td>
                     <td class="projects">
@@ -951,15 +757,8 @@ const title = 'Contact List'
                     </td>
                     <td class="actions">
                       <!--Dropdown-->
-                      <div
-                        x-ref="contactdrop9"
-                        @click.away="$refs.contactdrop9.classList.remove('is-active')"
-                        class="dropdown is-right dropdown-trigger contacts-list-dropdown"
-                      >
-                        <button
-                          @click="$refs.contactdrop9.classList.add('is-active')"
-                          class="button"
-                        >
+                      <div x-ref="contactdrop9" @click.away="$refs.contactdrop9.classList.remove('is-active')" class="dropdown is-right dropdown-trigger contacts-list-dropdown">
+                        <button @click="$refs.contactdrop9.classList.add('is-active')" class="button">
                           <i class="material-icons">more_horiz</i>
                         </button>
 
@@ -998,20 +797,14 @@ const title = 'Contact List'
                           </div>
                         </div>
                       </div>
-                      <a href="#" class="button is-hidden"
-                        ><i class="material-icons">remove_red_eye</i>
-                      </a>
+                      <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                     </td>
                   </tr>
                   <!-- Table row -->
                   <tr>
                     <td>
                       <div class="b-checkbox is-muted is-secondary">
-                        <input
-                          id="checkbox-contacts-10"
-                          class="styled"
-                          type="checkbox"
-                        />
+                        <input id="checkbox-contacts-10" class="styled" type="checkbox" />
                         <label for="checkbox-contacts-10"></label>
                       </div>
                     </td>
@@ -1037,15 +830,8 @@ const title = 'Contact List'
                     </td>
                     <td class="actions">
                       <!--Dropdown-->
-                      <div
-                        x-ref="contactdrop10"
-                        @click.away="$refs.contactdrop10.classList.remove('is-active')"
-                        class="dropdown is-right dropdown-trigger contacts-list-dropdown"
-                      >
-                        <button
-                          @click="$refs.contactdrop10.classList.add('is-active')"
-                          class="button"
-                        >
+                      <div x-ref="contactdrop10" @click.away="$refs.contactdrop10.classList.remove('is-active')" class="dropdown is-right dropdown-trigger contacts-list-dropdown">
+                        <button @click="$refs.contactdrop10.classList.add('is-active')" class="button">
                           <i class="material-icons">more_horiz</i>
                         </button>
 
@@ -1084,9 +870,7 @@ const title = 'Contact List'
                           </div>
                         </div>
                       </div>
-                      <a href="#" class="button is-hidden"
-                        ><i class="material-icons">remove_red_eye</i>
-                      </a>
+                      <a href="#" class="button is-hidden"><i class="material-icons">remove_red_eye</i> </a>
                     </td>
                   </tr>
                 </tbody>
@@ -1094,16 +878,11 @@ const title = 'Contact List'
             </div>
 
             <!--Placeholder-->
-            <div
-              class="flex-card is-not-supported light-bordered is-hidden-desktop is-hidden-tablet"
-            >
+            <div class="flex-card is-not-supported light-bordered is-hidden-desktop is-hidden-tablet">
               <img src="/img/illustrations/not-mobile.svg" alt="" />
               <div class="has-text-centered">
                 <h3>Ouch...</h3>
-                <p>
-                  Sorry, the contacts list is not supported on mobile. Please
-                  try a device with a wider screen.
-                </p>
+                <p>Sorry, the contacts list is not supported on mobile. Please try a device with a wider screen.</p>
               </div>
             </div>
           </div>

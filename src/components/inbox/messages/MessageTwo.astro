@@ -1,35 +1,21 @@
 <!-- Message details -->
-<div
-  x-show="activeMessage === 'message-2'"
-  id="message-2"
-  class="inbox-message-details"
-  :class="{
+<div x-show="activeMessage === 'message-2'" id="message-2" class="inbox-message-details" :class=`{
         'mobile-active tablet-active': isMobileMessageActive,
         '': !isMobileMessageActive
-    }"
->
+    }`>
   <div class="header-area">
     <img class="sender-pic" src="/img/avatars/elie.jpg" alt="" />
     <div class="message-meta">
-      <span class="message-title"
-        >I couldn't catch up on last time's dinner</span
-      >
+      <span class="message-title">I couldn't catch up on last time's dinner</span>
       <span class="sender-email">&lt;eliedaniels@Dashkit.io&gt;</span>
     </div>
     <div class="attachments inbox-hidden-mobile">
       <i class="sl icon-paper-clip"></i>
       <span>4</span>
     </div>
-    <div
-      x-ref="messagedrop2"
-      @click.away="$refs.messagedrop2.classList.remove('is-active')"
-      class="dropdown inbox-dropdown dropdown-trigger is-right"
-    >
+    <div x-ref="messagedrop2" @click.away="$refs.messagedrop2.classList.remove('is-active')" class="dropdown inbox-dropdown dropdown-trigger is-right">
       <div>
-        <button
-          @click="$refs.messagedrop2.classList.add('is-active')"
-          class="button"
-        >
+        <button @click="$refs.messagedrop2.classList.add('is-active')" class="button">
           <span class="icon is-small">
             <i class="sl icon-options"></i>
           </span>
@@ -54,10 +40,7 @@
         </div>
       </div>
     </div>
-    <a
-      @click="closeMobileMessage()"
-      class="inbox-action inbox-close-details-mobile"
-    >
+    <a @click="closeMobileMessage()" class="inbox-action inbox-close-details-mobile">
       <i class="material-icons">close</i>
     </a>
   </div>
@@ -91,21 +74,16 @@
       <div class="mail-content content">
         <p>Hello Sweetie,</p>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quare conare,
-          quaeso. Prave, nequiter, turpiter cenabat;
-          <i>Quid igitur, inquit, eos responsuros putas?</i> Erit enim mecum, si
-          tecum erit.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quare conare, quaeso. Prave, nequiter, turpiter cenabat;
+          <i>Quid igitur, inquit, eos responsuros putas?</i> Erit enim mecum, si tecum erit.
         </p>
         <p>
-          Ratio enim nostra consentit, pugnat oratio. Age sane, inquam. Duo
-          Reges: constructio interrete. Beatus sibi videtur esse moriens. Sed
-          ego in hoc resisto; <i>Idemne, quod iucunde?</i>
+          Ratio enim nostra consentit, pugnat oratio. Age sane, inquam. Duo Reges: constructio interrete. Beatus sibi videtur esse moriens. Sed ego in hoc resisto; <i>Idemne, quod iucunde?</i>
         </p>
         <p><b>Tamen a proposito, inquam, aberramus.</b> Quid de Pythagora?</p>
         <p>
-          Cur deinde Metrodori liberos commendas? Non dolere, inquam, istud quam
-          vim habeat postea videro; Pauca mutat vel plura sane; Quamquam ab iis
-          philosophiam et omnes ingenuas disciplinas habemus;
+          Cur deinde Metrodori liberos commendas? Non dolere, inquam, istud quam vim habeat postea videro; Pauca mutat vel plura sane; Quamquam ab iis philosophiam et omnes ingenuas disciplinas
+          habemus;
         </p>
 
         <p>Elie Daniels</p>
@@ -149,16 +127,9 @@
             <span>Reply as</span>
             <span>helenmiller@Dashkit.io</span>
           </div>
-          <div
-            x-ref="composedrop2"
-            @click.away="$refs.composedrop2.classList.remove('is-active')"
-            class="dropdown inbox-dropdown dropdown-trigger is-right"
-          >
+          <div x-ref="composedrop2" @click.away="$refs.composedrop2.classList.remove('is-active')" class="dropdown inbox-dropdown dropdown-trigger is-right">
             <div>
-              <button
-                @click="$refs.composedrop2.classList.add('is-active')"
-                class="button"
-              >
+              <button @click="$refs.composedrop2.classList.add('is-active')" class="button">
                 <span class="icon is-small">
                   <i class="sl icon-options"></i>
                 </span>
@@ -186,8 +157,7 @@
         </div>
         <!--textarea-->
         <div class="control">
-          <textarea class="textarea" rows="6" placeholder="Type your message..."
-          ></textarea>
+          <textarea class="textarea" rows="6" placeholder="Type your message..."></textarea>
           <button type="button" class="button">Send Message</button>
         </div>
       </div>

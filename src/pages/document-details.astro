@@ -1,19 +1,14 @@
 ---
-import Layout from "../layouts/Default.astro";
+import Layout from '../layouts/Default.astro'
 const title = 'Document Details'
 ---
 
 <Layout title={title}>
   <!-- Main dashboard container -->
-  <div
-    id="dashboard-wrapper"
-    class="dashboard-outer"
-    x-data="initDocumentDetails()"
-    :class="{
+  <div id="dashboard-wrapper" class="dashboard-outer" x-data="initDocumentDetails()" :class=`{
         'is-pushed': $store.app.sidebarOpenedState,
         '': !$store.app.sidebarOpenedState
-    }"
-  >
+    }`>
     <div class="dashboard-inner">
       <!-- Dashboard Wrapper -->
       <div class="dashboard-wrapper">
@@ -39,56 +34,42 @@ const title = 'Document Details'
                   <div class="right-options">
                     <!-- Members -->
                     <div class="members">
-                      <img
-                        src="/img/avatars/helen.jpg"
-                        data-toggle="tooltip"
-                        data-placement="top"
-                        data-title="You are the owner"
-                        data-trigger="hover"
-                        alt=""
-                      />
+                      <img src="/img/avatars/helen.jpg" data-toggle="tooltip" data-placement="top" data-title="You are the owner" data-trigger="hover" alt="" />
                       <img src="/img/avatars/terry.jpg" alt="" />
                       <img src="/img/avatars/elie.jpg" alt="" />
                     </div>
 
                     <!-- Share button -->
-                    <button
-                      type="button"
-                      class="button is-secondary is-fullwidth is-medium is-rounded-md is-raised"
-                    >
-                      Share document
-                    </button>
+                    <button type="button" class="button is-secondary is-fullwidth is-medium is-rounded-md is-raised"> Share document </button>
 
                     <!-- Actions tabs -->
-                    <div
-                      class="navigation-tabs animated-tabs simple-tabs document-details-tabs"
-                    >
+                    <div class="navigation-tabs animated-tabs simple-tabs document-details-tabs">
                       <div class="tabs is-fullwidth">
                         <ul>
                           <li
                             @click="toggleTabs('actions-tab')"
-                            :class="{
-                                                    'is-active': activeTab === 'actions-tab',
-                                                    '': activeTab !== 'actions-tab',
-                                                }"
+                            :class=`{
+                                'is-active': activeTab === 'actions-tab',
+                                '': activeTab !== 'actions-tab',
+                            }`
                           >
                             <a>Actions</a>
                           </li>
                           <li
                             @click="toggleTabs('comments-tab')"
-                            :class="{
-                                                    'is-active': activeTab === 'comments-tab',
-                                                    '': activeTab !== 'comments-tab',
-                                                }"
+                            :class=`{
+                                'is-active': activeTab === 'comments-tab',
+                                '': activeTab !== 'comments-tab',
+                            }`
                           >
                             <a>Comments</a>
                           </li>
                           <li
                             @click="toggleTabs('activity-tab')"
-                            :class="{
-                                                    'is-active': activeTab === 'activity-tab',
-                                                    '': activeTab !== 'activity-tab',
-                                                }"
+                            :class=`{
+                                'is-active': activeTab === 'activity-tab',
+                                '': activeTab !== 'activity-tab',
+                            }`
                           >
                             <a>Activity</a>
                           </li>
@@ -96,11 +77,7 @@ const title = 'Document Details'
                       </div>
 
                       <!-- Basic actions -->
-                      <div
-                        x-show.transition="activeTab === 'actions-tab'"
-                        id="actions"
-                        class="navtab-content is-active"
-                      >
+                      <div x-show.transition="activeTab === 'actions-tab'" id="actions" class="navtab-content is-active">
                         <div class="controls">
                           <a class="control-block">
                             <i class="sl icon-layers"></i> New version
@@ -127,17 +104,11 @@ const title = 'Document Details'
                       </div>
 
                       <!-- Comments -->
-                      <div
-                        x-show.transition="activeTab === 'comments-tab'"
-                        id="comments"
-                        class="navtab-content"
-                      >
+                      <div x-show.transition="activeTab === 'comments-tab'" id="comments" class="navtab-content">
                         <!-- Header -->
                         <div class="comments-header">
                           <div class="control is-document-comment">
-                            <textarea
-                              class="textarea"
-                              placeholder="Add a comment"></textarea>
+                            <textarea class="textarea" placeholder="Add a comment"></textarea>
                             <div class="comment-avatar">
                               <img src="/img/avatars/helen.jpg" alt="" />
                             </div>
@@ -155,11 +126,7 @@ const title = 'Document Details'
                             <div class="media-content">
                               <a href="#">Terry Daniels</a>
                               <br /><small>2 hours ago</small>
-                              <p>
-                                Lorem ipsum dolor sit amet, te sit facer dicam
-                                interesset. Est dictas sensibus expetenda ad, et
-                                vitae.
-                              </p>
+                              <p>Lorem ipsum dolor sit amet, te sit facer dicam interesset. Est dictas sensibus expetenda ad, et vitae.</p>
                             </div>
                           </div>
                           <!-- Comment -->
@@ -172,10 +139,7 @@ const title = 'Document Details'
                             <div class="media-content">
                               <a href="#">Helen Miller</a>
                               <br /><small>5 hours ago</small>
-                              <p>
-                                Lorem ipsum dolor sit amet, te sit facer dicam
-                                interesset.
-                              </p>
+                              <p>Lorem ipsum dolor sit amet, te sit facer dicam interesset.</p>
                             </div>
                           </div>
                           <!-- Comment -->
@@ -188,10 +152,7 @@ const title = 'Document Details'
                             <div class="media-content">
                               <a href="#">Elie Mayers</a>
                               <br /><small>Yesterday</small>
-                              <p>
-                                Lorem ipsum dolor sit amet, te sit facer dicam
-                                interesset. Est dictas sensibus.
-                              </p>
+                              <p>Lorem ipsum dolor sit amet, te sit facer dicam interesset. Est dictas sensibus.</p>
                             </div>
                           </div>
                           <!-- Comment -->
@@ -204,10 +165,7 @@ const title = 'Document Details'
                             <div class="media-content">
                               <a href="#">Helen Miller</a>
                               <br /><small>Yesterday</small>
-                              <p>
-                                Lorem ipsum dolor sit amet, te sit facer dicam
-                                interesset xpetenda ad, et vitae.
-                              </p>
+                              <p>Lorem ipsum dolor sit amet, te sit facer dicam interesset xpetenda ad, et vitae.</p>
                             </div>
                           </div>
                           <!-- Comment -->
@@ -220,21 +178,14 @@ const title = 'Document Details'
                             <div class="media-content">
                               <a href="#">Terry Daniels</a>
                               <br /><small>2 days ago</small>
-                              <p>
-                                Lorem ipsum dolor sit amet, te sit facer dicam
-                                interesset.
-                              </p>
+                              <p>Lorem ipsum dolor sit amet, te sit facer dicam interesset.</p>
                             </div>
                           </div>
                         </div>
                       </div>
 
                       <!-- Activity -->
-                      <div
-                        x-show.transition="activeTab === 'activity-tab'"
-                        id="activity"
-                        class="navtab-content"
-                      >
+                      <div x-show.transition="activeTab === 'activity-tab'" id="activity" class="navtab-content">
                         <div class="activity-wrapper">
                           <!-- Notifications list -->
                           <ul class="notifications-list">
@@ -285,29 +236,14 @@ const title = 'Document Details'
                   <div class="card-head is-spaced">
                     <div>
                       <h3>Metrics</h3>
-                      <p class="is-font text-light">
-                        Based on stats from last 7 days
-                      </p>
+                      <p class="is-font text-light">Based on stats from last 7 days</p>
                     </div>
                   </div>
                   <div class="statistics pt-5 pb-2">
                     <div class="statistic">
                       <div class="circle-container">
-                        <svg
-                          class="circle-chart"
-                          viewbox="0 0 33.83098862 33.83098862"
-                          width="50"
-                          height="50"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            class="circle-chart-background"
-                            stroke="#efefef"
-                            stroke-width="2"
-                            fill="none"
-                            cx="16.91549431"
-                            cy="16.91549431"
-                            r="15.91549431"></circle>
+                        <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                          <circle class="circle-chart-background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                           <circle
                             class="circle-chart-circle"
                             stroke="#9e3dff"
@@ -328,21 +264,8 @@ const title = 'Document Details'
                     </div>
                     <div class="statistic">
                       <div class="circle-container">
-                        <svg
-                          class="circle-chart"
-                          viewbox="0 0 33.83098862 33.83098862"
-                          width="50"
-                          height="50"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <circle
-                            class="circle-chart-background"
-                            stroke="#efefef"
-                            stroke-width="2"
-                            fill="none"
-                            cx="16.91549431"
-                            cy="16.91549431"
-                            r="15.91549431"></circle>
+                        <svg class="circle-chart" viewBox="0 0 33.83098862 33.83098862" width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                          <circle class="circle-chart-background" stroke="#efefef" stroke-width="2" fill="none" cx="16.91549431" cy="16.91549431" r="15.91549431"></circle>
                           <circle
                             class="circle-chart-circle"
                             stroke="#00d1b2"
@@ -366,17 +289,12 @@ const title = 'Document Details'
               </div>
 
               <!-- Mobile placeholder -->
-              <div
-                class="column is-8 is-offset-2 is-hidden-desktop is-hidden-tablet"
-              >
+              <div class="column is-8 is-offset-2 is-hidden-desktop is-hidden-tablet">
                 <div class="flex-card is-not-supported light-bordered">
                   <img src="/img/illustrations/not-mobile.svg" alt="" />
                   <div class="has-text-centered">
                     <h3>Ouch...</h3>
-                    <p>
-                      Sorry, the document view is not supported on mobile.
-                      Please try a device with a wider screen.
-                    </p>
+                    <p>Sorry, the document view is not supported on mobile. Please try a device with a wider screen.</p>
                   </div>
                 </div>
               </div>

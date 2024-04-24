@@ -1,13 +1,8 @@
 <!-- Message details -->
-<div
-  x-show="activeMessage === 'message-9'"
-  id="message-9"
-  class="inbox-message-details"
-  :class="{
+<div x-show="activeMessage === 'message-9'" id="message-9" class="inbox-message-details" :class=`{
         'mobile-active tablet-active': isMobileMessageActive,
         '': !isMobileMessageActive
-    }"
->
+    }`>
   <div class="header-area">
     <img class="sender-pic" src="/img/avatars/janet.jpg" alt="" />
     <div class="message-meta">
@@ -18,16 +13,9 @@
       <i class="sl icon-paper-clip"></i>
       <span>0</span>
     </div>
-    <div
-      x-ref="messagedrop9"
-      @click.away="$refs.messagedrop9.classList.remove('is-active')"
-      class="dropdown inbox-dropdown dropdown-trigger is-right"
-    >
+    <div x-ref="messagedrop9" @click.away="$refs.messagedrop9.classList.remove('is-active')" class="dropdown inbox-dropdown dropdown-trigger is-right">
       <div>
-        <button
-          @click="$refs.messagedrop9.classList.add('is-active')"
-          class="button"
-        >
+        <button @click="$refs.messagedrop9.classList.add('is-active')" class="button">
           <span class="icon is-small">
             <i class="sl icon-options"></i>
           </span>
@@ -52,10 +40,7 @@
         </div>
       </div>
     </div>
-    <a
-      @click="closeMobileMessage()"
-      class="inbox-action inbox-close-details-mobile"
-    >
+    <a @click="closeMobileMessage()" class="inbox-action inbox-close-details-mobile">
       <i class="material-icons">close</i>
     </a>
   </div>
@@ -89,23 +74,15 @@
       <div class="mail-content content">
         <p>Hi Mrs. Miller,</p>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nos commodius
-          agimus. Si longus, levis;
-          <a href="#" target="_blank"
-            >Summum ením bonum exposuit vacuitatem doloris;</a
-          >
-          Eadem fortitudinis ratio reperietur. Duo Reges: constructio interrete.
-          Facile est hoc cernere in primis puerorum aetatulis.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nos commodius agimus. Si longus, levis;
+          <a href="#" target="_blank">Summum ením bonum exposuit vacuitatem doloris;</a>
+          Eadem fortitudinis ratio reperietur. Duo Reges: constructio interrete. Facile est hoc cernere in primis puerorum aetatulis.
         </p>
         <ul>
           <li>Sed residamus, inquit, si placet.</li>
-          <li>
-            Parvi enim primo ortu sic iacent, tamquam omnino sine animo sint.
-          </li>
+          <li>Parvi enim primo ortu sic iacent, tamquam omnino sine animo sint.</li>
           <li>Beatus autem esse in maximarum rerum timore nemo potest.</li>
-          <li>
-            Illa argumenta propria videamus, cur omnia sint paria peccata.
-          </li>
+          <li>Illa argumenta propria videamus, cur omnia sint paria peccata.</li>
         </ul>
 
         <p>Julia</p>
@@ -121,16 +98,9 @@
             <span>Reply as</span>
             <span>helenmiller@Dashkit.io</span>
           </div>
-          <div
-            x-ref="composedrop9"
-            @click.away="$refs.composedrop9.classList.remove('is-active')"
-            class="dropdown inbox-dropdown dropdown-trigger is-right"
-          >
+          <div x-ref="composedrop9" @click.away="$refs.composedrop9.classList.remove('is-active')" class="dropdown inbox-dropdown dropdown-trigger is-right">
             <div>
-              <button
-                @click="$refs.composedrop9.classList.add('is-active')"
-                class="button"
-              >
+              <button @click="$refs.composedrop9.classList.add('is-active')" class="button">
                 <span class="icon is-small">
                   <i class="sl icon-options"></i>
                 </span>
@@ -158,8 +128,7 @@
         </div>
         <!--textarea-->
         <div class="control">
-          <textarea class="textarea" rows="6" placeholder="Type your message..."
-          ></textarea>
+          <textarea class="textarea" rows="6" placeholder="Type your message..."></textarea>
           <button type="button" class="button">Send Message</button>
         </div>
       </div>

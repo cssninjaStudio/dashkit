@@ -1,19 +1,14 @@
 ---
-import Layout from "../layouts/Default.astro";
+import Layout from '../layouts/Default.astro'
 const title = 'Business Boards'
 ---
 
 <Layout title={title}>
   <!-- Main dashboard container -->
-  <div
-    id="dashboard-wrapper"
-    class="dashboard-outer"
-    x-data="initBlank()"
-    :class="{
+  <div id="dashboard-wrapper" class="dashboard-outer" x-data="initBlank()" :class=`{
         'is-pushed': $store.app.sidebarOpenedState,
         '': !$store.app.sidebarOpenedState
-    }"
-  >
+    }`>
     <div class="dashboard-inner">
       <!-- Dashboard Wrapper -->
       <div class="dashboard-wrapper">
@@ -23,16 +18,8 @@ const title = 'Business Boards'
             <!-- Page title -->
             <div class="boards-title">
               <!-- Boards dropdown button -->
-              <div
-                x-ref="maindrop1"
-                @click.away="$refs.maindrop1.classList.remove('is-active')"
-                class="dropdown button-dropdown dropdown-trigger"
-              >
-                <div
-                  @click="$refs.maindrop1.classList.add('is-active')"
-                  class="button is-secondary is-raised ripple ripple-light"
-                  data-ripple-color=""
-                >
+              <div x-ref="maindrop1" @click.away="$refs.maindrop1.classList.remove('is-active')" class="dropdown button-dropdown dropdown-trigger">
+                <div @click="$refs.maindrop1.classList.add('is-active')" class="button is-secondary is-raised ripple ripple-light" data-ripple-color="">
                   <span class="icon is-small">
                     <i class="fas fa-plus"></i>
                   </span>
@@ -64,10 +51,7 @@ const title = 'Business Boards'
                       </span>
                     </a>
                     <div class="dropdown-divider"></div>
-                    <a
-                      class="dropdown-item delete-board alert-box-trigger kill-drop"
-                      data-alert-box="delete-board-alert"
-                    >
+                    <a class="dropdown-item delete-board alert-box-trigger kill-drop" data-alert-box="delete-board-alert">
                       <i class="sl icon-doc"></i>
                       <span>
                         <span>New Invoice</span>
@@ -83,9 +67,7 @@ const title = 'Business Boards'
             <div class="boards-grid">
               <div class="columns is-multiline b-columns-half-tablet-p">
                 <!-- Board item -->
-                <div
-                  class="column is-one-quarter-fullhd is-one-third-widescreen is-one-third-desktop"
-                >
+                <div class="column is-one-quarter-fullhd is-one-third-widescreen is-one-third-desktop">
                   <div class="flex-card ripple">
                     <div class="card-inner">
                       <h3 class="board-title">Industry</h3>
@@ -106,21 +88,9 @@ const title = 'Business Boards'
                           </span>
                         </label>
                         <div class="board-assignees">
-                          <img
-                            class="assignee"
-                            src="/img/avatars/ray.jpg"
-                            alt=""
-                          />
-                          <img
-                            class="assignee"
-                            src="/img/avatars/barry.jpg"
-                            alt=""
-                          />
-                          <img
-                            class="assignee"
-                            src="/img/avatars/janet.jpg"
-                            alt=""
-                          />
+                          <img class="assignee" src="/img/avatars/ray.jpg" alt="" />
+                          <img class="assignee" src="/img/avatars/barry.jpg" alt="" />
+                          <img class="assignee" src="/img/avatars/janet.jpg" alt="" />
                           <div class="assignee is-more">+3</div>
                         </div>
                       </div>
@@ -140,15 +110,8 @@ const title = 'Business Boards'
                       </div>
                     </div>
                     <!--Dropdown-->
-                    <div
-                      x-ref="boarddrop1"
-                      @click.away="$refs.boarddrop1.classList.remove('is-active')"
-                      class="dropdown is-right dropdown-trigger contacts-grid-dropdown"
-                    >
-                      <button
-                        @click="$refs.boarddrop1.classList.add('is-active')"
-                        class="button"
-                      >
+                    <div x-ref="boarddrop1" @click.away="$refs.boarddrop1.classList.remove('is-active')" class="dropdown is-right dropdown-trigger contacts-grid-dropdown">
+                      <button @click="$refs.boarddrop1.classList.add('is-active')" class="button">
                         <i class="material-icons">more_vert</i>
                       </button>
                       <div class="dropdown-menu is-text-bigger" role="menu">
@@ -189,9 +152,7 @@ const title = 'Business Boards'
                   </div>
                 </div>
                 <!-- Board item -->
-                <div
-                  class="column is-one-quarter-fullhd is-one-third-widescreen is-one-third-desktop"
-                >
+                <div class="column is-one-quarter-fullhd is-one-third-widescreen is-one-third-desktop">
                   <div class="flex-card ripple">
                     <div class="card-inner">
                       <h3 class="board-title">Commerce</h3>
@@ -212,16 +173,8 @@ const title = 'Business Boards'
                           </span>
                         </label>
                         <div class="board-assignees">
-                          <img
-                            class="assignee"
-                            src="/img/avatars/marge.jpg"
-                            alt=""
-                          />
-                          <img
-                            class="assignee"
-                            src="/img/avatars/jhonny.jpg"
-                            alt=""
-                          />
+                          <img class="assignee" src="/img/avatars/marge.jpg" alt="" />
+                          <img class="assignee" src="/img/avatars/jhonny.jpg" alt="" />
                         </div>
                       </div>
                     </div>
@@ -240,15 +193,8 @@ const title = 'Business Boards'
                       </div>
                     </div>
                     <!--Dropdown-->
-                    <div
-                      x-ref="boarddrop2"
-                      @click.away="$refs.boarddrop2.classList.remove('is-active')"
-                      class="dropdown is-right dropdown-trigger contacts-grid-dropdown"
-                    >
-                      <button
-                        @click="$refs.boarddrop2.classList.add('is-active')"
-                        class="button"
-                      >
+                    <div x-ref="boarddrop2" @click.away="$refs.boarddrop2.classList.remove('is-active')" class="dropdown is-right dropdown-trigger contacts-grid-dropdown">
+                      <button @click="$refs.boarddrop2.classList.add('is-active')" class="button">
                         <i class="material-icons">more_vert</i>
                       </button>
                       <div class="dropdown-menu is-text-bigger" role="menu">
@@ -289,9 +235,7 @@ const title = 'Business Boards'
                   </div>
                 </div>
                 <!-- Board item -->
-                <div
-                  class="column is-one-quarter-fullhd is-one-third-widescreen is-one-third-desktop"
-                >
+                <div class="column is-one-quarter-fullhd is-one-third-widescreen is-one-third-desktop">
                   <div class="flex-card ripple">
                     <div class="card-inner">
                       <h3 class="board-title">Technology</h3>
@@ -312,21 +256,9 @@ const title = 'Business Boards'
                           </span>
                         </label>
                         <div class="board-assignees">
-                          <img
-                            class="assignee"
-                            src="/img/avatars/christina.jpg"
-                            alt=""
-                          />
-                          <img
-                            class="assignee"
-                            src="/img/avatars/ray.jpg"
-                            alt=""
-                          />
-                          <img
-                            class="assignee"
-                            src="/img/avatars/barry.jpg"
-                            alt=""
-                          />
+                          <img class="assignee" src="/img/avatars/christina.jpg" alt="" />
+                          <img class="assignee" src="/img/avatars/ray.jpg" alt="" />
+                          <img class="assignee" src="/img/avatars/barry.jpg" alt="" />
                           <div class="assignee is-more">+12</div>
                         </div>
                       </div>
@@ -346,15 +278,8 @@ const title = 'Business Boards'
                       </div>
                     </div>
                     <!--Dropdown-->
-                    <div
-                      x-ref="boarddrop3"
-                      @click.away="$refs.boarddrop3.classList.remove('is-active')"
-                      class="dropdown is-right dropdown-trigger contacts-grid-dropdown"
-                    >
-                      <button
-                        @click="$refs.boarddrop3.classList.add('is-active')"
-                        class="button"
-                      >
+                    <div x-ref="boarddrop3" @click.away="$refs.boarddrop3.classList.remove('is-active')" class="dropdown is-right dropdown-trigger contacts-grid-dropdown">
+                      <button @click="$refs.boarddrop3.classList.add('is-active')" class="button">
                         <i class="material-icons">more_vert</i>
                       </button>
                       <div class="dropdown-menu is-text-bigger" role="menu">
@@ -395,9 +320,7 @@ const title = 'Business Boards'
                   </div>
                 </div>
                 <!-- Board item -->
-                <div
-                  class="column is-one-quarter-fullhd is-one-third-widescreen is-one-third-desktop"
-                >
+                <div class="column is-one-quarter-fullhd is-one-third-widescreen is-one-third-desktop">
                   <div class="flex-card ripple">
                     <div class="card-inner">
                       <h3 class="board-title">Clothing</h3>
@@ -418,21 +341,9 @@ const title = 'Business Boards'
                           </span>
                         </label>
                         <div class="board-assignees">
-                          <img
-                            class="assignee"
-                            src="/img/avatars/helen.jpg"
-                            alt=""
-                          />
-                          <img
-                            class="assignee"
-                            src="/img/avatars/christina.jpg"
-                            alt=""
-                          />
-                          <img
-                            class="assignee"
-                            src="/img/avatars/marge.jpg"
-                            alt=""
-                          />
+                          <img class="assignee" src="/img/avatars/helen.jpg" alt="" />
+                          <img class="assignee" src="/img/avatars/christina.jpg" alt="" />
+                          <img class="assignee" src="/img/avatars/marge.jpg" alt="" />
                           <div class="assignee is-more">+12</div>
                         </div>
                       </div>
@@ -452,15 +363,8 @@ const title = 'Business Boards'
                       </div>
                     </div>
                     <!--Dropdown-->
-                    <div
-                      x-ref="boarddrop4"
-                      @click.away="$refs.boarddrop4.classList.remove('is-active')"
-                      class="dropdown is-right dropdown-trigger contacts-grid-dropdown"
-                    >
-                      <button
-                        @click="$refs.boarddrop4.classList.add('is-active')"
-                        class="button"
-                      >
+                    <div x-ref="boarddrop4" @click.away="$refs.boarddrop4.classList.remove('is-active')" class="dropdown is-right dropdown-trigger contacts-grid-dropdown">
+                      <button @click="$refs.boarddrop4.classList.add('is-active')" class="button">
                         <i class="material-icons">more_vert</i>
                       </button>
                       <div class="dropdown-menu is-text-bigger" role="menu">
@@ -501,9 +405,7 @@ const title = 'Business Boards'
                   </div>
                 </div>
                 <!-- Board item -->
-                <div
-                  class="column is-one-quarter-fullhd is-one-third-widescreen is-one-third-desktop"
-                >
+                <div class="column is-one-quarter-fullhd is-one-third-widescreen is-one-third-desktop">
                   <div class="flex-card ripple">
                     <div class="card-inner">
                       <h3 class="board-title">Trips & Travel</h3>
@@ -524,21 +426,9 @@ const title = 'Business Boards'
                           </span>
                         </label>
                         <div class="board-assignees">
-                          <img
-                            class="assignee"
-                            src="/img/avatars/terry.jpg"
-                            alt=""
-                          />
-                          <img
-                            class="assignee"
-                            src="/img/avatars/thomas.jpg"
-                            alt=""
-                          />
-                          <img
-                            class="assignee"
-                            src="/img/avatars/ray.jpg"
-                            alt=""
-                          />
+                          <img class="assignee" src="/img/avatars/terry.jpg" alt="" />
+                          <img class="assignee" src="/img/avatars/thomas.jpg" alt="" />
+                          <img class="assignee" src="/img/avatars/ray.jpg" alt="" />
                           <div class="assignee is-more">+12</div>
                         </div>
                       </div>
@@ -558,15 +448,8 @@ const title = 'Business Boards'
                       </div>
                     </div>
                     <!--Dropdown-->
-                    <div
-                      x-ref="boarddrop5"
-                      @click.away="$refs.boarddrop5.classList.remove('is-active')"
-                      class="dropdown is-right dropdown-trigger contacts-grid-dropdown"
-                    >
-                      <button
-                        @click="$refs.boarddrop5.classList.add('is-active')"
-                        class="button"
-                      >
+                    <div x-ref="boarddrop5" @click.away="$refs.boarddrop5.classList.remove('is-active')" class="dropdown is-right dropdown-trigger contacts-grid-dropdown">
+                      <button @click="$refs.boarddrop5.classList.add('is-active')" class="button">
                         <i class="material-icons">more_vert</i>
                       </button>
                       <div class="dropdown-menu is-text-bigger" role="menu">

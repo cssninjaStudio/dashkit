@@ -1,12 +1,8 @@
 <!-- Tickets quickview -->
-<div
-  id="ticket-details-quickview"
-  class="quickview is-right ticket-details-quickview"
-  :class="{
+<div id="ticket-details-quickview" class="quickview is-right ticket-details-quickview" :class=`{
         'is-active': ticketSidebarOpen,
         '': !ticketSidebarOpen
-    }"
->
+    }`>
   <!-- Quickview header -->
   <div class="quickview-header">
     <h3>Ticket Details</h3>
@@ -22,21 +18,14 @@
       <div class="field">
         <div class="control is-combo">
           <div class="combo-label">Ticket Group</div>
-          <div
-            class="combo-box"
-            @click="openGroupCombo()"
-            @click.away="closeGroupCombo()"
-            :class="{
-                            'is-active': groupComboOpened,
-                            '': !groupComboOpened,
-                        }"
-          >
+          <div class="combo-box" @click="openGroupCombo()" @click.away="closeGroupCombo()" :class=`{
+                'is-active': groupComboOpened,
+                '': !groupComboOpened,
+            }`>
             <div class="box-inner">
               <div class="combo-item">
                 <i :class="groupComboIcon"></i>
-                <span x-text="groupComboText" class="selected-item"
-                  >Shipping</span
-                >
+                <span x-text="groupComboText" class="selected-item">Shipping</span>
               </div>
             </div>
             <div class="box-chevron">
@@ -45,11 +34,7 @@
             <div class="box-dropdown">
               <div class="dropdown-inner has-slimscroll">
                 <ul>
-                  <li
-                    @click="updateGroupCombo($event)"
-                    data-icon="im icon-Shop-3"
-                    data-text="Sales"
-                  >
+                  <li @click="updateGroupCombo($event)" data-icon="im icon-Shop-3" data-text="Sales">
                     <span class="item-icon">
                       <i class="im icon-Shop-3"></i>
                     </span>
@@ -58,11 +43,7 @@
                       <i class="material-icons">done</i>
                     </span>
                   </li>
-                  <li
-                    @click="updateGroupCombo($event)"
-                    data-icon="im icon-Receipt-3"
-                    data-text="Orders"
-                  >
+                  <li @click="updateGroupCombo($event)" data-icon="im icon-Receipt-3" data-text="Orders">
                     <span class="item-icon">
                       <i class="im icon-Receipt-3"></i>
                     </span>
@@ -71,11 +52,7 @@
                       <i class="material-icons">done</i>
                     </span>
                   </li>
-                  <li
-                    @click="updateGroupCombo($event)"
-                    data-icon="im icon-Box-Close"
-                    data-text="Shipping"
-                  >
+                  <li @click="updateGroupCombo($event)" data-icon="im icon-Box-Close" data-text="Shipping">
                     <span class="item-icon">
                       <i class="im icon-Box-Close"></i>
                     </span>
@@ -84,11 +61,7 @@
                       <i class="material-icons">done</i>
                     </span>
                   </li>
-                  <li
-                    @click="updateGroupCombo($event)"
-                    data-icon="im icon-Credit-Card2"
-                    data-text="Payments"
-                  >
+                  <li @click="updateGroupCombo($event)" data-icon="im icon-Credit-Card2" data-text="Payments">
                     <span class="item-icon">
                       <i class="im icon-Credit-Card2"></i>
                     </span>
@@ -97,11 +70,7 @@
                       <i class="material-icons">done</i>
                     </span>
                   </li>
-                  <li
-                    @click="updateGroupCombo($event)"
-                    data-icon="im icon-Life-Safer"
-                    data-text="Support"
-                  >
+                  <li @click="updateGroupCombo($event)" data-icon="im icon-Life-Safer" data-text="Support">
                     <span class="item-icon">
                       <i class="im icon-Life-Safer"></i>
                     </span>
@@ -124,21 +93,15 @@
             class="image-combo-box has-rounded-images"
             @click="openAssigneeCombo()"
             @click.away="closeAssigneeCombo()"
-            :class="{
-                            'is-active': assigneeComboOpened,
-                            '': !assigneeComboOpened,
-                        }"
+            :class=`{
+                'is-active': assigneeComboOpened,
+                '': !assigneeComboOpened,
+            }`
           >
             <div class="box-inner">
               <div class="combo-item">
-                <img
-                  :src="assigneeComboIcon"
-                  src="/img/avatars/ray.jpg"
-                  alt=""
-                />
-                <span x-text="assigneeComboText" class="selected-item"
-                  >Ray Donovan</span
-                >
+                <img :src="assigneeComboIcon" src="/img/avatars/ray.jpg" alt="" />
+                <span x-text="assigneeComboText" class="selected-item">Ray Donovan</span>
               </div>
             </div>
             <div class="box-chevron">
@@ -147,102 +110,54 @@
             <div class="box-dropdown">
               <div class="dropdown-inner has-slimscroll">
                 <ul>
-                  <li
-                    @click="updateAssigneeCombo($event)"
-                    data-icon="/img/avatars/ray.jpg"
-                    data-text="Ray Donovan"
-                  >
+                  <li @click="updateAssigneeCombo($event)" data-icon="/img/avatars/ray.jpg" data-text="Ray Donovan">
                     <span class="item-icon">
-                      <img
-                        src="https://via.placeholder.com/150x150"
-                        src="/img/avatars/ray.jpg"
-                        alt=""
-                      />
+                      <img src="https://via.placeholder.com/150x150" src="/img/avatars/ray.jpg" alt="" />
                     </span>
                     <span class="item-name">Ray Donovan</span>
                     <span class="checkmark">
                       <i class="material-icons">done</i>
                     </span>
                   </li>
-                  <li
-                    @click="updateAssigneeCombo($event)"
-                    data-icon="/img/avatars/helen.jpg"
-                    data-text="Helen Miller"
-                  >
+                  <li @click="updateAssigneeCombo($event)" data-icon="/img/avatars/helen.jpg" data-text="Helen Miller">
                     <span class="item-icon">
-                      <img
-                        src="https://via.placeholder.com/150x150"
-                        src="/img/avatars/helen.jpg"
-                        alt=""
-                      />
+                      <img src="https://via.placeholder.com/150x150" src="/img/avatars/helen.jpg" alt="" />
                     </span>
                     <span class="item-name">Helen Miller</span>
                     <span class="checkmark">
                       <i class="material-icons">done</i>
                     </span>
                   </li>
-                  <li
-                    @click="updateAssigneeCombo($event)"
-                    data-icon="/img/avatars/alan.jpg"
-                    data-text="Alan Maynard"
-                  >
+                  <li @click="updateAssigneeCombo($event)" data-icon="/img/avatars/alan.jpg" data-text="Alan Maynard">
                     <span class="item-icon">
-                      <img
-                        src="https://via.placeholder.com/150x150"
-                        src="/img/avatars/alan.jpg"
-                        alt=""
-                      />
+                      <img src="https://via.placeholder.com/150x150" src="/img/avatars/alan.jpg" alt="" />
                     </span>
                     <span class="item-name">Alan Maynard</span>
                     <span class="checkmark">
                       <i class="material-icons">done</i>
                     </span>
                   </li>
-                  <li
-                    @click="updateAssigneeCombo($event)"
-                    data-icon="/img/avatars/lakisha.jpg"
-                    data-text="Lakisha Williams"
-                  >
+                  <li @click="updateAssigneeCombo($event)" data-icon="/img/avatars/lakisha.jpg" data-text="Lakisha Williams">
                     <span class="item-icon">
-                      <img
-                        src="https://via.placeholder.com/150x150"
-                        src="/img/avatars/lakisha.jpg"
-                        alt=""
-                      />
+                      <img src="https://via.placeholder.com/150x150" src="/img/avatars/lakisha.jpg" alt="" />
                     </span>
                     <span class="item-name">Lakisha Williams</span>
                     <span class="checkmark">
                       <i class="material-icons">done</i>
                     </span>
                   </li>
-                  <li
-                    @click="updateAssigneeCombo($event)"
-                    data-icon="/img/avatars/sally.jpg"
-                    data-text="Sally Mitchels"
-                  >
+                  <li @click="updateAssigneeCombo($event)" data-icon="/img/avatars/sally.jpg" data-text="Sally Mitchels">
                     <span class="item-icon">
-                      <img
-                        src="https://via.placeholder.com/150x150"
-                        src="/img/avatars/sally.jpg"
-                        alt=""
-                      />
+                      <img src="https://via.placeholder.com/150x150" src="/img/avatars/sally.jpg" alt="" />
                     </span>
                     <span class="item-name">Sally Mitchels</span>
                     <span class="checkmark">
                       <i class="material-icons">done</i>
                     </span>
                   </li>
-                  <li
-                    @click="updateAssigneeCombo($event)"
-                    data-icon="/img/avatars/melany.jpg"
-                    data-text="Melany Smith"
-                  >
+                  <li @click="updateAssigneeCombo($event)" data-icon="/img/avatars/melany.jpg" data-text="Melany Smith">
                     <span class="item-icon">
-                      <img
-                        src="https://via.placeholder.com/150x150"
-                        src="/img/avatars/melany.jpg"
-                        alt=""
-                      />
+                      <img src="https://via.placeholder.com/150x150" src="/img/avatars/melany.jpg" alt="" />
                     </span>
                     <span class="item-name">Melany Smith</span>
                     <span class="checkmark">
@@ -259,12 +174,7 @@
       <div class="field datepicker-field">
         <label class="grey-label-compact">Remind me before</label>
         <div class="control">
-          <input
-            type="text"
-            class="input"
-            placeholder="Pick a date"
-            data-toggle="datepicker"
-          />
+          <input type="text" class="input" placeholder="Pick a date" data-toggle="datepicker" />
           <div class="form-icon">
             <i class="im icon-Calendar-4"></i>
           </div>
@@ -278,17 +188,15 @@
             class="combo-box"
             @click="openStatusCombo()"
             @click.away="closeStatusCombo()"
-            :class="{
-                            'is-active': statusComboOpened,
-                            '': !statusComboOpened,
-                        }"
+            :class=`{
+                'is-active': statusComboOpened,
+                '': !statusComboOpened,
+            }`
           >
             <div class="box-inner">
               <div class="combo-item">
                 <i :class="statusComboIcon"></i>
-                <span x-text="statusComboText" class="selected-item"
-                  >In Progress</span
-                >
+                <span x-text="statusComboText" class="selected-item">In Progress</span>
               </div>
             </div>
             <div class="box-chevron">
@@ -297,11 +205,7 @@
             <div class="box-dropdown">
               <div class="dropdown-inner has-slimscroll">
                 <ul>
-                  <li
-                    @click="updateStatusCombo($event)"
-                    data-icon="fas fa-circle is-blue"
-                    data-text="Open"
-                  >
+                  <li @click="updateStatusCombo($event)" data-icon="fas fa-circle is-blue" data-text="Open">
                     <span class="item-icon">
                       <i class="fas fa-circle is-blue"></i>
                     </span>
@@ -310,11 +214,7 @@
                       <i class="material-icons">done</i>
                     </span>
                   </li>
-                  <li
-                    @click="updateStatusCombo($event)"
-                    data-icon="fas fa-circle is-secondary"
-                    data-text="In Progress"
-                  >
+                  <li @click="updateStatusCombo($event)" data-icon="fas fa-circle is-secondary" data-text="In Progress">
                     <span class="item-icon">
                       <i class="fas fa-circle is-secondary"></i>
                     </span>
@@ -323,11 +223,7 @@
                       <i class="material-icons">done</i>
                     </span>
                   </li>
-                  <li
-                    @click="updateStatusCombo($event)"
-                    data-icon="fas fa-circle is-orange"
-                    data-text="Escalated"
-                  >
+                  <li @click="updateStatusCombo($event)" data-icon="fas fa-circle is-orange" data-text="Escalated">
                     <span class="item-icon">
                       <i class="fas fa-circle is-orange"></i>
                     </span>
@@ -336,11 +232,7 @@
                       <i class="material-icons">done</i>
                     </span>
                   </li>
-                  <li
-                    @click="updateStatusCombo($event)"
-                    data-icon="fas fa-circle"
-                    data-text="Closed"
-                  >
+                  <li @click="updateStatusCombo($event)" data-icon="fas fa-circle" data-text="Closed">
                     <span class="item-icon">
                       <i class="fas fa-circle"></i>
                     </span>
@@ -363,17 +255,15 @@
             class="combo-box"
             @click="openPriorityCombo()"
             @click.away="closePriorityCombo()"
-            :class="{
-                            'is-active': priorityComboOpened,
-                            '': !priorityComboOpened,
-                        }"
+            :class=`{
+                'is-active': priorityComboOpened,
+                '': !priorityComboOpened,
+            }`
           >
             <div class="box-inner">
               <div class="combo-item">
                 <i :class="priorityComboIcon"></i>
-                <span x-text="priorityComboText" class="selected-item"
-                  >Medium</span
-                >
+                <span x-text="priorityComboText" class="selected-item">Medium</span>
               </div>
             </div>
             <div class="box-chevron">
@@ -382,11 +272,7 @@
             <div class="box-dropdown">
               <div class="dropdown-inner has-slimscroll">
                 <ul>
-                  <li
-                    @click="updatePriorityCombo($event)"
-                    data-icon="fas fa-circle is-red"
-                    data-text="High"
-                  >
+                  <li @click="updatePriorityCombo($event)" data-icon="fas fa-circle is-red" data-text="High">
                     <span class="item-icon">
                       <i class="fas fa-circle is-red"></i>
                     </span>
@@ -395,11 +281,7 @@
                       <i class="material-icons">done</i>
                     </span>
                   </li>
-                  <li
-                    @click="updatePriorityCombo($event)"
-                    data-icon="fas fa-circle is-orange"
-                    data-text="Medium"
-                  >
+                  <li @click="updatePriorityCombo($event)" data-icon="fas fa-circle is-orange" data-text="Medium">
                     <span class="item-icon">
                       <i class="fas fa-circle is-orange"></i>
                     </span>
@@ -408,11 +290,7 @@
                       <i class="material-icons">done</i>
                     </span>
                   </li>
-                  <li
-                    @click="updatePriorityCombo($event)"
-                    data-icon="fas fa-circle is-green"
-                    data-text="Low"
-                  >
+                  <li @click="updatePriorityCombo($event)" data-icon="fas fa-circle is-green" data-text="Low">
                     <span class="item-icon">
                       <i class="fas fa-circle is-green"></i>
                     </span>
@@ -453,11 +331,7 @@
 
     <!-- Quickview footer -->
     <footer class="quickview-footer">
-      <a
-        @click="saveTicket($event)"
-        class="button is-secondary is-fullwidth is-raised is-rounded ripple"
-        data-ripple-color="">Save Changes</a
-      >
+      <a @click="saveTicket($event)" class="button is-secondary is-fullwidth is-raised is-rounded ripple" data-ripple-color="">Save Changes</a>
     </footer>
   </div>
 </div>

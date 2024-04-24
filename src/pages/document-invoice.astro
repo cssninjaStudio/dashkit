@@ -1,19 +1,14 @@
 ---
-import Layout from "../layouts/Default.astro";
+import Layout from '../layouts/Default.astro'
 const title = 'Invoice'
 ---
 
 <Layout title={title}>
   <!-- Main dashboard container -->
-  <div
-    id="dashboard-wrapper"
-    class="dashboard-outer"
-    x-data="initBlank()"
-    :class="{
+  <div id="dashboard-wrapper" class="dashboard-outer" x-data="initBlank()" :class=`{
         'is-pushed': $store.app.sidebarOpenedState,
         '': !$store.app.sidebarOpenedState
-    }"
-  >
+    }`>
     <div class="dashboard-inner">
       <!-- Dashboard Wrapper -->
       <div class="dashboard-wrapper">
@@ -27,18 +22,8 @@ const title = 'Invoice'
                 <div class="columns is-flex-mobile">
                   <!-- Invoice Brand -->
                   <div class="column is-7">
-                    <img
-                      class="logo light-image"
-                      src="/img/logo/dashkit-violet.svg"
-                      class="logo"
-                      alt=""
-                    />
-                    <img
-                      class="logo dark-image"
-                      src="/img/logo/dashkit-violet-dark.svg"
-                      class="logo"
-                      alt=""
-                    />
+                    <img class="logo light-image" src="/img/logo/dashkit-violet.svg" class="logo" alt="" />
+                    <img class="logo dark-image" src="/img/logo/dashkit-violet-dark.svg" class="logo" alt="" />
                   </div>
                   <!-- Invoice Meta -->
                   <div class="column is-5">
@@ -60,9 +45,7 @@ const title = 'Invoice'
                     <br />
                     <!-- Invoice date -->
                     <p class="invoice-meta has-text-left">
-                      <span
-                        >Issued on : <small class="date">mar 23 2018</small>
-                      </span>
+                      <span>Issued on : <small class="date">mar 23 2018</small> </span>
                     </p>
                   </div>
                   <!-- Customer Info -->

@@ -10,14 +10,13 @@ Demo Landing
 }
 
 .cssninja-product {
-  background-color: var(--section-bg-color);
-
   .cssninja-nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 10;
+    padding: 0 1rem;
     background: transparent;
     transition: all 0.3s;
 
@@ -25,10 +24,9 @@ Demo Landing
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 5.5rem;
+      min-height: 4.5rem;
       width: 100%;
-      padding: 0 1rem;
-      max-width: 1152px;
+      max-width: 1280px;
       margin: 0 auto;
 
       .left,
@@ -41,7 +39,7 @@ Demo Landing
       .left {
         .brand-logo {
           display: block;
-          height: 30px;
+          height: 28px;
         }
 
         .version {
@@ -52,8 +50,9 @@ Demo Landing
           font-weight: 500;
           height: 2em;
           padding: 0 0.75rem;
-          color: var(--secondary);
-          border: 1px solid var(--secondary);
+          color: var(--medium-text);
+          background: var(--wrap-bg-color);
+          border: 1px solid var(--wrap-border-color);
           border-radius: 0.6rem;
           margin-left: 1rem;
         }
@@ -63,6 +62,7 @@ Demo Landing
           justify-content: center;
           align-items: center;
           margin-left: auto;
+          margin-right: 1rem;
         }
       }
 
@@ -74,9 +74,13 @@ Demo Landing
 
         .nav-link {
           color: var(--navbar-link-color);
+          padding: 0.4rem 1rem;
+          border-radius: 0.65rem;
+          transition: all 0.3s;
 
           &:hover {
             color: var(--primary);
+            background: var(--wrap-muted-color);
           }
         }
 
@@ -100,24 +104,32 @@ Demo Landing
   .cssninja-hero {
     position: relative;
     min-height: 100vh;
-    background: var(--hero-grey-bg-color);
     overflow: hidden;
     padding: 0 1rem;
 
-    .plant-pattern {
+    .cssninja-hero-squares {
       position: absolute;
+      left: 0;
       top: 0;
-      right: 0;
-      z-index: 0;
-      max-width: 380px;
-    }
+      display: flex;
+      height: 100%;
+      width: 100%;
+      justify-content: center;
+      opacity: var(--hero-opacity);
 
-    .plant-pot {
-      position: absolute;
-      bottom: 0;
-      left: 20%;
-      z-index: 2;
-      max-width: 160px;
+      .cssninja-hero-squares-inner {
+        flex-shrink: 0;
+
+        .line {
+          stroke: currentColor;
+          color: var(--card-border-color);
+        }
+
+        .square {
+          fill: currentColor;
+          color: var(--wrap-muted-color);
+        }
+      }
     }
 
     .cssninja-hero-inner {
@@ -161,7 +173,7 @@ Demo Landing
             left: -100px;
             height: 80px;
             width: 80px;
-
+          
             img {
               max-width: 65%;
               max-height: 65%;
@@ -193,7 +205,7 @@ Demo Landing
         .buttons {
           .button {
             min-height: 48px;
-            min-width: 130px;
+            min-width: 280px;
           }
         }
       }
@@ -202,11 +214,10 @@ Demo Landing
     .template-mockup {
       position: relative;
       display: block;
-      max-width: 740px;
-      margin: 0 auto;
+      max-width: 840px;
+      margin: 0 auto 3rem auto;
       border: 1px solid var(--wrap-border-color);
-      border-bottom: 0;
-      border-radius: 0.85rem 0.85rem 0 0;
+      border-radius: 0.85rem;
       box-shadow: var(--light-box-shadow);
       z-index: 1;
     }
@@ -214,6 +225,7 @@ Demo Landing
 
   .cssninja-template {
     position: relative;
+    margin-top: 3rem;
 
     .purchase-card {
       @include demoCard();
@@ -354,17 +366,16 @@ Demo Landing
       .template-stack-card {
         @include demoCard();
 
-        padding: 2rem 1rem;
-        text-align: center;
+        padding: 1.5rem;
+        display: flex; 
+        align-items: center;
+        gap: 1rem;
         transition: box-shadow 0.3s;
 
         .iconify {
           font-size: 2rem;
-          margin-bottom: 0.5rem;
-
+        
           &.smaller {
-            padding: 0 0.5rem;
-            margin-bottom: 0.9rem;
             font-size: 1.65rem;
           }
         }
@@ -465,7 +476,7 @@ Demo Landing
         .demo-title {
           color: var(--white);
           font-family: var(--font-alt);
-          font-size: 1.25rem;
+          font-size: 1.1rem;
           font-weight: 600;
           padding-bottom: 0.5rem;
           opacity: 0;
@@ -483,7 +494,7 @@ Demo Landing
           a {
             color: var(--white);
             font-family: var(--font);
-            font-size: 1rem;
+            font-size: 0.9rem;
 
             .iconify {
               position: relative;
@@ -505,9 +516,34 @@ Demo Landing
 
   .template-cta {
     position: relative;
-    background: var(--section-bg-color-grey);
     padding-bottom: 0;
     overflow: hidden;
+    border-bottom: 1px solid var(--wrap-border-color);
+
+    .cssninja-hero-squares {
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: flex;
+      height: 100%;
+      width: 100%;
+      justify-content: center;
+      opacity: var(--hero-opacity);
+
+      .cssninja-hero-squares-inner {
+        flex-shrink: 0;
+
+        .line {
+          stroke: currentColor;
+          color: var(--card-border-color);
+        }
+
+        .square {
+          fill: currentColor;
+          color: var(--wrap-muted-color);
+        }
+      }
+    }
 
     .cta-caption {
       .buttons {
@@ -537,7 +573,6 @@ Demo Landing
 
   .template-footer {
     padding: 4rem 1rem;
-    background: var(--footer-light-bg-color);
 
     .footer-inner {
       display: flex;
@@ -551,12 +586,13 @@ Demo Landing
         img {
           display: block;
           width: 100%;
-          max-width: 150px;
+          max-width: 130px;
           margin-right: 1rem;
         }
 
         span {
           display: block;
+          font-size: 0.9rem;
           margin-right: 0.5rem;
         }
       }
@@ -775,15 +811,7 @@ Demo Landing
             }
 
             &.product-stack-2 {
-              bottom: 160px;
-              left: -100px;
-              height: 80px;
-              width: 80px;
-
-              img {
-                max-width: 65%;
-                max-height: 65%;
-              }
+              left: -90px;
             }
 
             &.product-stack-3 {
@@ -826,15 +854,6 @@ Demo Landing
     .cssninja-hero {
       min-height: initial;
 
-      .plant-pattern {
-        max-width: 280px;
-      }
-
-      .plant-pot {
-        left: 11%;
-        max-width: 130px;
-      }
-
       .template-mockup {
         max-width: 600px;
       }
@@ -853,8 +872,36 @@ Demo Landing
 
     .cssninja-template {
       .purchase-card {
-        padding: 1.5rem;
+        padding: 1rem;
+
+        .purchase-card-tabs {
+          .inner-tabs > a {
+            font-size: 0.9rem;
+          }
+
+          .inner-tabs-content {
+            .inner-content {
+              .price-block {
+                .price-value {
+                  font-size: 2.25rem;
+                }
+
+                .price-meta {
+                  p {
+                    font-size: 0.8rem !important;
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
+  }
+}
+
+@media only screen and (orientation: portrait) {
+  .cssninja-product .cssninja-template .template-info {
+      padding-right: 0 !important;
   }
 }

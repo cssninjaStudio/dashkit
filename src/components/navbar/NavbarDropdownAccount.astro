@@ -1,19 +1,12 @@
 <!-- Account dropdown -->
 <div x-cloak class="drop-pop">
-  <div
-    class="icon-button accounts-button"
-    @click="openNavbarDropdowns('account-nav-drop')"
-    @click.away="closeNavbarDropdowns('account-nav-drop')"
-  >
+  <div class="icon-button accounts-button" @click="openNavbarDropdowns('account-nav-drop')" @click.away="closeNavbarDropdowns('account-nav-drop')">
     <img src="/img/avatars/helen.jpg" />
   </div>
-  <div
-    class="drop-wrapper accounts-drop"
-    :class="{
+  <div class="drop-wrapper accounts-drop" :class=`{
         'is-active': accountDropOpened,
         '': !accountDropOpened
-    }"
-  >
+    }`>
     <div class="drop-inner has-arrow">
       <div class="head-block">
         <img src="/img/avatars/helen.jpg" />

@@ -1,13 +1,6 @@
-<div
-  x-ref="menudrop"
-  @click.away="$refs.menudrop.classList.remove('is-active')"
-  class="dropdown is-spaced is-right dropdown-trigger"
->
+<div x-ref="menudrop" @click.away="$refs.menudrop.classList.remove('is-active')" class="dropdown is-spaced is-right dropdown-trigger">
   <div>
-    <a
-      @click="$refs.menudrop.classList.add('is-active')"
-      class="chat-nav-item is-icon"
-    >
+    <a @click="$refs.menudrop.classList.add('is-active')" class="chat-nav-item is-icon">
       <i class="material-icons">more_vert</i>
     </a>
   </div>

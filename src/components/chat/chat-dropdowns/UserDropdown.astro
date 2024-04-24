@@ -1,8 +1,4 @@
-<div
-  x-ref="userdetailsdrop"
-  @click.away="$refs.userdetailsdrop.classList.remove('is-active')"
-  class="dropdown details-dropdown is-spaced is-right dropdown-trigger ml-auto"
->
+<div x-ref="userdetailsdrop" @click.away="$refs.userdetailsdrop.classList.remove('is-active')" class="dropdown details-dropdown is-spaced is-right dropdown-trigger ml-auto">
   <div @click="$refs.userdetailsdrop.classList.add('is-active')">
     <div class="action-icon">
       <i class="material-icons">more_vert</i>

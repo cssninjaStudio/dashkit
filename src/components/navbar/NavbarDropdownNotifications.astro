@@ -1,21 +1,13 @@
 <!-- Notifications dropdown (hidden on mobile) -->
-<div
-  x-cloak
-  class="drop-pop"
-  @click="openNavbarDropdowns('notifications-nav-drop')"
-  @click.away="closeNavbarDropdowns('notifications-nav-drop')"
->
+<div x-cloak class="drop-pop" @click="openNavbarDropdowns('notifications-nav-drop')" @click.away="closeNavbarDropdowns('notifications-nav-drop')">
   <div class="icon-button">
-    <i class="iconify" data-icon="lucide:bell"></i>
+    <iconify-icon class="iconify" icon="lucide:bell"></iconify-icon>
     <span class="indicator"></span>
   </div>
-  <div
-    class="drop-wrapper notifications-drop"
-    :class="{
+  <div class="drop-wrapper notifications-drop" :class=`{
         'is-active': notificationsDropOpened,
         '': !notificationsDropOpened
-    }"
-  >
+    }`>
     <div class="drop-inner has-arrow">
       <div class="notifications-header has-text-left">
         <h3>Notifications</h3>

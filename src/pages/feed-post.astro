@@ -1,19 +1,14 @@
 ---
-import Layout from "../layouts/Default.astro";
+import Layout from '../layouts/Default.astro'
 const title = 'Social Post'
 ---
 
 <Layout title={title}>
   <!-- Main dashboard container -->
-  <div
-    id="dashboard-wrapper"
-    class="dashboard-outer"
-    x-data="initBlank()"
-    :class="{
+  <div id="dashboard-wrapper" class="dashboard-outer" x-data="initBlank()" :class=`{
       'is-pushed': $store.app.sidebarOpenedState,
       '': !$store.app.sidebarOpenedState
-  }"
-  >
+  }`>
     <div class="dashboard-inner">
       <!-- Dashboard Wrapper -->
       <div class="dashboard-wrapper">
@@ -29,11 +24,7 @@ const title = 'Social Post'
                     <div class="author-avatar">
                       <img src="/img/avatars/christina.jpg" alt="" />
                     </div>
-                    <button
-                      x-ref="likebtn"
-                      @click="$refs.likebtn.classList.toggle('is-active')"
-                      class="like fab-btn mini"
-                    >
+                    <button x-ref="likebtn" @click="$refs.likebtn.classList.toggle('is-active')" class="like fab-btn mini">
                       <span class="like-wrapper">
                         <i class="material-icons unliked">favorite_border</i>
                         <i class="material-icons liked">favorite</i>
@@ -45,9 +36,7 @@ const title = 'Social Post'
                     </button>
                   </div>
                   <div class="card-body p-8">
-                    <h2 class="responsive-title">
-                      How the new prototyping tools impact the design process
-                    </h2>
+                    <h2 class="responsive-title">How the new prototyping tools impact the design process</h2>
                     <div class="post-meta">
                       <div class="author-meta">
                         <div class="author-name">
@@ -58,58 +47,33 @@ const title = 'Social Post'
                         </div>
                       </div>
                       <div class="comments-meta">
-                        <i class="iconify" data-icon="lucide:message-square"></i>
+                        <iconify-icon class="iconify" icon="lucide:message-square"></iconify-icon>
                         <div class="counter">8</div>
                       </div>
                     </div>
                     <div class="post-body">
                       <p>
-                        Lorem ipsum dolor sit amet, id qui elit explicari, mel
-                        ne stet semper. Duo audiam antiopam petentium in,
-                        diceret appetere aliquando pri id. Qui porro dolor
-                        deserunt ad, nec inani dolorum qualisque in, vidit
-                        apeirian partiendo ea est. Duo cu qualisque
-                        mediocritatem, graece iuvaret eripuit in usu, usu congue
-                        impedit percipitur no.
-                        <a href="#">Cu vim ludus equidem facilisis</a>, dico
-                        ullum labitur ad mel. Id odio aperiam eripuit quo,
-                        dolores forensibus per te.
+                        Lorem ipsum dolor sit amet, id qui elit explicari, mel ne stet semper. Duo audiam antiopam petentium in, diceret appetere aliquando pri id. Qui porro dolor deserunt ad, nec
+                        inani dolorum qualisque in, vidit apeirian partiendo ea est. Duo cu qualisque mediocritatem, graece iuvaret eripuit in usu, usu congue impedit percipitur no.
+                        <a href="#">Cu vim ludus equidem facilisis</a>, dico ullum labitur ad mel. Id odio aperiam eripuit quo, dolores forensibus per te.
                       </p>
 
                       <p>
-                        Lorem ipsum dolor sit amet, id qui elit explicari, mel
-                        ne stet semper. Duo audiam antiopam petentium in,
-                        diceret appetere aliquando pri id. Qui porro dolor
-                        deserunt ad, nec inani dolorum qualisque in, vidit
-                        apeirian partiendo ea est. Duo cu qualisque
-                        mediocritatem, graece iuvaret eripuit in usu, usu congue
-                        impedit percipitur no. Cu vim ludus equidem facilisis,
-                        dico ullum labitur ad mel. Id odio aperiam eripuit quo,
-                        dolores forensibus per te.
+                        Lorem ipsum dolor sit amet, id qui elit explicari, mel ne stet semper. Duo audiam antiopam petentium in, diceret appetere aliquando pri id. Qui porro dolor deserunt ad, nec
+                        inani dolorum qualisque in, vidit apeirian partiendo ea est. Duo cu qualisque mediocritatem, graece iuvaret eripuit in usu, usu congue impedit percipitur no. Cu vim ludus
+                        equidem facilisis, dico ullum labitur ad mel. Id odio aperiam eripuit quo, dolores forensibus per te.
                       </p>
 
                       <p>
-                        Lorem ipsum dolor sit amet, id qui elit explicari, mel
-                        ne stet semper. Duo audiam antiopam petentium in,
-                        diceret appetere aliquando pri id. Qui porro dolor
-                        deserunt ad, nec inani dolorum qualisque in, vidit
-                        apeirian partiendo ea est. Duo cu qualisque
-                        mediocritatem, graece iuvaret eripuit in usu, usu congue
-                        impedit percipitur no. Cu vim ludus equidem facilisis,
-                        dico ullum labitur ad mel. Id odio aperiam eripuit quo,
-                        dolores forensibus per te.
+                        Lorem ipsum dolor sit amet, id qui elit explicari, mel ne stet semper. Duo audiam antiopam petentium in, diceret appetere aliquando pri id. Qui porro dolor deserunt ad, nec
+                        inani dolorum qualisque in, vidit apeirian partiendo ea est. Duo cu qualisque mediocritatem, graece iuvaret eripuit in usu, usu congue impedit percipitur no. Cu vim ludus
+                        equidem facilisis, dico ullum labitur ad mel. Id odio aperiam eripuit quo, dolores forensibus per te.
                       </p>
 
                       <p>
-                        Lorem ipsum dolor sit amet, id qui elit explicari, mel
-                        ne stet semper. Duo audiam antiopam petentium in,
-                        diceret appetere aliquando pri id. Qui porro dolor
-                        deserunt ad, nec inani dolorum qualisque in, vidit
-                        apeirian partiendo ea est. Duo cu qualisque
-                        mediocritatem, graece iuvaret eripuit in usu, usu congue
-                        impedit percipitur no. Cu vim ludus equidem facilisis,
-                        dico ullum labitur ad mel. Id odio aperiam eripuit quo,
-                        dolores forensibus per te.
+                        Lorem ipsum dolor sit amet, id qui elit explicari, mel ne stet semper. Duo audiam antiopam petentium in, diceret appetere aliquando pri id. Qui porro dolor deserunt ad, nec
+                        inani dolorum qualisque in, vidit apeirian partiendo ea est. Duo cu qualisque mediocritatem, graece iuvaret eripuit in usu, usu congue impedit percipitur no. Cu vim ludus
+                        equidem facilisis, dico ullum labitur ad mel. Id odio aperiam eripuit quo, dolores forensibus per te.
                       </p>
                     </div>
                     <div class="post-share">
@@ -125,23 +89,13 @@ const title = 'Social Post'
                   <h3 class="wrapper-title">Comments (8)</h3>
                   <div class="compose-card is-flex is-start is-vcenter">
                     <figure class="avatar image is-48x48 is-hidden-mobile">
-                      <img
-                        class="is-circle"
-                        src="/img/avatars/helen.jpg"
-                        alt=""
-                      />
+                      <img class="is-circle" src="/img/avatars/helen.jpg" alt="" />
                     </figure>
                     <div class="status-wrapper">
                       <div class="control">
-                        <textarea
-                          class="textarea is-button"
-                          placeholder="Post a comment..."></textarea>
+                        <textarea class="textarea is-button" placeholder="Post a comment..."></textarea>
                         <div class="buttons is-right py-2">
-                          <button
-                            class="button is-medium is-secondary is-long-1 is-raised is-rounded-md"
-                          >
-                            Publish
-                          </button>
+                          <button class="button is-medium is-secondary is-long-1 is-raised is-rounded-md"> Publish </button>
                         </div>
                       </div>
                     </div>
@@ -161,20 +115,12 @@ const title = 'Social Post'
                           <span class="timestamp">2 minutes ago</span>
                         </div>
 
-                        <p>
-                          Lorem ipsum dolor sit amet, nec ea error laoreet. Usu
-                          ex magna docendi gubergren. Sit cu diceret officiis
-                          perpetua.
-                        </p>
+                        <p>Lorem ipsum dolor sit amet, nec ea error laoreet. Usu ex magna docendi gubergren. Sit cu diceret officiis perpetua.</p>
 
                         <ul class="comment-controls">
                           <li>
                             2
-                            <a href="#"
-                              ><i class="material-icons">thumb_up</i>
-                            </a><a href="#"
-                              ><i class="icon-arrow-down22 text-danger"></i>
-                            </a>
+                            <a href="#"><i class="material-icons">thumb_up</i> </a><a href="#"><i class="icon-arrow-down22 text-danger"></i> </a>
                           </li>
                           <li><a href="#">Answer</a></li>
                         </ul>
@@ -195,20 +141,13 @@ const title = 'Social Post'
                         </div>
 
                         <p>
-                          Lorem ipsum dolor sit amet, nec ea error laoreet. Usu
-                          ex magna docendi gubergren. Sit cu diceret officiis
-                          perpetua. Amet, nec ea error laoreet. Usu ex magna
-                          docendi gubergren
+                          Lorem ipsum dolor sit amet, nec ea error laoreet. Usu ex magna docendi gubergren. Sit cu diceret officiis perpetua. Amet, nec ea error laoreet. Usu ex magna docendi gubergren
                         </p>
 
                         <ul class="comment-controls">
                           <li>
                             7
-                            <a href="#"
-                              ><i class="material-icons">thumb_up</i>
-                            </a><a href="#"
-                              ><i class="icon-arrow-down22 text-danger"></i>
-                            </a>
+                            <a href="#"><i class="material-icons">thumb_up</i> </a><a href="#"><i class="icon-arrow-down22 text-danger"></i> </a>
                           </li>
                           <li><a href="#">Answer</a></li>
                         </ul>
@@ -228,19 +167,12 @@ const title = 'Social Post'
                           <span class="timestamp">24 minutes ago</span>
                         </div>
 
-                        <p>
-                          Lorem ipsum dolor sit amet, nec ea error laoreet. Usu
-                          ex magna docendi gubergren.
-                        </p>
+                        <p>Lorem ipsum dolor sit amet, nec ea error laoreet. Usu ex magna docendi gubergren.</p>
 
                         <ul class="comment-controls">
                           <li>
                             1
-                            <a href="#"
-                              ><i class="material-icons">thumb_up</i>
-                            </a><a href="#"
-                              ><i class="icon-arrow-down22 text-danger"></i>
-                            </a>
+                            <a href="#"><i class="material-icons">thumb_up</i> </a><a href="#"><i class="icon-arrow-down22 text-danger"></i> </a>
                           </li>
                           <li><a href="#">Answer</a></li>
                         </ul>
@@ -260,19 +192,12 @@ const title = 'Social Post'
                           <span class="timestamp">12 minutes ago</span>
                         </div>
 
-                        <p>
-                          Lorem ipsum dolor sit amet, nec ea error laoreet. Usu
-                          ex magna docendi.
-                        </p>
+                        <p>Lorem ipsum dolor sit amet, nec ea error laoreet. Usu ex magna docendi.</p>
 
                         <ul class="comment-controls">
                           <li>
                             0
-                            <a href="#"
-                              ><i class="material-icons">thumb_up</i>
-                            </a><a href="#"
-                              ><i class="icon-arrow-down22 text-danger"></i>
-                            </a>
+                            <a href="#"><i class="material-icons">thumb_up</i> </a><a href="#"><i class="icon-arrow-down22 text-danger"></i> </a>
                           </li>
                           <li><a href="#">Answer</a></li>
                         </ul>
@@ -292,20 +217,12 @@ const title = 'Social Post'
                           <span class="timestamp">1 hour ago</span>
                         </div>
 
-                        <p>
-                          Lorem ipsum dolor sit amet, nec ea error laoreet. Usu
-                          ex magna docendi gubergren. Sit cu diceret officiis
-                          perpetua.
-                        </p>
+                        <p>Lorem ipsum dolor sit amet, nec ea error laoreet. Usu ex magna docendi gubergren. Sit cu diceret officiis perpetua.</p>
 
                         <ul class="comment-controls">
                           <li>
                             8
-                            <a href="#"
-                              ><i class="material-icons">thumb_up</i>
-                            </a><a href="#"
-                              ><i class="icon-arrow-down22 text-danger"></i>
-                            </a>
+                            <a href="#"><i class="material-icons">thumb_up</i> </a><a href="#"><i class="icon-arrow-down22 text-danger"></i> </a>
                           </li>
                           <li><a href="#">Answer</a></li>
                         </ul>
@@ -325,19 +242,12 @@ const title = 'Social Post'
                           <span class="timestamp">2 hours ago</span>
                         </div>
 
-                        <p>
-                          Lorem ipsum dolor sit amet, nec ea error laoreet. Usu
-                          ex magna docendi gubergren.
-                        </p>
+                        <p>Lorem ipsum dolor sit amet, nec ea error laoreet. Usu ex magna docendi gubergren.</p>
 
                         <ul class="comment-controls">
                           <li>
                             12
-                            <a href="#"
-                              ><i class="material-icons">thumb_up</i>
-                            </a><a href="#"
-                              ><i class="icon-arrow-down22 text-danger"></i>
-                            </a>
+                            <a href="#"><i class="material-icons">thumb_up</i> </a><a href="#"><i class="icon-arrow-down22 text-danger"></i> </a>
                           </li>
                           <li><a href="#">Answer</a></li>
                         </ul>
@@ -357,19 +267,12 @@ const title = 'Social Post'
                           <span class="timestamp">1 hour ago</span>
                         </div>
 
-                        <p>
-                          Lorem ipsum dolor sit amet, nec ea error laoreet. Usu
-                          ex magna docendi gubergren.
-                        </p>
+                        <p>Lorem ipsum dolor sit amet, nec ea error laoreet. Usu ex magna docendi gubergren.</p>
 
                         <ul class="comment-controls">
                           <li>
                             4
-                            <a href="#"
-                              ><i class="material-icons">thumb_up</i>
-                            </a><a href="#"
-                              ><i class="icon-arrow-down22 text-danger"></i>
-                            </a>
+                            <a href="#"><i class="material-icons">thumb_up</i> </a><a href="#"><i class="icon-arrow-down22 text-danger"></i> </a>
                           </li>
                           <li><a href="#">Answer</a></li>
                         </ul>
@@ -389,19 +292,12 @@ const title = 'Social Post'
                           <span class="timestamp">47 minutes ago</span>
                         </div>
 
-                        <p>
-                          Lorem ipsum dolor sit amet, nec ea error laoreet. Usu
-                          ex magna docendi.
-                        </p>
+                        <p>Lorem ipsum dolor sit amet, nec ea error laoreet. Usu ex magna docendi.</p>
 
                         <ul class="comment-controls">
                           <li>
                             3
-                            <a href="#"
-                              ><i class="material-icons">thumb_up</i>
-                            </a><a href="#"
-                              ><i class="icon-arrow-down22 text-danger"></i>
-                            </a>
+                            <a href="#"><i class="material-icons">thumb_up</i> </a><a href="#"><i class="icon-arrow-down22 text-danger"></i> </a>
                           </li>
                           <li><a href="#">Answer</a></li>
                         </ul>
@@ -480,9 +376,7 @@ const title = 'Social Post'
                         <img src="/img/avatars/terry.jpg" alt="" />
                       </div>
                       <div class="user-list-info">
-                        <div class="name">
-                          How team building boosts productivity
-                        </div>
+                        <div class="name">How team building boosts productivity</div>
                         <div class="position">oct 19 2020</div>
                       </div>
                     </li>
@@ -509,9 +403,7 @@ const title = 'Social Post'
                         <img src="/img/avatars/melany.jpg" alt="" />
                       </div>
                       <div class="user-list-info">
-                        <div class="name">
-                          Get the most from customer feedback
-                        </div>
+                        <div class="name">Get the most from customer feedback</div>
                         <div class="position">jan 3 2021</div>
                       </div>
                     </li>
